@@ -15,10 +15,10 @@
       gtag('config', 'G-LCB8BJ3X0P');
     </script>
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
+    <!-- Google Fonts: Plus Jakarta Sans & Cairo for Arabic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -39,7 +39,6 @@
             --card-bg: #FFFFFF;
             --card-border: #E2E8F0;
             --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-            --card-shadow-hover: 0 10px 25px -4px rgba(15, 23, 42, 0.1);
             --radius-card: 22px;
             --radius-btn: 14px;
             --radius-input: 12px;
@@ -60,6 +59,12 @@
             padding: 16px 12px 110px;
             display: flex;
             justify-content: center;
+            transition: direction 0.2s ease;
+        }
+
+        /* Arabic font override */
+        body.lang-ar {
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
         }
 
         .app-wrapper {
@@ -136,24 +141,39 @@
             color: #FFFFFF;
             letter-spacing: -0.5px;
         }
-        .hero-badge-tag {
+
+        /* ── LANGUAGE SWITCHER ── */
+        .lang-switch-box {
+            display: flex;
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 4px 10px;
             border-radius: 999px;
+            padding: 3px;
+            gap: 2px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: #CBD5E1;
             font-size: 11px;
             font-weight: 700;
-            color: #FED7AA;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .lang-btn.active {
+            background: #FFFFFF;
+            color: #0F172A;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
         .hero-title {
             font-size: 28px;
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.25;
             letter-spacing: -0.5px;
             margin-bottom: 8px;
             position: relative;
@@ -168,7 +188,6 @@
             font-size: 19px;
             color: #94A3B8;
             font-weight: 700;
-            direction: rtl;
             margin-bottom: 12px;
             position: relative;
             z-index: 2;
@@ -195,7 +214,7 @@
         }
         .stat-item strong {
             display: block;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 800;
             color: #FFFFFF;
         }
@@ -268,6 +287,9 @@
             justify-content: center;
             flex-shrink: 0;
             font-weight: 800;
+        }
+        body.lang-ar .wa-arrow-badge {
+            transform: scaleX(-1);
         }
 
         /* ── SECTION HEADERS ── */
@@ -442,9 +464,6 @@
         }
 
         /* ── SAVINGS COMPARISON CARD ── */
-        .card-savings {
-            background: #FFFFFF;
-        }
         .savings-compare-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -524,6 +543,10 @@
             border-radius: 999px;
             box-shadow: 0 2px 6px rgba(255, 87, 34, 0.3);
         }
+        body.lang-ar .plan-ribbon {
+            right: auto;
+            left: 14px;
+        }
         .plan-ribbon.discount {
             background: linear-gradient(135deg, #DC2626, #EF4444);
         }
@@ -575,6 +598,9 @@
 
         .plan-price-block {
             text-align: right;
+        }
+        body.lang-ar .plan-price-block {
+            text-align: left;
         }
         .price-strike-val {
             font-size: 11px;
@@ -689,6 +715,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.15s;
+            font-family: inherit;
         }
         .wilaya-pill:hover, .wilaya-pill.active {
             background: var(--primary);
@@ -779,6 +806,7 @@
             text-decoration: none;
             width: 100%;
             box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            font-family: inherit;
         }
 
         /* ── TESTIMONIALS CARDS ── */
@@ -940,6 +968,7 @@
             justify-content: center;
             text-decoration: none;
             box-shadow: 0 4px 14px rgba(255, 87, 34, 0.3);
+            font-family: inherit;
         }
         .sticky-wa-btn {
             flex: 1;
@@ -955,10 +984,11 @@
             gap: 6px;
             text-decoration: none;
             box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+            font-family: inherit;
         }
     </style>
 </head>
-<body>
+<body class="lang-fr">
 
 <div class="app-wrapper">
 
@@ -969,30 +999,33 @@
                 <img src="assets/brand_image_6.png" alt="Qrmeunu Logo" class="hero-logo-img">
                 <div class="hero-brand-name">Qrmeunu</div>
             </div>
-            <div class="hero-badge-tag">
-                <span>🇩🇿</span> Algérie
+
+            <!-- Language Switcher: FR / AR -->
+            <div class="lang-switch-box">
+                <button type="button" class="lang-btn active" id="btn-lang-fr" onclick="switchLanguage('fr')">Français</button>
+                <button type="button" class="lang-btn" id="btn-lang-ar" onclick="switchLanguage('ar')">العربية</button>
             </div>
         </div>
 
-        <h1 class="hero-title">Votre menu,<br>en un <span>scan</span>.</h1>
-        <div class="hero-darja">حط الكود، الكليان يطلب وحدو</div>
+        <h1 class="hero-title" id="t-hero-title">Votre menu,<br>en un <span>scan</span>.</h1>
+        <div class="hero-darja" id="t-hero-darja">حط الكود، الكليان يطلب وحدو</div>
         
-        <p class="hero-desc">
+        <p class="hero-desc" id="t-hero-desc">
             Fini les menus papier abîmés à réimprimer. Vos clients scannent avec leur téléphone et commandent directement à table.
         </p>
 
         <div class="hero-stats-grid">
             <div class="stat-item">
-                <strong>0 Appli</strong>
-                <span>Direct au scan</span>
+                <strong id="t-stat1-h">0 Appli</strong>
+                <span id="t-stat1-s">Direct au scan</span>
             </div>
             <div class="stat-item">
-                <strong>24h</strong>
-                <span>Installation rapide</span>
+                <strong id="t-stat2-h">24h</strong>
+                <span id="t-stat2-s">Installation rapide</span>
             </div>
             <div class="stat-item">
-                <strong>7j/7</strong>
-                <span>Support local</span>
+                <strong id="t-stat3-h">7j/7</strong>
+                <span id="t-stat3-s">Support local</span>
             </div>
         </div>
     </div>
@@ -1007,8 +1040,8 @@
                 </svg>
             </div>
             <div class="wa-text-box">
-                <h3>Discuter sur WhatsApp</h3>
-                <p>Réponse en moins de 5 min · 0656 24 31 17</p>
+                <h3 id="t-wa-cta-h">Discuter sur WhatsApp</h3>
+                <p id="t-wa-cta-s">Réponse en moins de 5 min · 0656 24 31 17</p>
             </div>
         </div>
         <div class="wa-arrow-badge">→</div>
@@ -1017,31 +1050,31 @@
     <!-- ══ CARD 3: COMMENT ÇA MARCHE + SIMULATEUR ══ -->
     <div class="card">
         <div class="section-header">
-            <h2>Comment ça marche ?</h2>
-            <span class="section-badge">3 étapes</span>
+            <h2 id="t-how-title">Comment ça marche ?</h2>
+            <span class="section-badge" id="t-how-badge">3 étapes</span>
         </div>
 
         <div class="step-row">
             <div class="step-num-pill">1</div>
             <div class="step-info">
-                <strong>On vient chez vous</strong>
-                <p>Notre équipe configure vos plats, vos photos et installe les QR codes sur vos tables.</p>
+                <strong id="t-step1-h">On vient chez vous</strong>
+                <p id="t-step1-p">Notre équipe configure vos plats, vos photos et installe les QR codes sur vos tables.</p>
             </div>
         </div>
 
         <div class="step-row">
             <div class="step-num-pill">2</div>
             <div class="step-info">
-                <strong>Le client scanne</strong>
-                <p>L'appareil photo ouvre votre menu tout de suite. Aucune application à télécharger.</p>
+                <strong id="t-step2-h">Le client scanne</strong>
+                <p id="t-step2-p">L'appareil photo ouvre votre menu tout de suite. Aucune application à télécharger.</p>
             </div>
         </div>
 
         <div class="step-row">
             <div class="step-num-pill">3</div>
             <div class="step-info">
-                <strong>Vous recevez la commande</strong>
-                <p>Sur votre téléphone ou directement sur votre système de caisse.</p>
+                <strong id="t-step3-h">Vous recevez la commande</strong>
+                <p id="t-step3-p">Sur votre téléphone ou directement sur votre système de caisse.</p>
             </div>
         </div>
 
@@ -1049,15 +1082,15 @@
         <div class="live-simulator-card">
             <div class="sim-header">
                 <div class="sim-restaurant-tag">
-                    <span>🍔</span> Démo en direct
+                    <span>🍔</span> <span id="t-sim-title">Démo en direct</span>
                 </div>
-                <div class="sim-table-badge">Table N° 04</div>
+                <div class="sim-table-badge" id="t-sim-table">Table N° 04</div>
             </div>
 
             <div class="sim-item">
                 <div class="sim-item-info">
-                    <strong>Burger Smash Double</strong>
-                    <span>Cheddar, sauce maison</span>
+                    <strong id="t-sim-i1-h">Burger Smash Double</strong>
+                    <span id="t-sim-i1-s">Cheddar, sauce maison</span>
                 </div>
                 <div class="sim-item-action">
                     <span class="sim-item-price">650 DA</span>
@@ -1067,8 +1100,8 @@
 
             <div class="sim-item">
                 <div class="sim-item-info">
-                    <strong>Pizza Margherita</strong>
-                    <span>Mozzarella di bufala</span>
+                    <strong id="t-sim-i2-h">Pizza Margherita</strong>
+                    <span id="t-sim-i2-s">Mozzarella di bufala</span>
                 </div>
                 <div class="sim-item-action">
                     <span class="sim-item-price">800 DA</span>
@@ -1078,8 +1111,8 @@
 
             <div class="sim-item">
                 <div class="sim-item-info">
-                    <strong>Mojito Fraise Frais</strong>
-                    <span>Menthe, citron vert</span>
+                    <strong id="t-sim-i3-h">Mojito Fraise Frais</strong>
+                    <span id="t-sim-i3-s">Menthe, citron vert</span>
                 </div>
                 <div class="sim-item-action">
                     <span class="sim-item-price">350 DA</span>
@@ -1088,8 +1121,8 @@
             </div>
 
             <div class="sim-cart-bar">
-                <span>Total : <strong id="sim-total-val">0 DA</strong> (<span id="sim-count-val">0 plat</span>)</span>
-                <button class="btn-sim-order" onclick="simSendOrder()">Commander ⚡</button>
+                <span><span id="t-sim-total-lbl">Total</span> : <strong id="sim-total-val">0 DA</strong> (<span id="sim-count-val">0 plat</span>)</span>
+                <button class="btn-sim-order" id="t-sim-btn-order" onclick="simSendOrder()">Commander ⚡</button>
             </div>
         </div>
     </div>
@@ -1097,13 +1130,13 @@
     <!-- ══ CARD 4: COMPARAISON ÉCONOMIES ══ -->
     <div class="card card-savings">
         <div class="section-header">
-            <h2>Pourquoi arrêter le papier ?</h2>
-            <span class="section-badge" style="background:#FEF3C7; color:#B45309;">Économies</span>
+            <h2 id="t-savings-title">Pourquoi arrêter le papier ?</h2>
+            <span class="section-badge" id="t-savings-badge" style="background:#FEF3C7; color:#B45309;">Économies</span>
         </div>
         <div class="savings-compare-grid">
             <div class="compare-box bad">
-                <strong>❌ Menu Papier</strong>
-                <ul>
+                <strong id="t-bad-h">❌ Menu Papier</strong>
+                <ul id="t-bad-ul">
                     <li>• Menus tachés et déchirés</li>
                     <li>• ~35 000 DA de réimpression</li>
                     <li>• Impossible de changer un prix</li>
@@ -1111,8 +1144,8 @@
                 </ul>
             </div>
             <div class="compare-box good">
-                <strong>✅ Menu Qrmeunu</strong>
-                <ul>
+                <strong id="t-good-h">✅ Menu Qrmeunu</strong>
+                <ul id="t-good-ul">
                     <li>• Toujours propre & moderne</li>
                     <li>• Changement de prix en 1 sec</li>
                     <li>• Photos HD qui font vendre</li>
@@ -1125,10 +1158,10 @@
     <!-- ══ CARD 5: LES 3 FORMULES ══ -->
     <div class="card" id="pricing-card-section">
         <div class="section-header">
-            <h2>Choisissez votre formule</h2>
-            <span class="section-badge">Tarifs clairs</span>
+            <h2 id="t-plans-title">Choisissez votre formule</h2>
+            <span class="section-badge" id="t-plans-badge">Tarifs clairs</span>
         </div>
-        <p style="font-size: 13px; color: var(--text-muted);">
+        <p style="font-size: 13px; color: var(--text-muted);" id="t-plans-sub">
             Touchez une formule pour la sélectionner pour votre restaurant :
         </p>
 
@@ -1138,59 +1171,59 @@
                 <div class="plan-card-top">
                     <div class="plan-radio-row">
                         <div class="custom-radio"></div>
-                        <div class="plan-title-text">Basic</div>
+                        <div class="plan-title-text" id="t-plan-b-title">Basic</div>
                     </div>
                     <div class="plan-price-block">
-                        <div class="price-main-val">2 000 DA <span>/mois</span></div>
+                        <div class="price-main-val">2 000 DA <span id="t-p1-per">/mois</span></div>
                     </div>
                 </div>
-                <ul class="plan-features-list">
+                <ul class="plan-features-list" id="t-plan-b-list">
                     <li><span class="check-bullet">✓</span> Menu QR consultable sur smartphone</li>
                     <li><span class="check-bullet">✓</span> Mises à jour du menu incluses par notre équipe</li>
                     <li><span class="check-bullet">✓</span> Installation et QR codes fournis</li>
                 </ul>
-                <div class="annual-summary-note">Payable à l'année : 24 000 DA/an</div>
+                <div class="annual-summary-note" id="t-plan-b-ann">Payable à l'année : 24 000 DA/an</div>
             </div>
 
             <!-- Commande Plan Card (Popular) -->
             <div class="plan-choice-card selected" onclick="selectPlanOption('Commande')" id="card-plan-Commande">
-                <div class="plan-ribbon">⭐ Le plus choisi</div>
+                <div class="plan-ribbon" id="t-ribbon-pop">⭐ Le plus choisi</div>
                 <div class="plan-card-top">
                     <div class="plan-radio-row">
                         <div class="custom-radio"></div>
-                        <div class="plan-title-text">Commande</div>
+                        <div class="plan-title-text" id="t-plan-c-title">Commande</div>
                     </div>
                     <div class="plan-price-block">
-                        <div class="price-main-val">4 000 DA <span>/mois</span></div>
+                        <div class="price-main-val">4 000 DA <span id="t-p2-per">/mois</span></div>
                     </div>
                 </div>
-                <ul class="plan-features-list">
+                <ul class="plan-features-list" id="t-plan-c-list">
                     <li><span class="check-bullet">✓</span> <strong>Le client commande depuis son téléphone</strong></li>
                     <li><span class="check-bullet">✓</span> Commandes à table ou à emporter</li>
                     <li><span class="check-bullet">✓</span> Notifications WhatsApp / Tel en temps réel</li>
                 </ul>
-                <div class="annual-summary-note">Payable à l'année : 48 000 DA/an</div>
+                <div class="annual-summary-note" id="t-plan-c-ann">Payable à l'année : 48 000 DA/an</div>
             </div>
 
             <!-- Caisse Pro Plan Card (-10% Promo) -->
             <div class="plan-choice-card" onclick="selectPlanOption('Caisse Pro')" id="card-plan-CaissePro">
-                <div class="plan-ribbon discount">-10% Promo</div>
+                <div class="plan-ribbon discount" id="t-ribbon-disc">-10% Promo</div>
                 <div class="plan-card-top">
                     <div class="plan-radio-row">
                         <div class="custom-radio"></div>
-                        <div class="plan-title-text">Caisse Pro</div>
+                        <div class="plan-title-text" id="t-plan-p-title">Caisse Pro</div>
                     </div>
                     <div class="plan-price-block">
-                        <div class="price-strike-val">5 200 DA/mois</div>
-                        <div class="price-main-val">4 680 DA <span>/mois</span></div>
+                        <div class="price-strike-val" id="t-p3-strike">5 200 DA/mois</div>
+                        <div class="price-main-val">4 680 DA <span id="t-p3-per">/mois</span></div>
                     </div>
                 </div>
-                <ul class="plan-features-list">
+                <ul class="plan-features-list" id="t-plan-p-list">
                     <li><span class="check-bullet">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li>
                     <li><span class="check-bullet">✓</span> Bons imprimés directement en cuisine</li>
                     <li><span class="check-bullet">✓</span> Suivi complet & assistance prioritaire</li>
                 </ul>
-                <div class="annual-summary-note">Payable à l'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong></div>
+                <div class="annual-summary-note" id="t-plan-p-ann">Payable à l'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong></div>
             </div>
         </div>
     </div>
@@ -1198,20 +1231,20 @@
     <!-- ══ CARD 6: FORMULAIRE DE COMMANDE ══ -->
     <div class="card card-order-form" id="order-form-card">
         <div class="section-header">
-            <h2>Demandez votre menu QR</h2>
-            <span class="section-badge" style="background:#DCFCE7; color:#166534;">Devis Gratuit</span>
+            <h2 id="t-form-title">Demandez votre menu QR</h2>
+            <span class="section-badge" id="t-form-badge" style="background:#DCFCE7; color:#166534;">Devis Gratuit</span>
         </div>
-        <p style="font-size: 13px; color: var(--text-muted);">
+        <p style="font-size: 13px; color: var(--text-muted);" id="t-form-sub">
             Remplissez ce formulaire court. Nous vous contactons pour fixer votre installation.
         </p>
 
         <!-- Success Confirmation Card -->
         <div id="order-success-card">
             <div class="success-tick-circle">✓</div>
-            <h3>Demande reçue avec succès !</h3>
-            <p>Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.</p>
+            <h3 id="t-succ-h">Demande reçue avec succès !</h3>
+            <p id="t-succ-p">Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.</p>
             <a id="btn-manual-wa-redirect" href="#" target="_blank" class="btn-wa-redirect">
-                Ouvrir WhatsApp maintenant →
+                <span id="t-succ-btn">Ouvrir WhatsApp maintenant →</span>
             </a>
         </div>
 
@@ -1220,105 +1253,105 @@
                 
                 <!-- Plan summary box -->
                 <div class="selected-plan-badge-preview">
-                    <span>Formule choisie :</span>
+                    <span id="t-lbl-plan-chosen">Formule choisie :</span>
                     <strong id="display-selected-plan">Commande (4 000 DA/mois)</strong>
                 </div>
 
                 <div class="form-row">
-                    <label for="input-nom">Nom & Prénom *</label>
+                    <label for="input-nom"><span id="t-lbl-name">Nom & Prénom</span> *</label>
                     <input type="text" id="input-nom" class="input-box" required placeholder="Ex: Mohamed Benali" autocomplete="name">
                 </div>
 
                 <div class="form-row">
-                    <label for="input-restaurant">Nom de votre établissement *</label>
+                    <label for="input-restaurant"><span id="t-lbl-resto">Nom de votre établissement</span> *</label>
                     <input type="text" id="input-restaurant" class="input-box" required placeholder="Ex: Restaurant Le Palmier" autocomplete="organization">
                 </div>
 
                 <div class="form-row">
-                    <label for="input-phone">Numéro de téléphone *</label>
+                    <label for="input-phone"><span id="t-lbl-phone">Numéro de téléphone</span> *</label>
                     <input type="tel" id="input-phone" class="input-box" required placeholder="05 / 06 / 07 XX XX XX" autocomplete="tel">
                 </div>
 
                 <div class="form-row">
                     <label for="input-email">
-                        Adresse Email
-                        <span class="label-opt">(optionnel)</span>
+                        <span id="t-lbl-email">Adresse Email</span>
+                        <span class="label-opt" id="t-lbl-opt">(optionnel)</span>
                     </label>
                     <input type="email" id="input-email" class="input-box" placeholder="votre@email.com" autocomplete="email">
                 </div>
 
                 <div class="form-row">
-                    <label for="select-wilaya">Wilaya *</label>
+                    <label for="select-wilaya"><span id="t-lbl-wilaya">Wilaya</span> *</label>
                     
                     <!-- Quick 1-tap wilaya pills -->
                     <div class="quick-wilaya-wrap">
-                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('16-Alger')">16 - Alger</button>
-                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('31-Oran')">31 - Oran</button>
-                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('25-Constantine')">25 - Constantine</button>
-                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('19-Setif')">19 - Sétif</button>
-                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('09-Blida')">09 - Blida</button>
+                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('16-Alger')">16 - Alger / الجزائر</button>
+                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('31-Oran')">31 - Oran / وهران</button>
+                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('25-Constantine')">25 - Constantine / قسنطينة</button>
+                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('19-Setif')">19 - Sétif / سطيف</button>
+                        <button type="button" class="wilaya-pill" onclick="quickSelectWilaya('09-Blida')">09 - Blida / البليدة</button>
                     </div>
 
                     <select id="select-wilaya" class="input-box" required style="margin-top:6px;">
-                        <option value="">Ou choisissez parmi les 58 wilayas...</option>
-                        <option value="1-Adrar">01 - Adrar</option>
-                        <option value="2-Chlef">02 - Chlef</option>
-                        <option value="3-Laghouat">03 - Laghouat</option>
-                        <option value="4-Oum El Bouaghi">04 - Oum El Bouaghi</option>
-                        <option value="5-Batna">05 - Batna</option>
-                        <option value="6-Bejaia">06 - Béjaïa</option>
-                        <option value="7-Biskra">07 - Biskra</option>
-                        <option value="8-Bechar">08 - Béchar</option>
-                        <option value="9-Blida">09 - Blida</option>
-                        <option value="10-Bouira">10 - Bouira</option>
-                        <option value="11-Tamanrasset">11 - Tamanrasset</option>
-                        <option value="12-Tebessa">12 - Tébessa</option>
-                        <option value="13-Tlemcen">13 - Tlemcen</option>
-                        <option value="14-Tiaret">14 - Tiaret</option>
-                        <option value="15-Tizi Ouzou">15 - Tizi Ouzou</option>
-                        <option value="16-Alger">16 - Alger</option>
-                        <option value="17-Djelfa">17 - Djelfa</option>
-                        <option value="18-Jijel">18 - Jijel</option>
-                        <option value="19-Setif">19 - Sétif</option>
-                        <option value="20-Saida">20 - Saïda</option>
-                        <option value="21-Skikda">21 - Skikda</option>
-                        <option value="22-Sidi Bel Abbes">22 - Sidi Bel Abbès</option>
-                        <option value="23-Annaba">23 - Annaba</option>
-                        <option value="24-Guelma">24 - Guelma</option>
-                        <option value="25-Constantine">25 - Constantine</option>
-                        <option value="26-Medea">26 - Médéa</option>
-                        <option value="27-Mostaganem">27 - Mostaganem</option>
-                        <option value="28-MSila">28 - M'Sila</option>
-                        <option value="29-Mascara">29 - Mascara</option>
-                        <option value="30-Ouargla">30 - Ouargla</option>
-                        <option value="31-Oran">31 - Oran</option>
-                        <option value="32-El Bayadh">32 - El Bayadh</option>
-                        <option value="33-Illizi">33 - Illizi</option>
-                        <option value="34-Bordj Bou Arreridj">34 - Bordj Bou Arreridj</option>
-                        <option value="35-Boumerdes">35 - Boumerdès</option>
-                        <option value="36-El Tarf">36 - El Tarf</option>
-                        <option value="37-Tindouf">37 - Tindouf</option>
-                        <option value="38-Tissemsilt">38 - Tissemsilt</option>
-                        <option value="39-El Oued">39 - El Oued</option>
-                        <option value="40-Khenchela">40 - Khenchela</option>
-                        <option value="41-Souk Ahras">41 - Souk Ahras</option>
-                        <option value="42-Tipaza">42 - Tipaza</option>
-                        <option value="43-Mila">43 - Mila</option>
-                        <option value="44-Ain Defla">44 - Aïn Defla</option>
-                        <option value="45-Naama">45 - Naâma</option>
-                        <option value="46-Ain Temouchent">46 - Aïn Témouchent</option>
-                        <option value="47-Ghardaia">47 - Ghardaïa</option>
-                        <option value="48-Relizane">48 - Relizane</option>
-                        <option value="49-Timimoun">49 - Timimoun</option>
-                        <option value="50-Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar</option>
-                        <option value="51-Ouled Djellal">51 - Ouled Djellal</option>
-                        <option value="52-Beni Abbes">52 - Béni Abbès</option>
-                        <option value="53-In Salah">53 - In Salah</option>
-                        <option value="54-In Guezzam">54 - In Guezzam</option>
-                        <option value="55-Touggourt">55 - Touggourt</option>
-                        <option value="56-Djanet">56 - Djanet</option>
-                        <option value="57-El MGhair">57 - El M'Ghair</option>
-                        <option value="58-El Meniaa">58 - El Meniaa</option>
+                        <option value="" id="t-opt-wilaya-def">Ou choisissez parmi les 58 wilayas...</option>
+                        <option value="1-Adrar">01 - Adrar / أدرار</option>
+                        <option value="2-Chlef">02 - Chlef / الشلف</option>
+                        <option value="3-Laghouat">03 - Laghouat / الأغواط</option>
+                        <option value="4-Oum El Bouaghi">04 - Oum El Bouaghi / أم البواقي</option>
+                        <option value="5-Batna">05 - Batna / باتنة</option>
+                        <option value="6-Bejaia">06 - Béjaïa / بجاية</option>
+                        <option value="7-Biskra">07 - Biskra / بسكرة</option>
+                        <option value="8-Bechar">08 - Béchar / بشار</option>
+                        <option value="9-Blida">09 - Blida / البليدة</option>
+                        <option value="10-Bouira">10 - Bouira / البويرة</option>
+                        <option value="11-Tamanrasset">11 - Tamanrasset / تمنراست</option>
+                        <option value="12-Tebessa">12 - Tébessa / تبسة</option>
+                        <option value="13-Tlemcen">13 - Tlemcen / تلمسان</option>
+                        <option value="14-Tiaret">14 - Tiaret / تيارت</option>
+                        <option value="15-Tizi Ouzou">15 - Tizi Ouzou / تيزي وزو</option>
+                        <option value="16-Alger">16 - Alger / الجزائر</option>
+                        <option value="17-Djelfa">17 - Djelfa / الجلفة</option>
+                        <option value="18-Jijel">18 - Jijel / جيجل</option>
+                        <option value="19-Setif">19 - Sétif / سطيف</option>
+                        <option value="20-Saida">20 - Saïda / سعيدة</option>
+                        <option value="21-Skikda">21 - Skikda / سكيكدة</option>
+                        <option value="22-Sidi Bel Abbes">22 - Sidi Bel Abbès / سيدي بلعباس</option>
+                        <option value="23-Annaba">23 - Annaba / عنابة</option>
+                        <option value="24-Guelma">24 - Guelma / قالمة</option>
+                        <option value="25-Constantine">25 - Constantine / قسنطينة</option>
+                        <option value="26-Medea">26 - Médéa / المدية</option>
+                        <option value="27-Mostaganem">27 - Mostaganem / مستغانم</option>
+                        <option value="28-MSila">28 - M'Sila / المسيلة</option>
+                        <option value="29-Mascara">29 - Mascara / معسكر</option>
+                        <option value="30-Ouargla">30 - Ouargla / ورقلة</option>
+                        <option value="31-Oran">31 - Oran / وهران</option>
+                        <option value="32-El Bayadh">32 - El Bayadh / البيض</option>
+                        <option value="33-Illizi">33 - Illizi / إليزي</option>
+                        <option value="34-Bordj Bou Arreridj">34 - Bordj Bou Arreridj / برج بوعريريج</option>
+                        <option value="35-Boumerdes">35 - Boumerdès / بومرداس</option>
+                        <option value="36-El Tarf">36 - El Tarf / الطارف</option>
+                        <option value="37-Tindouf">37 - Tindouf / تندوف</option>
+                        <option value="38-Tissemsilt">38 - Tissemsilt / تيسمسيلت</option>
+                        <option value="39-El Oued">39 - El Oued / الوادي</option>
+                        <option value="40-Khenchela">40 - Khenchela / خنشلة</option>
+                        <option value="41-Souk Ahras">41 - Souk Ahras / سوق أهراس</option>
+                        <option value="42-Tipaza">42 - Tipaza / تيبازة</option>
+                        <option value="43-Mila">43 - Mila / ميلة</option>
+                        <option value="44-Ain Defla">44 - Aïn Defla / عين الدفلى</option>
+                        <option value="45-Naama">45 - Naâma / النعامة</option>
+                        <option value="46-Ain Temouchent">46 - Aïn Témouchent / عين تموشنت</option>
+                        <option value="47-Ghardaia">47 - Ghardaïa / غرداية</option>
+                        <option value="48-Relizane">48 - Relizane / غليزان</option>
+                        <option value="49-Timimoun">49 - Timimoun / تيميمون</option>
+                        <option value="50-Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar / برج باجي مختار</option>
+                        <option value="51-Ouled Djellal">51 - Ouled Djellal / أولاد جلال</option>
+                        <option value="52-Beni Abbes">52 - Béni Abbès / بني عباس</option>
+                        <option value="53-In Salah">53 - In Salah / عين صالح</option>
+                        <option value="54-In Guezzam">54 - In Guezzam / عين قزام</option>
+                        <option value="55-Touggourt">55 - Touggourt / تقرت</option>
+                        <option value="56-Djanet">56 - Djanet / جانت</option>
+                        <option value="57-El MGhair">57 - El M'Ghair / المغير</option>
+                        <option value="58-El Meniaa">58 - El Meniaa / المنيعة</option>
                     </select>
                 </div>
 
@@ -1332,38 +1365,38 @@
     <!-- ══ CARD 7: TÉMOIGNAGES RESTAURATEURS ══ -->
     <div class="card">
         <div class="section-header">
-            <h2>Ils nous font confiance</h2>
-            <span class="section-badge">Avis vérifiés</span>
+            <h2 id="t-testi-title">Ils nous font confiance</h2>
+            <span class="section-badge" id="t-testi-badge">Avis vérifiés</span>
         </div>
         <div class="testimonials-grid">
             <div class="testi-card">
                 <div class="testi-header">
                     <div class="testi-author">
-                        <strong>Redouane K.</strong> · <span>Bella Vista (Alger)</span>
+                        <strong id="t-t1-name">Redouane K.</strong> · <span id="t-t1-place">Bella Vista (Alger)</span>
                     </div>
                     <div class="testi-stars">★★★★★</div>
                 </div>
-                <p>« Fini les menus abîmés par la sauce. Les clients scannent dès qu'ils s'assoient et nos serveurs gagnent 15 min par table. »</p>
+                <p id="t-t1-quote">« Fini les menus abîmés par la sauce. Les clients scannent dès qu'ils s'assoient et nos serveurs gagnent 15 min par table. »</p>
             </div>
 
             <div class="testi-card">
                 <div class="testi-header">
                     <div class="testi-author">
-                        <strong>Sofiane M.</strong> · <span>Le Jasmin Lounge (Oran)</span>
+                        <strong id="t-t2-name">Sofiane M.</strong> · <span id="t-t2-place">Le Jasmin Lounge (Oran)</span>
                     </div>
                     <div class="testi-stars">★★★★★</div>
                 </div>
-                <p>« L'équipe est venue directement sur place à Oran. En un après-midi tout était configuré et collé sur les tables. »</p>
+                <p id="t-t2-quote">« L'équipe est venue directement sur place à Oran. En un après-midi tout était configuré et collé sur les tables. »</p>
             </div>
 
             <div class="testi-card">
                 <div class="testi-header">
                     <div class="testi-author">
-                        <strong>Karim B.</strong> · <span>Burger Spot (Constantine)</span>
+                        <strong id="t-t3-name">Karim B.</strong> · <span id="t-t3-place">Burger Spot (Constantine)</span>
                     </div>
                     <div class="testi-stars">★★★★★</div>
                 </div>
-                <p>« Grâce aux belles photos de nos burgers sur le menu QR, le panier moyen de nos clients a augmenté de 25%. »</p>
+                <p id="t-t3-quote">« Grâce aux belles photos de nos burgers sur le menu QR, le panier moyen de nos clients a augmenté de 25%. »</p>
             </div>
         </div>
     </div>
@@ -1373,7 +1406,7 @@
         <div class="call-left">
             <div class="call-icon">📞</div>
             <div class="call-text">
-                <strong>Vous préférez appeler ?</strong>
+                <strong id="t-call-h">Vous préférez appeler ?</strong>
                 <span>0656 24 31 17</span>
             </div>
         </div>
@@ -1384,31 +1417,31 @@
     <div class="reassurance-grid">
         <div class="reassurance-box">
             <span class="reassurance-emoji">🤝</span>
-            <strong>Installation gratuite</strong>
-            <span>Sur place dans votre resto</span>
+            <strong id="t-r1-h">Installation gratuite</strong>
+            <span id="t-r1-s">Sur place dans votre resto</span>
         </div>
         <div class="reassurance-box">
             <span class="reassurance-emoji">🔄</span>
-            <strong>Mises à jour</strong>
-            <span>Incluses sans frais</span>
+            <strong id="t-r2-h">Mises à jour</strong>
+            <span id="t-r2-s">Incluses sans frais</span>
         </div>
         <div class="reassurance-box">
             <span class="reassurance-emoji">📞</span>
-            <strong>Support 7j/7</strong>
-            <span>Téléphone & WhatsApp</span>
+            <strong id="t-r3-h">Support 7j/7</strong>
+            <span id="t-r3-s">Téléphone & WhatsApp</span>
         </div>
         <div class="reassurance-box">
             <span class="reassurance-emoji">🇩🇿</span>
-            <strong>Équipe 100% Locale</strong>
-            <span>Partout en Algérie</span>
+            <strong id="t-r4-h">Équipe 100% Locale</strong>
+            <span id="t-r4-s">Partout en Algérie</span>
         </div>
     </div>
 
     <!-- ══ CARD 10: FOOTER ══ -->
     <div class="card card-footer">
-        <p><strong>Qrmeunu Algérie</strong> · Solutions de menus digitaux</p>
+        <p><strong id="t-foot-h">Qrmeunu Algérie</strong> · <span id="t-foot-s">Solutions de menus digitaux</span></p>
         <p style="margin-top: 4px;">WhatsApp : <a href="https://wa.me/213656243117" target="_blank">+213 656 24 31 17</a></p>
-        <p style="margin-top: 6px; font-size: 11px; opacity: 0.8;">Tous droits réservés © 2024</p>
+        <p style="margin-top: 6px; font-size: 11px; opacity: 0.8;" id="t-foot-c">Tous droits réservés © 2024</p>
     </div>
 
 </div>
@@ -1416,14 +1449,301 @@
 <!-- ══ STICKY BOTTOM ACTION BAR ══ -->
 <div class="sticky-footer-bar">
     <div class="sticky-inner-box">
-        <a href="#order-form-card" class="sticky-order-btn" onclick="scrollToForm()">
+        <a href="#order-form-card" class="sticky-order-btn" id="t-sticky-order" onclick="scrollToForm()">
             Commander maintenant
         </a>
-        <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="sticky-wa-btn">
+        <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="sticky-wa-btn" id="t-sticky-wa">
             WhatsApp
         </a>
     </div>
 </div>
+
+<!-- ══ TRANSLATIONS DICTIONARY & LOGIC ══ -->
+<script>
+    const translations = {
+        fr: {
+            heroTitle: 'Votre menu,<br>en un <span>scan</span>.',
+            heroDarja: 'حط الكود، الكليان يطلب وحدو',
+            heroDesc: 'Fini les menus papier abîmés à réimprimer. Vos clients scannent avec leur téléphone et commandent directement à table.',
+            stat1H: '0 Appli', stat1S: 'Direct au scan',
+            stat2H: '24h', stat2S: 'Installation rapide',
+            stat3H: '7j/7', stat3S: 'Support local',
+            waCtaH: 'Discuter sur WhatsApp',
+            waCtaS: 'Réponse en moins de 5 min · 0656 24 31 17',
+            howTitle: 'Comment ça marche ?', howBadge: '3 étapes',
+            step1H: 'On vient chez vous', step1P: 'Notre équipe configure vos plats, vos photos et installe les QR codes sur vos tables.',
+            step2H: 'Le client scanne', step2P: 'L\'appareil photo ouvre votre menu tout de suite. Aucune application à télécharger.',
+            step3H: 'Vous recevez la commande', step3P: 'Sur votre téléphone ou directement sur votre système de caisse.',
+            simTitle: 'Démo en direct', simTable: 'Table N° 04',
+            simI1H: 'Burger Smash Double', simI1S: 'Cheddar, sauce maison',
+            simI2H: 'Pizza Margherita', simI2S: 'Mozzarella di bufala',
+            simI3H: 'Mojito Fraise Frais', simI3S: 'Menthe, citron vert',
+            simTotalLbl: 'Total', simBtnOrder: 'Commander ⚡',
+            savingsTitle: 'Pourquoi arrêter le papier ?', savingsBadge: 'Économies',
+            badH: '❌ Menu Papier',
+            badUl: '<li>• Menus tachés et déchirés</li><li>• ~35 000 DA de réimpression</li><li>• Impossible de changer un prix</li><li>• Le serveur court partout</li>',
+            goodH: '✅ Menu Qrmeunu',
+            goodUl: '<li>• Toujours propre & moderne</li><li>• Changement de prix en 1 sec</li><li>• Photos HD qui font vendre</li><li>• +25% de commandes en plus</li>',
+            plansTitle: 'Choisissez votre formule', plansBadge: 'Tarifs clairs',
+            plansSub: 'Touchez une formule pour la sélectionner pour votre restaurant :',
+            planBTitle: 'Basic', p1Per: '/mois',
+            planBList: '<li><span class="check-bullet">✓</span> Menu QR consultable sur smartphone</li><li><span class="check-bullet">✓</span> Mises à jour du menu incluses par notre équipe</li><li><span class="check-bullet">✓</span> Installation et QR codes fournis</li>',
+            planBAnn: 'Payable à l\'année : 24 000 DA/an',
+            ribbonPop: '⭐ Le plus choisi',
+            planCTitle: 'Commande', p2Per: '/mois',
+            planCList: '<li><span class="check-bullet">✓</span> <strong>Le client commande depuis son téléphone</strong></li><li><span class="check-bullet">✓</span> Commandes à table ou à emporter</li><li><span class="check-bullet">✓</span> Notifications WhatsApp / Tel en temps réel</li>',
+            planCAnn: 'Payable à l\'année : 48 000 DA/an',
+            ribbonDisc: '-10% Promo',
+            planPTitle: 'Caisse Pro', p3Strike: '5 200 DA/mois', p3Per: '/mois',
+            planPList: '<li><span class="check-bullet">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li><li><span class="check-bullet">✓</span> Bons imprimés directement en cuisine</li><li><span class="check-bullet">✓</span> Suivi complet & assistance prioritaire</li>',
+            planPAnn: 'Payable à l\'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong>',
+            formTitle: 'Demandez votre menu QR', formBadge: 'Devis Gratuit',
+            formSub: 'Remplissez ce formulaire court. Nous vous contactons pour fixer votre installation.',
+            succH: 'Demande reçue avec succès !', succP: 'Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.',
+            succBtn: 'Ouvrir WhatsApp maintenant →',
+            lblPlanChosen: 'Formule choisie :',
+            lblName: 'Nom & Prénom', phName: 'Ex: Mohamed Benali',
+            lblResto: 'Nom de votre établissement', phResto: 'Ex: Restaurant Le Palmier',
+            lblPhone: 'Numéro de téléphone', phPhone: '05 / 06 / 07 XX XX XX',
+            lblEmail: 'Adresse Email', lblOpt: '(optionnel)',
+            lblWilaya: 'Wilaya', optWilayaDef: 'Ou choisissez parmi les 58 wilayas...',
+            btnSubmit: 'Valider ma commande ✓',
+            testiTitle: 'Ils nous font confiance', testiBadge: 'Avis vérifiés',
+            t1Name: 'Redouane K.', t1Place: 'Bella Vista (Alger)',
+            t1Quote: '« Fini les menus abîmés par la sauce. Les clients scannent dès qu\'ils s\'assoient et nos serveurs gagnent 15 min par table. »',
+            t2Name: 'Sofiane M.', t2Place: 'Le Jasmin Lounge (Oran)',
+            t2Quote: '« L\'équipe est venue directement sur place à Oran. En un après-midi tout était configuré et collé sur les tables. »',
+            t3Name: 'Karim B.', t3Place: 'Burger Spot (Constantine)',
+            t3Quote: '« Grâce aux belles photos de nos burgers sur le menu QR, le panier moyen de nos clients a augmenté de 25%. »',
+            callH: 'Vous préférez appeler ?',
+            r1H: 'Installation gratuite', r1S: 'Sur place dans votre resto',
+            r2H: 'Mises à jour', r2S: 'Incluses sans frais',
+            r3H: 'Support 7j/7', r3S: 'Téléphone & WhatsApp',
+            r4H: 'Équipe 100% Locale', r4S: 'Partout en Algérie',
+            footH: 'Qrmeunu Algérie', footS: 'Solutions de menus digitaux', footC: 'Tous droits réservés © 2024',
+            stickyOrder: 'Commander maintenant', stickyWa: 'WhatsApp'
+        },
+        ar: {
+            heroTitle: 'مينيو مطعمك،<br>في <span>سكان</span> واحد 📲',
+            heroDarja: 'حط الكود، الكليان يطلب وحدو',
+            heroDesc: 'تهنى من طباعة المينيو الورقي كل خطرة. كليانك يسكانو بتيليفوناتهم ويطلبو ديريكت من الطابلة بلا ما يستناو.',
+            stat1H: '0 تطبيق', stat1S: 'سكان ديريكت',
+            stat2H: '24 ساعة', stat2S: 'تركيب سريع',
+            stat3H: '7/7 أيام', stat3S: 'دعم محلي',
+            waCtaH: 'تواصل معنا في واتساب',
+            waCtaS: 'نجاوبوك في أقل من 5 دقائق · 0656 24 31 17',
+            howTitle: 'كيفاش تخدم ؟', howBadge: '3 خطوات',
+            step1H: 'نجيو حتى لعندك', step1P: 'فريقنا يهيأ المينيو بالصور والأسعار ويلصق الكود QR في الطوابل تع مطعمك.',
+            step2H: 'الكليان يسكان الكود', step2P: 'كاميرا التيليفون تحل المينيو تم تم، بلا ما يتيليشارجي حتى تطبيق.',
+            step3H: 'توصلك الكوموند ديريكت', step3P: 'في تيليفونك ولا في لاكيس تعك مباشرة في ثواني.',
+            simTitle: 'تجربة حية', simTable: 'طاولة رقم 04',
+            simI1H: 'برغر مدوبل كلاسيك', simI1S: 'شيدر، صلصة خاصة',
+            simI2H: 'بيتزا مارغريتا إيطالية', simI2S: 'موزاريلا طازجة وطماطم',
+            simI3H: 'موهيتو فراولة منعش', simI3S: 'نعناع وليمون طبيعي',
+            simTotalLbl: 'المجموع', simBtnOrder: 'أطلب الآن ⚡',
+            savingsTitle: 'علاش لازم تحبس المينيو الورقي ؟', savingsBadge: 'توفير',
+            badH: '❌ المينيو الورقي القديم',
+            badUl: '<li>• يتوسخ بالماكلة ويتقطع</li><li>• ~35 000 دج مصاريف طباعة</li><li>• ما تقدرش تبدل الأسعار تم تم</li><li>• السيرفور يجري ويضيع الوقت</li>',
+            goodH: '✅ مينيو QR كود العصري',
+            goodUl: '<li>• دايماً نقي وعصري وشيك</li><li>• تبديل الأسعار في ثانية وحدة</li><li>• صور شهية تشجع الكليان</li><li>• +25% طلبات ومبيعات أكثر</li>',
+            plansTitle: 'اختر الصيغة المناسبة لمطعمك', plansBadge: 'أسعار واضحة',
+            plansSub: 'إلمس البطاقة لاختيار الصيغة التي تناسبك :',
+            planBTitle: 'بيزيك (Basic)', p1Per: '/شهرياً',
+            planBList: '<li><span class="check-bullet">✓</span> مينيو QR كود للاطلاع في الهاتف</li><li><span class="check-bullet">✓</span> تحديثات المينيو مجاناً من طرفنا</li><li><span class="check-bullet">✓</span> التركيب وتوفير الكود QR للطوابل</li>',
+            planBAnn: 'الدفع بالعام : 24 000 دج/سنوياً',
+            ribbonPop: '⭐ الأكثر طلباً',
+            planCTitle: 'كوموند (Commande)', p2Per: '/شهرياً',
+            planCList: '<li><span class="check-bullet">✓</span> <strong>الكليان يطلب ديريكت من هاتفه</strong></li><li><span class="check-bullet">✓</span> طلبات في الطاولة أو جاهزة للأخذ</li><li><span class="check-bullet">✓</span> إشعارات واتساب ومباشرة في الحين</li>',
+            planCAnn: 'الدفع بالعام : 48 000 دج/سنوياً',
+            ribbonDisc: 'تخفيض 10% 🏷️',
+            planPTitle: 'كايس برو (Caisse Pro)', p3Strike: '5 200 دج/شهر', p3Per: '/شهرياً',
+            planPList: '<li><span class="check-bullet">✓</span> <strong>ربط مباشر مع نظام الصندوق (POS)</strong></li><li><span class="check-bullet">✓</span> التذاكر تخرج في الكوزينة ديريكت</li><li><span class="check-bullet">✓</span> متابعة كاملة ودعم فني بأولوية</li>',
+            planPAnn: 'الدفع بالعام : <s>62 400 دج</s> <strong>56 160 دج/سنوياً</strong>',
+            formTitle: 'أطلب المينيو QR كود لمطعمك', formBadge: 'معاينة مجانية',
+            formSub: 'عمر هاذ الاستمارة القصيرة، نتصلو بيك ونحددو موعد التركيب.',
+            succH: 'تم إرسال طلبك بنجاح !', succP: 'فريقنا يتصل بك في أقل من 24 ساعة. جاري تحويلك إلى واتساب لتأكيد الطلب...',
+            succBtn: 'فتح واتساب الآن →',
+            lblPlanChosen: 'الصيغة المختارة :',
+            lblName: 'الإسم واللقب', phName: 'مثال: محمد بن علي',
+            lblResto: 'إسم المطعم أو المقهى', phResto: 'مثال: مطعم النخيل',
+            lblPhone: 'رقم الهاتف', phPhone: '05 / 06 / 07 XX XX XX',
+            lblEmail: 'البريد الإلكتروني', lblOpt: '(اختياري)',
+            lblWilaya: 'الولاية', optWilayaDef: 'أو اختر ولايتك من القائمة (58 ولاية)...',
+            btnSubmit: 'تأكيد طلبي الآن ✓',
+            testiTitle: 'مطاعم تثق في خدماتنا', testiBadge: 'آراء حقيقية',
+            t1Name: 'رضوان ك.', t1Place: 'مطعم بيلا فيستا (الجزائر)',
+            t1Quote: '« تهنينا من المينيو الورقي وتوسيخ الطوابل. الكليان يسكانو تم تم والسيرفور يربح 15 دقيقة مع كل طابلة. »',
+            t2Name: 'سفيان م.', t2Place: 'كافيه لاونج الياسمين (وهران)',
+            t2Quote: '« الفريق جا لعندنا لوهران وركبولنا الأكواد في عشية وحدة. خدمة احترافية ونقية ربي يبارك. »',
+            t3Name: 'كريم ب.', t3Place: 'برغر سبوت (قسنطينة)',
+            t3Quote: '« الصور الملاح في المينيو زادولنا في الطلبات بنسبة 25%، الكليان يشوفو ويتحمسو يطلبو الديسير والمشروبات. »',
+            callH: 'تفضل الاتصال بالهاتف مباشرة ؟',
+            r1H: 'تركيب مجاني', r1S: 'في مطعمك مباشرة',
+            r2H: 'تحديثات مستمرة', r2S: 'بدون أي تكاليف إضافية',
+            r3H: 'دعم فني 7/7', r3S: 'عبر الهاتف والواتساب',
+            r4H: 'فريق جزائري 100%', r4S: 'في كل ولايات الوطن',
+            footH: 'Qrmeunu الجزائر', footS: 'حلول المينيو الرقمي بالـ QR Code', footC: 'جميع الحقوق محفوظة © 2024',
+            stickyOrder: 'أطلب الآن لمطعمك', stickyWa: 'واتساب'
+        }
+    };
+
+    let currentLang = 'fr';
+
+    function setAppLanguage(lang) {
+        currentLang = lang;
+        const isAr = (lang === 'ar');
+        const t = translations[lang];
+
+        // 1. Update Document HTML attributes
+        document.documentElement.lang = lang;
+        document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+        document.body.classList.toggle('lang-ar', isAr);
+        document.body.classList.toggle('lang-fr', !isAr);
+
+        // 2. Update Language Switcher buttons state
+        document.getElementById('btn-lang-fr').classList.toggle('active', !isAr);
+        document.getElementById('btn-lang-ar').classList.toggle('active', isAr);
+
+        // 3. Update Elements
+        document.getElementById('t-hero-title').innerHTML = t.heroTitle;
+        document.getElementById('t-hero-darja').textContent = t.heroDarja;
+        document.getElementById('t-hero-desc').textContent = t.heroDesc;
+        document.getElementById('t-stat1-h').textContent = t.stat1H;
+        document.getElementById('t-stat1-s').textContent = t.stat1S;
+        document.getElementById('t-stat2-h').textContent = t.stat2H;
+        document.getElementById('t-stat2-s').textContent = t.stat2S;
+        document.getElementById('t-stat3-h').textContent = t.stat3H;
+        document.getElementById('t-stat3-s').textContent = t.stat3S;
+
+        document.getElementById('t-wa-cta-h').textContent = t.waCtaH;
+        document.getElementById('t-wa-cta-s').textContent = t.waCtaS;
+
+        document.getElementById('t-how-title').textContent = t.howTitle;
+        document.getElementById('t-how-badge').textContent = t.howBadge;
+        document.getElementById('t-step1-h').textContent = t.step1H;
+        document.getElementById('t-step1-p').textContent = t.step1P;
+        document.getElementById('t-step2-h').textContent = t.step2H;
+        document.getElementById('t-step2-p').textContent = t.step2P;
+        document.getElementById('t-step3-h').textContent = t.step3H;
+        document.getElementById('t-step3-p').textContent = t.step3P;
+
+        document.getElementById('t-sim-title').textContent = t.simTitle;
+        document.getElementById('t-sim-table').textContent = t.simTable;
+        document.getElementById('t-sim-i1-h').textContent = t.simI1H;
+        document.getElementById('t-sim-i1-s').textContent = t.simI1S;
+        document.getElementById('t-sim-i2-h').textContent = t.simI2H;
+        document.getElementById('t-sim-i2-s').textContent = t.simI2S;
+        document.getElementById('t-sim-i3-h').textContent = t.simI3H;
+        document.getElementById('t-sim-i3-s').textContent = t.simI3S;
+        document.getElementById('t-sim-total-lbl').textContent = t.simTotalLbl;
+        document.getElementById('t-sim-btn-order').textContent = t.simBtnOrder;
+
+        document.getElementById('t-savings-title').textContent = t.savingsTitle;
+        document.getElementById('t-savings-badge').textContent = t.savingsBadge;
+        document.getElementById('t-bad-h').textContent = t.badH;
+        document.getElementById('t-bad-ul').innerHTML = t.badUl;
+        document.getElementById('t-good-h').textContent = t.goodH;
+        document.getElementById('t-good-ul').innerHTML = t.goodUl;
+
+        document.getElementById('t-plans-title').textContent = t.plansTitle;
+        document.getElementById('t-plans-badge').textContent = t.plansBadge;
+        document.getElementById('t-plans-sub').textContent = t.plansSub;
+        document.getElementById('t-plan-b-title').textContent = t.planBTitle;
+        document.getElementById('t-p1-per').textContent = t.p1Per;
+        document.getElementById('t-plan-b-list').innerHTML = t.planBList;
+        document.getElementById('t-plan-b-ann').textContent = t.planBAnn;
+
+        document.getElementById('t-ribbon-pop').textContent = t.ribbonPop;
+        document.getElementById('t-plan-c-title').textContent = t.planCTitle;
+        document.getElementById('t-p2-per').textContent = t.p2Per;
+        document.getElementById('t-plan-c-list').innerHTML = t.planCList;
+        document.getElementById('t-plan-c-ann').textContent = t.planCAnn;
+
+        document.getElementById('t-ribbon-disc').textContent = t.ribbonDisc;
+        document.getElementById('t-plan-p-title').textContent = t.planPTitle;
+        document.getElementById('t-p3-strike').textContent = t.p3Strike;
+        document.getElementById('t-p3-per').textContent = t.p3Per;
+        document.getElementById('t-plan-p-list').innerHTML = t.planPList;
+        document.getElementById('t-plan-p-ann').innerHTML = t.planPAnn;
+
+        document.getElementById('t-form-title').textContent = t.formTitle;
+        document.getElementById('t-form-badge').textContent = t.formBadge;
+        document.getElementById('t-form-sub').textContent = t.formSub;
+        document.getElementById('t-succ-h').textContent = t.succH;
+        document.getElementById('t-succ-p').textContent = t.succP;
+        document.getElementById('t-succ-btn').textContent = t.succBtn;
+        document.getElementById('t-lbl-plan-chosen').textContent = t.lblPlanChosen;
+
+        document.getElementById('t-lbl-name').textContent = t.lblName;
+        document.getElementById('input-nom').placeholder = t.phName;
+        document.getElementById('t-lbl-resto').textContent = t.lblResto;
+        document.getElementById('input-restaurant').placeholder = t.phResto;
+        document.getElementById('t-lbl-phone').textContent = t.lblPhone;
+        document.getElementById('input-phone').placeholder = t.phPhone;
+        document.getElementById('t-lbl-email').textContent = t.lblEmail;
+        document.getElementById('t-lbl-opt').textContent = t.lblOpt;
+        document.getElementById('t-lbl-wilaya').textContent = t.lblWilaya;
+        document.getElementById('t-opt-wilaya-def').textContent = t.optWilayaDef;
+        document.getElementById('btn-submit-text').textContent = t.btnSubmit;
+
+        document.getElementById('t-testi-title').textContent = t.testiTitle;
+        document.getElementById('t-testi-badge').textContent = t.testiBadge;
+        document.getElementById('t-t1-name').textContent = t.t1Name;
+        document.getElementById('t-t1-place').textContent = t.t1Place;
+        document.getElementById('t-t1-quote').textContent = t.t1Quote;
+        document.getElementById('t-t2-name').textContent = t.t2Name;
+        document.getElementById('t-t2-place').textContent = t.t2Place;
+        document.getElementById('t-t2-quote').textContent = t.t2Quote;
+        document.getElementById('t-t3-name').textContent = t.t3Name;
+        document.getElementById('t-t3-place').textContent = t.t3Place;
+        document.getElementById('t-t3-quote').textContent = t.t3Quote;
+
+        document.getElementById('t-call-h').textContent = t.callH;
+        document.getElementById('t-r1-h').textContent = t.r1H;
+        document.getElementById('t-r1-s').textContent = t.r1S;
+        document.getElementById('t-r2-h').textContent = t.r2H;
+        document.getElementById('t-r2-s').textContent = t.r2S;
+        document.getElementById('t-r3-h').textContent = t.r3H;
+        document.getElementById('t-r3-s').textContent = t.r3S;
+        document.getElementById('t-r4-h').textContent = t.r4H;
+        document.getElementById('t-r4-s').textContent = t.r4S;
+
+        document.getElementById('t-foot-h').textContent = t.footH;
+        document.getElementById('t-foot-s').textContent = t.footS;
+        document.getElementById('t-foot-c').textContent = t.footC;
+
+        document.getElementById('t-sticky-order').textContent = t.stickyOrder;
+        document.getElementById('t-sticky-wa').textContent = t.stickyWa;
+
+        // Update selected plan badge
+        updatePlanBadgeText();
+
+        // Save preference
+        localStorage.setItem('qrmeunu_lang', lang);
+    }
+
+    window.switchLanguage = function(lang) {
+        setAppLanguage(lang);
+    };
+
+    // Auto-detect phone / browser language
+    function detectInitialLanguage() {
+        const saved = localStorage.getItem('qrmeunu_lang');
+        if (saved === 'ar' || saved === 'fr') return saved;
+
+        const navLang = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
+        if (navLang.startsWith('ar')) {
+            return 'ar';
+        }
+        return 'fr';
+    }
+
+    // Initialize Language immediately
+    document.addEventListener('DOMContentLoaded', () => {
+        const initial = detectInitialLanguage();
+        setAppLanguage(initial);
+    });
+</script>
 
 <!-- ══ FIREBASE / FIRESTORE & LOGIC SCRIPT ══ -->
 <script type="module">
@@ -1467,6 +1787,13 @@
         'Caisse Pro': '4 680 DA/mois'
     };
 
+    window.updatePlanBadgeText = function() {
+        const displayEl = document.getElementById('display-selected-plan');
+        if (displayEl) {
+            displayEl.textContent = `${currentSelectedPlan} (${planPrices[currentSelectedPlan]})`;
+        }
+    };
+
     window.selectPlanOption = function(planName) {
         currentSelectedPlan = planName;
         trackEvent('select_plan', { plan_name: planName });
@@ -1476,17 +1803,12 @@
         const targetCard = document.getElementById('card-plan-' + planName.replace(/\s+/g, ''));
         if (targetCard) targetCard.classList.add('selected');
 
-        // Update summary badge in form
-        const displayEl = document.getElementById('display-selected-plan');
-        if (displayEl) {
-            displayEl.textContent = `${planName} (${planPrices[planName]})`;
-        }
+        window.updatePlanBadgeText();
     };
 
     window.quickSelectWilaya = function(wilayaVal) {
         const sel = document.getElementById('select-wilaya');
         if (sel) {
-            // Find option matching
             for (let opt of sel.options) {
                 if (opt.value.includes(wilayaVal.split('-')[1]) || opt.value === wilayaVal) {
                     sel.value = opt.value;
@@ -1494,7 +1816,6 @@
                 }
             }
         }
-        // Update pills style
         document.querySelectorAll('.wilaya-pill').forEach(btn => btn.classList.remove('active'));
         if (event && event.target) event.target.classList.add('active');
     };
@@ -1513,16 +1834,21 @@
         simTotal += price;
         simCount += 1;
         document.getElementById('sim-total-val').textContent = simTotal + ' DA';
-        document.getElementById('sim-count-val').textContent = simCount + (simCount > 1 ? ' plats' : ' plat');
+        const countTxt = (currentLang === 'ar') 
+            ? (simCount + ' أطباق')
+            : (simCount + (simCount > 1 ? ' plats' : ' plat'));
+        document.getElementById('sim-count-val').textContent = countTxt;
         trackEvent('sim_add_item', { item_name: name });
     };
 
     window.simSendOrder = function() {
         if (simCount === 0) {
-            alert('Touchez les boutons "+" pour ajouter des plats à votre commande de test !');
+            alert(currentLang === 'ar' ? 'إلمس علامة "+" لإضافة أطباق لتجربة الطلب !' : 'Touchez les boutons "+" pour ajouter des plats à votre commande de test !');
             return;
         }
-        alert('🎉 Commande simulée avec succès ! Sur votre restaurant, cette commande arriverait instantanément sur votre téléphone ou caisse avec la Table N° 04.');
+        alert(currentLang === 'ar' 
+            ? '🎉 تم إرسال الطلب التجريبي بنجاح! في مطعمك، يصل هذا الطلب مباشرة إلى هاتفك أو لاكيس مع رقم الطاولة (طاولة 04).' 
+            : '🎉 Commande simulée avec succès ! Sur votre restaurant, cette commande arriverait instantanément sur votre téléphone ou caisse avec la Table N° 04.');
         trackEvent('sim_order_submitted', { total: simTotal });
     };
 
@@ -1542,7 +1868,7 @@
             const submitBtn = document.getElementById('btn-submit-text');
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Envoi de votre commande... ⏳';
+                submitBtn.textContent = (currentLang === 'ar') ? 'جاري إرسال الطلب... ⏳' : 'Envoi de votre commande... ⏳';
             }
 
             const nom = document.getElementById('input-nom').value.trim();
@@ -1558,6 +1884,7 @@
                 email: email,
                 wilaya: wilaya,
                 formule: currentSelectedPlan,
+                lang: currentLang,
                 date: new Date().toISOString(),
                 status: 'Nouveau'
             };
@@ -1586,7 +1913,8 @@
             trackEvent('generate_lead', {
                 plan: currentSelectedPlan,
                 wilaya: wilaya,
-                restaurant: restaurant
+                restaurant: restaurant,
+                language: currentLang
             });
 
             // 4. Show success card & hide form
@@ -1594,10 +1922,15 @@
             const successCard = document.getElementById('order-success-card');
             if (successCard) successCard.style.display = 'block';
 
-            // 5. Build WhatsApp redirection
-            const waMessage = `*Nouvelle Commande Qrmeunu*%0A%0A*Client*: ${nom}%0A*Restaurant*: ${restaurant}%0A*Téléphone*: ${phone}%0A*Wilaya*: ${wilaya}%0A*Formule*: ${currentSelectedPlan} (${planPrices[currentSelectedPlan]})%0A*Email*: ${email || 'Non renseigné'}`;
-            const waUrl = `https://wa.me/213656243117?text=${waMessage}`;
+            // 5. Build WhatsApp redirection message in the user's active language
+            let waMessage = '';
+            if (currentLang === 'ar') {
+                waMessage = `*طلب جديد لمينيو Qrmeunu*%0A%0A*الزبون*: ${nom}%0A*المطعم*: ${restaurant}%0A*رقم الهاتف*: ${phone}%0A*الولاية*: ${wilaya}%0A*الصيغة المختارة*: ${currentSelectedPlan} (${planPrices[currentSelectedPlan]})%0A*البريد*: ${email || 'غير مذكور'}`;
+            } else {
+                waMessage = `*Nouvelle Commande Qrmeunu*%0A%0A*Client*: ${nom}%0A*Restaurant*: ${restaurant}%0A*Téléphone*: ${phone}%0A*Wilaya*: ${wilaya}%0A*Formule*: ${currentSelectedPlan} (${planPrices[currentSelectedPlan]})%0A*Email*: ${email || 'Non renseigné'}`;
+            }
 
+            const waUrl = `https://wa.me/213656243117?text=${waMessage}`;
             const manualWaBtn = document.getElementById('btn-manual-wa-redirect');
             if (manualWaBtn) manualWaBtn.href = waUrl;
 

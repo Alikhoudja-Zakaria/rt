@@ -470,9 +470,12 @@
             const d = new Date(o.date);
             const dateStr = d.toLocaleDateString('fr-FR', {day:'2-digit',month:'short'}) + ' ' + d.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
             const sts = ['Nouveau','Contacté','Confirmé'].map(s => `<option value="${s}" ${o.status===s?'selected':''}>${s}</option>`).join('');
+            const langBadge = o.lang === 'ar' 
+                ? '<span style="font-size:10px; padding:2px 6px; border-radius:6px; background:#FEF3C7; color:#92400E; font-weight:700; margin-left:6px;">🇩🇿 AR</span>'
+                : '<span style="font-size:10px; padding:2px 6px; border-radius:6px; background:#EFF6FF; color:#1E40AF; font-weight:700; margin-left:6px;">🇫🇷 FR</span>';
             return `<tr>
                 <td data-label="Date"><span style="font-size:13px;color:var(--text-muted);">${dateStr}</span></td>
-                <td data-label="Client"><div class="cell-name">${o.name||'-'}</div><div class="cell-restaurant">${o.restaurant||''}</div>${o.email ? `<div class="cell-email">${o.email}</div>` : ''}</td>
+                <td data-label="Client"><div class="cell-name">${o.name||'-'} ${langBadge}</div><div class="cell-restaurant">${o.restaurant||''}</div>${o.email ? `<div class="cell-email">${o.email}</div>` : ''}</td>
                 <td data-label="Tél" class="cell-phone"><a href="tel:${o.phone||''}">${o.phone||'-'}</a></td>
                 <td data-label="Wilaya"><span style="font-size:13px;">${o.wilaya||'-'}</span></td>
                 <td data-label="Formule"><span class="pill ${pillClass(o.formule||'')}">${o.formule||'-'}</span></td>
