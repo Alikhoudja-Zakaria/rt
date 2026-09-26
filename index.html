@@ -219,108 +219,221 @@
             box-shadow: 0 6px 25px -4px rgba(16, 35, 52, 0.08);
             position: relative;
         }
+        /* ══════════════════════════════════════════════════════════
+           SECTION: PRODUCT SLIDER (Aspect-Square Container - 1:1)
+           ══════════════════════════════════════════════════════════ */
+        .product-slider-container {
+            background: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-outer);
+            padding: 14px;
+            box-shadow: 0 8px 30px -4px rgba(16, 35, 52, 0.08);
+            position: relative;
+        }
         .slider-viewport {
             overflow: hidden;
             width: 100%;
-            border-radius: 18px;
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
             touch-action: pan-y;
             user-select: none;
-            background: #F8FAFC;
+            position: relative;
+            background: #0F172A;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
         }
         .slider-track {
             display: flex;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
             width: 100%;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .slider-slide {
             flex: 0 0 100%;
             width: 100%;
+            height: 100%;
             box-sizing: border-box;
-            padding: 18px 14px;
+            position: relative;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 340px;
-            text-align: center;
-            position: relative;
-        }
-
-        /* Bigger Slide Frame */
-        .slide-frame {
-            width: 100%;
-            max-width: 360px;
-            border-radius: 22px;
-            padding: 22px 18px;
-            box-shadow: 0 18px 40px -10px rgba(0,0,0,0.18);
-            margin: auto;
-            position: relative;
-        }
-        .slide-theme-dark {
-            background: linear-gradient(145deg, #102334, #1B3852);
+            justify-content: space-between;
+            padding: 16px 14px 14px 14px;
             color: #FFFFFF;
-        }
-        .slide-theme-light {
-            background: #FFFFFF;
-            border: 1.5px solid #E2E8F0;
-            color: var(--text-main);
-        }
-        .slide-theme-warm {
-            background: linear-gradient(145deg, #FFF7ED, #FFEDD5);
-            border: 1.5px solid #FED7AA;
-            color: #7C2D12;
+            overflow: hidden;
         }
 
-        .slide-tag {
-            display: inline-block;
-            padding: 4px 12px;
+        /* Slide Themes with Rich Full-Bleed Gradients */
+        .slide-bg-scan {
+            background: radial-gradient(circle at 85% 15%, rgba(42, 157, 143, 0.45) 0%, transparent 60%),
+                        linear-gradient(155deg, #0F172A 0%, #1E293B 100%);
+        }
+        .slide-bg-google {
+            background: radial-gradient(circle at 50% 25%, rgba(251, 188, 5, 0.35) 0%, transparent 65%),
+                        linear-gradient(155deg, #0A192F 0%, #172A45 50%, #0A192F 100%);
+        }
+        .slide-bg-food {
+            background: radial-gradient(circle at 85% 25%, rgba(234, 88, 12, 0.4) 0%, transparent 65%),
+                        linear-gradient(155deg, #1C1917 0%, #292524 50%, #1C1917 100%);
+        }
+        .slide-bg-order {
+            background: radial-gradient(circle at 15% 20%, rgba(16, 185, 129, 0.4) 0%, transparent 65%),
+                        linear-gradient(155deg, #064E3B 0%, #065F46 50%, #022C22 100%);
+        }
+        .slide-bg-manage {
+            background: radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.4) 0%, transparent 65%),
+                        linear-gradient(155deg, #2E1065 0%, #3B0764 50%, #1E1B4B 100%);
+        }
+
+        /* Slide Top Header Bar */
+        .slide-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 2;
+        }
+        .slide-pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
             border-radius: 999px;
             font-size: 11px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #FFFFFF;
         }
-        .slide-tag.white { background: rgba(255,255,255,0.2); color: #fff; }
-        .slide-tag.teal { background: var(--teal-soft); color: var(--teal); }
-        .slide-tag.orange { background: #FFEDD5; color: #C2410C; }
-
-        .slide-big-icon {
-            font-size: 52px;
-            margin-bottom: 10px;
-            display: block;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
-        }
-        .slide-headline {
-            font-size: 19px;
+        .slide-step-counter {
+            font-size: 11px;
             font-weight: 900;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-        .slide-desc {
-            font-size: 13px;
-            line-height: 1.5;
-            opacity: 0.92;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.3);
         }
 
+        /* Slide Center Visual Mockups */
+        .slide-center-visual {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 0;
+            z-index: 2;
+        }
+        .slide-mockup-card {
+            width: 100%;
+            max-width: 320px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+            padding: 12px 14px;
+            box-shadow: 0 14px 30px -8px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Google Maps Specific Mockup */
+        .google-brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: #FFFFFF;
+        }
+        .google-logo-text {
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: -0.2px;
+        }
+        .google-logo-text span:nth-child(1) { color: #4285F4; }
+        .google-logo-text span:nth-child(2) { color: #EA4335; }
+        .google-logo-text span:nth-child(3) { color: #FBBC05; }
+        .google-logo-text span:nth-child(4) { color: #4285F4; }
+        .google-logo-text span:nth-child(5) { color: #34A853; }
+        .google-logo-text span:nth-child(6) { color: #EA4335; }
+
+        .google-stars-big {
+            color: #FBBC05;
+            font-size: 26px;
+            letter-spacing: 3px;
+            line-height: 1;
+            margin: 4px 0 6px 0;
+            text-align: center;
+            filter: drop-shadow(0 2px 10px rgba(251, 188, 5, 0.6));
+        }
+        .google-rating-score {
+            font-size: 13px;
+            font-weight: 900;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .google-action-pill {
+            background: #FFFFFF;
+            color: #1E293B;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 7px 12px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .google-boost-tag {
+            font-size: 11px;
+            font-weight: 800;
+            color: #93C5FD;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        /* Live Menu Mockup Item */
         .mockup-item-pill {
             background: rgba(255, 255, 255, 0.96);
-            border-radius: 14px;
-            padding: 10px 14px;
+            border-radius: 12px;
+            padding: 8px 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             color: var(--text-main);
-            margin-top: 14px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 800;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-top: 6px;
         }
-        .mockup-stars {
-            color: #F59E0B;
-            font-size: 20px;
-            margin-top: 10px;
-            letter-spacing: 3px;
+
+        /* Slide Bottom Captions */
+        .slide-bottom-text {
+            z-index: 2;
+            text-align: left;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        body.lang-ar .slide-bottom-text {
+            text-align: right;
+        }
+        .slide-title-text {
+            font-size: 15px;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 3px;
+            color: #FFFFFF;
+        }
+        .slide-desc-text {
+            font-size: 11.5px;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .slider-bottom-bar {
@@ -328,6 +441,15 @@
             align-items: center;
             justify-content: space-between;
             padding-top: 12px;
+        }
+        .slider-counter-pill {
+            font-size: 11px;
+            font-weight: 800;
+            color: #64748B;
+            background: #F1F5F9;
+            padding: 4px 10px;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
         }
         .slider-btn-nav {
             width: 38px;
@@ -505,7 +627,7 @@
             background: linear-gradient(135deg, #DC2626, #EF4444);
         }
 
-        /* ── BIG FULL-BLEED SQUARE PICTURE (Requested by User) ── */
+        /* ── BIG PICTURE ROW (Requested by User) ── */
         .formula-main-row {
             display: flex;
             align-items: center;
@@ -513,31 +635,47 @@
             margin-bottom: 12px;
         }
 
-        .formula-square-box {
-            width: 86px;
-            height: 86px;
-            min-width: 86px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            border: 1.5px solid #E2E8F0;
+        .formula-big-pic-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
-            background: #F8FAFC;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .formula-card:hover .formula-square-box {
-            transform: scale(1.03);
+        .formula-card:hover .formula-big-pic-box {
+            transform: scale(1.04);
         }
-        .formula-card.selected .formula-square-box {
-            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.2);
-            border-color: #FF5722;
+        .formula-card.selected .formula-big-pic-box {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
         }
 
-        .formula-square-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        /* Exact colors from user screenshot media_1790447383008 */
+        .pic-basic {
+            background: #EEF2F6;
+            border: 1.5px solid #D6E0EA;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .pic-commande {
+            background: #E0F5F2;
+            border: 1.5px solid #99DCD0;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1);
+        }
+        .pic-caisse {
+            background: #EEF2F6;
+            border: 1.5px solid #D6E0EA;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .pic-symbol {
+            font-size: 44px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
         }
 
         .formula-content-col {
@@ -911,76 +1049,150 @@
                 <div class="slider-track" id="sliderTrack">
                     
                     <!-- Slide 1: Scan Table -->
-                    <div class="slider-slide">
-                        <div class="slide-frame slide-theme-dark">
-                            <span class="slide-tag white" id="t-s1-tag">Étape 01 · Le Scan</span>
-                            <span class="slide-big-icon">📲</span>
-                            <div class="slide-headline" id="t-s1-h">Scannez le QR sur la table</div>
-                            <div class="slide-desc" id="t-s1-d">Le menu s'ouvre instantanément sur le téléphone du client. 0 application à télécharger.</div>
-                            <div class="mockup-item-pill">
-                                <span>Table N° 04</span>
-                                <span style="color:#10B981;">✓ Connecté en 1 sec</span>
+                    <div class="slider-slide slide-bg-scan">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s1-tag">📲 Étape 01 · Le Scan</span>
+                            <span class="slide-step-counter">01 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:11px; font-weight:800; color:#38BDF8;">
+                                    <span>🟢 Restaurant Le Palmier</span>
+                                    <span>Table 04</span>
+                                </div>
+                                <div class="mockup-item-pill">
+                                    <span style="display:flex; align-items:center; gap:6px;">🍔 Smash Burger Double</span>
+                                    <span style="color:#C75B39; font-weight:900;">650 DA</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:10px; font-weight:700; color:rgba(255,255,255,0.75);">
+                                    <span>⚡ 0 téléchargement</span>
+                                    <span>✓ Menu instantané</span>
+                                </div>
                             </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s1-h">Votre menu, en un seul scan</div>
+                            <div class="slide-desc-text" id="t-s1-d">Le menu s'ouvre instantanément sur le téléphone du client. 0 application à télécharger.</div>
                         </div>
                     </div>
 
-                    <!-- Slide 2: Menu & Food Photos -->
-                    <div class="slider-slide">
-                        <div class="slide-frame slide-theme-light">
-                            <span class="slide-tag teal" id="t-s2-tag">Étape 02 · Vos Plats</span>
-                            <span class="slide-big-icon">🍔</span>
-                            <div class="slide-headline" id="t-s2-h">Des photos qui font vendre</div>
-                            <div class="slide-desc" id="t-s2-d">Photos haute définition de vos plats et prix clairs pour augmenter votre panier moyen de +25%.</div>
-                            <div class="mockup-item-pill">
-                                <span>Burger Smash Double</span>
-                                <span style="color:var(--primary);">650 DA</span>
+                    <!-- Slide 2: BOOST AVIS GOOGLE MAPS 5★ (User's Request) -->
+                    <div class="slider-slide slide-bg-google">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s2-tag">⭐ Avis Google Maps</span>
+                            <span class="slide-step-counter">02 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div class="google-brand-header">
+                                    <span class="google-logo-text"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span> Maps</span>
+                                    <span style="color:#60A5FA; font-size:10px;">Avis vérifiés ✓</span>
+                                </div>
+                                <div class="google-stars-big">★★★★★</div>
+                                <div class="google-rating-score" id="t-s2-score">5.0 · 185 avis clients certifiés</div>
+                                <div class="google-action-pill" id="t-s2-pill">
+                                    <span>⭐ Laisser un avis 5 étoiles</span>
+                                </div>
+                                <div class="google-boost-tag" id="t-s2-boost">🚀 Hissez votre restaurant N°1 sur Google Maps !</div>
                             </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s2-h">Multipliez vos avis Google Maps 5★</div>
+                            <div class="slide-desc-text" id="t-s2-d">Après le repas, 1 client sur 3 laisse un avis 5 étoiles pour hisser votre restaurant N°1 sur Google.</div>
                         </div>
                     </div>
 
-                    <!-- Slide 3: Order Direct -->
-                    <div class="slider-slide">
-                        <div class="slide-frame slide-theme-warm">
-                            <span class="slide-tag orange" id="t-s3-tag">Étape 03 · Commande</span>
-                            <span class="slide-big-icon">⚡</span>
-                            <div class="slide-headline" id="t-s3-h">Commandez sans attendre</div>
-                            <div class="slide-desc" id="t-s3-d">Le client passe commande ou appelle le serveur directement. La commande arrive sur votre téléphone ou caisse.</div>
-                            <div class="mockup-item-pill">
-                                <span>🔔 Appel serveur Table 4</span>
-                                <span style="color:#C2410C;">Reçu ⚡</span>
+                    <!-- Slide 3: Photos HD des Plats -->
+                    <div class="slider-slide slide-bg-food">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s3-tag">📸 Étape 03 · Vos Plats</span>
+                            <span class="slide-step-counter">03 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; font-size:11px; font-weight:800; color:#FB923C;">
+                                    <span>Spécialité du Chef</span>
+                                    <span style="background:#EA580C; color:#fff; padding:2px 8px; border-radius:999px; font-size:10px;">Populaire</span>
+                                </div>
+                                <div class="mockup-item-pill">
+                                    <span style="font-weight:900;">🍔 Double Smash Cheese</span>
+                                    <span style="color:#C75B39; font-weight:900;">750 DA</span>
+                                </div>
+                                <div style="margin-top:6px; font-size:11px; font-weight:800; color:#FDE047; text-align:center;">
+                                    📈 +25% de panier moyen grâce aux photos HD
+                                </div>
                             </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s3-h">Des photos qui font vendre</div>
+                            <div class="slide-desc-text" id="t-s3-d">Photos haute définition de vos plats et prix clairs pour augmenter votre panier moyen de +25%.</div>
                         </div>
                     </div>
 
-                    <!-- Slide 4: Google Reviews -->
-                    <div class="slider-slide">
-                        <div class="slide-frame slide-theme-light">
-                            <span class="slide-tag teal" id="t-s4-tag">Avis Clients</span>
-                            <span class="slide-big-icon">⭐</span>
-                            <div class="slide-headline" id="t-s4-h">Boostez vos avis Google Maps</div>
-                            <div class="slide-desc" id="t-s4-d">Après le repas, invitez vos clients satisfaits à laisser 5 étoiles pour hisser votre restaurant en tête sur Google.</div>
-                            <div class="mockup-stars">★★★★★</div>
+                    <!-- Slide 4: Commande Directe & Appel Serveur -->
+                    <div class="slider-slide slide-bg-order">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s4-tag">⚡ Service Sans Attendre</span>
+                            <span class="slide-step-counter">04 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div style="font-size:11px; font-weight:800; color:#34D399; margin-bottom:6px;">
+                                    <span>🟢 Notifications en temps réel</span>
+                                </div>
+                                <div class="mockup-item-pill" style="margin-top:0;">
+                                    <span>🔔 Appel Serveur · Table 06</span>
+                                    <span style="color:#D97706; font-size:11px;">Addition ⚡</span>
+                                </div>
+                                <div class="mockup-item-pill">
+                                    <span>🛒 Commande Table 04</span>
+                                    <span style="color:#059669; font-size:11px;">En cuisine ✓</span>
+                                </div>
+                                <div style="margin-top:6px; font-size:10px; font-weight:800; color:#A7F3D0; text-align:center;">
+                                    ⏱️ Vos serveurs gagnent 15 min par table
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s4-h">Commandez sans attendre</div>
+                            <div class="slide-desc-text" id="t-s4-d">Le client passe commande ou appelle le serveur directement. La commande arrive sur votre téléphone ou caisse.</div>
                         </div>
                     </div>
 
                     <!-- Slide 5: Instant Menu Updates -->
-                    <div class="slider-slide">
-                        <div class="slide-frame slide-theme-dark">
-                            <span class="slide-tag white" id="t-s5-tag">Gestion Facile</span>
-                            <span class="slide-big-icon">🔄</span>
-                            <div class="slide-headline" id="t-s5-h">Changez vos prix en 1 seconde</div>
-                            <div class="slide-desc" id="t-s5-d">Un plat épuisé ? Un nouveau dessert ? Modifiez votre carte depuis votre smartphone sans jamais réimprimer.</div>
-                            <div class="mockup-item-pill">
-                                <span>Plat du jour : Masqué</span>
-                                <span style="color:#10B981;">Mis à jour ✓</span>
+                    <div class="slider-slide slide-bg-manage">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s5-tag">🔄 Gestion Facile</span>
+                            <span class="slide-step-counter">05 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div style="font-size:11px; font-weight:800; color:#C084FC; margin-bottom:6px;">
+                                    <span>Modifier depuis son smartphone</span>
+                                </div>
+                                <div class="mockup-item-pill" style="margin-top:0;">
+                                    <span>Plat du jour épuisé</span>
+                                    <span style="color:#DC2626; font-size:10px; background:#FEE2E2; padding:2px 6px; border-radius:6px;">Masqué en 1 sec</span>
+                                </div>
+                                <div class="mockup-item-pill">
+                                    <span>Nouveau prix Pizza</span>
+                                    <span style="color:#2563EB; font-size:10px; background:#DBEAFE; padding:2px 6px; border-radius:6px;">800 DA ➔ 900 DA</span>
+                                </div>
+                                <div style="margin-top:6px; font-size:10px; font-weight:800; color:#E9D5FF; text-align:center;">
+                                    💰 Économisez ~35 000 DA de réimpressions/an
+                                </div>
                             </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s5-h">Changez vos prix en 1 seconde</div>
+                            <div class="slide-desc-text" id="t-s5-d">Un plat épuisé ? Un nouveau dessert ? Modifiez votre carte depuis votre smartphone sans jamais réimprimer.</div>
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- Slider Controls: Prev, Dots, Next -->
+            <!-- Slider Controls: Prev, Dots & Counter, Next -->
             <div class="slider-bottom-bar">
                 <button type="button" class="slider-btn-nav" id="btn-slide-prev" onclick="prevSlide()" aria-label="Précédent">←</button>
                 <div class="slider-dots-group" id="sliderDots">
@@ -990,6 +1202,7 @@
                     <div class="slider-nav-dot" onclick="goToSlide(3)"></div>
                     <div class="slider-nav-dot" onclick="goToSlide(4)"></div>
                 </div>
+                <span class="slider-counter-pill" id="sliderCounterText">01 / 05</span>
                 <button type="button" class="slider-btn-nav" id="btn-slide-next" onclick="nextSlide()" aria-label="Suivant">→</button>
             </div>
         </div>
@@ -1045,9 +1258,9 @@
                 <!-- CARD 1: Basic (2 000 DA) with BIG Picture Box -->
                 <div class="formula-card" onclick="selectFormula('Basic', 2000, 24000)" id="card-formula-Basic">
                     <div class="formula-main-row">
-                        <!-- BIG FULL-BLEED SQUARE PICTURE -->
-                        <div class="formula-square-box">
-                            <img src="assets/plan_basic.jpg" alt="Qrmeunu Basic" class="formula-square-img" loading="lazy">
+                        <!-- BIG PICTURE BOX (As requested) -->
+                        <div class="formula-big-pic-box pic-basic">
+                            <span class="pic-symbol">📱</span>
                         </div>
                         <div class="formula-content-col">
                             <div class="formula-heading-row">
@@ -1071,9 +1284,9 @@
                 <div class="formula-card selected" onclick="selectFormula('Commande', 4000, 48000)" id="card-formula-Commande">
                     <div class="formula-ribbon orange" id="t-f2-ribbon">⭐ LE PLUS CHOISI</div>
                     <div class="formula-main-row">
-                        <!-- BIG FULL-BLEED SQUARE PICTURE -->
-                        <div class="formula-square-box">
-                            <img src="assets/plan_commande.jpg" alt="Qrmeunu Commande" class="formula-square-img" loading="lazy">
+                        <!-- BIG PICTURE BOX (As requested) -->
+                        <div class="formula-big-pic-box pic-commande">
+                            <span class="pic-symbol">🛒</span>
                         </div>
                         <div class="formula-content-col">
                             <div class="formula-heading-row">
@@ -1087,7 +1300,6 @@
                     </div>
                     <ul class="formula-features-list" id="t-f2-list">
                         <li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li>
-                        <li><span class="check-green-icon">✓</span> ⭐ <strong>Boost avis Google Maps 5★</strong> (multiplie vos avis)</li>
                         <li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li>
                         <li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>
                     </ul>
@@ -1098,9 +1310,9 @@
                 <div class="formula-card" onclick="selectFormula('Caisse Pro', 4680, 56160)" id="card-formula-CaissePro">
                     <div class="formula-ribbon red" id="t-f3-ribbon">-10% PROMO</div>
                     <div class="formula-main-row">
-                        <!-- BIG FULL-BLEED SQUARE PICTURE -->
-                        <div class="formula-square-box">
-                            <img src="assets/plan_caisse.jpg" alt="Qrmeunu Caisse Pro" class="formula-square-img" loading="lazy">
+                        <!-- BIG PICTURE BOX (As requested) -->
+                        <div class="formula-big-pic-box pic-caisse">
+                            <span class="pic-symbol">💻</span>
                         </div>
                         <div class="formula-content-col">
                             <div class="formula-heading-row">
@@ -1116,7 +1328,6 @@
                     <ul class="formula-features-list" id="t-f3-list">
                         <li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li>
                         <li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li>
-                        <li><span class="check-green-icon">✓</span> Module Google Maps 5★ & avis clients intégré</li>
                         <li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>
                     </ul>
                     <div class="formula-annual-note" id="t-f3-annual">Payable à l'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong></div>
@@ -1325,6 +1536,11 @@
             dots.forEach((dot, idx) => {
                 dot.classList.toggle('active', idx === currentSlideIdx);
             });
+
+            const counter = document.getElementById('sliderCounterText');
+            if (counter) {
+                counter.textContent = '0' + (currentSlideIdx + 1) + ' / 0' + totalSlides;
+            }
         }
 
         window.goToSlide = function(idx) {
@@ -1380,11 +1596,12 @@
                 badgeVerified: '⭐ N°1 du Menu QR en Algérie',
                 prodTitle: 'Votre menu digital par QR Code',
                 prodSub: 'Fini les menus papier à réimprimer. Vos clients scannent avec leur téléphone et commandent directement à table sans attendre.',
-                s1Tag: 'Étape 01 · Le Scan', s1H: 'Scannez le QR sur la table', s1D: 'Le menu s\'ouvre instantanément sur le téléphone du client. 0 application à télécharger.',
-                s2Tag: 'Étape 02 · Vos Plats', s2H: 'Des photos qui font vendre', s2D: 'Photos haute définition de vos plats et prix clairs pour augmenter votre panier moyen de +25%.',
-                s3Tag: 'Étape 03 · Commande', s3H: 'Commandez sans attendre', s3D: 'Le client passe commande ou appelle le serveur directement. La commande arrive sur votre téléphone ou caisse.',
-                s4Tag: 'Avis Clients', s4H: 'Boostez vos avis Google Maps', s4D: 'Après le repas, invitez vos clients satisfaits à laisser 5 étoiles pour hisser votre restaurant en tête sur Google.',
-                s5Tag: 'Gestion Facile', s5H: 'Changez vos prix en 1 seconde', s5D: 'Un plat épuisé ? Un nouveau dessert ? Modifiez votre carte depuis votre smartphone sans jamais réimprimer.',
+                s1Tag: 'Étape 01 · Le Scan', s1H: 'Votre menu, en un seul scan', s1D: 'Le menu s\'ouvre instantanément sur le téléphone du client. 0 application à télécharger.',
+                s2Tag: '⭐ Avis Google Maps', s2H: 'Multipliez vos avis Google Maps 5★', s2D: 'Après le repas, 1 client sur 3 laisse un avis 5 étoiles pour hisser votre restaurant N°1 sur Google.',
+                s2Score: '5.0 · 185 avis clients certifiés', s2Pill: '⭐ Laisser un avis 5 étoiles', s2Boost: '🚀 Hissez votre restaurant N°1 sur Google Maps !',
+                s3Tag: '📸 Photos Plats HD', s3H: 'Des photos qui font vendre (+25%)', s3D: 'Photos haute définition de vos plats et prix clairs pour augmenter votre panier moyen de +25%.',
+                s4Tag: '⚡ Service Sans Attendre', s4H: 'Commandez sans attendre le serveur', s4D: 'Le client passe commande ou appelle le serveur directement. La commande arrive sur votre téléphone ou caisse.',
+                s5Tag: '🔄 Gestion Facile', s5H: 'Changez vos prix en 1 seconde', s5D: 'Un plat épuisé ? Un nouveau dessert ? Modifiez votre carte depuis votre smartphone sans jamais réimprimer.',
                 whyTitle: 'Pourquoi arrêter le papier ?', whyBadge: 'ÉCONOMIES',
                 badHead: '❌ Menu Papier',
                 badList: '<li>Menus tachés et déchirés</li><li>~35 000 DA de réimpression</li><li>Impossible de changer un prix</li><li>Le serveur court partout</li>',
@@ -1397,11 +1614,11 @@
                 f1Annual: 'Payable à l\'année : 24 000 DA/an',
                 f2Ribbon: '⭐ LE PLUS CHOISI',
                 f2Name: 'Commande', f2Per: '/mois',
-                f2List: '<li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li><li><span class="check-green-icon">✓</span> ⭐ <strong>Boost avis Google Maps 5★</strong> (multiplie vos avis)</li><li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li><li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>',
+                f2List: '<li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li><li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li><li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>',
                 f2Annual: 'Payable à l\'année : 48 000 DA/an',
                 f3Ribbon: '-10% PROMO',
                 f3Name: 'Caisse Pro', f3Per: '/mois',
-                f3List: '<li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li><li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li><li><span class="check-green-icon">✓</span> Module Google Maps 5★ & avis clients intégré</li><li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>',
+                f3List: '<li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li><li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li><li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>',
                 f3Annual: 'Payable à l\'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong>',
                 formTitle: 'Demandez votre menu QR', formBadge: 'Devis Gratuit',
                 formDesc: 'Remplissez ce formulaire court. Nous vous contactons pour fixer votre installation.',
@@ -1426,11 +1643,12 @@
                 badgeVerified: '⭐ الرقم 1 في منيو الـ QR في الجزائر 🇩🇿',
                 prodTitle: 'مينيو مطعمك الذكي بالـ QR كود',
                 prodSub: 'تهنى من طباعة المينيو الورقي كل خطرة. كليانك يسكانو بتيليفوناتهم ويطلبو ديريكت من الطابلة بلا ما يستناو.',
-                s1Tag: 'الخطوة 01 · السكان', s1H: 'سكان الكود QR على الطاولة', s1D: 'المينيو يفتح تم تم في هاتف الزبون بدون تحميل أي تطبيق.',
-                s2Tag: 'الخطوة 02 · الأطباق', s2H: 'صور شهية تفتح النفس', s2D: 'صور واضحة وعالية الجودة مع أسعار دقيقة تزيد من معدل طلبات الزبائن بنسبة 25%.',
-                s3Tag: 'الخطوة 03 · الطلب', s3H: 'الطلب المباشر في الحين', s3D: 'الزبون يطلب أو ينادي السيرفور ديريكت، وتوصلك الكوموند في هاتفك أو لاكيس.',
-                s4Tag: 'آراء الزبائن', s4H: 'زيادة تقييمات Google Maps', s4D: 'بعد الوجبة، شجع زبائنك يخليو 5 نجوم لرفع ترتيب مطعمك في قوقل.',
-                s5Tag: 'تحكم سهل', s5H: 'تبديل الأسعار في ثانية', s5D: 'طبق خلص ؟ حبيت تبدل سعر ؟ غير المينيو مباشرة من هاتفك بدون الحاجة لإعادة الطباعة.',
+                s1Tag: 'الخطوة 01 · السكان', s1H: 'مينيو مطعمك الذكي بسكان واحد', s1D: 'المينيو يفتح تم تم في هاتف الزبون بدون تحميل أي تطبيق.',
+                s2Tag: '⭐ تقييمات Google Maps', s2H: 'كبّر تقييمات مطعمك في Google Maps 5 نجوم', s2D: 'الزبائن يخليو 5 نجوم مباشرة بعد الوجبة ويطلع مطعمك الأول في قوقل ويجيبلك كليان جدد كل يوم 🇩🇿',
+                s2Score: '5.0 · 185 تقييم زبون حقيقي', s2Pill: '⭐ ترك تقييم 5 نجوم بنقرة واحدة', s2Boost: '🚀 مطعمك يولي الأول في بحث Google Maps !',
+                s3Tag: '📸 صور أطباق HD', s3H: 'صور شهية تزيد الطلبات (+25%)', s3D: 'صور واضحة وعالية الجودة مع أسعار دقيقة تزيد من معدل طلبات الزبائن بنسبة 25%.',
+                s4Tag: '⚡ طلب سريع بدون انتظار', s4H: 'الطلب المباشر ونداء السيرفور', s4D: 'الزبون يطلب أو ينادي السيرفور ديريكت، وتوصلك الكوموند في هاتفك أو لاكيس بلا تضييع وقت.',
+                s5Tag: '🔄 تحكم سهل وفوري', s5H: 'تبديل الأسعار والأطباق في ثانية', s5D: 'طبق خلص ؟ حبيت تبدل سعر ؟ غير المينيو مباشرة من هاتفك بدون الحاجة لإعادة الطباعة.',
                 whyTitle: 'علاش لازم تحبس المينيو الورقي ؟', whyBadge: 'توفير',
                 badHead: '❌ المينيو الورقي القديم',
                 badList: '<li>يتوسخ بالماكلة ويتقطع</li><li>~35 000 دج مصاريف طباعة</li><li>ما تقدرش تبدل الأسعار تم تم</li><li>السيرفور يجري ويضيع الوقت</li>',
@@ -1443,11 +1661,11 @@
                 f1Annual: 'الدفع بالعام : 24 000 دج/سنوياً',
                 f2Ribbon: '⭐ الأكثر طلباً',
                 f2Name: 'كوموند (Commande)', f2Per: '/شهر',
-                f2List: '<li><span class="check-green-icon">✓</span> <strong>الكليان يطلب ديريكت من هاتفه</strong></li><li><span class="check-green-icon">✓</span> ⭐ <strong>زيادة تقييمات Google Maps و 5 نجوم</strong> لمطعمك</li><li><span class="check-green-icon">✓</span> طلبات في الطاولة أو جاهزة للأخذ</li><li><span class="check-green-icon">✓</span> إشعارات واتساب ومباشرة في الحين</li>',
+                f2List: '<li><span class="check-green-icon">✓</span> <strong>الكليان يطلب ديريكت من هاتفه</strong></li><li><span class="check-green-icon">✓</span> طلبات في الطاولة أو جاهزة للأخذ</li><li><span class="check-green-icon">✓</span> إشعارات واتساب ومباشرة في الحين</li>',
                 f2Annual: 'الدفع بالعام : 48 000 دج/سنوياً',
                 f3Ribbon: 'تخفيض 10% 🏷️',
                 f3Name: 'كايس برو (Caisse Pro)', f3Per: '/شهر',
-                f3List: '<li><span class="check-green-icon">✓</span> <strong>ربط مباشر مع نظام الصندوق (POS)</strong></li><li><span class="check-green-icon">✓</span> التذاكر تخرج في الكوزينة ديريكت</li><li><span class="check-green-icon">✓</span> تقييمات Google Maps 5 نجوم وإدارة متقدمة</li><li><span class="check-green-icon">✓</span> متابعة كاملة ودعم فني بأولوية</li>',
+                f3List: '<li><span class="check-green-icon">✓</span> <strong>ربط مباشر مع نظام الصندوق (POS)</strong></li><li><span class="check-green-icon">✓</span> التذاكر تخرج في الكوزينة ديريكت</li><li><span class="check-green-icon">✓</span> متابعة كاملة ودعم فني بأولوية</li>',
                 f3Annual: 'الدفع بالعام : <s>62 400 دج</s> <strong>56 160 دج/سنوياً</strong>',
                 formTitle: 'أطلب المينيو QR كود لمطعمك', formBadge: 'معاينة مجانية',
                 formDesc: 'عمر هاذ الاستمارة القصيرة، نتصلو بيك ونحددو موعد التركيب.',
@@ -1498,6 +1716,9 @@
             document.getElementById('t-s2-tag').textContent = t.s2Tag;
             document.getElementById('t-s2-h').textContent = t.s2H;
             document.getElementById('t-s2-d').textContent = t.s2D;
+            if (document.getElementById('t-s2-score')) document.getElementById('t-s2-score').textContent = t.s2Score;
+            if (document.getElementById('t-s2-pill')) document.getElementById('t-s2-pill').innerHTML = `<span>${t.s2Pill}</span>`;
+            if (document.getElementById('t-s2-boost')) document.getElementById('t-s2-boost').textContent = t.s2Boost;
             document.getElementById('t-s3-tag').textContent = t.s3Tag;
             document.getElementById('t-s3-h').textContent = t.s3H;
             document.getElementById('t-s3-d').textContent = t.s3D;
