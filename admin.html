@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qrmeunu · Tableau de Bord Admin</title>
+    <title>Qrmeunu · CRM & Gestion des Leads 🇩🇿</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Vercel Analytics -->
     <script>
@@ -19,502 +19,1539 @@
       window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
+
     <style>
         :root {
             --primary: #FF5722;
-            --primary-light: #FFF3EE;
-            --secondary: #1A8A7D;
-            --secondary-light: #E0F5F2;
-            --dark: #111827;
-            --bg: #F3F4F6;
+            --primary-dark: #E64A19;
+            --primary-light: #FFF2ED;
+            --secondary: #0D9488;
+            --secondary-light: #F0FDFA;
+            --dark: #0F172A;
+            --dark-card: #1E293B;
+            --bg: #F8FAFC;
             --white: #FFFFFF;
-            --text: #111827;
-            --text-muted: #6B7280;
-            --text-light: #9CA3AF;
-            --border: #E5E7EB;
+            --text: #0F172A;
+            --text-muted: #64748B;
+            --text-light: #94A3B8;
+            --border: #E2E8F0;
             --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
             --danger: #EF4444;
             --danger-light: #FEF2F2;
             --warning: #F59E0B;
             --warning-light: #FFFBEB;
             --success: #10B981;
             --success-light: #ECFDF5;
+            --info: #3B82F6;
+            --info-light: #EFF6FF;
+            --purple: #8B5CF6;
+            --purple-light: #F5F3FF;
+            --radius-lg: 16px;
             --radius: 12px;
             --radius-sm: 8px;
-            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.07);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.06);
+            --shadow-lg: 0 12px 30px -4px rgba(15, 23, 42, 0.12);
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 15px;
+            font-size: 14.5px;
             color: var(--text);
             background: var(--bg);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             min-height: 100vh;
+            padding-bottom: 60px;
         }
 
-        /* ── TOP BAR ── */
+        /* ── TOP HEADER BAR ── */
         .topbar {
             background: var(--white);
             border-bottom: 1px solid var(--border);
-            padding: 12px 20px;
+            padding: 12px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: var(--shadow-sm);
         }
         .topbar-left {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        .topbar-left .nav-logo-icon {
-            width: 34px;
-            height: 34px;
-            border-radius: 9px;
-            background: linear-gradient(135deg, var(--primary), #E64A19);
+        .nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            font-size: 16px;
-            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.35);
+            font-size: 17px;
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.35);
         }
-        .topbar-left h1 { font-size: 18px; font-weight: 700; color: var(--text); }
-        .topbar-left h1 span { color: var(--text-light); font-weight: 400; font-size: 14px; margin-left: 8px; }
-        .topbar-right { display: flex; align-items: center; gap: 10px; }
-        #db-status {
-            font-size: 12px; font-weight: 600; padding: 5px 12px;
-            border-radius: 999px; white-space: nowrap;
-            background: #EFF6FF; color: #3B82F6;
+        .topbar-title {
+            display: flex;
+            flex-direction: column;
         }
-        .topbar-date { font-size: 13px; color: var(--text-muted); display: none; }
-        @media(min-width:640px) { .topbar-date { display: block; } }
+        .topbar-title h1 {
+            font-size: 17px;
+            font-weight: 900;
+            color: var(--text);
+            letter-spacing: -0.4px;
+            line-height: 1.2;
+        }
+        .topbar-title span {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .status-beacon {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 999px;
+            white-space: nowrap;
+            background: var(--info-light);
+            color: var(--info);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .status-beacon.live {
+            background: #DCFCE7;
+            color: #166534;
+            border-color: #86EFAC;
+        }
+        .status-beacon.offline {
+            background: #FFFBEB;
+            color: #92400E;
+            border-color: #FDE68A;
+        }
+        .beacon-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+        .topbar-btn {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 7px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+        .topbar-btn:hover { background: #F1F5F9; border-color: #CBD5E1; }
+        .topbar-btn.primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.25);
+        }
+        .topbar-btn.primary:hover { opacity: 0.95; transform: translateY(-1px); }
 
-        .page { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        /* ── MAIN CONTAINER ── */
+        .page-wrap {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
 
-        /* ── ALERT ── */
-        .alert {
+        /* ── NOTIFICATION / ALERT ── */
+        .alert-banner {
             display: none;
-            padding: 14px 18px;
+            padding: 12px 16px;
             border-radius: var(--radius);
-            font-size: 14px;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            font-size: 13.5px;
+            font-weight: 600;
+            background: var(--warning-light);
+            color: #92400E;
+            border: 1px solid #FDE68A;
         }
-        .alert-warning { background: var(--warning-light); color: #92400E; border: 1px solid #FDE68A; }
-        .alert a { color: inherit; font-weight: 700; text-decoration: underline; }
+        .alert-banner a { color: inherit; font-weight: 800; text-decoration: underline; }
 
-        /* ── STAT CARDS ── */
-        .stats {
+        /* ── REVENUE & EXECUTIVE STATS ROW ── */
+        .exec-stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
         }
-        @media(min-width:640px) { .stats { grid-template-columns: repeat(5, 1fr); } }
-        .stat {
+        @media (max-width: 900px) {
+            .exec-stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .exec-stats-grid { grid-template-columns: 1fr; }
+        }
+        .stat-card {
             background: var(--white);
-            border-radius: var(--radius);
-            padding: 16px;
-            box-shadow: var(--shadow);
-            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: relative;
+            overflow: hidden;
         }
-        .stat-label { font-size: 12px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-        .stat-value { font-size: 28px; font-weight: 800; color: var(--text); margin-top: 4px; }
-        .stat-value.primary { color: var(--primary); }
+        .stat-card.highlight {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: #FFFFFF;
+            border-color: #334155;
+            box-shadow: var(--shadow);
+        }
+        .stat-card.highlight .stat-sub { color: #94A3B8; }
+        .stat-card.highlight .stat-header span { color: #94A3B8; }
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .stat-header span {
+            font-size: 11.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--text-muted);
+        }
+        .stat-icon {
+            font-size: 20px;
+        }
+        .stat-val {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -0.6px;
+            color: var(--text);
+            line-height: 1.15;
+        }
+        .stat-card.highlight .stat-val { color: #38BDF8; }
+        .stat-sub {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .trend-up { color: #10B981; font-weight: 800; }
 
-        /* ── TOOLBAR ── */
-        .toolbar {
+        /* ── FORMULA BREAKDOWN PILLS ROW ── */
+        .formula-summary-bar {
             background: var(--white);
+            border: 1px solid var(--border);
             border-radius: var(--radius);
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+        .formula-pills-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .formula-pill-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 800;
+        }
+        .pill-basic-box { background: #F1F5F9; color: #475569; }
+        .pill-commande-box { background: var(--primary-light); color: var(--primary-dark); }
+        .pill-caisse-box { background: var(--secondary-light); color: var(--secondary); }
+
+        /* ── PIPELINE STATUS TABS ── */
+        .status-tabs-row {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .status-tab-btn {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--text-muted);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .status-tab-btn:hover { background: #F8FAFC; border-color: #CBD5E1; color: var(--text); }
+        .status-tab-btn.active {
+            background: var(--dark);
+            color: #FFFFFF;
+            border-color: var(--dark);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+        }
+        .tab-badge {
+            background: rgba(0, 0, 0, 0.08);
+            padding: 2px 7px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 900;
+        }
+        .status-tab-btn.active .tab-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+        }
+
+        /* ── TOOLBAR (SEARCH, FILTERS, EXPORT) ── */
+        .toolbar-panel {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             padding: 16px;
-            box-shadow: var(--shadow);
-            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             align-items: flex-end;
         }
-        .toolbar-field { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 140px; }
-        .toolbar-field label { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-        .toolbar-field input, .toolbar-field select {
-            height: 38px; padding: 0 10px; border: 1px solid var(--border);
-            border-radius: var(--radius-sm); font-size: 14px; font-family: inherit;
-            background: var(--bg); color: var(--text);
+        .tool-col {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+            min-width: 140px;
         }
-        .toolbar-field input:focus, .toolbar-field select:focus {
-            outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px rgba(232,83,46,0.15);
+        .tool-col.grow { flex: 2; min-width: 200px; }
+        .tool-col label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .toolbar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-        .btn-sm {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 8px 14px; border-radius: var(--radius-sm);
-            font-size: 13px; font-weight: 600; font-family: inherit;
-            border: none; cursor: pointer; transition: all 0.15s; white-space: nowrap;
+        .tool-input {
+            height: 42px;
+            padding: 0 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-family: inherit;
+            background: #F8FAFC;
+            color: var(--text);
+            transition: all 0.2s;
         }
-        .btn-sm:active { transform: scale(0.97); }
-        .btn-teal { background: var(--secondary-light); color: var(--secondary); }
-        .btn-teal:hover { background: #C6F0EA; }
-        .btn-orange { background: var(--primary-light); color: var(--primary); }
-        .btn-orange:hover { background: #FFE8E0; }
+        .tool-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.15);
+        }
+        .toolbar-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
 
-        /* ── TABLE ── */
-        .table-wrap {
+        /* ── LEADS TABLE ── */
+        .table-card {
             background: var(--white);
-            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
             overflow: hidden;
         }
-        table { width: 100%; border-collapse: collapse; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
         thead th {
-            background: var(--bg); font-size: 11px; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 0.5px;
-            color: var(--text-muted); padding: 12px 14px; text-align: left;
-            border-bottom: 1px solid var(--border); white-space: nowrap;
+            background: #F8FAFC;
+            font-size: 11.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
         }
         tbody td {
-            padding: 14px; border-bottom: 1px solid var(--border);
-            font-size: 14px; vertical-align: middle;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            vertical-align: middle;
         }
         tbody tr:last-child td { border-bottom: none; }
-        tbody tr:hover { background: #F9FAFB; }
+        tbody tr:hover { background: #F8FAFC; }
 
-        .cell-name { font-weight: 600; color: var(--text); }
-        .cell-restaurant { color: var(--text-muted); font-size: 13px; }
-        .cell-phone a {
-            color: var(--secondary); font-weight: 600; text-decoration: none;
+        .lead-resto-name {
+            font-weight: 900;
+            font-size: 15px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .cell-email { color: var(--text-muted); font-size: 13px; }
-
-        .pill {
-            display: inline-flex; align-items: center; padding: 3px 10px;
-            border-radius: 999px; font-size: 12px; font-weight: 600;
+        .lead-contact-name {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
         }
-        .pill-basic { background: #F3F4F6; color: #374151; }
-        .pill-commande { background: var(--primary-light); color: var(--primary); }
-        .pill-caisse { background: var(--secondary-light); color: var(--secondary); }
-
-        .status-select {
-            padding: 5px 8px; border-radius: 6px; font-size: 13px; font-family: inherit;
-            border: 1px solid var(--border); cursor: pointer; background: var(--white);
+        .badge-lang {
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 6px;
         }
-        .status-select:focus { outline: none; border-color: var(--primary); }
+        .badge-lang.ar { background: #FEF3C7; color: #92400E; }
+        .badge-lang.fr { background: #EFF6FF; color: #1E40AF; }
 
-        .actions { display: flex; gap: 6px; }
-        .act-btn {
-            padding: 6px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
-            border: none; cursor: pointer; font-family: inherit; transition: all 0.15s;
+        .lead-phone-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
-        .act-btn:active { transform: scale(0.95); }
-        .act-wa { background: #DCFCE7; color: #166534; }
-        .act-wa:hover { background: #BBF7D0; }
-        .act-del { background: var(--danger-light); color: var(--danger); }
-        .act-del:hover { background: #FEE2E2; }
-
-        .empty-state {
-            text-align: center; padding: 48px 20px; color: var(--text-muted);
+        .lead-phone-link {
+            color: var(--text);
+            font-weight: 800;
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 14px;
         }
-        .empty-state .icon { font-size: 40px; margin-bottom: 12px; display: block; }
-        .empty-state h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+        .lead-phone-link:hover { color: var(--primary); text-decoration: underline; }
 
-        /* ── MOBILE TABLE → CARDS ── */
-        @media(max-width: 768px) {
+        .lead-price-val {
+            font-weight: 900;
+            color: var(--primary-dark);
+            font-size: 14px;
+        }
+        .lead-price-sub {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* ── STATUS SELECT BADGES ── */
+        .status-dropdown {
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 800;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .status-dropdown.st-Nouveau { background: #EFF6FF; color: #1D4ED8; border-color: #BFDBFE; }
+        .status-dropdown.st-Contacte { background: #FFFBEB; color: #B45309; border-color: #FDE68A; }
+        .status-dropdown.st-RDV { background: #F5F3FF; color: #6D28D9; border-color: #DDD6FE; }
+        .status-dropdown.st-Installe { background: #ECFDF5; color: #047857; border-color: #A7F3D0; }
+        .status-dropdown.st-Annule { background: #FEF2F2; color: #B91C1C; border-color: #FECACA; }
+
+        /* ── ACTIONS BUTTONS ── */
+        .actions-cluster {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-act {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            background: var(--white);
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.15s;
+        }
+        .btn-act:hover { transform: scale(1.06); }
+        .btn-act.wa { background: #DCFCE7; color: #166534; border-color: #86EFAC; font-weight: 800; }
+        .btn-act.call { background: #EFF6FF; color: #1E40AF; border-color: #93C5FD; }
+        .btn-act.print { background: #F1F5F9; color: var(--text); }
+        .btn-act.note { background: #FFFBEB; color: #B45309; border-color: #FDE68A; }
+        .btn-act.del { background: #FEF2F2; color: #DC2626; border-color: #FECACA; }
+
+        /* ── NOTE BADGE IN TABLE ── */
+        .lead-note-box {
+            font-size: 12px;
+            color: #92400E;
+            background: #FFFBEB;
+            border: 1px dashed #FDE68A;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin-top: 5px;
+            display: inline-block;
+            max-width: 240px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* ── EMPTY STATE ── */
+        .empty-view {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+        .empty-view-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* ── MODALS (ADD LEAD, NOTE, BON D'INSTALLATION) ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 520px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-head {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .modal-head h3 { font-size: 17px; font-weight: 900; }
+        .modal-close-btn {
+            background: transparent;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--text-muted);
+            line-height: 1;
+        }
+        .modal-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-foot {
+            padding: 14px 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            background: #F8FAFC;
+        }
+
+        /* ── TOAST LIVE ALERT ── */
+        .live-lead-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #0F172A;
+            color: #FFFFFF;
+            padding: 14px 18px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 999;
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .live-lead-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ── PRINT VIEW STYLING ── */
+        @media print {
+            .topbar, .stats-grid, .formula-summary-bar, .status-tabs-row, .toolbar-panel, .actions-cluster, .topbar-btn, .modal-overlay, .live-lead-toast {
+                display: none !important;
+            }
+            body { background: #FFFFFF; padding: 0; }
+            .print-invoice-area { display: block !important; padding: 20px; }
+        }
+
+        /* ── MOBILE RESPONSIVE CARDS ── */
+        @media (max-width: 860px) {
             table, thead, tbody, th, td, tr { display: block; }
             thead { display: none; }
             tbody tr {
-                padding: 16px; margin-bottom: 8px; position: relative;
-                border-bottom: 1px solid var(--border);
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 16px;
+                margin-bottom: 12px;
+                box-shadow: var(--shadow-sm);
             }
-            tbody tr:hover { background: var(--white); }
             td {
-                display: flex; justify-content: space-between; align-items: center;
-                padding: 5px 0; border: none; font-size: 14px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 7px 0;
+                border: none;
             }
             td::before {
                 content: attr(data-label);
-                font-weight: 600; font-size: 12px; color: var(--text-muted);
-                text-transform: uppercase; letter-spacing: 0.3px;
-                min-width: 100px;
+                font-weight: 800;
+                font-size: 11px;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
             }
-            .actions { justify-content: flex-end; padding-top: 8px; }
+            .actions-cluster { justify-content: flex-end; width: 100%; margin-top: 8px; }
         }
     </style>
 </head>
 <body>
 
-<div class="topbar">
-    <div class="topbar-left">
-        <div class="nav-logo-icon">Q</div>
-        <h1>Qrmeunu Admin <span id="current-date"></span></h1>
+    <!-- ══ TOP HEADER BAR ══ -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <div class="nav-logo-icon">Q</div>
+            <div class="topbar-title">
+                <h1>Qrmeunu CRM Leads</h1>
+                <span id="current-date-text">Aujourd'hui</span>
+            </div>
+        </div>
+
+        <div class="topbar-right">
+            <span class="status-beacon" id="db-status-badge">
+                <span class="beacon-dot"></span>
+                <span id="db-status-text">Connexion...</span>
+            </span>
+
+            <button type="button" class="topbar-btn" id="btn-sound-toggle" onclick="toggleSoundAlert()" title="Activer / Désactiver les alertes sonores">
+                <span id="sound-icon">🔊</span>
+            </button>
+
+            <button type="button" class="topbar-btn primary" onclick="openAddLeadModal()">
+                <span>+</span> Nouveau Lead
+            </button>
+        </div>
+    </header>
+
+    <!-- ══ MAIN PAGE ══ -->
+    <main class="page-wrap">
+
+        <!-- Firestore Offline Notice -->
+        <div id="firestore-notice" class="alert-banner"></div>
+
+        <!-- ── REVENUE & KEY PERFORMANCE STATS ── -->
+        <section class="exec-stats-grid">
+            
+            <!-- Pipeline Revenue (DA) -->
+            <div class="stat-card highlight">
+                <div class="stat-header">
+                    <span>Revenu Potentiel (Pipeline)</span>
+                    <span class="stat-icon">💰</span>
+                </div>
+                <div class="stat-val" id="stat-pipeline-revenue">0 DA</div>
+                <div class="stat-sub">
+                    <span id="stat-confirmed-revenue">0 DA</span> &nbsp;encaissé / confirmé
+                </div>
+            </div>
+
+            <!-- Total Leads -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Total Prospects</span>
+                    <span class="stat-icon">👥</span>
+                </div>
+                <div class="stat-val" id="stat-total-count">0</div>
+                <div class="stat-sub">
+                    <span class="trend-up" id="stat-today-count">+0</span> &nbsp;reçus aujourd'hui
+                </div>
+            </div>
+
+            <!-- Conversion Rate -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Taux de Conversion</span>
+                    <span class="stat-icon">📈</span>
+                </div>
+                <div class="stat-val" id="stat-conversion-rate">0%</div>
+                <div class="stat-sub">
+                    <span id="stat-converted-count">0</span> confirmés ou installés
+                </div>
+            </div>
+
+            <!-- Formule Phare (Commande) -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Formule la plus vendue</span>
+                    <span class="stat-icon">⭐</span>
+                </div>
+                <div class="stat-val" style="color:var(--primary);" id="stat-top-plan">Commande</div>
+                <div class="stat-sub" id="stat-top-plan-sub">
+                    0 restaurants équipés
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ── FORMULA BREAKDOWN PILLS ── -->
+        <div class="formula-summary-bar">
+            <span style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">
+                Répartition par formule :
+            </span>
+            <div class="formula-pills-group">
+                <div class="formula-pill-count pill-basic-box">
+                    <span>📱 Basic (24k DA) :</span>
+                    <strong id="stat-count-basic">0</strong>
+                </div>
+                <div class="formula-pill-count pill-commande-box">
+                    <span>🛒 Commande (48k DA) :</span>
+                    <strong id="stat-count-commande">0</strong>
+                </div>
+                <div class="formula-pill-count pill-caisse-box">
+                    <span>💻 Caisse Pro (56k DA) :</span>
+                    <strong id="stat-count-caisse">0</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── STATUS TABS ── -->
+        <div class="status-tabs-row" id="statusTabsGroup">
+            <button type="button" class="status-tab-btn active" onclick="setStatusTab('')">
+                Tous <span class="tab-badge" id="tab-cnt-all">0</span>
+            </button>
+            <button type="button" class="status-tab-btn" onclick="setStatusTab('Nouveau')">
+                🆕 Nouveaux <span class="tab-badge" id="tab-cnt-new">0</span>
+            </button>
+            <button type="button" class="status-tab-btn" onclick="setStatusTab('Contacté')">
+                📞 Contactés <span class="tab-badge" id="tab-cnt-contacted">0</span>
+            </button>
+            <button type="button" class="status-tab-btn" onclick="setStatusTab('RDV Fixé')">
+                📅 RDV Fixé <span class="tab-badge" id="tab-cnt-rdv">0</span>
+            </button>
+            <button type="button" class="status-tab-btn" onclick="setStatusTab('Installé')">
+                ✅ Installés <span class="tab-badge" id="tab-cnt-installed">0</span>
+            </button>
+            <button type="button" class="status-tab-btn" onclick="setStatusTab('Annulé')">
+                ❌ Annulés <span class="tab-badge" id="tab-cnt-cancelled">0</span>
+            </button>
+        </div>
+
+        <!-- ── TOOLBAR (SEARCH, WILAYA, DATES, EXPORT) ── -->
+        <div class="toolbar-panel">
+            <div class="tool-col grow">
+                <label>Recherche rapide</label>
+                <input type="text" id="filter-search" class="tool-input" placeholder="Nom, restaurant, téléphone, wilaya, note...">
+            </div>
+
+            <div class="tool-col">
+                <label>Wilaya</label>
+                <select id="filter-wilaya" class="tool-input">
+                    <option value="">Toutes les wilayas</option>
+                    <option value="16-Alger">16 - Alger</option>
+                    <option value="31-Oran">31 - Oran</option>
+                    <option value="25-Constantine">25 - Constantine</option>
+                    <option value="19-Setif">19 - Sétif</option>
+                    <option value="09-Blida">09 - Blida</option>
+                    <option value="06-Bejaia">06 - Béjaïa</option>
+                    <option value="15-Tizi Ouzou">15 - Tizi Ouzou</option>
+                    <option value="23-Annaba">23 - Annaba</option>
+                    <option value="13-Tlemcen">13 - Tlemcen</option>
+                </select>
+            </div>
+
+            <div class="tool-col">
+                <label>Formule</label>
+                <select id="filter-formule" class="tool-input">
+                    <option value="">Toutes formules</option>
+                    <option value="Basic">Basic (24 000 DA)</option>
+                    <option value="Commande">Commande (48 000 DA)</option>
+                    <option value="Caisse Pro">Caisse Pro (56 160 DA)</option>
+                </select>
+            </div>
+
+            <div class="tool-col">
+                <label>Trier par</label>
+                <select id="filter-sort" class="tool-input" onchange="renderTable()">
+                    <option value="date-desc">Plus récent d'abord</option>
+                    <option value="date-asc">Plus ancien d'abord</option>
+                    <option value="price-desc">Prix le plus élevé</option>
+                    <option value="resto-asc">Nom de restaurant (A-Z)</option>
+                </select>
+            </div>
+
+            <div class="toolbar-actions">
+                <button type="button" class="topbar-btn" onclick="exportCSV()" title="Télécharger tableur CSV">
+                    📥 CSV
+                </button>
+                <button type="button" class="topbar-btn" onclick="copyAllPhones()" title="Copier tous les numéros de téléphone pour campagnes WhatsApp">
+                    📋 Copier Numéros
+                </button>
+                <button type="button" class="topbar-btn" onclick="generateSampleData()" style="color:#C2410C; background:#FFF7ED; border-color:#FFEDD5;" title="Ajouter 5 exemples pour tester">
+                    🧪 +Test
+                </button>
+            </div>
+        </div>
+
+        <!-- ── LEADS TABLE VIEW ── -->
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date & Heure</th>
+                        <th>Restaurant & Client</th>
+                        <th>Coordonnées</th>
+                        <th>Wilaya</th>
+                        <th>Formule & Valeur</th>
+                        <th>Statut</th>
+                        <th style="text-align:right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="leads-table-body">
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- ══ MODAL: AJOUTER UN LEAD MANUEL ══ -->
+    <div id="modalAddLead" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3>Ajouter un prospect manuellement</h3>
+                <button type="button" class="modal-close-btn" onclick="closeAddLeadModal()">&times;</button>
+            </div>
+            <form id="formAddLead" onsubmit="submitManualLead(event)">
+                <div class="modal-body">
+                    <div class="tool-col">
+                        <label>Nom du Restaurant *</label>
+                        <input type="text" id="m-resto" class="tool-input" required placeholder="Ex: Restaurant Le Palmier">
+                    </div>
+                    <div class="tool-col">
+                        <label>Nom du Client / Gérant *</label>
+                        <input type="text" id="m-name" class="tool-input" required placeholder="Ex: Mohamed Benali">
+                    </div>
+                    <div class="tool-col">
+                        <label>Numéro de Téléphone *</label>
+                        <input type="tel" id="m-phone" class="tool-input" required placeholder="Ex: 0550 12 34 56">
+                    </div>
+                    <div class="tool-col">
+                        <label>Wilaya *</label>
+                        <select id="m-wilaya" class="tool-input" required>
+                            <option value="16-Alger">16 - Alger</option>
+                            <option value="31-Oran">31 - Oran</option>
+                            <option value="25-Constantine">25 - Constantine</option>
+                            <option value="19-Setif">19 - Sétif</option>
+                            <option value="09-Blida">09 - Blida</option>
+                            <option value="06-Bejaia">06 - Béjaïa</option>
+                            <option value="15-Tizi Ouzou">15 - Tizi Ouzou</option>
+                            <option value="23-Annaba">23 - Annaba</option>
+                            <option value="13-Tlemcen">13 - Tlemcen</option>
+                        </select>
+                    </div>
+                    <div class="tool-col">
+                        <label>Formule choisie *</label>
+                        <select id="m-formule" class="tool-input" required>
+                            <option value="Commande">Commande (4 000 DA/mois - 48 000 DA/an)</option>
+                            <option value="Basic">Basic (2 000 DA/mois - 24 000 DA/an)</option>
+                            <option value="Caisse Pro">Caisse Pro (4 680 DA/mois - 56 160 DA/an)</option>
+                        </select>
+                    </div>
+                    <div class="tool-col">
+                        <label>Note interne (Optionnel)</label>
+                        <input type="text" id="m-note" class="tool-input" placeholder="Ex: Rappeler demain 14h, veut 15 QR codes">
+                    </div>
+                </div>
+                <div class="modal-foot">
+                    <button type="button" class="topbar-btn" onclick="closeAddLeadModal()">Annuler</button>
+                    <button type="submit" class="topbar-btn primary">Enregistrer le prospect</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="topbar-right">
-        <span id="db-status">⚡ Connexion...</span>
-    </div>
-</div>
 
-<div class="page">
-    <div id="firestore-notice" class="alert alert-warning"></div>
-
-    <div class="stats">
-        <div class="stat">
-            <div class="stat-label">Total</div>
-            <div class="stat-value primary" id="stat-total">0</div>
-        </div>
-        <div class="stat">
-            <div class="stat-label">Aujourd'hui</div>
-            <div class="stat-value" id="stat-today">0</div>
-        </div>
-        <div class="stat">
-            <div class="stat-label">Basic</div>
-            <div class="stat-value" id="stat-basic">0</div>
-        </div>
-        <div class="stat">
-            <div class="stat-label">Commande</div>
-            <div class="stat-value" id="stat-commande">0</div>
-        </div>
-        <div class="stat">
-            <div class="stat-label">Caisse Pro</div>
-            <div class="stat-value" id="stat-caisse">0</div>
+    <!-- ══ MODAL: ÉDITER LA NOTE D'UN LEAD ══ -->
+    <div id="modalEditNote" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3 id="noteModalRestoTitle">Note interne</h3>
+                <button type="button" class="modal-close-btn" onclick="closeNoteModal()">&times;</button>
+            </div>
+            <form onsubmit="saveLeadNote(event)">
+                <div class="modal-body">
+                    <input type="hidden" id="editNoteLeadId">
+                    <label style="font-size:12px; font-weight:700; color:var(--text-muted);">Notes et instructions pour ce restaurant :</label>
+                    <textarea id="editNoteText" class="tool-input" style="height:110px; padding:10px; resize:vertical;" placeholder="Ex: Client intéressé pour 2ème resto, installation fixée pour jeudi 10h..."></textarea>
+                </div>
+                <div class="modal-foot">
+                    <button type="button" class="topbar-btn" onclick="closeNoteModal()">Annuler</button>
+                    <button type="submit" class="topbar-btn primary">Enregistrer la note</button>
+                </div>
+            </form>
         </div>
     </div>
 
-    <div class="toolbar">
-        <div class="toolbar-field" style="flex:2;">
-            <label>Recherche</label>
-            <input type="text" id="search" placeholder="Nom ou restaurant...">
-        </div>
-        <div class="toolbar-field">
-            <label>Wilaya</label>
-            <select id="filter-wilaya">
-                <option value="">Toutes</option>
-                <option value="1-Adrar">Adrar</option><option value="2-Chlef">Chlef</option><option value="3-Laghouat">Laghouat</option>
-                <option value="4-Oum El Bouaghi">Oum El Bouaghi</option><option value="5-Batna">Batna</option><option value="6-Bejaia">Béjaïa</option>
-                <option value="7-Biskra">Biskra</option><option value="8-Bechar">Béchar</option><option value="9-Blida">Blida</option>
-                <option value="10-Bouira">Bouira</option><option value="11-Tamanrasset">Tamanrasset</option><option value="12-Tebessa">Tébessa</option>
-                <option value="13-Tlemcen">Tlemcen</option><option value="14-Tiaret">Tiaret</option><option value="15-Tizi Ouzou">Tizi Ouzou</option>
-                <option value="16-Alger">Alger</option><option value="17-Djelfa">Djelfa</option><option value="18-Jijel">Jijel</option>
-                <option value="19-Setif">Sétif</option><option value="20-Saida">Saïda</option><option value="21-Skikda">Skikda</option>
-                <option value="22-Sidi Bel Abbes">Sidi Bel Abbès</option><option value="23-Annaba">Annaba</option><option value="24-Guelma">Guelma</option>
-                <option value="25-Constantine">Constantine</option><option value="26-Medea">Médéa</option><option value="27-Mostaganem">Mostaganem</option>
-                <option value="28-MSila">M'Sila</option><option value="29-Mascara">Mascara</option><option value="30-Ouargla">Ouargla</option>
-                <option value="31-Oran">Oran</option><option value="32-El Bayadh">El Bayadh</option><option value="33-Illizi">Illizi</option>
-                <option value="34-Bordj Bou Arreridj">Bordj Bou Arreridj</option><option value="35-Boumerdes">Boumerdès</option>
-                <option value="36-El Tarf">El Tarf</option><option value="37-Tindouf">Tindouf</option><option value="38-Tissemsilt">Tissemsilt</option>
-                <option value="39-El Oued">El Oued</option><option value="40-Khenchela">Khenchela</option><option value="41-Souk Ahras">Souk Ahras</option>
-                <option value="42-Tipaza">Tipaza</option><option value="43-Mila">Mila</option><option value="44-Ain Defla">Aïn Defla</option>
-                <option value="45-Naama">Naâma</option><option value="46-Ain Temouchent">Aïn Témouchent</option><option value="47-Ghardaia">Ghardaïa</option>
-                <option value="48-Relizane">Relizane</option><option value="49-Timimoun">Timimoun</option>
-                <option value="50-Bordj Badji Mokhtar">Bordj Badji Mokhtar</option><option value="51-Ouled Djellal">Ouled Djellal</option>
-                <option value="52-Beni Abbes">Béni Abbès</option><option value="53-In Salah">In Salah</option>
-                <option value="54-In Guezzam">In Guezzam</option><option value="55-Touggourt">Touggourt</option>
-                <option value="56-Djanet">Djanet</option><option value="57-El MGhair">El M'Ghair</option><option value="58-El Meniaa">El Meniaa</option>
-            </select>
-        </div>
-        <div class="toolbar-field">
-            <label>Formule</label>
-            <select id="filter-formule">
-                <option value="">Toutes</option>
-                <option value="Basic">Basic</option>
-                <option value="Commande">Commande</option>
-                <option value="Caisse Pro">Caisse Pro</option>
-            </select>
-        </div>
-        <div class="toolbar-field">
-            <label>Du</label>
-            <input type="date" id="date-from">
-        </div>
-        <div class="toolbar-field">
-            <label>Au</label>
-            <input type="date" id="date-to">
-        </div>
-        <div class="toolbar-actions">
-            <button class="btn-sm btn-teal" onclick="window.exportCSV()">📥 CSV</button>
-            <button class="btn-sm btn-orange" onclick="window.generateSampleData()">🧪 Test Data</button>
+    <!-- ══ MODAL: BON D'INSTALLATION IMPRIMABLE ══ -->
+    <div id="modalPrintSheet" class="modal-overlay">
+        <div class="modal-card" style="max-width:600px;">
+            <div class="modal-head">
+                <h3>Fiche & Bon d'Installation</h3>
+                <button type="button" class="modal-close-btn" onclick="closePrintModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="printableContentArea">
+                <!-- Injected via JavaScript -->
+            </div>
+            <div class="modal-foot">
+                <button type="button" class="topbar-btn" onclick="closePrintModal()">Fermer</button>
+                <button type="button" class="topbar-btn primary" onclick="printInstallationSheet()">🖨️ Imprimer le bon</button>
+            </div>
         </div>
     </div>
 
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Client</th>
-                    <th>Téléphone</th>
-                    <th>Wilaya</th>
-                    <th>Formule</th>
-                    <th>Statut</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="orders-table-body"></tbody>
-        </table>
+    <!-- ══ LIVE AUDIO NOTIFICATION TOAST ══ -->
+    <div id="liveLeadToast" class="live-lead-toast">
+        <span style="font-size:22px;">🔔</span>
+        <div>
+            <div style="font-weight:900; font-size:13.5px;" id="toastLeadResto">Nouveau restaurant reçu !</div>
+            <div style="font-size:12px; color:#94A3B8;" id="toastLeadDetails">Chargement...</div>
+        </div>
     </div>
-</div>
 
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, collection, onSnapshot, doc, updateDoc, deleteDoc, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    <!-- ══ FIREBASE / FIRESTORE & CRM LOGIC ══ -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, onSnapshot, doc, updateDoc, deleteDoc, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-    const app = initializeApp({
-        apiKey: "AIzaSyBUDfe0o3J03Ax-6tQIFrXau3Ds0c4H234",
-        authDomain: "restau-dfbb2.firebaseapp.com",
-        projectId: "restau-dfbb2",
-        storageBucket: "restau-dfbb2.firebasestorage.app",
-        messagingSenderId: "1018720003065",
-        appId: "1:1018720003065:web:9713c7633cfff1b4131328"
-    });
-    const db = getFirestore(app);
-    const KEY = 'qrmeunu_leads';
-    let allOrders = [];
-    let live = false;
+        const firebaseConfig = {
+            apiKey: "AIzaSyBUDfe0o3J03Ax-6tQIFrXau3Ds0c4H234",
+            authDomain: "restau-dfbb2.firebaseapp.com",
+            projectId: "restau-dfbb2",
+            storageBucket: "restau-dfbb2.firebasestorage.app",
+            messagingSenderId: "1018720003065",
+            appId: "1:1018720003065:web:9713c7633cfff1b4131328"
+        };
 
-    document.getElementById('current-date').textContent = new Date().toLocaleDateString('fr-FR', { weekday:'short', day:'numeric', month:'short', year:'numeric' });
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const LOCAL_KEY = 'qrmeunu_leads';
 
-    const badge = document.getElementById('db-status');
-    const notice = document.getElementById('firestore-notice');
+        let allLeads = [];
+        let isLiveFirestore = false;
+        let activeStatusTab = '';
+        let soundAlertEnabled = (localStorage.getItem('qrmeunu_admin_sound') !== 'false');
+        let isInitialLoad = true;
 
-    function local(k) { try { return JSON.parse(localStorage.getItem(k)||'[]'); } catch(e) { return []; } }
-    function save(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch(e){} }
+        // Sound alert toggle UI
+        function updateSoundIcon() {
+            document.getElementById('sound-icon').textContent = soundAlertEnabled ? '🔊' : '🔇';
+            document.getElementById('btn-sound-toggle').style.background = soundAlertEnabled ? '#FFFFFF' : '#F1F5F9';
+        }
+        window.toggleSoundAlert = function() {
+            soundAlertEnabled = !soundAlertEnabled;
+            localStorage.setItem('qrmeunu_admin_sound', soundAlertEnabled);
+            updateSoundIcon();
+            if (soundAlertEnabled) playChime();
+        };
+        updateSoundIcon();
 
-    // Firestore realtime
-    try {
-        onSnapshot(collection(db, "leads"), snap => {
-            live = true;
-            badge.textContent = "🟢 En direct";
-            badge.style.background = "#DCFCE7"; badge.style.color = "#166534";
-            notice.style.display = 'none';
-            const arr = [];
-            snap.forEach(d => {
-                const data = d.data();
-                let dt = data.date || new Date().toISOString();
-                if (data.createdAt?.toDate) dt = data.createdAt.toDate().toISOString();
-                arr.push({ id: d.id, ...data, date: dt });
+        // Web Audio Synthesizer Chime for new leads
+        function playChime() {
+            if (!soundAlertEnabled) return;
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const now = ctx.currentTime;
+                
+                const osc1 = ctx.createOscillator();
+                const gain1 = ctx.createGain();
+                osc1.type = 'sine';
+                osc1.frequency.setValueAtTime(587.33, now); // D5
+                osc1.frequency.setValueAtTime(880, now + 0.12); // A5
+                gain1.gain.setValueAtTime(0.2, now);
+                gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+                osc1.connect(gain1);
+                gain1.connect(ctx.destination);
+                osc1.start(now);
+                osc1.stop(now + 0.45);
+            } catch(e) {}
+        }
+
+        function showLiveToast(lead) {
+            const toast = document.getElementById('liveLeadToast');
+            document.getElementById('toastLeadResto').textContent = `⚡ Nouveau lead : ${lead.restaurant || 'Restaurant'}`;
+            document.getElementById('toastLeadDetails').textContent = `${lead.name} · ${lead.wilaya} · ${lead.formule}`;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 5000);
+        }
+
+        // Date Display
+        document.getElementById('current-date-text').textContent = new Date().toLocaleDateString('fr-FR', {
+            weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+        });
+
+        const statusBadge = document.getElementById('db-status-badge');
+        const statusText = document.getElementById('db-status-text');
+        const notice = document.getElementById('firestore-notice');
+
+        function loadLocal() {
+            try { return JSON.parse(localStorage.getItem(LOCAL_KEY) || '[]'); } catch(e) { return []; }
+        }
+        function saveLocal(arr) {
+            try { localStorage.setItem(LOCAL_KEY, JSON.stringify(arr)); } catch(e) {}
+        }
+
+        // Firestore Realtime Listener
+        try {
+            onSnapshot(collection(db, "leads"), (snapshot) => {
+                isLiveFirestore = true;
+                statusBadge.className = 'status-beacon live';
+                statusText.textContent = 'En direct';
+                notice.style.display = 'none';
+
+                const leadsArray = [];
+                snapshot.forEach(docSnap => {
+                    const data = docSnap.data();
+                    let dateIso = data.date || new Date().toISOString();
+                    if (data.createdAt?.toDate) dateIso = data.createdAt.toDate().toISOString();
+                    leadsArray.push({
+                        id: docSnap.id,
+                        ...data,
+                        date: dateIso
+                    });
+                });
+
+                // Detect new incoming leads while open
+                if (!isInitialLoad && leadsArray.length > allLeads.length) {
+                    const newest = leadsArray.sort((a,b) => new Date(b.date) - new Date(a.date))[0];
+                    playChime();
+                    showLiveToast(newest);
+                }
+                isInitialLoad = false;
+
+                allLeads = leadsArray;
+                saveLocal(allLeads);
+                window.renderTable();
+            }, (error) => {
+                console.warn("Firestore error fallback:", error);
+                isLiveFirestore = false;
+                statusBadge.className = 'status-beacon offline';
+                statusText.textContent = 'Mode Local';
+                if (error.code === 'permission-denied') {
+                    notice.style.display = 'block';
+                    notice.innerHTML = `⚠️ Accès Firestore restreint. Vous visualisez le cache local.`;
+                }
+                allLeads = loadLocal();
+                window.renderTable();
             });
-            allOrders = arr; save(arr); window.renderTable();
-        }, err => {
-            live = false;
-            badge.textContent = "🟠 Mode local";
-            badge.style.background = "#FFFBEB"; badge.style.color = "#92400E";
-            if (err.code === 'permission-denied') {
-                notice.style.display = 'block';
-                notice.innerHTML = `⚠️ Accès Firestore refusé. <a href="https://console.firebase.google.com/project/restau-dfbb2/firestore/rules" target="_blank">Configurer les règles →</a>`;
+        } catch(e) {
+            allLeads = loadLocal();
+            window.renderTable();
+        }
+
+        // Status Pipeline Tabs
+        window.setStatusTab = function(tabName) {
+            activeStatusTab = tabName;
+            document.querySelectorAll('.status-tab-btn').forEach(btn => {
+                const text = btn.innerText;
+                const matches = (tabName === '' && text.includes('Tous')) || (tabName !== '' && text.includes(tabName));
+                btn.classList.toggle('active', matches);
+            });
+            window.renderTable();
+        };
+
+        // Update Lead Status
+        window.updateLeadStatus = async (id, newStatus) => {
+            try {
+                await updateDoc(doc(db, "leads", id), { status: newStatus });
+            } catch(e) {}
+            const idx = allLeads.findIndex(l => l.id === id);
+            if (idx > -1) {
+                allLeads[idx].status = newStatus;
+                saveLocal(allLeads);
+                window.renderTable();
             }
-            allOrders = local(KEY); window.renderTable();
+        };
+
+        // Delete Lead
+        window.deleteLead = async (id) => {
+            if (!confirm('Êtes-vous sûr de vouloir supprimer ce prospect ?')) return;
+            try {
+                await deleteDoc(doc(db, "leads", id));
+            } catch(e) {}
+            allLeads = allLeads.filter(l => l.id !== id);
+            saveLocal(allLeads);
+            window.renderTable();
+        };
+
+        // Smart WhatsApp Contact with Pre-filled Message
+        window.openSmartWhatsApp = (phone, name, restaurant, formule, lang) => {
+            const cleanPhone = (phone || '').replace(/\D/g, '');
+            if (!cleanPhone) return;
+
+            const isAr = (lang === 'ar');
+            let text = '';
+            if (isAr) {
+                text = `السلام عليكم خويا ${name || ''}، معك فريق Qrmeunu بخصوص طلبك لمطعم *${restaurant || ''}* (صيغة ${formule || ''}).%0Aوقتاش نقدروا نثبتوا موعد التركيب في مطعمك ؟`;
+            } else {
+                text = `Bonjour ${name || ''}, l'équipe Qrmeunu suite à votre commande pour votre restaurant *${restaurant || ''}* (formule ${formule || ''}).%0AÀ quel moment seriez-vous disponible cette semaine pour l'installation sur place ?`;
+            }
+            window.open(`https://wa.me/${cleanPhone}?text=${text}`, '_blank');
+        };
+
+        // Notes Management
+        window.openNoteModal = (id, resto, currentNote) => {
+            document.getElementById('editNoteLeadId').value = id;
+            document.getElementById('noteModalRestoTitle').textContent = `Note : ${resto || 'Restaurant'}`;
+            document.getElementById('editNoteText').value = currentNote || '';
+            document.getElementById('modalEditNote').classList.add('open');
+        };
+        window.closeNoteModal = () => {
+            document.getElementById('modalEditNote').classList.remove('open');
+        };
+        window.saveLeadNote = async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('editNoteLeadId').value;
+            const noteText = document.getElementById('editNoteText').value.trim();
+
+            try {
+                await updateDoc(doc(db, "leads", id), { notes: noteText });
+            } catch(err) {}
+
+            const idx = allLeads.findIndex(l => l.id === id);
+            if (idx > -1) {
+                allLeads[idx].notes = noteText;
+                saveLocal(allLeads);
+                window.renderTable();
+            }
+            closeNoteModal();
+        };
+
+        // Manual Lead Creation
+        window.openAddLeadModal = () => document.getElementById('modalAddLead').classList.add('open');
+        window.closeAddLeadModal = () => document.getElementById('modalAddLead').classList.remove('open');
+
+        window.submitManualLead = async (e) => {
+            e.preventDefault();
+            const resto = document.getElementById('m-resto').value.trim();
+            const name = document.getElementById('m-name').value.trim();
+            const phone = document.getElementById('m-phone').value.trim();
+            const wilaya = document.getElementById('m-wilaya').value;
+            const formule = document.getElementById('m-formule').value;
+            const notes = document.getElementById('m-note').value.trim();
+
+            let monthly = 4000;
+            let annual = 48000;
+            if (formule === 'Basic') { monthly = 2000; annual = 24000; }
+            else if (formule === 'Caisse Pro') { monthly = 4680; annual = 56160; }
+
+            const newDoc = {
+                restaurant: resto,
+                name: name,
+                phone: phone,
+                wilaya: wilaya,
+                formule: formule,
+                monthlyPrice: monthly,
+                annualPrice: annual,
+                notes: notes,
+                status: 'Nouveau',
+                date: new Date().toISOString(),
+                lang: 'fr'
+            };
+
+            try {
+                const ref = await addDoc(collection(db, "leads"), {
+                    ...newDoc,
+                    createdAt: serverTimestamp()
+                });
+                newDoc.id = ref.id;
+            } catch(err) {
+                newDoc.id = "local_" + Date.now();
+            }
+
+            allLeads.unshift(newDoc);
+            saveLocal(allLeads);
+            closeAddLeadModal();
+            document.getElementById('formAddLead').reset();
+            window.renderTable();
+        };
+
+        // Printable Bon d'Installation
+        window.openPrintSheet = (id) => {
+            const lead = allLeads.find(l => l.id === id);
+            if (!lead) return;
+
+            const d = new Date(lead.date);
+            const dateStr = d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+
+            const annualPrice = lead.annualPrice || (lead.formule === 'Basic' ? 24000 : lead.formule === 'Caisse Pro' ? 56160 : 48000);
+
+            document.getElementById('printableContentArea').innerHTML = `
+                <div style="border:2px solid #0F172A; border-radius:12px; padding:20px; font-family:'Plus Jakarta Sans',sans-serif; color:#0F172A;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #E2E8F0; padding-bottom:14px; margin-bottom:14px;">
+                        <div>
+                            <h2 style="font-size:20px; font-weight:900; margin:0;">BON D'INSTALLATION & FICHE CLIENT</h2>
+                            <span style="font-size:12px; color:#64748B;">Qrmeunu Algérie · +213 656 24 31 17</span>
+                        </div>
+                        <div style="text-align:right;">
+                            <span style="font-size:12px; font-weight:700;">Date : ${dateStr}</span>
+                            <div style="font-size:11px; color:#64748B;">Réf: #${lead.id.substring(0,8)}</div>
+                        </div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; background:#F8FAFC; padding:12px; border-radius:8px;">
+                        <div>
+                            <div style="font-size:11px; text-transform:uppercase; color:#64748B; font-weight:800;">Établissement</div>
+                            <div style="font-size:16px; font-weight:900;">${lead.restaurant || '-'}</div>
+                            <div style="font-size:13px; color:#334155;">Gérant : <strong>${lead.name || '-'}</strong></div>
+                        </div>
+                        <div>
+                            <div style="font-size:11px; text-transform:uppercase; color:#64748B; font-weight:800;">Coordonnées</div>
+                            <div style="font-size:15px; font-weight:900; color:#0D9488;">${lead.phone || '-'}</div>
+                            <div style="font-size:13px; color:#334155;">Wilaya : <strong>${lead.wilaya || '-'}</strong></div>
+                        </div>
+                    </div>
+
+                    <div style="border:1.5px solid #E2E8F0; border-radius:8px; padding:12px; margin-bottom:16px;">
+                        <div style="display:flex; justify-content:space-between; font-weight:900; font-size:15px;">
+                            <span>Formule : ${lead.formule}</span>
+                            <span>${annualPrice.toLocaleString()} DA / an</span>
+                        </div>
+                        <div style="font-size:12px; color:#64748B; margin-top:4px;">
+                            ✓ Installation et configuration du menu QR sur place<br>
+                            ✓ Stickers QR codes haute résistance pour tables<br>
+                            ✓ Support technique et mises à jour continues inclus
+                        </div>
+                    </div>
+
+                    <div style="border-top:1px dashed #CBD5E1; padding-top:12px; margin-bottom:14px;">
+                        <div style="font-size:12px; font-weight:800; text-transform:uppercase; margin-bottom:6px;">Checklist Technicien :</div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:12px;">
+                            <div>[ ] Menu configuré et testé</div>
+                            <div>[ ] QR codes posés sur les tables</div>
+                            <div>[ ] Test scan smartphone gérant</div>
+                            <div>[ ] Paiement encaissé (${annualPrice.toLocaleString()} DA)</div>
+                        </div>
+                    </div>
+
+                    ${lead.notes ? `<div style="background:#FFFBEB; padding:8px 12px; border-radius:6px; font-size:12px; color:#92400E; margin-bottom:14px;"><strong>Note gérant :</strong> ${lead.notes}</div>` : ''}
+
+                    <div style="display:flex; justify-content:space-between; margin-top:24px; font-size:12px;">
+                        <div>Signature Gérant :<br><br>____________________</div>
+                        <div>Signature Technicien :<br><br>____________________</div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('modalPrintSheet').classList.add('open');
+        };
+        window.closePrintModal = () => document.getElementById('modalPrintSheet').classList.remove('open');
+        window.printInstallationSheet = () => window.print();
+
+        // Copy all phone numbers to clipboard
+        window.copyAllPhones = () => {
+            const phones = allLeads.map(l => (l.phone || '').trim()).filter(Boolean);
+            if (!phones.length) return alert('Aucun numéro de téléphone à copier.');
+            navigator.clipboard.writeText(phones.join(', ')).then(() => {
+                alert(`✓ ${phones.length} numéros de téléphone copiés dans votre presse-papier !`);
+            });
+        };
+
+        // Export CSV
+        window.exportCSV = () => {
+            const headers = ['Date', 'Restaurant', 'Nom Gérant', 'Téléphone', 'Email', 'Wilaya', 'Formule', 'Prix Annuel (DA)', 'Statut', 'Note'];
+            const rows = allLeads.map(l => [
+                new Date(l.date).toLocaleString('fr-FR'),
+                `"${(l.restaurant || '').replace(/"/g, '""')}"`,
+                `"${(l.name || '').replace(/"/g, '""')}"`,
+                `"${(l.phone || '').replace(/"/g, '""')}"`,
+                `"${(l.email || '').replace(/"/g, '""')}"`,
+                `"${(l.wilaya || '').replace(/"/g, '""')}"`,
+                `"${(l.formule || '').replace(/"/g, '""')}"`,
+                l.annualPrice || (l.formule === 'Basic' ? 24000 : l.formule === 'Caisse Pro' ? 56160 : 48000),
+                `"${(l.status || 'Nouveau').replace(/"/g, '""')}"`,
+                `"${(l.notes || '').replace(/"/g, '""')}"`
+            ]);
+
+            const csvContent = "data:text/csv;charset=utf-8,\uFEFF" + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `qrmeunu_leads_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+        };
+
+        // Generate Sample Test Data
+        window.generateSampleData = async () => {
+            const sampleData = [
+                { name: "Karim Mansouri", restaurant: "Le Palmier d'Alger", phone: "0550 12 34 56", wilaya: "16-Alger", formule: "Commande", status: "Nouveau", notes: "18 tables en terrasse" },
+                { name: "Amine Bouzid", restaurant: "Pizzeria Bella Oran", phone: "0770 98 76 54", wilaya: "31-Oran", formule: "Caisse Pro", status: "RDV Fixé", notes: "Installation fixée ce mercredi 11h" },
+                { name: "Sofiane Louahab", restaurant: "Burger House Constantine", phone: "0661 45 67 89", wilaya: "25-Constantine", formule: "Commande", status: "Installé", notes: "Payé par chèque - Tout est opérationnel" },
+                { name: "Nadir Fares", restaurant: "Tacos DZ Sétif", phone: "0555 77 88 99", wilaya: "19-Setif", formule: "Basic", status: "Contacté", notes: "Hésite avec Commande, rappeler demain" },
+                { name: "Yacine Belkacem", restaurant: "Café Lounge Blida", phone: "0771 22 33 44", wilaya: "09-Blida", formule: "Commande", status: "Nouveau", notes: "Nouveau local au centre-ville" }
+            ];
+
+            for (const s of sampleData) {
+                let monthly = 4000; let annual = 48000;
+                if (s.formule === 'Basic') { monthly = 2000; annual = 24000; }
+                else if (s.formule === 'Caisse Pro') { monthly = 4680; annual = 56160; }
+
+                const d = {
+                    ...s,
+                    email: "",
+                    monthlyPrice: monthly,
+                    annualPrice: annual,
+                    date: new Date().toISOString(),
+                    lang: Math.random() > 0.5 ? 'ar' : 'fr'
+                };
+
+                try {
+                    const ref = await addDoc(collection(db, "leads"), { ...d, createdAt: serverTimestamp() });
+                    d.id = ref.id;
+                } catch(e) {
+                    d.id = "local_" + Date.now() + Math.random().toString(36).slice(2,5);
+                }
+                allLeads.unshift(d);
+            }
+            saveLocal(allLeads);
+            window.renderTable();
+        };
+
+        // Render Table & Executive Stats
+        window.renderTable = () => {
+            const query = (document.getElementById('filter-search').value || '').toLowerCase().trim();
+            const fWilaya = document.getElementById('filter-wilaya').value;
+            const fFormule = document.getElementById('filter-formule').value;
+            const fSort = document.getElementById('filter-sort').value;
+
+            // Update Tab Badges
+            document.getElementById('tab-cnt-all').textContent = allLeads.length;
+            document.getElementById('tab-cnt-new').textContent = allLeads.filter(l => (l.status || 'Nouveau') === 'Nouveau').length;
+            document.getElementById('tab-cnt-contacted').textContent = allLeads.filter(l => l.status === 'Contacté').length;
+            document.getElementById('tab-cnt-rdv').textContent = allLeads.filter(l => l.status === 'RDV Fixé').length;
+            document.getElementById('tab-cnt-installed').textContent = allLeads.filter(l => l.status === 'Installé').length;
+            document.getElementById('tab-cnt-cancelled').textContent = allLeads.filter(l => l.status === 'Annulé').length;
+
+            // Filter
+            let filtered = allLeads.filter(lead => {
+                if (activeStatusTab && (lead.status || 'Nouveau') !== activeStatusTab) return false;
+                if (fWilaya && lead.wilaya !== fWilaya) return false;
+                if (fFormule && lead.formule !== fFormule) return false;
+
+                if (query) {
+                    const matchName = (lead.name || '').toLowerCase().includes(query);
+                    const matchResto = (lead.restaurant || '').toLowerCase().includes(query);
+                    const matchPhone = (lead.phone || '').toLowerCase().includes(query);
+                    const matchWilaya = (lead.wilaya || '').toLowerCase().includes(query);
+                    const matchNote = (lead.notes || '').toLowerCase().includes(query);
+                    if (!matchName && !matchResto && !matchPhone && !matchWilaya && !matchNote) return false;
+                }
+                return true;
+            });
+
+            // Sort
+            filtered.sort((a,b) => {
+                if (fSort === 'date-desc') return new Date(b.date || 0) - new Date(a.date || 0);
+                if (fSort === 'date-asc') return new Date(a.date || 0) - new Date(b.date || 0);
+                if (fSort === 'price-desc') return (b.annualPrice || 0) - (a.annualPrice || 0);
+                if (fSort === 'resto-asc') return (a.restaurant || '').localeCompare(b.restaurant || '');
+                return 0;
+            });
+
+            // Calculate Metrics
+            let totalRevenue = 0;
+            let confirmedRevenue = 0;
+            let countBasic = 0;
+            let countCommande = 0;
+            let countCaisse = 0;
+            let countConverted = 0;
+
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            let todayCount = 0;
+
+            allLeads.forEach(l => {
+                const ann = l.annualPrice || (l.formule === 'Basic' ? 24000 : l.formule === 'Caisse Pro' ? 56160 : 48000);
+                totalRevenue += ann;
+                if (l.status === 'Installé' || l.status === 'RDV Fixé') confirmedRevenue += ann;
+                if (l.status === 'Installé') countConverted++;
+
+                if (l.formule === 'Basic') countBasic++;
+                else if (l.formule === 'Commande') countCommande++;
+                else if (l.formule === 'Caisse Pro') countCaisse++;
+
+                if (new Date(l.date) >= today) todayCount++;
+            });
+
+            document.getElementById('stat-pipeline-revenue').textContent = `${totalRevenue.toLocaleString()} DA`;
+            document.getElementById('stat-confirmed-revenue').textContent = `${confirmedRevenue.toLocaleString()} DA`;
+            document.getElementById('stat-total-count').textContent = allLeads.length;
+            document.getElementById('stat-today-count').textContent = `+${todayCount}`;
+
+            const convRate = allLeads.length > 0 ? Math.round((countConverted / allLeads.length) * 100) : 0;
+            document.getElementById('stat-conversion-rate').textContent = `${convRate}%`;
+            document.getElementById('stat-converted-count').textContent = `${countConverted}`;
+
+            document.getElementById('stat-count-basic').textContent = countBasic;
+            document.getElementById('stat-count-commande').textContent = countCommande;
+            document.getElementById('stat-count-caisse').textContent = countCaisse;
+            document.getElementById('stat-top-plan-sub').textContent = `${countCommande} restaurants sur ${allLeads.length}`;
+
+            // Render Table Body
+            const tbody = document.getElementById('leads-table-body');
+            if (!filtered.length) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7">
+                            <div class="empty-view">
+                                <span class="empty-view-icon">📋</span>
+                                <h3 style="font-size:16px; font-weight:800; color:var(--text); margin-bottom:6px;">Aucun prospect correspondant</h3>
+                                <p style="font-size:13px; color:var(--text-muted);">Essayez de modifier vos filtres ou ajoutez des exemples avec "+Test".</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            const statuses = ['Nouveau', 'Contacté', 'RDV Fixé', 'Installé', 'Annulé'];
+
+            tbody.innerHTML = filtered.map(lead => {
+                const dateObj = new Date(lead.date);
+                const dateStr = dateObj.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' });
+                const timeStr = dateObj.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+
+                const annualPrice = lead.annualPrice || (lead.formule === 'Basic' ? 24000 : lead.formule === 'Caisse Pro' ? 56160 : 48000);
+                const monthlyPrice = lead.monthlyPrice || (lead.formule === 'Basic' ? 2000 : lead.formule === 'Caisse Pro' ? 4680 : 4000);
+
+                const currentSt = lead.status || 'Nouveau';
+                const stClass = currentSt.replace(/\s+/g, '');
+
+                const statusOptions = statuses.map(s => `
+                    <option value="${s}" ${currentSt === s ? 'selected' : ''}>${s}</option>
+                `).join('');
+
+                const isAr = (lead.lang === 'ar');
+                const langBadge = isAr 
+                    ? '<span class="badge-lang ar">🇩🇿 AR</span>' 
+                    : '<span class="badge-lang fr">🇫🇷 FR</span>';
+
+                return `
+                    <tr>
+                        <td data-label="Date">
+                            <div style="font-weight:800; color:var(--text);">${dateStr}</div>
+                            <div style="font-size:11.5px; color:var(--text-muted);">${timeStr}</div>
+                        </td>
+                        <td data-label="Restaurant">
+                            <div class="lead-resto-name">
+                                <span>${lead.restaurant || 'Sans nom'}</span>
+                                ${langBadge}
+                            </div>
+                            <div class="lead-contact-name">👤 ${lead.name || 'Gérant'}</div>
+                            ${lead.notes ? `<div class="lead-note-box">📝 ${lead.notes}</div>` : ''}
+                        </td>
+                        <td data-label="Contact">
+                            <div class="lead-phone-cell">
+                                <a href="tel:${lead.phone || ''}" class="lead-phone-link">📞 ${lead.phone || '-'}</a>
+                                ${lead.email ? `<span style="font-size:11.5px; color:var(--text-muted);">${lead.email}</span>` : ''}
+                            </div>
+                        </td>
+                        <td data-label="Wilaya">
+                            <span style="font-weight:700; font-size:13.5px; color:var(--text);">${lead.wilaya || '-'}</span>
+                        </td>
+                        <td data-label="Formule">
+                            <div class="lead-price-val">${annualPrice.toLocaleString()} DA <span class="lead-price-sub">/an</span></div>
+                            <div style="font-size:12px; font-weight:700; color:var(--text-muted);">${lead.formule || 'Commande'} (${monthlyPrice.toLocaleString()} DA/m)</div>
+                        </td>
+                        <td data-label="Statut">
+                            <select class="status-dropdown st-${stClass}" onchange="window.updateLeadStatus('${lead.id}', this.value)">
+                                ${statusOptions}
+                            </select>
+                        </td>
+                        <td data-label="Actions">
+                            <div class="actions-cluster">
+                                <button type="button" class="btn-act wa" onclick="window.openSmartWhatsApp('${lead.phone}', '${lead.name}', '${lead.restaurant}', '${lead.formule}', '${lead.lang}')" title="Message WhatsApp pré-rempli">💬</button>
+                                <a href="tel:${lead.phone || ''}" class="btn-act call" title="Appeler directement">📞</a>
+                                <button type="button" class="btn-act note" onclick="window.openNoteModal('${lead.id}', '${lead.restaurant || ''}', '${(lead.notes || '').replace(/'/g, "\\'")}')" title="Ajouter / modifier une note">📝</button>
+                                <button type="button" class="btn-act print" onclick="window.openPrintSheet('${lead.id}')" title="Imprimer le bon d'installation">🖨️</button>
+                                <button type="button" class="btn-act del" onclick="window.deleteLead('${lead.id}')" title="Supprimer ce lead">🗑️</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        };
+
+        // Event listeners for instant search and filters
+        ['filter-search', 'filter-wilaya', 'filter-formule'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', window.renderTable);
         });
-    } catch(e) { allOrders = local(KEY); window.renderTable(); }
 
-    function pillClass(f) {
-        if (f === 'Commande') return 'pill-commande';
-        if (f === 'Caisse Pro') return 'pill-caisse';
-        return 'pill-basic';
-    }
-
-    window.updateStatus = async (id, s) => {
-        try { await updateDoc(doc(db, "leads", id), { status: s }); } catch(e) {}
-        const i = allOrders.findIndex(o => o.id === id);
-        if (i > -1) { allOrders[i].status = s; save(allOrders); window.renderTable(); }
-    };
-    window.deleteOrder = async (id) => {
-        if (!confirm('Supprimer cette demande ?')) return;
-        try { await deleteDoc(doc(db, "leads", id)); } catch(e) {}
-        allOrders = allOrders.filter(o => o.id !== id); save(allOrders); window.renderTable();
-    };
-    window.openWhatsApp = (p) => { window.open(`https://wa.me/${(p||'').replace(/\D/g,'')}`, '_blank'); };
-
-    window.exportCSV = () => {
-        const h = ['Date','Nom','Restaurant','Téléphone','Email','Wilaya','Formule','Statut'];
-        const csv = "data:text/csv;charset=utf-8," + h.join(",") + "\n" +
-            allOrders.map(o => [
-                new Date(o.date).toLocaleString(),
-                `"${o.name||''}"`,`"${o.restaurant||''}"`,`"${o.phone||''}"`,
-                `"${o.email||''}"`,`"${o.wilaya||''}"`,`"${o.formule||''}"`,`"${o.status||('')}"`
-            ].join(",")).join("\n");
-        const a = document.createElement("a");
-        a.href = encodeURI(csv); a.download = "qrmeunu_leads.csv";
-        document.body.appendChild(a); a.click(); a.remove();
-    };
-
-    window.generateSampleData = async () => {
-        const names = [
-            { name:"Ahmed Benali", restaurant:"Le Petit Creux", phone:"0555123456", wilaya:"16-Alger", formule:"Basic" },
-            { name:"Sara Mansouri", restaurant:"Pizza Fast", phone:"0770987654", wilaya:"31-Oran", formule:"Commande" },
-            { name:"Karim Louahab", restaurant:"Burger House", phone:"0661223344", wilaya:"25-Constantine", formule:"Caisse Pro" },
-            { name:"Yasmine Bouzid", restaurant:"Café Zen", phone:"0550112233", wilaya:"16-Alger", formule:"Commande" },
-            { name:"Nadir Fares", restaurant:"Tacos DZ", phone:"0771445566", wilaya:"31-Oran", formule:"Basic" }
-        ];
-        for (const s of names) {
-            const d = { ...s, email: "", date: new Date().toISOString(), status: "Nouveau" };
-            try { const ref = await addDoc(collection(db, "leads"), { ...d, createdAt: serverTimestamp() }); d.id = ref.id; }
-            catch(e) { d.id = "local_" + Date.now() + Math.random().toString(36).slice(2,6); }
-            allOrders.unshift(d);
-        }
-        save(allOrders); window.renderTable();
-    };
-
-    window.renderTable = () => {
-        let orders = [...allOrders].sort((a,b) => new Date(b.date||0) - new Date(a.date||0));
-
-        const search = (document.getElementById('search').value||'').toLowerCase();
-        const fW = document.getElementById('filter-wilaya').value;
-        const fF = document.getElementById('filter-formule').value;
-        const dFrom = document.getElementById('date-from').value;
-        const dTo = document.getElementById('date-to').value;
-
-        orders = orders.filter(o => {
-            const n = (o.name||'').toLowerCase(), r = (o.restaurant||'').toLowerCase();
-            if (search && !n.includes(search) && !r.includes(search)) return false;
-            if (fW && o.wilaya !== fW) return false;
-            if (fF && o.formule !== fF) return false;
-            if (dFrom) { const d = new Date(o.date); d.setHours(0,0,0,0); if (d < new Date(dFrom)) return false; }
-            if (dTo) { const dt = new Date(dTo); dt.setHours(23,59,59,999); if (new Date(o.date) > dt) return false; }
-            return true;
+        window.addEventListener('focus', () => {
+            if (!isLiveFirestore) {
+                allLeads = loadLocal();
+                window.renderTable();
+            }
         });
 
-        document.getElementById('stat-total').textContent = orders.length;
-        const today = new Date(); today.setHours(0,0,0,0);
-        document.getElementById('stat-today').textContent = orders.filter(o => new Date(o.date) >= today).length;
-        document.getElementById('stat-basic').textContent = orders.filter(o => o.formule === 'Basic').length;
-        document.getElementById('stat-commande').textContent = orders.filter(o => o.formule === 'Commande').length;
-        document.getElementById('stat-caisse').textContent = orders.filter(o => o.formule === 'Caisse Pro').length;
-
-        const tbody = document.getElementById('orders-table-body');
-
-        if (!orders.length) {
-            tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state"><span class="icon">📋</span><h3>Aucune demande</h3><p>Cliquez sur "🧪 Test Data" pour générer des exemples.</p></div></td></tr>`;
-            return;
-        }
-
-        tbody.innerHTML = orders.map(o => {
-            const d = new Date(o.date);
-            const dateStr = d.toLocaleDateString('fr-FR', {day:'2-digit',month:'short'}) + ' ' + d.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
-            const sts = ['Nouveau','Contacté','Confirmé'].map(s => `<option value="${s}" ${o.status===s?'selected':''}>${s}</option>`).join('');
-            const langBadge = o.lang === 'ar' 
-                ? '<span style="font-size:10px; padding:2px 6px; border-radius:6px; background:#FEF3C7; color:#92400E; font-weight:700; margin-left:6px;">🇩🇿 AR</span>'
-                : '<span style="font-size:10px; padding:2px 6px; border-radius:6px; background:#EFF6FF; color:#1E40AF; font-weight:700; margin-left:6px;">🇫🇷 FR</span>';
-            return `<tr>
-                <td data-label="Date"><span style="font-size:13px;color:var(--text-muted);">${dateStr}</span></td>
-                <td data-label="Client"><div class="cell-name">${o.name||'-'} ${langBadge}</div><div class="cell-restaurant">${o.restaurant||''}</div>${o.email ? `<div class="cell-email">${o.email}</div>` : ''}</td>
-                <td data-label="Tél" class="cell-phone"><a href="tel:${o.phone||''}">${o.phone||'-'}</a></td>
-                <td data-label="Wilaya"><span style="font-size:13px;">${o.wilaya||'-'}</span></td>
-                <td data-label="Formule"><span class="pill ${pillClass(o.formule||'')}">${o.formule||'-'}</span></td>
-                <td data-label="Statut"><select class="status-select" onchange="window.updateStatus('${o.id}',this.value)">${sts}</select></td>
-                <td data-label="Actions"><div class="actions"><button class="act-btn act-wa" onclick="window.openWhatsApp('${o.phone||''}')">💬</button><button class="act-btn act-del" onclick="window.deleteOrder('${o.id}')">🗑</button></div></td>
-            </tr>`;
-        }).join('');
-    };
-
-    ['search','filter-wilaya','filter-formule','date-from','date-to'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.addEventListener('input', window.renderTable);
-    });
-    window.addEventListener('focus', () => { if (!live) { allOrders = local(KEY); window.renderTable(); } });
-    allOrders = local(KEY); window.renderTable();
-</script>
+        allLeads = loadLocal();
+        window.renderTable();
+    </script>
 </body>
 </html>
