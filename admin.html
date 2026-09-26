@@ -219,14 +219,48 @@
             position: relative;
             overflow: hidden;
         }
-        .stat-card.highlight {
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-            color: #FFFFFF;
-            border-color: #334155;
-            box-shadow: var(--shadow);
+        .stat-card.urgent {
+            background: #FFF7ED;
+            border-color: #FED7AA;
         }
-        .stat-card.highlight .stat-sub { color: #94A3B8; }
-        .stat-card.highlight .stat-header span { color: #94A3B8; }
+        .stat-card.urgent .stat-val { color: #EA580C; }
+        .stat-card.cash {
+            background: #F0FDF4;
+            border-color: #DCFCE7;
+        }
+        .stat-card.cash .stat-val { color: #16A34A; }
+        .action-alert-banner {
+            border-radius: var(--radius);
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13.5px;
+            font-weight: 700;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .action-alert-banner.alert-urgent {
+            background: #FEF2F2;
+            border: 1px solid #FECACA;
+            color: #991B1B;
+        }
+        .action-alert-banner.alert-clean {
+            background: #F0FDF4;
+            border: 1px solid #DCFCE7;
+            color: #166534;
+        }
+        .btn-quick-filter {
+            background: #DC2626;
+            color: #FFFFFF;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            font-family: inherit;
+        }
         .stat-header {
             display: flex;
             align-items: center;
@@ -696,25 +730,49 @@
         <!-- Firestore Offline Notice -->
         <div id="firestore-notice" class="alert-banner"></div>
 
-        <!-- ── REVENUE & KEY PERFORMANCE STATS ── -->
+        <!-- ── OPERATIONAL DAILY METRICS (NO VANITY / GROUNDED STATS) ── -->
         <section class="exec-stats-grid">
             
-            <!-- Pipeline Revenue (DA) -->
-            <div class="stat-card highlight">
+            <!-- Card 1: Urgent - Leads à appeler maintenant -->
+            <div class="stat-card urgent">
                 <div class="stat-header">
-                    <span>Revenu Potentiel (Pipeline)</span>
-                    <span class="stat-icon">💰</span>
+                    <span>🚨 À appeler maintenant</span>
+                    <span class="stat-icon">📞</span>
                 </div>
-                <div class="stat-val" id="stat-pipeline-revenue">0 DA</div>
-                <div class="stat-sub">
-                    <span id="stat-confirmed-revenue">0 DA</span> &nbsp;encaissé / confirmé
+                <div class="stat-val" id="stat-urgent-count">0</div>
+                <div class="stat-sub" id="stat-urgent-sub">
+                    Leads en attente d'un 1er contact
                 </div>
             </div>
 
-            <!-- Total Leads -->
+            <!-- Card 2: Installations & RDV Fixés -->
             <div class="stat-card">
                 <div class="stat-header">
-                    <span>Total Prospects</span>
+                    <span>📅 Installations / RDV fixés</span>
+                    <span class="stat-icon">📍</span>
+                </div>
+                <div class="stat-val" id="stat-rdv-count" style="color:var(--secondary);">0</div>
+                <div class="stat-sub">
+                    Passages sur place programmés
+                </div>
+            </div>
+
+            <!-- Card 3: Encaissé Réel (Strictement Payé) -->
+            <div class="stat-card cash">
+                <div class="stat-header">
+                    <span>💵 Encaissé Réel (Payé)</span>
+                    <span class="stat-icon">✅</span>
+                </div>
+                <div class="stat-val" id="stat-real-cash">0 DA</div>
+                <div class="stat-sub" id="stat-real-cash-sub">
+                    0 restaurant(s) installés & réglés
+                </div>
+            </div>
+
+            <!-- Card 4: Total Demandes Reçues -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>📋 Total Demandes</span>
                     <span class="stat-icon">👥</span>
                 </div>
                 <div class="stat-val" id="stat-total-count">0</div>
@@ -723,31 +781,13 @@
                 </div>
             </div>
 
-            <!-- Conversion Rate -->
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span>Taux de Conversion</span>
-                    <span class="stat-icon">📈</span>
-                </div>
-                <div class="stat-val" id="stat-conversion-rate">0%</div>
-                <div class="stat-sub">
-                    <span id="stat-converted-count">0</span> confirmés ou installés
-                </div>
-            </div>
-
-            <!-- Formule Phare (Commande) -->
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span>Formule la plus vendue</span>
-                    <span class="stat-icon">⭐</span>
-                </div>
-                <div class="stat-val" style="color:var(--primary);" id="stat-top-plan">Commande</div>
-                <div class="stat-sub" id="stat-top-plan-sub">
-                    0 restaurants équipés
-                </div>
-            </div>
-
         </section>
+
+        <!-- Dynamic Action Alert Banner -->
+        <div id="actionAlertBanner" class="action-alert-banner alert-urgent" style="display:none; margin-top: 14px;">
+            <span id="actionAlertText">🚨 0 restaurant(s) attendent votre appel !</span>
+            <button type="button" class="btn-quick-filter" onclick="setStatusTab('Nouveau')">Voir les leads à appeler →</button>
+        </div>
 
         <!-- ── FORMULA BREAKDOWN PILLS ── -->
         <div class="formula-summary-bar">
@@ -1413,23 +1453,30 @@
                 return 0;
             });
 
-            // Calculate Metrics
-            let totalRevenue = 0;
-            let confirmedRevenue = 0;
+            // Calculate Operational Metrics
+            let urgentCount = 0;
+            let rdvCount = 0;
+            let installedCount = 0;
+            let realCash = 0;
+
             let countBasic = 0;
             let countCommande = 0;
             let countCaisse = 0;
-            let countConverted = 0;
 
             const today = new Date();
             today.setHours(0,0,0,0);
             let todayCount = 0;
 
             allLeads.forEach(l => {
+                const status = l.status || 'Nouveau';
                 const ann = l.annualPrice || (l.formule === 'Basic' ? 24000 : l.formule === 'Caisse Pro' ? 56160 : 48000);
-                totalRevenue += ann;
-                if (l.status === 'Installé' || l.status === 'RDV Fixé') confirmedRevenue += ann;
-                if (l.status === 'Installé') countConverted++;
+
+                if (status === 'Nouveau') urgentCount++;
+                if (status === 'RDV Fixé') rdvCount++;
+                if (status === 'Installé') {
+                    installedCount++;
+                    realCash += ann; // Strictly counted only if installed
+                }
 
                 if (l.formule === 'Basic') countBasic++;
                 else if (l.formule === 'Commande') countCommande++;
@@ -1438,19 +1485,52 @@
                 if (new Date(l.date) >= today) todayCount++;
             });
 
-            document.getElementById('stat-pipeline-revenue').textContent = `${totalRevenue.toLocaleString()} DA`;
-            document.getElementById('stat-confirmed-revenue').textContent = `${confirmedRevenue.toLocaleString()} DA`;
-            document.getElementById('stat-total-count').textContent = allLeads.length;
-            document.getElementById('stat-today-count').textContent = `+${todayCount}`;
+            // Update DOM Elements
+            const statUrgent = document.getElementById('stat-urgent-count');
+            if (statUrgent) statUrgent.textContent = urgentCount;
+            const statUrgentSub = document.getElementById('stat-urgent-sub');
+            if (statUrgentSub) {
+                statUrgentSub.textContent = urgentCount > 0 
+                    ? `${urgentCount} lead(s) à contacter d'urgence` 
+                    : "Tous les leads ont été contactés ! 🎉";
+            }
 
-            const convRate = allLeads.length > 0 ? Math.round((countConverted / allLeads.length) * 100) : 0;
-            document.getElementById('stat-conversion-rate').textContent = `${convRate}%`;
-            document.getElementById('stat-converted-count').textContent = `${countConverted}`;
+            const statRdv = document.getElementById('stat-rdv-count');
+            if (statRdv) statRdv.textContent = rdvCount;
 
-            document.getElementById('stat-count-basic').textContent = countBasic;
-            document.getElementById('stat-count-commande').textContent = countCommande;
-            document.getElementById('stat-count-caisse').textContent = countCaisse;
-            document.getElementById('stat-top-plan-sub').textContent = `${countCommande} restaurants sur ${allLeads.length}`;
+            const statRealCash = document.getElementById('stat-real-cash');
+            if (statRealCash) statRealCash.textContent = `${realCash.toLocaleString()} DA`;
+            const statRealCashSub = document.getElementById('stat-real-cash-sub');
+            if (statRealCashSub) {
+                statRealCashSub.textContent = `${installedCount} restaurant(s) installé(s) & réglé(s)`;
+            }
+
+            const statTotal = document.getElementById('stat-total-count');
+            if (statTotal) statTotal.textContent = allLeads.length;
+            const statToday = document.getElementById('stat-today-count');
+            if (statToday) statToday.textContent = `+${todayCount}`;
+
+            const statBasic = document.getElementById('stat-count-basic');
+            if (statBasic) statBasic.textContent = countBasic;
+            const statCommande = document.getElementById('stat-count-commande');
+            if (statCommande) statCommande.textContent = countCommande;
+            const statCaisse = document.getElementById('stat-count-caisse');
+            if (statCaisse) statCaisse.textContent = countCaisse;
+
+            // Action Alert Banner
+            const banner = document.getElementById('actionAlertBanner');
+            const bannerText = document.getElementById('actionAlertText');
+            if (banner && bannerText) {
+                if (urgentCount > 0) {
+                    banner.style.display = 'flex';
+                    banner.className = 'action-alert-banner alert-urgent';
+                    bannerText.innerHTML = `🚨 <strong>${urgentCount} restaurant(s)</strong> attendent votre appel téléphonique ! Ne laissez pas les prospects refroidir.`;
+                } else {
+                    banner.style.display = 'flex';
+                    banner.className = 'action-alert-banner alert-clean';
+                    bannerText.innerHTML = `✨ <strong>À jour !</strong> Aucun nouveau prospect en attente d'appel. Préparez vos RDV d'installation.`;
+                }
+            }
 
             // Render Table Body
             const tbody = document.getElementById('leads-table-body');
