@@ -1,0 +1,34 @@
+
+Qrmeunu
+Charte de marque
+1. La marque
+Qrmeunu propose des menus et des systemes de commande par QR code pour les restaurants et petits commerces algeriens, avec une gamme progressive : consultation seule, commande interactive, puis integration complete a la caisse (POS).
+Positionnement : le partenaire QR code simple et accompagne pour des commercants qui ne sont pas a l'aise avec la technologie. On installe, on explique en personne, et ca continue de fonctionner sans effort de leur part.
+Slogan principal (FR) :
+Votre menu, en un scan.
+Ton en darja / reseaux sociaux :
+حط الكود، الكليان يطلب وحدو
+2. Logo
+Le symbole associe un motif de code QR a une fourchette, pour que le sens « nourriture » soit lu avant le sens « technologie ».
+
+Zone de protection : laisser un espace vide autour du logo au moins egal a la moitie de sa largeur.
+A eviter : ne pas etirer le logo, ne pas changer les couleurs du symbole, ne pas le placer sur un fond qui casse le contraste (eviter les fonds orange clair ou vert clair).
+3. Couleurs
+
+Pourquoi pas de bleu froid ni de couleurs « tech » : le public cible n'est pas familier avec la technologie. Le terracotta et le teal rappellent la nourriture et la confiance plutot que le logiciel.
+4. Typographie
+Police principale : Poppins (ou Baloo 2 / Cairo si un rendu arabe natif est necessaire dans le meme fichier).
+Titres : Poppins SemiBold / Medium, jamais en majuscules completes.
+Corps de texte : Poppins Regular, taille confortable (16px et plus sur le web, jamais moins de 11pt a l'impression).
+5. Ton et voix
+Toujours parler du resultat concret avant la technologie : « fini les menus a reimprimer » plutot que « solution digitale de menu ».
+Phrases courtes, vocabulaire simple, pas de jargon SaaS (pas de « plateforme », « solution », « digitalisation » en avant).
+Toujours rassurer sur l'accompagnement humain : installation faite par l'equipe, formation rapide, support par telephone ou WhatsApp.
+Bilingue FR / Darja : le francais pour les supports officiels (devis, factures, site), la darja (en caracteres latins ou arabes) pour les reseaux sociaux et la relation client.
+6. Les 3 formules
+Basic — menu QR consultable uniquement, mis a jour par Qrmeunu.
+Commande — le client commande depuis son telephone, a table ou a emporter.
+Caisse Pro — les commandes arrivent directement a la caisse et en cuisine.
+7. Utilisation du kit
+Ce document accompagne : le pack reseaux sociaux (photo de profil, image de couverture, 3 visuels de publication), le flyer de vente une page, et le logo en plusieurs formats.
+Pour toute nouvelle creation (flyer, affiche, story), reutiliser uniquement les couleurs et polices listees ci-dessus.

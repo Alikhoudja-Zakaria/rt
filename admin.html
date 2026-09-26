@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qrmeunu Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C75B39; /* Terracotta */
+            --secondary: #2A9D8F; /* Teal */
+            --bg: #FDF0EB; /* Light bg */
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #FFF;
+            --border: #E0E0E0;
+            --danger: #E63946;
+            --success: #2A9D8F;
+            --warning: #F4A261;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-dark);
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--white);
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            height: 40px;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .filters {
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .filter-group label {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .filter-group input, .filter-group select {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+            color: var(--white);
+        }
+
+        .table-container {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: #F8F9FA;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .badge-basic { background-color: var(--text-light); }
+        .badge-commande { background-color: var(--primary); }
+        .badge-caisse { background-color: var(--secondary); }
+
+        .status-select {
+            padding: 4px 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            outline: none;
+            font-size: 12px;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 5px;
+        }
+
+        .btn-sm {
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border-bottom: 2px solid var(--border);
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+                margin-bottom: 5px;
+            }
+
+            td:before {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label);
+                font-weight: 600;
+                text-align: left;
+            }
+            .action-btns {
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="assets/brand_image_6.png" alt="Qrmeunu Logo">
+            <h2>Qrmeunu Admin</h2>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+            <span id="db-status" style="font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 20px; background: #E0F2FE; color: #0284C7;">⚡ Connexion Firestore...</span>
+            <span id="current-date" style="font-size: 14px; color: var(--text-light);"></span>
+        </div>
+    </header>
+
+    <div id="firestore-notice" style="display:none; margin-bottom: 20px; padding: 15px; background: #FFF3CD; color: #856404; border: 1px solid #FFEEBA; border-radius: 10px; font-size: 14px;"></div>
+
+    <div class="stats-bar">
+        <div class="stat-card">
+            <h3>Total Leads</h3>
+            <p id="stat-total">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Leads Today</h3>
+            <p id="stat-today">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Basic</h3>
+            <p id="stat-basic">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Commande</h3>
+            <p id="stat-commande">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Caisse Pro</h3>
+            <p id="stat-caisse">0</p>
+        </div>
+    </div>
+
+    <div class="filters">
+        <div class="filter-group">
+            <label for="search">Search (Name/Restaurant)</label>
+            <input type="text" id="search" placeholder="Search...">
+        </div>
+        <div class="filter-group">
+            <label for="filter-wilaya">Wilaya</label>
+            <select id="filter-wilaya">
+                <option value="">All</option>
+                <option value="1-Adrar">1 - Adrar</option>
+                <option value="2-Chlef">2 - Chlef</option>
+                <option value="3-Laghouat">3 - Laghouat</option>
+                <option value="4-Oum El Bouaghi">4 - Oum El Bouaghi</option>
+                <option value="5-Batna">5 - Batna</option>
+                <option value="6-Bejaia">6 - Béjaïa</option>
+                <option value="7-Biskra">7 - Biskra</option>
+                <option value="8-Bechar">8 - Béchar</option>
+                <option value="9-Blida">9 - Blida</option>
+                <option value="10-Bouira">10 - Bouira</option>
+                <option value="11-Tamanrasset">11 - Tamanrasset</option>
+                <option value="12-Tebessa">12 - Tébessa</option>
+                <option value="13-Tlemcen">13 - Tlemcen</option>
+                <option value="14-Tiaret">14 - Tiaret</option>
+                <option value="15-Tizi Ouzou">15 - Tizi Ouzou</option>
+                <option value="16-Alger">16 - Alger</option>
+                <option value="17-Djelfa">17 - Djelfa</option>
+                <option value="18-Jijel">18 - Jijel</option>
+                <option value="19-Setif">19 - Sétif</option>
+                <option value="20-Saida">20 - Saïda</option>
+                <option value="21-Skikda">21 - Skikda</option>
+                <option value="22-Sidi Bel Abbes">22 - Sidi Bel Abbès</option>
+                <option value="23-Annaba">23 - Annaba</option>
+                <option value="24-Guelma">24 - Guelma</option>
+                <option value="25-Constantine">25 - Constantine</option>
+                <option value="26-Medea">26 - Médéa</option>
+                <option value="27-Mostaganem">27 - Mostaganem</option>
+                <option value="28-MSila">28 - M'Sila</option>
+                <option value="29-Mascara">29 - Mascara</option>
+                <option value="30-Ouargla">30 - Ouargla</option>
+                <option value="31-Oran">31 - Oran</option>
+                <option value="32-El Bayadh">32 - El Bayadh</option>
+                <option value="33-Illizi">33 - Illizi</option>
+                <option value="34-Bordj Bou Arreridj">34 - Bordj Bou Arreridj</option>
+                <option value="35-Boumerdes">35 - Boumerdès</option>
+                <option value="36-El Tarf">36 - El Tarf</option>
+                <option value="37-Tindouf">37 - Tindouf</option>
+                <option value="38-Tissemsilt">38 - Tissemsilt</option>
+                <option value="39-El Oued">39 - El Oued</option>
+                <option value="40-Khenchela">40 - Khenchela</option>
+                <option value="41-Souk Ahras">41 - Souk Ahras</option>
+                <option value="42-Tipaza">42 - Tipaza</option>
+                <option value="43-Mila">43 - Mila</option>
+                <option value="44-Ain Defla">44 - Aïn Defla</option>
+                <option value="45-Naama">45 - Naâma</option>
+                <option value="46-Ain Temouchent">46 - Aïn Témouchent</option>
+                <option value="47-Ghardaia">47 - Ghardaïa</option>
+                <option value="48-Relizane">48 - Relizane</option>
+                <option value="49-Timimoun">49 - Timimoun</option>
+                <option value="50-Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar</option>
+                <option value="51-Ouled Djellal">51 - Ouled Djellal</option>
+                <option value="52-Beni Abbes">52 - Béni Abbès</option>
+                <option value="53-In Salah">53 - In Salah</option>
+                <option value="54-In Guezzam">54 - In Guezzam</option>
+                <option value="55-Touggourt">55 - Touggourt</option>
+                <option value="56-Djanet">56 - Djanet</option>
+                <option value="57-El MGhair">57 - El M'Ghair</option>
+                <option value="58-El Meniaa">58 - El Meniaa</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filter-formule">Formule</label>
+            <select id="filter-formule">
+                <option value="">All</option>
+                <option value="Basic">Basic</option>
+                <option value="Commande">Commande</option>
+                <option value="Caisse Pro">Caisse Pro</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="date-from">From</label>
+            <input type="date" id="date-from">
+        </div>
+        <div class="filter-group">
+            <label for="date-to">To</label>
+            <input type="date" id="date-to">
+        </div>
+        <div style="flex-grow: 1; display: flex; justify-content: flex-end; gap: 10px; align-items: flex-end;">
+            <button class="btn btn-secondary" onclick="exportCSV()">Export CSV</button>
+            <button class="btn btn-primary" onclick="generateSampleData()">Generate Sample Data</button>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date/Time</th>
+                    <th>Nom Complet</th>
+                    <th>Restaurant</th>
+                    <th>Téléphone</th>
+                    <th>Email</th>
+                    <th>Wilaya</th>
+                    <th>Formule</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="orders-table-body">
+                <!-- Orders will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { 
+            getFirestore, collection, onSnapshot, query, orderBy, 
+            doc, updateDoc, deleteDoc, addDoc, serverTimestamp 
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyBUDfe0o3J03Ax-6tQIFrXau3Ds0c4H234",
+          authDomain: "restau-dfbb2.firebaseapp.com",
+          projectId: "restau-dfbb2",
+          storageBucket: "restau-dfbb2.firebasestorage.app",
+          messagingSenderId: "1018720003065",
+          appId: "1:1018720003065:web:9713c7633cfff1b4131328",
+          measurementId: "G-LCB8BJ3X0P"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const STORAGE_KEY = 'qrmeunu_leads';
+        let allOrders = [];
+        let isFirestoreLive = false;
+
+        // Setup Date
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+        const statusBadge = document.getElementById('db-status');
+        const noticeEl = document.getElementById('firestore-notice');
+
+        // Helpers
+        function getLocalOrders() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            } catch(e) {
+                return [];
+            }
+        }
+
+        function saveLocalOrders(orders) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
+            } catch(e) {}
+        }
+
+        // Realtime Firestore Listener
+        try {
+            const q = collection(db, "leads");
+            onSnapshot(q, (snapshot) => {
+                isFirestoreLive = true;
+                if (statusBadge) {
+                    statusBadge.textContent = "🟢 Firestore Connecté (En direct)";
+                    statusBadge.style.background = "#D1FAE5";
+                    statusBadge.style.color = "#065F46";
+                }
+                if (noticeEl) noticeEl.style.display = 'none';
+
+                const orders = [];
+                snapshot.forEach(docSnap => {
+                    const data = docSnap.data();
+                    let dateStr = new Date().toISOString();
+                    if (data.createdAt && typeof data.createdAt.toDate === 'function') {
+                        dateStr = data.createdAt.toDate().toISOString();
+                    } else if (data.date) {
+                        dateStr = data.date;
+                    }
+                    orders.push({
+                        id: docSnap.id,
+                        ...data,
+                        date: dateStr
+                    });
+                });
+
+                allOrders = orders;
+                saveLocalOrders(orders);
+                window.renderTable();
+            }, (error) => {
+                console.warn("Firestore onSnapshot error:", error);
+                isFirestoreLive = false;
+                if (statusBadge) {
+                    statusBadge.textContent = "🟠 Mode Local (Vérifier règles Firestore)";
+                    statusBadge.style.background = "#FEF3C7";
+                    statusBadge.style.color = "#92400E";
+                }
+                if (noticeEl && error.code === 'permission-denied') {
+                    noticeEl.style.display = 'block';
+                    noticeEl.innerHTML = `⚠️ <strong>Note sur Firestore :</strong> L'accès a été refusé (règles de sécurité Firestore). Pour activer la lecture/écriture publique, allez sur <a href="https://console.firebase.google.com/project/restau-dfbb2/firestore/rules" target="_blank" style="color: #92400E; text-decoration: underline; font-weight: bold;">Console Firebase -> Firestore -> Règles</a> et configurez : <code>allow read, write: if true;</code>. En attendant, les commandes locales s'affichent ci-dessous.`;
+                }
+                allOrders = getLocalOrders();
+                window.renderTable();
+            });
+        } catch (e) {
+            console.error("Initialization error:", e);
+            allOrders = getLocalOrders();
+            window.renderTable();
+        }
+
+        // Helpers on window
+        window.getBadgeClass = function(formule) {
+            if (formule === 'Basic') return 'badge-basic';
+            if (formule === 'Commande') return 'badge-commande';
+            if (formule === 'Caisse Pro') return 'badge-caisse';
+            return 'badge-basic';
+        };
+
+        window.updateStatus = async function(id, newStatus) {
+            // Update in Firestore
+            try {
+                await updateDoc(doc(db, "leads", String(id)), { status: newStatus });
+                console.log("Status updated in Firestore for:", id);
+            } catch(e) {
+                console.warn("Could not update Firestore, updating locally:", e);
+            }
+
+            // Update in memory & localStorage
+            const idx = allOrders.findIndex(o => String(o.id) === String(id));
+            if (idx > -1) {
+                allOrders[idx].status = newStatus;
+                saveLocalOrders(allOrders);
+                window.renderTable();
+            }
+        };
+
+        window.deleteOrder = async function(id) {
+            if (confirm('Voulez-vous vraiment supprimer cette demande ?')) {
+                // Delete in Firestore
+                try {
+                    await deleteDoc(doc(db, "leads", String(id)));
+                    console.log("Deleted from Firestore:", id);
+                } catch(e) {
+                    console.warn("Could not delete from Firestore:", e);
+                }
+
+                allOrders = allOrders.filter(o => String(o.id) !== String(id));
+                saveLocalOrders(allOrders);
+                window.renderTable();
+            }
+        };
+
+        window.openWhatsApp = function(phone) {
+            const cleaned = (phone || '').replace(/\D/g, '');
+            window.open(`https://wa.me/${cleaned}`, '_blank');
+        };
+
+        window.exportCSV = function() {
+            const headers = ['Date', 'Nom Complet', 'Restaurant', 'Téléphone', 'Email', 'Wilaya', 'Formule', 'Status'];
+            let csvContent = "data:text/csv;charset=utf-8," 
+                + headers.join(",") + "\n"
+                + allOrders.map(o => {
+                    return [
+                        new Date(o.date).toLocaleString(),
+                        `"${o.name || ''}"`,
+                        `"${o.restaurant || ''}"`,
+                        `"${o.phone || ''}"`,
+                        `"${o.email || ''}"`,
+                        `"${o.wilaya || ''}"`,
+                        `"${o.formule || ''}"`,
+                        `"${o.status || ''}"`
+                    ].join(",");
+                }).join("\n");
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "qrmeunu_leads.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
+        window.generateSampleData = async function() {
+            const samples = [
+                { name: "Ahmed Benali", restaurant: "Le Petit Creux", phone: "0555123456", email: "ahmed@example.com", wilaya: "16-Alger", formule: "Basic", status: "Nouveau" },
+                { name: "Sara Mansouri", restaurant: "Pizza Fast", phone: "0770987654", email: "sara@example.com", wilaya: "31-Oran", formule: "Commande", status: "Contacté" },
+                { name: "Karim Louahab", restaurant: "Burger House", phone: "0661223344", email: "karim@example.com", wilaya: "25-Constantine", formule: "Caisse Pro", status: "Confirmé" },
+                { name: "Yasmine Bouzid", restaurant: "Sushi Zen", phone: "0550112233", email: "yasmine@example.com", wilaya: "16-Alger", formule: "Commande", status: "Nouveau" },
+                { name: "Nadir Fares", restaurant: "Tacos T", phone: "0771445566", email: "nadir@example.com", wilaya: "31-Oran", formule: "Basic", status: "Contacté" }
+            ];
+
+            for (const item of samples) {
+                const docData = {
+                    ...item,
+                    date: new Date().toISOString()
+                };
+                try {
+                    const docRef = await addDoc(collection(db, "leads"), {
+                        ...docData,
+                        createdAt: serverTimestamp()
+                    });
+                    docData.id = docRef.id;
+                } catch(e) {
+                    docData.id = "local_" + Date.now() + Math.random().toString(36).substr(2, 4);
+                }
+                allOrders.unshift(docData);
+            }
+            saveLocalOrders(allOrders);
+            window.renderTable();
+        };
+
+        window.renderTable = function() {
+            let orders = [...allOrders];
+
+            // Sorting (newest first)
+            orders.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+            // Filtering
+            const search = (document.getElementById('search').value || '').toLowerCase();
+            const filterWilaya = document.getElementById('filter-wilaya').value;
+            const filterFormule = document.getElementById('filter-formule').value;
+            const dateFrom = document.getElementById('date-from').value;
+            const dateTo = document.getElementById('date-to').value;
+
+            const filteredOrders = orders.filter(o => {
+                const name = o.name || "";
+                const restaurant = o.restaurant || "";
+                const matchSearch = name.toLowerCase().includes(search) || restaurant.toLowerCase().includes(search);
+                const matchWilaya = filterWilaya === "" || o.wilaya === filterWilaya;
+                const matchFormule = filterFormule === "" || o.formule === filterFormule;
+                
+                let matchDate = true;
+                const orderDate = new Date(o.date);
+                orderDate.setHours(0,0,0,0);
+                if (dateFrom) {
+                    matchDate = matchDate && orderDate >= new Date(dateFrom);
+                }
+                if (dateTo) {
+                    const dt = new Date(dateTo);
+                    dt.setHours(23,59,59,999);
+                    matchDate = matchDate && new Date(o.date) <= dt;
+                }
+
+                return matchSearch && matchWilaya && matchFormule && matchDate;
+            });
+
+            // Update Stats
+            document.getElementById('stat-total').textContent = filteredOrders.length;
+            
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            document.getElementById('stat-today').textContent = filteredOrders.filter(o => new Date(o.date) >= today).length;
+
+            document.getElementById('stat-basic').textContent = filteredOrders.filter(o => o.formule === 'Basic').length;
+            document.getElementById('stat-commande').textContent = filteredOrders.filter(o => o.formule === 'Commande').length;
+            document.getElementById('stat-caisse').textContent = filteredOrders.filter(o => o.formule === 'Caisse Pro').length;
+
+            // Render Rows
+            const tbody = document.getElementById('orders-table-body');
+            tbody.innerHTML = '';
+
+            if (filteredOrders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; color: var(--text-light); padding: 30px;">Aucune commande pour le moment. Cliquez sur "Generate Sample Data" pour tester.</td></tr>`;
+                return;
+            }
+
+            filteredOrders.forEach(o => {
+                const tr = document.createElement('tr');
+                
+                const statusOptions = ['Nouveau', 'Contacté', 'Confirmé'].map(s => 
+                    `<option value="${s}" ${o.status === s ? 'selected' : ''}>${s}</option>`
+                ).join('');
+
+                tr.innerHTML = `
+                    <td data-label="Date/Time">${new Date(o.date).toLocaleString()}</td>
+                    <td data-label="Nom Complet">${o.name || ''}</td>
+                    <td data-label="Restaurant">${o.restaurant || ''}</td>
+                    <td data-label="Téléphone"><a href="tel:${o.phone || ''}" style="color: var(--secondary); font-weight:600; text-decoration:none;">${o.phone || ''}</a></td>
+                    <td data-label="Email">${o.email || '<span style="color:#aaa;">-</span>'}</td>
+                    <td data-label="Wilaya">${o.wilaya || ''}</td>
+                    <td data-label="Formule"><span class="badge ${window.getBadgeClass(o.formule || '')}">${o.formule || ''}</span></td>
+                    <td data-label="Status">
+                        <select class="status-select" onchange="window.updateStatus('${o.id}', this.value)">
+                            ${statusOptions}
+                        </select>
+                    </td>
+                    <td data-label="Actions">
+                        <div class="action-btns">
+                            <button class="btn btn-sm" style="background-color: #25D366; color: white; border:none; border-radius:4px; cursor:pointer;" onclick="window.openWhatsApp('${o.phone || ''}')">WhatsApp</button>
+                            <button class="btn btn-sm btn-danger" style="border:none; border-radius:4px; cursor:pointer;" onclick="window.deleteOrder('${o.id}')">Delete</button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        };
+
+        // Event Listeners for Filters
+        const filterIds = ['search', 'filter-wilaya', 'filter-formule', 'date-from', 'date-to'];
+        filterIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', window.renderTable);
+        });
+
+        // Focus refresh
+        window.addEventListener('focus', () => {
+            if (!isFirestoreLive) {
+                allOrders = getLocalOrders();
+                window.renderTable();
+            }
+        });
+
+        // Initial load from local cache while firestore connects
+        allOrders = getLocalOrders();
+        window.renderTable();
+    </script>
+</body>
+</html>

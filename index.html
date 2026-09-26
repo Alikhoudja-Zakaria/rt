@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#C75B39">
+    <title>Qrmeunu - Votre menu, en un scan.</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCB8BJ3X0P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LCB8BJ3X0P');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --terracotta: #C75B39;
+            --teal: #2A9D8F;
+            --bg-light: #FDF0EB;
+            --whatsapp: #25D366;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Mobile-first centered layout */
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: var(--white);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        section {
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--terracotta);
+        }
+
+        h1 { font-size: 32px; line-height: 1.2; }
+        h2 { font-size: 28px; }
+        h3 { font-size: 22px; }
+
+        p { margin-bottom: 15px; }
+
+        .btn {
+            display: block;
+            width: 100%;
+            min-height: 56px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            color: var(--white);
+        }
+
+        .btn:active { opacity: 0.8; }
+
+        .btn-whatsapp { background-color: var(--whatsapp); }
+        .btn-primary { background-color: var(--terracotta); }
+        .btn-secondary { background-color: var(--teal); }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background-color: var(--bg-light);
+            border-bottom: 2px solid rgba(199, 91, 57, 0.1);
+        }
+
+        .logo {
+            max-width: 120px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .slogan-darja {
+            font-size: 24px;
+            color: var(--teal);
+            margin-bottom: 20px;
+            direction: rtl;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        /* How it works */
+        .steps {
+            background-color: var(--white);
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .step-icon {
+            font-size: 32px;
+            margin-right: 15px;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .step-content strong {
+            display: block;
+            font-size: 20px;
+            color: var(--terracotta);
+            margin-bottom: 5px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: var(--bg-light);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid #eaeaea;
+            position: relative;
+        }
+
+        .card.popular {
+            border: 2px solid var(--teal);
+            box-shadow: 0 8px 15px rgba(42, 157, 143, 0.15);
+            transform: scale(1.02);
+        }
+
+        .card.popular::before {
+            content: 'Le plus choisi';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--teal);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .badge-discount {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #E76F51;
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .price-strike {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .price-yearly {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: var(--white);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        select {
+            width: 100%;
+            height: 52px;
+            padding: 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            background-color: #f9f9f9;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--terracotta);
+            background-color: var(--white);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #f9f9f9;
+        }
+
+        .radio-option input {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--terracotta);
+        }
+
+        /* Trust Section */
+        .trust {
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .trust-item {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-main);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer a {
+            color: var(--whatsapp);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        #success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="assets/brand_image_6.png" alt="Qrmeunu Logo" class="logo">
+        <h1>Votre menu, en un scan.</h1>
+        <p class="slogan-darja">حط الكود، الكليان يطلب وحدو</p>
+        <p>Fini les menus à réimprimer. Vos clients scannent, consultent, et commandent depuis leur téléphone.</p>
+        <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Qrmeunu" target="_blank" class="btn btn-whatsapp">
+            📲 Contactez-nous sur WhatsApp
+        </a>
+    </section>
+
+    <!-- How it works -->
+    <section class="steps">
+        <h2>Comment ça marche ?</h2>
+        <div class="step">
+            <div class="step-icon">🏪</div>
+            <div class="step-content">
+                <strong>On vient chez vous</strong>
+                On installe le QR code et on configure votre menu.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-icon">📱</div>
+            <div class="step-content">
+                <strong>Le client scanne</strong>
+                Il voit votre menu sur son téléphone. Pas d'appli à télécharger.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-icon">✅</div>
+            <div class="step-content">
+                <strong>Vous recevez les commandes</strong>
+                Sur votre téléphone ou votre caisse.
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <h2>Nos Formules</h2>
+        
+        <!-- Basic -->
+        <div class="card">
+            <h3>Basic</h3>
+            <div class="price">2 000 DA / mois</div>
+            <div class="price-yearly">Payable à l'année : 24 000 DA/an</div>
+            <ul>
+                <li>Menu QR consultable uniquement</li>
+                <li>Mis à jour par l'équipe Qrmeunu</li>
+            </ul>
+            <button class="btn btn-primary" onclick="selectPlan('Basic')">Je choisis cette formule</button>
+        </div>
+
+        <!-- Commande -->
+        <div class="card popular">
+            <h3>Commande</h3>
+            <div class="price">4 000 DA / mois</div>
+            <div class="price-yearly">Payable à l'année : 48 000 DA/an</div>
+            <ul>
+                <li>Le client commande depuis son téléphone</li>
+                <li>À table ou à emporter</li>
+            </ul>
+            <button class="btn btn-secondary" onclick="selectPlan('Commande')">Je choisis cette formule</button>
+        </div>
+
+        <!-- Caisse Pro -->
+        <div class="card">
+            <div class="badge-discount">-10%</div>
+            <h3>Caisse Pro</h3>
+            <div class="price"><span class="price-strike">5 200 DA</span> 4 680 DA / mois</div>
+            <div class="price-yearly">Payable à l'année : <span class="price-strike">62 400 DA</span> 56 160 DA/an</div>
+            <ul>
+                <li>Les commandes arrivent à la caisse et en cuisine</li>
+                <li>Intégration POS complète</li>
+            </ul>
+            <button class="btn btn-primary" onclick="selectPlan('Caisse Pro')">Je choisis cette formule</button>
+        </div>
+    </section>
+
+    <!-- Order Form -->
+    <section class="form-section" id="order-form">
+        <h2>Demandez votre menu QR</h2>
+        <p>Remplissez ce formulaire et nous vous contacterons rapidement.</p>
+
+        <div id="success-message">
+            <strong>✓ Demande envoyée avec succès !</strong><br>
+            Vous allez être redirigé vers WhatsApp...
+        </div>
+
+        <form id="leadForm" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label for="nom">Nom complet *</label>
+                <input type="text" id="nom" required placeholder="Votre nom et prénom">
+            </div>
+
+            <div class="form-group">
+                <label for="restaurant">Nom du restaurant *</label>
+                <input type="text" id="restaurant" required placeholder="Nom de votre établissement">
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Téléphone *</label>
+                <input type="tel" id="telephone" required placeholder="05XX XX XX XX">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email (optionnel)</label>
+                <input type="email" id="email" placeholder="votre@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="wilaya">Wilaya / Ville *</label>
+                <select id="wilaya" required>
+                    <option value="">Sélectionnez votre wilaya</option>
+                    <option value="1-Adrar">1 - Adrar</option>
+                    <option value="2-Chlef">2 - Chlef</option>
+                    <option value="3-Laghouat">3 - Laghouat</option>
+                    <option value="4-Oum El Bouaghi">4 - Oum El Bouaghi</option>
+                    <option value="5-Batna">5 - Batna</option>
+                    <option value="6-Bejaia">6 - Béjaïa</option>
+                    <option value="7-Biskra">7 - Biskra</option>
+                    <option value="8-Bechar">8 - Béchar</option>
+                    <option value="9-Blida">9 - Blida</option>
+                    <option value="10-Bouira">10 - Bouira</option>
+                    <option value="11-Tamanrasset">11 - Tamanrasset</option>
+                    <option value="12-Tebessa">12 - Tébessa</option>
+                    <option value="13-Tlemcen">13 - Tlemcen</option>
+                    <option value="14-Tiaret">14 - Tiaret</option>
+                    <option value="15-Tizi Ouzou">15 - Tizi Ouzou</option>
+                    <option value="16-Alger">16 - Alger</option>
+                    <option value="17-Djelfa">17 - Djelfa</option>
+                    <option value="18-Jijel">18 - Jijel</option>
+                    <option value="19-Setif">19 - Sétif</option>
+                    <option value="20-Saida">20 - Saïda</option>
+                    <option value="21-Skikda">21 - Skikda</option>
+                    <option value="22-Sidi Bel Abbes">22 - Sidi Bel Abbès</option>
+                    <option value="23-Annaba">23 - Annaba</option>
+                    <option value="24-Guelma">24 - Guelma</option>
+                    <option value="25-Constantine">25 - Constantine</option>
+                    <option value="26-Medea">26 - Médéa</option>
+                    <option value="27-Mostaganem">27 - Mostaganem</option>
+                    <option value="28-MSila">28 - M'Sila</option>
+                    <option value="29-Mascara">29 - Mascara</option>
+                    <option value="30-Ouargla">30 - Ouargla</option>
+                    <option value="31-Oran">31 - Oran</option>
+                    <option value="32-El Bayadh">32 - El Bayadh</option>
+                    <option value="33-Illizi">33 - Illizi</option>
+                    <option value="34-Bordj Bou Arreridj">34 - Bordj Bou Arreridj</option>
+                    <option value="35-Boumerdes">35 - Boumerdès</option>
+                    <option value="36-El Tarf">36 - El Tarf</option>
+                    <option value="37-Tindouf">37 - Tindouf</option>
+                    <option value="38-Tissemsilt">38 - Tissemsilt</option>
+                    <option value="39-El Oued">39 - El Oued</option>
+                    <option value="40-Khenchela">40 - Khenchela</option>
+                    <option value="41-Souk Ahras">41 - Souk Ahras</option>
+                    <option value="42-Tipaza">42 - Tipaza</option>
+                    <option value="43-Mila">43 - Mila</option>
+                    <option value="44-Ain Defla">44 - Aïn Defla</option>
+                    <option value="45-Naama">45 - Naâma</option>
+                    <option value="46-Ain Temouchent">46 - Aïn Témouchent</option>
+                    <option value="47-Ghardaia">47 - Ghardaïa</option>
+                    <option value="48-Relizane">48 - Relizane</option>
+                    <option value="49-Timimoun">49 - Timimoun</option>
+                    <option value="50-Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar</option>
+                    <option value="51-Ouled Djellal">51 - Ouled Djellal</option>
+                    <option value="52-Beni Abbes">52 - Béni Abbès</option>
+                    <option value="53-In Salah">53 - In Salah</option>
+                    <option value="54-In Guezzam">54 - In Guezzam</option>
+                    <option value="55-Touggourt">55 - Touggourt</option>
+                    <option value="56-Djanet">56 - Djanet</option>
+                    <option value="57-El MGhair">57 - El M'Ghair</option>
+                    <option value="58-El Meniaa">58 - El Meniaa</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Formule choisie *</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="formule" value="Basic" required> Basic (2000 DA/mois)
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="formule" value="Commande"> Commande (4000 DA/mois)
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="formule" value="Caisse Pro"> Caisse Pro (4680 DA/mois)
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Envoyer ma demande ✓</button>
+        </form>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust">
+        <h2>On s'occupe de tout</h2>
+        <div class="trust-item">📞 Support par téléphone et WhatsApp</div>
+        <div class="trust-item">🔧 Installation gratuite sur place</div>
+        <div class="trust-item">🔄 Mises à jour du menu incluses</div>
+        <div class="trust-item">🇩🇿 Équipe 100% algérienne</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Qrmeunu © 2024</p>
+        <p style="margin: 10px 0;"><a href="https://wa.me/213656243117" target="_blank">Nous contacter sur WhatsApp</a></p>
+        <p>Fait avec ❤️ en Algérie</p>
+    </footer>
+
+</div>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Qrmeunu" target="_blank" class="floating-whatsapp" aria-label="Chat with us on WhatsApp">
+    💬
+</a>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAnalytics, isSupported, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    // Firebase configuration provided
+    const firebaseConfig = {
+      apiKey: "AIzaSyBUDfe0o3J03Ax-6tQIFrXau3Ds0c4H234",
+      authDomain: "restau-dfbb2.firebaseapp.com",
+      projectId: "restau-dfbb2",
+      storageBucket: "restau-dfbb2.firebasestorage.app",
+      messagingSenderId: "1018720003065",
+      appId: "1:1018720003065:web:9713c7633cfff1b4131328",
+      measurementId: "G-LCB8BJ3X0P"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    let analytics = null;
+
+    // Initialize Analytics if supported in current environment
+    isSupported().then(supported => {
+        if (supported) {
+            analytics = getAnalytics(app);
+            console.log("Firebase Analytics initialized");
+        }
+    }).catch(err => {
+        console.log("Analytics not supported in this context:", err);
+    });
+
+    // Helper for event tracking
+    function trackEvent(name, params = {}) {
+        if (typeof gtag === 'function') {
+            try { gtag('event', name, params); } catch(e) {}
+        }
+        if (analytics) {
+            try { logEvent(analytics, name, params); } catch(e) {}
+        }
+    }
+
+    // Track WhatsApp clicks
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', () => {
+            trackEvent('whatsapp_click', { destination: link.href });
+        });
+    });
+
+    // Smooth scroll and select plan
+    window.selectPlan = function(planName) {
+        trackEvent('select_plan', { plan_name: planName });
+        const radios = document.getElementsByName('formule');
+        for(let i=0; i<radios.length; i++) {
+            if(radios[i].value === planName) {
+                radios[i].checked = true;
+                break;
+            }
+        }
+        
+        // Smooth scroll to form
+        const formEl = document.getElementById('order-form');
+        if (formEl) {
+            formEl.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    // Handle form submission
+    window.submitForm = async function(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        
+        const submitBtn = document.querySelector('#leadForm button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours... ⏳';
+        }
+
+        // Get form values
+        const nom = document.getElementById('nom').value.trim();
+        const restaurant = document.getElementById('restaurant').value.trim();
+        const telephone = document.getElementById('telephone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const wilaya = document.getElementById('wilaya').value;
+        
+        let formule = '';
+        const radios = document.getElementsByName('formule');
+        for(let i=0; i<radios.length; i++) {
+            if(radios[i].checked) {
+                formule = radios[i].value;
+                break;
+            }
+        }
+
+        const leadData = {
+            name: nom,
+            restaurant: restaurant,
+            phone: telephone,
+            email: email,
+            wilaya: wilaya,
+            formule: formule,
+            date: new Date().toISOString(),
+            status: 'Nouveau'
+        };
+
+        // 1. Save to Firestore
+        let docId = Date.now().toString();
+        try {
+            const docRef = await addDoc(collection(db, "leads"), {
+                ...leadData,
+                createdAt: serverTimestamp()
+            });
+            docId = docRef.id;
+            console.log("Order saved to Firestore with ID:", docId);
+        } catch (err) {
+            console.warn("Firestore save fallback to local storage:", err);
+        }
+        leadData.id = docId;
+
+        // 2. Save to localStorage (cache/offline safety)
+        try {
+            let leads = JSON.parse(localStorage.getItem('qrmeunu_leads') || '[]');
+            leads.unshift(leadData);
+            localStorage.setItem('qrmeunu_leads', JSON.stringify(leads));
+        } catch (storageErr) {
+            console.warn("Local storage error:", storageErr);
+        }
+
+        // 3. Track analytics event
+        trackEvent('generate_lead', {
+            currency: 'DZD',
+            plan: formule,
+            wilaya: wilaya,
+            restaurant: restaurant
+        });
+
+        // 4. Show success message and hide form
+        document.getElementById('success-message').style.display = 'block';
+        document.getElementById('leadForm').style.display = 'none';
+
+        // 5. Prepare WhatsApp message & redirect
+        const waText = `*Nouvelle Demande Qrmeunu*%0A%0A*Nom*: ${nom}%0A*Restaurant*: ${restaurant}%0A*Tél*: ${telephone}%0A*Email*: ${email || 'Non fourni'}%0A*Wilaya*: ${wilaya}%0A*Formule*: ${formule}`;
+        const waUrl = `https://wa.me/213656243117?text=${waText}`;
+
+        setTimeout(() => {
+            window.open(waUrl, '_blank');
+        }, 1200);
+    };
+
+    // Attach form submit listener as backup
+    const formElement = document.getElementById('leadForm');
+    if (formElement) {
+        formElement.addEventListener('submit', window.submitForm);
+    }
+</script>
+
+</body>
+</html>
