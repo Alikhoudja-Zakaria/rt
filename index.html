@@ -48,6 +48,16 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        #section-commander,
+        #section-formules {
+            scroll-margin-top: 85px;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-page);
@@ -778,6 +788,63 @@
             border-radius: var(--radius-outer);
             padding: 22px 18px;
             box-shadow: 0 10px 30px -5px rgba(255, 87, 34, 0.1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes formGlowEffect {
+            0% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.5), 0 10px 30px -5px rgba(255, 87, 34, 0.1); }
+            50% { box-shadow: 0 0 0 8px rgba(255, 87, 34, 0.25), 0 20px 40px -5px rgba(255, 87, 34, 0.25); transform: translateY(-3px); }
+            100% { box-shadow: 0 10px 30px -5px rgba(255, 87, 34, 0.1); transform: translateY(0); }
+        }
+        .card-checkout-form.pulse-highlight {
+            animation: formGlowEffect 1s cubic-bezier(0.16, 1, 0.3, 1);
+            border-color: var(--primary) !important;
+        }
+
+        /* Formula Card Choose Button */
+        .btn-card-choose {
+            width: 100%;
+            margin-top: 12px;
+            padding: 9px 14px;
+            border-radius: 12px;
+            border: 1.5px solid #CBD5E1;
+            background: #F8FAFC;
+            color: var(--text-main);
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .formula-card.selected .btn-card-choose {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #FFFFFF;
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(255, 87, 34, 0.35);
+        }
+        .btn-card-choose:active {
+            transform: scale(0.97);
+        }
+
+        /* Phone input validation state */
+        .field-input.valid {
+            border-color: #10B981 !important;
+            background: #F0FDF4;
+        }
+        .phone-valid-hint {
+            font-size: 11px;
+            font-weight: 800;
+            color: #059669;
+            display: none;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+        }
+        .phone-valid-hint.show {
+            display: flex;
         }
 
         .form-row-group {
@@ -949,7 +1016,6 @@
         }
         .page-footer a { color: var(--primary); text-decoration: none; font-weight: 700; }
 
-        /* ── STICKY BOTTOM BAR ── */
         .sticky-footer-bar {
             position: fixed;
             bottom: 0;
@@ -962,6 +1028,12 @@
             padding: 10px 16px;
             z-index: 999;
             box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        }
+        .sticky-footer-bar.hide-sticky {
+            transform: translateY(120%);
+            opacity: 0;
+            pointer-events: none;
         }
         .sticky-inner-box {
             max-width: 560px;
@@ -1017,7 +1089,7 @@
                     <button type="button" class="lang-pill-btn active" id="pill-lang-fr" onclick="switchLanguage('fr')">Français</button>
                     <button type="button" class="lang-pill-btn" id="pill-lang-ar" onclick="switchLanguage('ar')">العربية</button>
                 </div>
-                <a href="#section-commander" class="btn-nav-order" id="t-nav-btn">
+                <a href="#section-commander" onclick="scrollToOrderForm(event)" class="btn-nav-order" id="t-nav-btn">
                     <span id="t-nav-txt">Commander</span> →
                 </a>
             </div>
@@ -1278,6 +1350,9 @@
                         <li><span class="check-green-icon">✓</span> Installation et QR codes fournis</li>
                     </ul>
                     <div class="formula-annual-note" id="t-f1-annual">Payable à l'année : 24 000 DA/an</div>
+                    <button type="button" class="btn-card-choose" onclick="selectFormulaAndScroll('Basic', 2000, 24000, event)">
+                        <span id="t-btn-c1">Choisir Basic</span> →
+                    </button>
                 </div>
 
                 <!-- CARD 2: Commande (4 000 DA) - LE PLUS CHOISI with BIG Picture Box -->
@@ -1304,6 +1379,9 @@
                         <li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>
                     </ul>
                     <div class="formula-annual-note" id="t-f2-annual">Payable à l'année : 48 000 DA/an</div>
+                    <button type="button" class="btn-card-choose" onclick="selectFormulaAndScroll('Commande', 4000, 48000, event)">
+                        <span id="t-btn-c2">Choisir Commande</span> →
+                    </button>
                 </div>
 
                 <!-- CARD 3: Caisse Pro (4 680 DA) - -10% PROMO with BIG Picture Box -->
@@ -1331,6 +1409,9 @@
                         <li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>
                     </ul>
                     <div class="formula-annual-note" id="t-f3-annual">Payable à l'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong></div>
+                    <button type="button" class="btn-card-choose" onclick="selectFormulaAndScroll('Caisse Pro', 4680, 56160, event)">
+                        <span id="t-btn-c3">Choisir Caisse Pro</span> →
+                    </button>
                 </div>
 
             </div>
@@ -1373,6 +1454,7 @@
                 <div class="form-row-group">
                     <label for="f-phone"><span id="t-lbl-phone">Numéro de téléphone</span> *</label>
                     <input type="tel" id="f-phone" class="field-input" required placeholder="05 / 06 / 07 XX XX XX" autocomplete="tel">
+                    <div class="phone-valid-hint" id="phoneHint">✓ Numéro valide (Algérie)</div>
                 </div>
 
                 <div class="form-row-group">
@@ -1515,7 +1597,7 @@
                 <span class="sticky-plan-price" id="sticky-price">4 000 DA / mois</span>
             </div>
             <div class="sticky-actions-group">
-                <a href="#section-commander" class="btn-sticky-order" id="t-sticky-order">Commander →</a>
+                <a href="#section-commander" onclick="scrollToOrderForm(event)" class="btn-sticky-order" id="t-sticky-order">Commander →</a>
                 <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="btn-sticky-wa">WhatsApp</a>
             </div>
         </div>
@@ -1636,7 +1718,9 @@
                 r3H: 'Support 7j/7', r3S: 'WhatsApp & téléphone',
                 r4H: '100% Algérien', r4S: 'Partout en Algérie',
                 footBrand: 'Qrmeunu Algérie', footSub: 'Menus & commandes QR pour restaurants',
-                stickyOrder: 'Commander →'
+                stickyOrder: 'Commander →',
+                btnChooseF1: 'Choisir Basic', btnChooseF2: 'Choisir Commande', btnChooseF3: 'Choisir Caisse Pro',
+                phoneHint: '✓ Numéro valide (Algérie)'
             },
             ar: {
                 navTxt: 'طلب الخدمة',
@@ -1683,7 +1767,9 @@
                 r3H: 'دعم فني 7/7', r3S: 'عبر الهاتف والواتساب',
                 r4H: 'فريق جزائري 100%', r4S: 'في كل ولايات الوطن',
                 footBrand: 'Qrmeunu الجزائر', footSub: 'حلول المينيو الرقمي بالـ QR Code',
-                stickyOrder: 'أطلب الآن ←'
+                stickyOrder: 'أطلب الآن ←',
+                btnChooseF1: 'اختيار بيزيك', btnChooseF2: 'اختيار كوموند', btnChooseF3: 'اختيار كايس برو',
+                phoneHint: '✓ رقم هاتف صحيح (الجزائر)'
             }
         };
 
@@ -1792,6 +1878,11 @@
 
             document.getElementById('t-sticky-order').textContent = t.stickyOrder;
 
+            if (document.getElementById('t-btn-c1')) document.getElementById('t-btn-c1').textContent = t.btnChooseF1;
+            if (document.getElementById('t-btn-c2')) document.getElementById('t-btn-c2').textContent = t.btnChooseF2;
+            if (document.getElementById('t-btn-c3')) document.getElementById('t-btn-c3').textContent = t.btnChooseF3;
+            if (document.getElementById('phoneHint')) document.getElementById('phoneHint').textContent = t.phoneHint;
+
             refreshSummary();
             updateSlider();
             localStorage.setItem('qrmeunu_lang', lang);
@@ -1813,6 +1904,38 @@
             document.getElementById('sticky-price').textContent = `${currentFormulaMonthly.toLocaleString()} DA / ${isAr ? 'شهر' : 'mois'}`;
         }
 
+        window.scrollToOrderForm = function(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            const target = document.getElementById('section-commander');
+            if (!target) return;
+
+            const navHeight = 76;
+            const targetY = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+            window.scrollTo({
+                top: targetY,
+                behavior: 'smooth'
+            });
+
+            target.classList.add('pulse-highlight');
+            setTimeout(() => target.classList.remove('pulse-highlight'), 1200);
+
+            if (navigator.vibrate) navigator.vibrate(25);
+
+            setTimeout(() => {
+                const nameField = document.getElementById('f-name');
+                if (nameField && !nameField.value) {
+                    nameField.focus({ preventScroll: true });
+                }
+            }, 600);
+        };
+
+        window.selectFormulaAndScroll = function(name, monthly, annual, e) {
+            if (e && e.stopPropagation) e.stopPropagation();
+            selectFormula(name, monthly, annual);
+            scrollToOrderForm(e);
+        };
+
         window.selectFormula = function(name, monthly, annual) {
             currentFormulaName = name;
             currentFormulaMonthly = monthly;
@@ -1822,10 +1945,11 @@
             const target = document.getElementById('card-formula-' + name.replace(/\s+/g, ''));
             if (target) target.classList.add('selected');
 
+            if (navigator.vibrate) navigator.vibrate(15);
             refreshSummary();
         };
 
-        window.quickPickWilaya = function(wVal) {
+        window.quickPickWilaya = function(wVal, e) {
             const sel = document.getElementById('f-wilaya');
             if (sel) {
                 for (let opt of sel.options) {
@@ -1836,7 +1960,12 @@
                 }
             }
             document.querySelectorAll('.wilaya-btn-pill').forEach(b => b.classList.remove('active'));
-            if (event && event.target) event.target.classList.add('active');
+            if (e && e.currentTarget) {
+                e.currentTarget.classList.add('active');
+            } else if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            if (navigator.vibrate) navigator.vibrate(15);
         };
 
         // Phone language detection
@@ -1849,6 +1978,53 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             setLanguage(detectPhoneLang());
+
+            // Algerian Phone Number Auto-Formatter (05XX XX XX XX)
+            const phoneInput = document.getElementById('f-phone');
+            const hint = document.getElementById('phoneHint');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let digits = e.target.value.replace(/\D/g, '');
+                    if (digits.length > 10) digits = digits.substring(0, 10);
+
+                    let formatted = '';
+                    if (digits.length > 0) formatted += digits.substring(0, 2);
+                    if (digits.length > 2) formatted += ' ' + digits.substring(2, 4);
+                    if (digits.length > 4) formatted += ' ' + digits.substring(4, 6);
+                    if (digits.length > 6) formatted += ' ' + digits.substring(6, 8);
+                    if (digits.length > 8) formatted += ' ' + digits.substring(8, 10);
+
+                    e.target.value = formatted;
+
+                    const isValid = /^(05|06|07|02)[0-9]{8}$/.test(digits);
+                    if (isValid) {
+                        e.target.classList.add('valid');
+                        if (hint) hint.classList.add('show');
+                        if (navigator.vibrate) navigator.vibrate(15);
+                    } else {
+                        e.target.classList.remove('valid');
+                        if (hint) hint.classList.remove('show');
+                    }
+                });
+            }
+
+            // Auto-hide sticky bottom bar when order form is in view
+            if ('IntersectionObserver' in window) {
+                const stickyBar = document.querySelector('.sticky-footer-bar');
+                const checkoutSec = document.getElementById('section-commander');
+                if (stickyBar && checkoutSec) {
+                    const stickyObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                stickyBar.classList.add('hide-sticky');
+                            } else {
+                                stickyBar.classList.remove('hide-sticky');
+                            }
+                        });
+                    }, { threshold: 0.2 });
+                    stickyObserver.observe(checkoutSec);
+                }
+            }
         });
     </script>
 
