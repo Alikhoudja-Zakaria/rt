@@ -60,7 +60,19 @@
             align-items: center;
             gap: 12px;
         }
-        .topbar-left img { height: 36px; border-radius: 8px; }
+        .topbar-left .nav-logo-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, var(--primary), #E64A19);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.35);
+        }
         .topbar-left h1 { font-size: 18px; font-weight: 700; color: var(--text); }
         .topbar-left h1 span { color: var(--text-light); font-weight: 400; font-size: 14px; margin-left: 8px; }
         .topbar-right { display: flex; align-items: center; gap: 10px; }
@@ -226,8 +238,8 @@
 
 <div class="topbar">
     <div class="topbar-left">
-        <img src="assets/brand_image_6.png" alt="Qrmeunu">
-        <h1>Admin <span id="current-date"></span></h1>
+        <div class="nav-logo-icon">Q</div>
+        <h1>Qrmeunu Admin <span id="current-date"></span></h1>
     </div>
     <div class="topbar-right">
         <span id="db-status">⚡ Connexion...</span>
