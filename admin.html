@@ -3,692 +3,489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qrmeunu Admin Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Qrmeunu · Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #C75B39; /* Terracotta */
-            --secondary: #2A9D8F; /* Teal */
-            --bg: #FDF0EB; /* Light bg */
-            --text-dark: #333;
-            --text-light: #666;
-            --white: #FFF;
-            --border: #E0E0E0;
-            --danger: #E63946;
-            --success: #2A9D8F;
-            --warning: #F4A261;
+            --primary: #E8532E;
+            --primary-light: #FFF5F2;
+            --secondary: #1A8A7D;
+            --secondary-light: #E0F5F2;
+            --dark: #111827;
+            --bg: #F3F4F6;
+            --white: #FFFFFF;
+            --text: #111827;
+            --text-muted: #6B7280;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+            --whatsapp: #25D366;
+            --danger: #EF4444;
+            --danger-light: #FEF2F2;
+            --warning: #F59E0B;
+            --warning-light: #FFFBEB;
+            --success: #10B981;
+            --success-light: #ECFDF5;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.07);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: var(--bg);
-            color: var(--text-dark);
-            padding: 20px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 15px;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
 
-        header {
+        /* ── TOP BAR ── */
+        .topbar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 20px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            background-color: var(--white);
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-
-        .logo-container {
+        .topbar-left {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
-
-        .logo-container img {
-            height: 40px;
+        .topbar-left img { height: 36px; border-radius: 8px; }
+        .topbar-left h1 { font-size: 18px; font-weight: 700; color: var(--text); }
+        .topbar-left h1 span { color: var(--text-light); font-weight: 400; font-size: 14px; margin-left: 8px; }
+        .topbar-right { display: flex; align-items: center; gap: 10px; }
+        #db-status {
+            font-size: 12px; font-weight: 600; padding: 5px 12px;
+            border-radius: 999px; white-space: nowrap;
+            background: #EFF6FF; color: #3B82F6;
         }
+        .topbar-date { font-size: 13px; color: var(--text-muted); display: none; }
+        @media(min-width:640px) { .topbar-date { display: block; } }
 
-        .stats-bar {
+        .page { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* ── ALERT ── */
+        .alert {
+            display: none;
+            padding: 14px 18px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .alert-warning { background: var(--warning-light); color: #92400E; border: 1px solid #FDE68A; }
+        .alert a { color: inherit; font-weight: 700; text-decoration: underline; }
+
+        /* ── STAT CARDS ── */
+        .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
             margin-bottom: 20px;
         }
-
-        .stat-card {
-            background-color: var(--white);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        @media(min-width:640px) { .stats { grid-template-columns: repeat(5, 1fr); } }
+        .stat {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
             text-align: center;
         }
+        .stat-label { font-size: 12px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-value { font-size: 28px; font-weight: 800; color: var(--text); margin-top: 4px; }
+        .stat-value.primary { color: var(--primary); }
 
-        .stat-card h3 {
-            font-size: 14px;
-            color: var(--text-light);
-            margin-bottom: 5px;
-        }
-
-        .stat-card p {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .filters {
-            background-color: var(--white);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+        /* ── TOOLBAR ── */
+        .toolbar {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 16px;
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
             align-items: flex-end;
         }
-
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+        .toolbar-field { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 140px; }
+        .toolbar-field label { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .toolbar-field input, .toolbar-field select {
+            height: 38px; padding: 0 10px; border: 1px solid var(--border);
+            border-radius: var(--radius-sm); font-size: 14px; font-family: inherit;
+            background: var(--bg); color: var(--text);
         }
-
-        .filter-group label {
-            font-size: 12px;
-            font-weight: 500;
+        .toolbar-field input:focus, .toolbar-field select:focus {
+            outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px rgba(232,83,46,0.15);
         }
-
-        .filter-group input, .filter-group select {
-            padding: 8px 12px;
-            border: 1px solid var(--border);
-            border-radius: 5px;
-            outline: none;
+        .toolbar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn-sm {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 8px 14px; border-radius: var(--radius-sm);
+            font-size: 13px; font-weight: 600; font-family: inherit;
+            border: none; cursor: pointer; transition: all 0.15s; white-space: nowrap;
         }
+        .btn-sm:active { transform: scale(0.97); }
+        .btn-teal { background: var(--secondary-light); color: var(--secondary); }
+        .btn-teal:hover { background: #C6F0EA; }
+        .btn-orange { background: var(--primary-light); color: var(--primary); }
+        .btn-orange:hover { background: #FFE8E0; }
 
-        .btn {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: opacity 0.2s;
+        /* ── TABLE ── */
+        .table-wrap {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
         }
+        table { width: 100%; border-collapse: collapse; }
+        thead th {
+            background: var(--bg); font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            color: var(--text-muted); padding: 12px 14px; text-align: left;
+            border-bottom: 1px solid var(--border); white-space: nowrap;
+        }
+        tbody td {
+            padding: 14px; border-bottom: 1px solid var(--border);
+            font-size: 14px; vertical-align: middle;
+        }
+        tbody tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: #F9FAFB; }
 
-        .btn:hover {
-            opacity: 0.9;
+        .cell-name { font-weight: 600; color: var(--text); }
+        .cell-restaurant { color: var(--text-muted); font-size: 13px; }
+        .cell-phone a {
+            color: var(--secondary); font-weight: 600; text-decoration: none;
         }
+        .cell-email { color: var(--text-muted); font-size: 13px; }
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--white);
+        .pill {
+            display: inline-flex; align-items: center; padding: 3px 10px;
+            border-radius: 999px; font-size: 12px; font-weight: 600;
         }
-
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: var(--white);
-        }
-        
-        .btn-danger {
-            background-color: var(--danger);
-            color: var(--white);
-        }
-
-        .table-container {
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        th {
-            background-color: #F8F9FA;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-light);
-        }
-
-        .badge {
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--white);
-        }
-
-        .badge-basic { background-color: var(--text-light); }
-        .badge-commande { background-color: var(--primary); }
-        .badge-caisse { background-color: var(--secondary); }
+        .pill-basic { background: #F3F4F6; color: #374151; }
+        .pill-commande { background: var(--primary-light); color: var(--primary); }
+        .pill-caisse { background: var(--secondary-light); color: var(--secondary); }
 
         .status-select {
-            padding: 4px 8px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            outline: none;
-            font-size: 12px;
+            padding: 5px 8px; border-radius: 6px; font-size: 13px; font-family: inherit;
+            border: 1px solid var(--border); cursor: pointer; background: var(--white);
         }
+        .status-select:focus { outline: none; border-color: var(--primary); }
 
-        .action-btns {
-            display: flex;
-            gap: 5px;
+        .actions { display: flex; gap: 6px; }
+        .act-btn {
+            padding: 6px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
+            border: none; cursor: pointer; font-family: inherit; transition: all 0.15s;
         }
+        .act-btn:active { transform: scale(0.95); }
+        .act-wa { background: #DCFCE7; color: #166534; }
+        .act-wa:hover { background: #BBF7D0; }
+        .act-del { background: var(--danger-light); color: var(--danger); }
+        .act-del:hover { background: #FEE2E2; }
 
-        .btn-sm {
-            padding: 4px 8px;
-            font-size: 12px;
+        .empty-state {
+            text-align: center; padding: 48px 20px; color: var(--text-muted);
         }
+        .empty-state .icon { font-size: 40px; margin-bottom: 12px; display: block; }
+        .empty-state h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
 
-        @media (max-width: 768px) {
-            table, thead, tbody, th, td, tr {
-                display: block;
+        /* ── MOBILE TABLE → CARDS ── */
+        @media(max-width: 768px) {
+            table, thead, tbody, th, td, tr { display: block; }
+            thead { display: none; }
+            tbody tr {
+                padding: 16px; margin-bottom: 8px; position: relative;
+                border-bottom: 1px solid var(--border);
             }
-
-            thead tr {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-
-            tr {
-                border-bottom: 2px solid var(--border);
-                margin-bottom: 10px;
-                padding: 10px;
-            }
-
+            tbody tr:hover { background: var(--white); }
             td {
-                border: none;
-                position: relative;
-                padding-left: 50%;
-                text-align: right;
-                margin-bottom: 5px;
+                display: flex; justify-content: space-between; align-items: center;
+                padding: 5px 0; border: none; font-size: 14px;
             }
-
-            td:before {
-                position: absolute;
-                top: 12px;
-                left: 15px;
-                width: 45%;
-                padding-right: 10px;
-                white-space: nowrap;
+            td::before {
                 content: attr(data-label);
-                font-weight: 600;
-                text-align: left;
+                font-weight: 600; font-size: 12px; color: var(--text-muted);
+                text-transform: uppercase; letter-spacing: 0.3px;
+                min-width: 100px;
             }
-            .action-btns {
-                justify-content: flex-end;
-            }
+            .actions { justify-content: flex-end; padding-top: 8px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="assets/brand_image_6.png" alt="Qrmeunu Logo">
-            <h2>Qrmeunu Admin</h2>
-        </div>
-        <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-            <span id="db-status" style="font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 20px; background: #E0F2FE; color: #0284C7;">⚡ Connexion Firestore...</span>
-            <span id="current-date" style="font-size: 14px; color: var(--text-light);"></span>
-        </div>
-    </header>
+<div class="topbar">
+    <div class="topbar-left">
+        <img src="assets/brand_image_6.png" alt="Qrmeunu">
+        <h1>Admin <span id="current-date"></span></h1>
+    </div>
+    <div class="topbar-right">
+        <span id="db-status">⚡ Connexion...</span>
+    </div>
+</div>
 
-    <div id="firestore-notice" style="display:none; margin-bottom: 20px; padding: 15px; background: #FFF3CD; color: #856404; border: 1px solid #FFEEBA; border-radius: 10px; font-size: 14px;"></div>
+<div class="page">
+    <div id="firestore-notice" class="alert alert-warning"></div>
 
-    <div class="stats-bar">
-        <div class="stat-card">
-            <h3>Total Leads</h3>
-            <p id="stat-total">0</p>
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-label">Total</div>
+            <div class="stat-value primary" id="stat-total">0</div>
         </div>
-        <div class="stat-card">
-            <h3>Leads Today</h3>
-            <p id="stat-today">0</p>
+        <div class="stat">
+            <div class="stat-label">Aujourd'hui</div>
+            <div class="stat-value" id="stat-today">0</div>
         </div>
-        <div class="stat-card">
-            <h3>Basic</h3>
-            <p id="stat-basic">0</p>
+        <div class="stat">
+            <div class="stat-label">Basic</div>
+            <div class="stat-value" id="stat-basic">0</div>
         </div>
-        <div class="stat-card">
-            <h3>Commande</h3>
-            <p id="stat-commande">0</p>
+        <div class="stat">
+            <div class="stat-label">Commande</div>
+            <div class="stat-value" id="stat-commande">0</div>
         </div>
-        <div class="stat-card">
-            <h3>Caisse Pro</h3>
-            <p id="stat-caisse">0</p>
+        <div class="stat">
+            <div class="stat-label">Caisse Pro</div>
+            <div class="stat-value" id="stat-caisse">0</div>
         </div>
     </div>
 
-    <div class="filters">
-        <div class="filter-group">
-            <label for="search">Search (Name/Restaurant)</label>
-            <input type="text" id="search" placeholder="Search...">
+    <div class="toolbar">
+        <div class="toolbar-field" style="flex:2;">
+            <label>Recherche</label>
+            <input type="text" id="search" placeholder="Nom ou restaurant...">
         </div>
-        <div class="filter-group">
-            <label for="filter-wilaya">Wilaya</label>
+        <div class="toolbar-field">
+            <label>Wilaya</label>
             <select id="filter-wilaya">
-                <option value="">All</option>
-                <option value="1-Adrar">1 - Adrar</option>
-                <option value="2-Chlef">2 - Chlef</option>
-                <option value="3-Laghouat">3 - Laghouat</option>
-                <option value="4-Oum El Bouaghi">4 - Oum El Bouaghi</option>
-                <option value="5-Batna">5 - Batna</option>
-                <option value="6-Bejaia">6 - Béjaïa</option>
-                <option value="7-Biskra">7 - Biskra</option>
-                <option value="8-Bechar">8 - Béchar</option>
-                <option value="9-Blida">9 - Blida</option>
-                <option value="10-Bouira">10 - Bouira</option>
-                <option value="11-Tamanrasset">11 - Tamanrasset</option>
-                <option value="12-Tebessa">12 - Tébessa</option>
-                <option value="13-Tlemcen">13 - Tlemcen</option>
-                <option value="14-Tiaret">14 - Tiaret</option>
-                <option value="15-Tizi Ouzou">15 - Tizi Ouzou</option>
-                <option value="16-Alger">16 - Alger</option>
-                <option value="17-Djelfa">17 - Djelfa</option>
-                <option value="18-Jijel">18 - Jijel</option>
-                <option value="19-Setif">19 - Sétif</option>
-                <option value="20-Saida">20 - Saïda</option>
-                <option value="21-Skikda">21 - Skikda</option>
-                <option value="22-Sidi Bel Abbes">22 - Sidi Bel Abbès</option>
-                <option value="23-Annaba">23 - Annaba</option>
-                <option value="24-Guelma">24 - Guelma</option>
-                <option value="25-Constantine">25 - Constantine</option>
-                <option value="26-Medea">26 - Médéa</option>
-                <option value="27-Mostaganem">27 - Mostaganem</option>
-                <option value="28-MSila">28 - M'Sila</option>
-                <option value="29-Mascara">29 - Mascara</option>
-                <option value="30-Ouargla">30 - Ouargla</option>
-                <option value="31-Oran">31 - Oran</option>
-                <option value="32-El Bayadh">32 - El Bayadh</option>
-                <option value="33-Illizi">33 - Illizi</option>
-                <option value="34-Bordj Bou Arreridj">34 - Bordj Bou Arreridj</option>
-                <option value="35-Boumerdes">35 - Boumerdès</option>
-                <option value="36-El Tarf">36 - El Tarf</option>
-                <option value="37-Tindouf">37 - Tindouf</option>
-                <option value="38-Tissemsilt">38 - Tissemsilt</option>
-                <option value="39-El Oued">39 - El Oued</option>
-                <option value="40-Khenchela">40 - Khenchela</option>
-                <option value="41-Souk Ahras">41 - Souk Ahras</option>
-                <option value="42-Tipaza">42 - Tipaza</option>
-                <option value="43-Mila">43 - Mila</option>
-                <option value="44-Ain Defla">44 - Aïn Defla</option>
-                <option value="45-Naama">45 - Naâma</option>
-                <option value="46-Ain Temouchent">46 - Aïn Témouchent</option>
-                <option value="47-Ghardaia">47 - Ghardaïa</option>
-                <option value="48-Relizane">48 - Relizane</option>
-                <option value="49-Timimoun">49 - Timimoun</option>
-                <option value="50-Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar</option>
-                <option value="51-Ouled Djellal">51 - Ouled Djellal</option>
-                <option value="52-Beni Abbes">52 - Béni Abbès</option>
-                <option value="53-In Salah">53 - In Salah</option>
-                <option value="54-In Guezzam">54 - In Guezzam</option>
-                <option value="55-Touggourt">55 - Touggourt</option>
-                <option value="56-Djanet">56 - Djanet</option>
-                <option value="57-El MGhair">57 - El M'Ghair</option>
-                <option value="58-El Meniaa">58 - El Meniaa</option>
+                <option value="">Toutes</option>
+                <option value="1-Adrar">Adrar</option><option value="2-Chlef">Chlef</option><option value="3-Laghouat">Laghouat</option>
+                <option value="4-Oum El Bouaghi">Oum El Bouaghi</option><option value="5-Batna">Batna</option><option value="6-Bejaia">Béjaïa</option>
+                <option value="7-Biskra">Biskra</option><option value="8-Bechar">Béchar</option><option value="9-Blida">Blida</option>
+                <option value="10-Bouira">Bouira</option><option value="11-Tamanrasset">Tamanrasset</option><option value="12-Tebessa">Tébessa</option>
+                <option value="13-Tlemcen">Tlemcen</option><option value="14-Tiaret">Tiaret</option><option value="15-Tizi Ouzou">Tizi Ouzou</option>
+                <option value="16-Alger">Alger</option><option value="17-Djelfa">Djelfa</option><option value="18-Jijel">Jijel</option>
+                <option value="19-Setif">Sétif</option><option value="20-Saida">Saïda</option><option value="21-Skikda">Skikda</option>
+                <option value="22-Sidi Bel Abbes">Sidi Bel Abbès</option><option value="23-Annaba">Annaba</option><option value="24-Guelma">Guelma</option>
+                <option value="25-Constantine">Constantine</option><option value="26-Medea">Médéa</option><option value="27-Mostaganem">Mostaganem</option>
+                <option value="28-MSila">M'Sila</option><option value="29-Mascara">Mascara</option><option value="30-Ouargla">Ouargla</option>
+                <option value="31-Oran">Oran</option><option value="32-El Bayadh">El Bayadh</option><option value="33-Illizi">Illizi</option>
+                <option value="34-Bordj Bou Arreridj">Bordj Bou Arreridj</option><option value="35-Boumerdes">Boumerdès</option>
+                <option value="36-El Tarf">El Tarf</option><option value="37-Tindouf">Tindouf</option><option value="38-Tissemsilt">Tissemsilt</option>
+                <option value="39-El Oued">El Oued</option><option value="40-Khenchela">Khenchela</option><option value="41-Souk Ahras">Souk Ahras</option>
+                <option value="42-Tipaza">Tipaza</option><option value="43-Mila">Mila</option><option value="44-Ain Defla">Aïn Defla</option>
+                <option value="45-Naama">Naâma</option><option value="46-Ain Temouchent">Aïn Témouchent</option><option value="47-Ghardaia">Ghardaïa</option>
+                <option value="48-Relizane">Relizane</option><option value="49-Timimoun">Timimoun</option>
+                <option value="50-Bordj Badji Mokhtar">Bordj Badji Mokhtar</option><option value="51-Ouled Djellal">Ouled Djellal</option>
+                <option value="52-Beni Abbes">Béni Abbès</option><option value="53-In Salah">In Salah</option>
+                <option value="54-In Guezzam">In Guezzam</option><option value="55-Touggourt">Touggourt</option>
+                <option value="56-Djanet">Djanet</option><option value="57-El MGhair">El M'Ghair</option><option value="58-El Meniaa">El Meniaa</option>
             </select>
         </div>
-        <div class="filter-group">
-            <label for="filter-formule">Formule</label>
+        <div class="toolbar-field">
+            <label>Formule</label>
             <select id="filter-formule">
-                <option value="">All</option>
+                <option value="">Toutes</option>
                 <option value="Basic">Basic</option>
                 <option value="Commande">Commande</option>
                 <option value="Caisse Pro">Caisse Pro</option>
             </select>
         </div>
-        <div class="filter-group">
-            <label for="date-from">From</label>
+        <div class="toolbar-field">
+            <label>Du</label>
             <input type="date" id="date-from">
         </div>
-        <div class="filter-group">
-            <label for="date-to">To</label>
+        <div class="toolbar-field">
+            <label>Au</label>
             <input type="date" id="date-to">
         </div>
-        <div style="flex-grow: 1; display: flex; justify-content: flex-end; gap: 10px; align-items: flex-end;">
-            <button class="btn btn-secondary" onclick="exportCSV()">Export CSV</button>
-            <button class="btn btn-primary" onclick="generateSampleData()">Generate Sample Data</button>
+        <div class="toolbar-actions">
+            <button class="btn-sm btn-teal" onclick="window.exportCSV()">📥 CSV</button>
+            <button class="btn-sm btn-orange" onclick="window.generateSampleData()">🧪 Test Data</button>
         </div>
     </div>
 
-    <div class="table-container">
+    <div class="table-wrap">
         <table>
             <thead>
                 <tr>
-                    <th>Date/Time</th>
-                    <th>Nom Complet</th>
-                    <th>Restaurant</th>
+                    <th>Date</th>
+                    <th>Client</th>
                     <th>Téléphone</th>
-                    <th>Email</th>
                     <th>Wilaya</th>
                     <th>Formule</th>
-                    <th>Status</th>
+                    <th>Statut</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody id="orders-table-body">
-                <!-- Orders will be populated here -->
-            </tbody>
+            <tbody id="orders-table-body"></tbody>
         </table>
     </div>
+</div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-        import { 
-            getFirestore, collection, onSnapshot, query, orderBy, 
-            doc, updateDoc, deleteDoc, addDoc, serverTimestamp 
-        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, onSnapshot, doc, updateDoc, deleteDoc, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-        const firebaseConfig = {
-          apiKey: "AIzaSyBUDfe0o3J03Ax-6tQIFrXau3Ds0c4H234",
-          authDomain: "restau-dfbb2.firebaseapp.com",
-          projectId: "restau-dfbb2",
-          storageBucket: "restau-dfbb2.firebasestorage.app",
-          messagingSenderId: "1018720003065",
-          appId: "1:1018720003065:web:9713c7633cfff1b4131328",
-          measurementId: "G-LCB8BJ3X0P"
-        };
+    const app = initializeApp({
+        apiKey: "AIzaSyBUDfe0o3J03Ax-6tQIFrXau3Ds0c4H234",
+        authDomain: "restau-dfbb2.firebaseapp.com",
+        projectId: "restau-dfbb2",
+        storageBucket: "restau-dfbb2.firebasestorage.app",
+        messagingSenderId: "1018720003065",
+        appId: "1:1018720003065:web:9713c7633cfff1b4131328"
+    });
+    const db = getFirestore(app);
+    const KEY = 'qrmeunu_leads';
+    let allOrders = [];
+    let live = false;
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString('fr-FR', { weekday:'short', day:'numeric', month:'short', year:'numeric' });
 
-        const STORAGE_KEY = 'qrmeunu_leads';
-        let allOrders = [];
-        let isFirestoreLive = false;
+    const badge = document.getElementById('db-status');
+    const notice = document.getElementById('firestore-notice');
 
-        // Setup Date
-        document.getElementById('current-date').textContent = new Date().toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    function local(k) { try { return JSON.parse(localStorage.getItem(k)||'[]'); } catch(e) { return []; } }
+    function save(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch(e){} }
 
-        const statusBadge = document.getElementById('db-status');
-        const noticeEl = document.getElementById('firestore-notice');
-
-        // Helpers
-        function getLocalOrders() {
-            try {
-                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-            } catch(e) {
-                return [];
-            }
-        }
-
-        function saveLocalOrders(orders) {
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
-            } catch(e) {}
-        }
-
-        // Realtime Firestore Listener
-        try {
-            const q = collection(db, "leads");
-            onSnapshot(q, (snapshot) => {
-                isFirestoreLive = true;
-                if (statusBadge) {
-                    statusBadge.textContent = "🟢 Firestore Connecté (En direct)";
-                    statusBadge.style.background = "#D1FAE5";
-                    statusBadge.style.color = "#065F46";
-                }
-                if (noticeEl) noticeEl.style.display = 'none';
-
-                const orders = [];
-                snapshot.forEach(docSnap => {
-                    const data = docSnap.data();
-                    let dateStr = new Date().toISOString();
-                    if (data.createdAt && typeof data.createdAt.toDate === 'function') {
-                        dateStr = data.createdAt.toDate().toISOString();
-                    } else if (data.date) {
-                        dateStr = data.date;
-                    }
-                    orders.push({
-                        id: docSnap.id,
-                        ...data,
-                        date: dateStr
-                    });
-                });
-
-                allOrders = orders;
-                saveLocalOrders(orders);
-                window.renderTable();
-            }, (error) => {
-                console.warn("Firestore onSnapshot error:", error);
-                isFirestoreLive = false;
-                if (statusBadge) {
-                    statusBadge.textContent = "🟠 Mode Local (Vérifier règles Firestore)";
-                    statusBadge.style.background = "#FEF3C7";
-                    statusBadge.style.color = "#92400E";
-                }
-                if (noticeEl && error.code === 'permission-denied') {
-                    noticeEl.style.display = 'block';
-                    noticeEl.innerHTML = `⚠️ <strong>Note sur Firestore :</strong> L'accès a été refusé (règles de sécurité Firestore). Pour activer la lecture/écriture publique, allez sur <a href="https://console.firebase.google.com/project/restau-dfbb2/firestore/rules" target="_blank" style="color: #92400E; text-decoration: underline; font-weight: bold;">Console Firebase -> Firestore -> Règles</a> et configurez : <code>allow read, write: if true;</code>. En attendant, les commandes locales s'affichent ci-dessous.`;
-                }
-                allOrders = getLocalOrders();
-                window.renderTable();
+    // Firestore realtime
+    try {
+        onSnapshot(collection(db, "leads"), snap => {
+            live = true;
+            badge.textContent = "🟢 En direct";
+            badge.style.background = "#DCFCE7"; badge.style.color = "#166534";
+            notice.style.display = 'none';
+            const arr = [];
+            snap.forEach(d => {
+                const data = d.data();
+                let dt = data.date || new Date().toISOString();
+                if (data.createdAt?.toDate) dt = data.createdAt.toDate().toISOString();
+                arr.push({ id: d.id, ...data, date: dt });
             });
-        } catch (e) {
-            console.error("Initialization error:", e);
-            allOrders = getLocalOrders();
-            window.renderTable();
+            allOrders = arr; save(arr); window.renderTable();
+        }, err => {
+            live = false;
+            badge.textContent = "🟠 Mode local";
+            badge.style.background = "#FFFBEB"; badge.style.color = "#92400E";
+            if (err.code === 'permission-denied') {
+                notice.style.display = 'block';
+                notice.innerHTML = `⚠️ Accès Firestore refusé. <a href="https://console.firebase.google.com/project/restau-dfbb2/firestore/rules" target="_blank">Configurer les règles →</a>`;
+            }
+            allOrders = local(KEY); window.renderTable();
+        });
+    } catch(e) { allOrders = local(KEY); window.renderTable(); }
+
+    function pillClass(f) {
+        if (f === 'Commande') return 'pill-commande';
+        if (f === 'Caisse Pro') return 'pill-caisse';
+        return 'pill-basic';
+    }
+
+    window.updateStatus = async (id, s) => {
+        try { await updateDoc(doc(db, "leads", id), { status: s }); } catch(e) {}
+        const i = allOrders.findIndex(o => o.id === id);
+        if (i > -1) { allOrders[i].status = s; save(allOrders); window.renderTable(); }
+    };
+    window.deleteOrder = async (id) => {
+        if (!confirm('Supprimer cette demande ?')) return;
+        try { await deleteDoc(doc(db, "leads", id)); } catch(e) {}
+        allOrders = allOrders.filter(o => o.id !== id); save(allOrders); window.renderTable();
+    };
+    window.openWhatsApp = (p) => { window.open(`https://wa.me/${(p||'').replace(/\D/g,'')}`, '_blank'); };
+
+    window.exportCSV = () => {
+        const h = ['Date','Nom','Restaurant','Téléphone','Email','Wilaya','Formule','Statut'];
+        const csv = "data:text/csv;charset=utf-8," + h.join(",") + "\n" +
+            allOrders.map(o => [
+                new Date(o.date).toLocaleString(),
+                `"${o.name||''}"`,`"${o.restaurant||''}"`,`"${o.phone||''}"`,
+                `"${o.email||''}"`,`"${o.wilaya||''}"`,`"${o.formule||''}"`,`"${o.status||('')}"`
+            ].join(",")).join("\n");
+        const a = document.createElement("a");
+        a.href = encodeURI(csv); a.download = "qrmeunu_leads.csv";
+        document.body.appendChild(a); a.click(); a.remove();
+    };
+
+    window.generateSampleData = async () => {
+        const names = [
+            { name:"Ahmed Benali", restaurant:"Le Petit Creux", phone:"0555123456", wilaya:"16-Alger", formule:"Basic" },
+            { name:"Sara Mansouri", restaurant:"Pizza Fast", phone:"0770987654", wilaya:"31-Oran", formule:"Commande" },
+            { name:"Karim Louahab", restaurant:"Burger House", phone:"0661223344", wilaya:"25-Constantine", formule:"Caisse Pro" },
+            { name:"Yasmine Bouzid", restaurant:"Café Zen", phone:"0550112233", wilaya:"16-Alger", formule:"Commande" },
+            { name:"Nadir Fares", restaurant:"Tacos DZ", phone:"0771445566", wilaya:"31-Oran", formule:"Basic" }
+        ];
+        for (const s of names) {
+            const d = { ...s, email: "", date: new Date().toISOString(), status: "Nouveau" };
+            try { const ref = await addDoc(collection(db, "leads"), { ...d, createdAt: serverTimestamp() }); d.id = ref.id; }
+            catch(e) { d.id = "local_" + Date.now() + Math.random().toString(36).slice(2,6); }
+            allOrders.unshift(d);
         }
+        save(allOrders); window.renderTable();
+    };
 
-        // Helpers on window
-        window.getBadgeClass = function(formule) {
-            if (formule === 'Basic') return 'badge-basic';
-            if (formule === 'Commande') return 'badge-commande';
-            if (formule === 'Caisse Pro') return 'badge-caisse';
-            return 'badge-basic';
-        };
+    window.renderTable = () => {
+        let orders = [...allOrders].sort((a,b) => new Date(b.date||0) - new Date(a.date||0));
 
-        window.updateStatus = async function(id, newStatus) {
-            // Update in Firestore
-            try {
-                await updateDoc(doc(db, "leads", String(id)), { status: newStatus });
-                console.log("Status updated in Firestore for:", id);
-            } catch(e) {
-                console.warn("Could not update Firestore, updating locally:", e);
-            }
+        const search = (document.getElementById('search').value||'').toLowerCase();
+        const fW = document.getElementById('filter-wilaya').value;
+        const fF = document.getElementById('filter-formule').value;
+        const dFrom = document.getElementById('date-from').value;
+        const dTo = document.getElementById('date-to').value;
 
-            // Update in memory & localStorage
-            const idx = allOrders.findIndex(o => String(o.id) === String(id));
-            if (idx > -1) {
-                allOrders[idx].status = newStatus;
-                saveLocalOrders(allOrders);
-                window.renderTable();
-            }
-        };
-
-        window.deleteOrder = async function(id) {
-            if (confirm('Voulez-vous vraiment supprimer cette demande ?')) {
-                // Delete in Firestore
-                try {
-                    await deleteDoc(doc(db, "leads", String(id)));
-                    console.log("Deleted from Firestore:", id);
-                } catch(e) {
-                    console.warn("Could not delete from Firestore:", e);
-                }
-
-                allOrders = allOrders.filter(o => String(o.id) !== String(id));
-                saveLocalOrders(allOrders);
-                window.renderTable();
-            }
-        };
-
-        window.openWhatsApp = function(phone) {
-            const cleaned = (phone || '').replace(/\D/g, '');
-            window.open(`https://wa.me/${cleaned}`, '_blank');
-        };
-
-        window.exportCSV = function() {
-            const headers = ['Date', 'Nom Complet', 'Restaurant', 'Téléphone', 'Email', 'Wilaya', 'Formule', 'Status'];
-            let csvContent = "data:text/csv;charset=utf-8," 
-                + headers.join(",") + "\n"
-                + allOrders.map(o => {
-                    return [
-                        new Date(o.date).toLocaleString(),
-                        `"${o.name || ''}"`,
-                        `"${o.restaurant || ''}"`,
-                        `"${o.phone || ''}"`,
-                        `"${o.email || ''}"`,
-                        `"${o.wilaya || ''}"`,
-                        `"${o.formule || ''}"`,
-                        `"${o.status || ''}"`
-                    ].join(",");
-                }).join("\n");
-
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "qrmeunu_leads.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        };
-
-        window.generateSampleData = async function() {
-            const samples = [
-                { name: "Ahmed Benali", restaurant: "Le Petit Creux", phone: "0555123456", email: "ahmed@example.com", wilaya: "16-Alger", formule: "Basic", status: "Nouveau" },
-                { name: "Sara Mansouri", restaurant: "Pizza Fast", phone: "0770987654", email: "sara@example.com", wilaya: "31-Oran", formule: "Commande", status: "Contacté" },
-                { name: "Karim Louahab", restaurant: "Burger House", phone: "0661223344", email: "karim@example.com", wilaya: "25-Constantine", formule: "Caisse Pro", status: "Confirmé" },
-                { name: "Yasmine Bouzid", restaurant: "Sushi Zen", phone: "0550112233", email: "yasmine@example.com", wilaya: "16-Alger", formule: "Commande", status: "Nouveau" },
-                { name: "Nadir Fares", restaurant: "Tacos T", phone: "0771445566", email: "nadir@example.com", wilaya: "31-Oran", formule: "Basic", status: "Contacté" }
-            ];
-
-            for (const item of samples) {
-                const docData = {
-                    ...item,
-                    date: new Date().toISOString()
-                };
-                try {
-                    const docRef = await addDoc(collection(db, "leads"), {
-                        ...docData,
-                        createdAt: serverTimestamp()
-                    });
-                    docData.id = docRef.id;
-                } catch(e) {
-                    docData.id = "local_" + Date.now() + Math.random().toString(36).substr(2, 4);
-                }
-                allOrders.unshift(docData);
-            }
-            saveLocalOrders(allOrders);
-            window.renderTable();
-        };
-
-        window.renderTable = function() {
-            let orders = [...allOrders];
-
-            // Sorting (newest first)
-            orders.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-
-            // Filtering
-            const search = (document.getElementById('search').value || '').toLowerCase();
-            const filterWilaya = document.getElementById('filter-wilaya').value;
-            const filterFormule = document.getElementById('filter-formule').value;
-            const dateFrom = document.getElementById('date-from').value;
-            const dateTo = document.getElementById('date-to').value;
-
-            const filteredOrders = orders.filter(o => {
-                const name = o.name || "";
-                const restaurant = o.restaurant || "";
-                const matchSearch = name.toLowerCase().includes(search) || restaurant.toLowerCase().includes(search);
-                const matchWilaya = filterWilaya === "" || o.wilaya === filterWilaya;
-                const matchFormule = filterFormule === "" || o.formule === filterFormule;
-                
-                let matchDate = true;
-                const orderDate = new Date(o.date);
-                orderDate.setHours(0,0,0,0);
-                if (dateFrom) {
-                    matchDate = matchDate && orderDate >= new Date(dateFrom);
-                }
-                if (dateTo) {
-                    const dt = new Date(dateTo);
-                    dt.setHours(23,59,59,999);
-                    matchDate = matchDate && new Date(o.date) <= dt;
-                }
-
-                return matchSearch && matchWilaya && matchFormule && matchDate;
-            });
-
-            // Update Stats
-            document.getElementById('stat-total').textContent = filteredOrders.length;
-            
-            const today = new Date();
-            today.setHours(0,0,0,0);
-            document.getElementById('stat-today').textContent = filteredOrders.filter(o => new Date(o.date) >= today).length;
-
-            document.getElementById('stat-basic').textContent = filteredOrders.filter(o => o.formule === 'Basic').length;
-            document.getElementById('stat-commande').textContent = filteredOrders.filter(o => o.formule === 'Commande').length;
-            document.getElementById('stat-caisse').textContent = filteredOrders.filter(o => o.formule === 'Caisse Pro').length;
-
-            // Render Rows
-            const tbody = document.getElementById('orders-table-body');
-            tbody.innerHTML = '';
-
-            if (filteredOrders.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; color: var(--text-light); padding: 30px;">Aucune commande pour le moment. Cliquez sur "Generate Sample Data" pour tester.</td></tr>`;
-                return;
-            }
-
-            filteredOrders.forEach(o => {
-                const tr = document.createElement('tr');
-                
-                const statusOptions = ['Nouveau', 'Contacté', 'Confirmé'].map(s => 
-                    `<option value="${s}" ${o.status === s ? 'selected' : ''}>${s}</option>`
-                ).join('');
-
-                tr.innerHTML = `
-                    <td data-label="Date/Time">${new Date(o.date).toLocaleString()}</td>
-                    <td data-label="Nom Complet">${o.name || ''}</td>
-                    <td data-label="Restaurant">${o.restaurant || ''}</td>
-                    <td data-label="Téléphone"><a href="tel:${o.phone || ''}" style="color: var(--secondary); font-weight:600; text-decoration:none;">${o.phone || ''}</a></td>
-                    <td data-label="Email">${o.email || '<span style="color:#aaa;">-</span>'}</td>
-                    <td data-label="Wilaya">${o.wilaya || ''}</td>
-                    <td data-label="Formule"><span class="badge ${window.getBadgeClass(o.formule || '')}">${o.formule || ''}</span></td>
-                    <td data-label="Status">
-                        <select class="status-select" onchange="window.updateStatus('${o.id}', this.value)">
-                            ${statusOptions}
-                        </select>
-                    </td>
-                    <td data-label="Actions">
-                        <div class="action-btns">
-                            <button class="btn btn-sm" style="background-color: #25D366; color: white; border:none; border-radius:4px; cursor:pointer;" onclick="window.openWhatsApp('${o.phone || ''}')">WhatsApp</button>
-                            <button class="btn btn-sm btn-danger" style="border:none; border-radius:4px; cursor:pointer;" onclick="window.deleteOrder('${o.id}')">Delete</button>
-                        </div>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        };
-
-        // Event Listeners for Filters
-        const filterIds = ['search', 'filter-wilaya', 'filter-formule', 'date-from', 'date-to'];
-        filterIds.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.addEventListener('input', window.renderTable);
+        orders = orders.filter(o => {
+            const n = (o.name||'').toLowerCase(), r = (o.restaurant||'').toLowerCase();
+            if (search && !n.includes(search) && !r.includes(search)) return false;
+            if (fW && o.wilaya !== fW) return false;
+            if (fF && o.formule !== fF) return false;
+            if (dFrom) { const d = new Date(o.date); d.setHours(0,0,0,0); if (d < new Date(dFrom)) return false; }
+            if (dTo) { const dt = new Date(dTo); dt.setHours(23,59,59,999); if (new Date(o.date) > dt) return false; }
+            return true;
         });
 
-        // Focus refresh
-        window.addEventListener('focus', () => {
-            if (!isFirestoreLive) {
-                allOrders = getLocalOrders();
-                window.renderTable();
-            }
-        });
+        document.getElementById('stat-total').textContent = orders.length;
+        const today = new Date(); today.setHours(0,0,0,0);
+        document.getElementById('stat-today').textContent = orders.filter(o => new Date(o.date) >= today).length;
+        document.getElementById('stat-basic').textContent = orders.filter(o => o.formule === 'Basic').length;
+        document.getElementById('stat-commande').textContent = orders.filter(o => o.formule === 'Commande').length;
+        document.getElementById('stat-caisse').textContent = orders.filter(o => o.formule === 'Caisse Pro').length;
 
-        // Initial load from local cache while firestore connects
-        allOrders = getLocalOrders();
-        window.renderTable();
-    </script>
+        const tbody = document.getElementById('orders-table-body');
+
+        if (!orders.length) {
+            tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state"><span class="icon">📋</span><h3>Aucune demande</h3><p>Cliquez sur "🧪 Test Data" pour générer des exemples.</p></div></td></tr>`;
+            return;
+        }
+
+        tbody.innerHTML = orders.map(o => {
+            const d = new Date(o.date);
+            const dateStr = d.toLocaleDateString('fr-FR', {day:'2-digit',month:'short'}) + ' ' + d.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
+            const sts = ['Nouveau','Contacté','Confirmé'].map(s => `<option value="${s}" ${o.status===s?'selected':''}>${s}</option>`).join('');
+            return `<tr>
+                <td data-label="Date"><span style="font-size:13px;color:var(--text-muted);">${dateStr}</span></td>
+                <td data-label="Client"><div class="cell-name">${o.name||'-'}</div><div class="cell-restaurant">${o.restaurant||''}</div>${o.email ? `<div class="cell-email">${o.email}</div>` : ''}</td>
+                <td data-label="Tél" class="cell-phone"><a href="tel:${o.phone||''}">${o.phone||'-'}</a></td>
+                <td data-label="Wilaya"><span style="font-size:13px;">${o.wilaya||'-'}</span></td>
+                <td data-label="Formule"><span class="pill ${pillClass(o.formule||'')}">${o.formule||'-'}</span></td>
+                <td data-label="Statut"><select class="status-select" onchange="window.updateStatus('${o.id}',this.value)">${sts}</select></td>
+                <td data-label="Actions"><div class="actions"><button class="act-btn act-wa" onclick="window.openWhatsApp('${o.phone||''}')">💬</button><button class="act-btn act-del" onclick="window.deleteOrder('${o.id}')">🗑</button></div></td>
+            </tr>`;
+        }).join('');
+    };
+
+    ['search','filter-wilaya','filter-formule','date-from','date-to'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', window.renderTable);
+    });
+    window.addEventListener('focus', () => { if (!live) { allOrders = local(KEY); window.renderTable(); } });
+    allOrders = local(KEY); window.renderTable();
+</script>
 </body>
 </html>

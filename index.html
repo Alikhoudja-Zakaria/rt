@@ -2,8 +2,8 @@
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#C75B39">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#1a1a2e">
     <title>Qrmeunu - Votre menu, en un scan.</title>
 
     <!-- Google tag (gtag.js) -->
@@ -14,461 +14,799 @@
       gtag('js', new Date());
       gtag('config', 'G-LCB8BJ3X0P');
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --terracotta: #C75B39;
-            --teal: #2A9D8F;
-            --bg-light: #FDF0EB;
-            --whatsapp: #25D366;
-            --text-main: #333333;
-            --text-muted: #666666;
+            --primary: #E8532E;
+            --primary-dark: #C44425;
+            --primary-glow: rgba(232, 83, 46, 0.3);
+            --secondary: #1A8A7D;
+            --secondary-light: #E0F5F2;
+            --dark: #1a1a2e;
+            --dark-2: #16213e;
+            --bg: #FAFAFA;
             --white: #FFFFFF;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --text-light: #9ca3af;
+            --border: #e5e7eb;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-full: 9999px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            color: var(--text-main);
-            background-color: var(--bg-light);
-            line-height: 1.5;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 17px;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
-        /* Mobile-first centered layout */
-        .container {
-            max-width: 480px;
-            margin: 0 auto;
-            background-color: var(--white);
-            min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        /* ── ANIMATIONS ── */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounce-arrow {
+            0%, 100% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(10px) translateX(-50%); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .anim { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .anim.visible { opacity: 1; transform: translateY(0); }
+        .anim-delay-1 { transition-delay: 0.1s; }
+        .anim-delay-2 { transition-delay: 0.2s; }
+        .anim-delay-3 { transition-delay: 0.3s; }
+
+        /* ── HERO ── */
+        .hero {
             position: relative;
-        }
-
-        section {
-            padding: 40px 20px;
-        }
-
-        h1, h2, h3 {
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--terracotta);
-        }
-
-        h1 { font-size: 32px; line-height: 1.2; }
-        h2 { font-size: 28px; }
-        h3 { font-size: 22px; }
-
-        p { margin-bottom: 15px; }
-
-        .btn {
-            display: block;
-            width: 100%;
-            min-height: 56px;
-            padding: 15px 20px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 600;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 60px 24px 80px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            top: -100px;
+            right: -150px;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(26, 138, 125, 0.15) 0%, transparent 70%);
+            bottom: -50px;
+            left: -100px;
+            pointer-events: none;
+        }
+
+        .hero-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 8px 24px rgba(232, 83, 46, 0.3));
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 8vw, 52px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #FF8A5C, #E8532E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-darja {
+            font-size: 22px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+            direction: rtl;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+        .hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            max-width: 440px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 360px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── BUTTONS ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 28px;
+            border-radius: var(--radius);
+            font-size: 17px;
+            font-weight: 600;
+            font-family: inherit;
             text-decoration: none;
             border: none;
             cursor: pointer;
-            transition: opacity 0.2s;
-            color: var(--white);
-        }
-
-        .btn:active { opacity: 0.8; }
-
-        .btn-whatsapp { background-color: var(--whatsapp); }
-        .btn-primary { background-color: var(--terracotta); }
-        .btn-secondary { background-color: var(--teal); }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            background-color: var(--bg-light);
-            border-bottom: 2px solid rgba(199, 91, 57, 0.1);
-        }
-
-        .logo {
-            max-width: 120px;
-            margin: 0 auto 20px;
-            display: block;
-        }
-
-        .slogan-darja {
-            font-size: 24px;
-            color: var(--teal);
-            margin-bottom: 20px;
-            direction: rtl;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        /* How it works */
-        .steps {
-            background-color: var(--white);
-        }
-        
-        .step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-
-        .step-icon {
-            font-size: 32px;
-            margin-right: 15px;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .step-content strong {
-            display: block;
-            font-size: 20px;
-            color: var(--terracotta);
-            margin-bottom: 5px;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            background-color: var(--bg-light);
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border: 1px solid #eaeaea;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            -webkit-tap-highlight-color: transparent;
             position: relative;
+            overflow: hidden;
+        }
+        .btn-wa {
+            background: var(--whatsapp);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+        }
+        .btn-wa:active { transform: scale(0.97); }
+        .btn-wa:hover { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5); transform: translateY(-2px); }
+        .btn-outline {
+            background: rgba(255,255,255,0.08);
+            border: 1.5px solid rgba(255,255,255,0.2);
+            color: #fff;
+            backdrop-filter: blur(10px);
+        }
+        .btn-outline:active { background: rgba(255,255,255,0.15); }
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+        .btn-primary:active { transform: scale(0.97); }
+        .btn-primary:hover { box-shadow: 0 6px 30px var(--primary-glow); transform: translateY(-2px); }
+        .btn-ghost {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
-        .card.popular {
-            border: 2px solid var(--teal);
-            box-shadow: 0 8px 15px rgba(42, 157, 143, 0.15);
-            transform: scale(1.02);
-        }
-
-        .card.popular::before {
-            content: 'Le plus choisi';
+        .scroll-hint {
             position: absolute;
-            top: -12px;
+            bottom: 24px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: var(--teal);
-            color: var(--white);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .badge-discount {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: #E76F51;
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .price {
+            color: rgba(255,255,255,0.3);
             font-size: 28px;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 5px;
+            animation: bounce-arrow 2s ease infinite;
+            z-index: 2;
         }
 
-        .price-strike {
-            text-decoration: line-through;
-            color: var(--text-muted);
-            font-size: 18px;
-            margin-right: 10px;
+        /* ── TRUST BAR ── */
+        .trust-bar {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--border);
         }
-
-        .price-yearly {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        .card ul {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .card ul li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .card ul li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--teal);
-            font-weight: bold;
-        }
-
-        /* Form Section */
-        .form-section {
-            background-color: var(--white);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-main);
-        }
-
-        input[type="text"],
-        input[type="tel"],
-        input[type="email"],
-        select {
-            width: 100%;
-            height: 52px;
-            padding: 0 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: inherit;
-            background-color: #f9f9f9;
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--terracotta);
-            background-color: var(--white);
-        }
-
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            cursor: pointer;
-            background-color: #f9f9f9;
-        }
-
-        .radio-option input {
-            margin-right: 15px;
-            width: 20px;
-            height: 20px;
-            accent-color: var(--terracotta);
-        }
-
-        /* Trust Section */
-        .trust {
-            background-color: var(--bg-light);
-            text-align: center;
-        }
-
         .trust-item {
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--text-main);
-            color: var(--white);
+            background: var(--white);
+            padding: 20px 16px;
             text-align: center;
-            padding: 30px 20px;
         }
-        
-        footer a {
-            color: var(--whatsapp);
-            text-decoration: none;
+        .trust-item .icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .trust-item strong {
+            display: block;
+            font-size: 14px;
             font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+        }
+        .trust-item span {
+            font-size: 12px;
+            color: var(--text-muted);
         }
 
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--whatsapp);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        /* ── SECTIONS ── */
+        section { padding: 64px 20px; }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(26px, 6vw, 34px);
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .section-sub {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 500px;
+            line-height: 1.6;
+        }
+        .container { max-width: 600px; margin: 0 auto; }
+
+        /* ── HOW IT WORKS ── */
+        .steps-section { background: var(--white); }
+        .step-card {
+            display: flex;
+            gap: 18px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .step-card:last-child { border-bottom: none; }
+        .step-num {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), #FF8A5C);
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-            text-decoration: none;
+        }
+        .step-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .step-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── PRICING ── */
+        .pricing-section { background: var(--bg); }
+        .pricing-grid { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+        .plan-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            border: 2px solid var(--border);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .plan-card.featured {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg), 0 0 0 1px var(--primary);
+        }
+        .plan-card.featured::before {
+            content: '⭐ Le plus choisi';
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary), #FF8A5C);
+            color: #fff;
+            padding: 4px 18px;
+            border-radius: var(--radius-full);
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .plan-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
+        .plan-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .plan-badge {
+            background: #FEF2F2;
+            color: #DC2626;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+        }
+        .plan-price {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+        .plan-price .currency { font-size: 18px; font-weight: 600; }
+        .plan-price .period { font-size: 15px; font-weight: 400; color: var(--text-muted); }
+        .plan-price-old {
+            font-size: 16px;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-bottom: 2px;
+        }
+        .plan-annual {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            margin-bottom: 20px;
+        }
+        .plan-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 15px;
+            color: var(--text);
+        }
+        .plan-features li .check {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: var(--secondary-light);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .plan-card .btn { width: 100%; }
+
+        /* ── FORM ── */
+        .form-section {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+        .form-grid { margin-top: 28px; }
+        .field {
+            margin-bottom: 18px;
+        }
+        .field label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .field label .opt {
+            font-weight: 400;
+            color: var(--text-light);
+            font-size: 13px;
+        }
+        .field input, .field select {
+            width: 100%;
+            height: 52px;
+            padding: 0 16px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-family: inherit;
+            color: var(--text);
+            background: var(--bg);
+            transition: all 0.2s;
+            -webkit-appearance: none;
+        }
+        .field input:focus, .field select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+            background: var(--white);
+        }
+        .field input::placeholder { color: var(--text-light); }
+
+        .plan-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .plan-option {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            background: var(--bg);
+            transition: all 0.2s;
+        }
+        .plan-option:has(input:checked) {
+            border-color: var(--primary);
+            background: #FFF5F2;
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+        .plan-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+            flex-shrink: 0;
+        }
+        .plan-option-label {
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .plan-option-price {
+            margin-left: auto;
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
         #success-message {
             display: none;
-            background-color: #d4edda;
-            color: #155724;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+            border: 1px solid #A7F3D0;
+            color: #065F46;
+            padding: 32px 24px;
+            border-radius: var(--radius);
             text-align: center;
-            border: 1px solid #c3e6cb;
+            margin-bottom: 20px;
+        }
+        #success-message .success-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        #success-message h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* ── FINAL CTA ── */
+        .final-cta {
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            text-align: center;
+            padding: 64px 24px;
+        }
+        .final-cta h2 {
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .final-cta p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+        .final-cta .btn-wa { max-width: 360px; width: 100%; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #111827;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 14px;
+        }
+        footer a { color: var(--whatsapp); text-decoration: none; font-weight: 600; }
+
+        /* ── FLOATING WHATSAPP ── */
+        .float-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+        .float-wa:active { transform: scale(0.9); }
+        .float-wa::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--whatsapp);
+            animation: pulse-ring 2s ease infinite;
+            z-index: -1;
+        }
+
+        /* ── STICKY BOTTOM BAR ── */
+        .sticky-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border);
+            padding: 12px 20px;
+            z-index: 990;
+            display: flex;
+            gap: 10px;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .sticky-bottom.show { transform: translateY(0); }
+        .sticky-bottom .btn { flex: 1; padding: 14px 16px; font-size: 15px; }
+
+        /* ── RESPONSIVE ── */
+        @media (min-width: 640px) {
+            .trust-bar { grid-template-columns: repeat(4, 1fr); }
+            .hero { padding: 80px 32px 100px; }
+            section { padding: 80px 32px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="assets/brand_image_6.png" alt="Qrmeunu Logo" class="logo">
-        <h1>Votre menu, en un scan.</h1>
-        <p class="slogan-darja">حط الكود، الكليان يطلب وحدو</p>
-        <p>Fini les menus à réimprimer. Vos clients scannent, consultent, et commandent depuis leur téléphone.</p>
-        <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Qrmeunu" target="_blank" class="btn btn-whatsapp">
-            📲 Contactez-nous sur WhatsApp
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+    <img src="assets/brand_image_6.png" alt="Qrmeunu" class="hero-logo">
+    <div class="hero-badge">🇩🇿 N°1 du menu QR en Algérie</div>
+    <h1>Votre menu,<br>en un <span>scan</span>.</h1>
+    <div class="hero-darja">حط الكود، الكليان يطلب وحدو</div>
+    <p>Fini les menus à réimprimer. Vos clients scannent, consultent et commandent depuis leur téléphone.</p>
+    <div class="hero-cta">
+        <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Qrmeunu" target="_blank" class="btn btn-wa">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Contactez-nous sur WhatsApp
         </a>
-    </section>
+        <a href="#pricing" class="btn btn-outline">Voir les formules →</a>
+    </div>
+    <div class="scroll-hint">↓</div>
+</section>
 
-    <!-- How it works -->
-    <section class="steps">
-        <h2>Comment ça marche ?</h2>
-        <div class="step">
-            <div class="step-icon">🏪</div>
-            <div class="step-content">
-                <strong>On vient chez vous</strong>
-                On installe le QR code et on configure votre menu.
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust-bar">
+    <div class="trust-item">
+        <span class="icon">🔧</span>
+        <strong>Installation gratuite</strong>
+        <span>On vient chez vous</span>
+    </div>
+    <div class="trust-item">
+        <span class="icon">📱</span>
+        <strong>Pas d'appli</strong>
+        <span>Ça marche direct</span>
+    </div>
+    <div class="trust-item">
+        <span class="icon">📞</span>
+        <strong>Support 7j/7</strong>
+        <span>WhatsApp & téléphone</span>
+    </div>
+    <div class="trust-item">
+        <span class="icon">🇩🇿</span>
+        <strong>100% algérien</strong>
+        <span>Équipe locale</span>
+    </div>
+</div>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="steps-section">
+    <div class="container">
+        <div class="section-label anim">Comment ça marche</div>
+        <h2 class="section-title anim">Simple comme<br>bonjour.</h2>
+        <p class="section-sub anim">Pas de complications. On fait tout pour vous.</p>
+
+        <div style="margin-top: 28px;">
+            <div class="step-card anim anim-delay-1">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>On vient chez vous</h3>
+                    <p>On installe le QR code et on configure votre menu complet. Vous n'avez rien à faire.</p>
+                </div>
+            </div>
+            <div class="step-card anim anim-delay-2">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>Le client scanne</h3>
+                    <p>Il voit votre menu sur son téléphone instantanément. Pas d'application à télécharger.</p>
+                </div>
+            </div>
+            <div class="step-card anim anim-delay-3">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>Vous recevez les commandes</h3>
+                    <p>Directement sur votre téléphone ou votre caisse. C'est tout.</p>
+                </div>
             </div>
         </div>
-        <div class="step">
-            <div class="step-icon">📱</div>
-            <div class="step-content">
-                <strong>Le client scanne</strong>
-                Il voit votre menu sur son téléphone. Pas d'appli à télécharger.
+    </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="pricing-section" id="pricing">
+    <div class="container">
+        <div class="section-label anim">Nos formules</div>
+        <h2 class="section-title anim">Un prix simple,<br>sans surprise.</h2>
+        <p class="section-sub anim">Payable à l'année. Tout est inclus : installation, formation, et mises à jour.</p>
+
+        <div class="pricing-grid">
+            <!-- Basic -->
+            <div class="plan-card anim anim-delay-1">
+                <div class="plan-header">
+                    <div class="plan-name">Basic</div>
+                </div>
+                <div class="plan-price">2 000 <span class="currency">DA</span> <span class="period">/mois</span></div>
+                <div class="plan-annual">Payable à l'année · 24 000 DA/an</div>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Menu QR consultable</li>
+                    <li><span class="check">✓</span> Mises à jour par notre équipe</li>
+                    <li><span class="check">✓</span> Installation gratuite</li>
+                    <li><span class="check">✓</span> Support WhatsApp</li>
+                </ul>
+                <button class="btn btn-ghost" onclick="selectPlan('Basic')">Choisir Basic</button>
+            </div>
+
+            <!-- Commande -->
+            <div class="plan-card featured anim anim-delay-2">
+                <div class="plan-header">
+                    <div class="plan-name">Commande</div>
+                </div>
+                <div class="plan-price">4 000 <span class="currency">DA</span> <span class="period">/mois</span></div>
+                <div class="plan-annual">Payable à l'année · 48 000 DA/an</div>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Tout de Basic, plus :</li>
+                    <li><span class="check">✓</span> Commande depuis le téléphone</li>
+                    <li><span class="check">✓</span> À table ou à emporter</li>
+                    <li><span class="check">✓</span> Notifications en temps réel</li>
+                </ul>
+                <button class="btn btn-primary" onclick="selectPlan('Commande')">Choisir Commande</button>
+            </div>
+
+            <!-- Caisse Pro -->
+            <div class="plan-card anim anim-delay-3">
+                <div class="plan-header">
+                    <div class="plan-name">Caisse Pro</div>
+                    <div class="plan-badge">-10%</div>
+                </div>
+                <div class="plan-price-old">5 200 DA/mois</div>
+                <div class="plan-price">4 680 <span class="currency">DA</span> <span class="period">/mois</span></div>
+                <div class="plan-annual">Payable à l'année · <s>62 400</s> 56 160 DA/an</div>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Tout de Commande, plus :</li>
+                    <li><span class="check">✓</span> Intégration caisse (POS)</li>
+                    <li><span class="check">✓</span> Commandes en cuisine directement</li>
+                    <li><span class="check">✓</span> Support prioritaire</li>
+                </ul>
+                <button class="btn btn-ghost" onclick="selectPlan('Caisse Pro')">Choisir Caisse Pro</button>
             </div>
         </div>
-        <div class="step">
-            <div class="step-icon">✅</div>
-            <div class="step-content">
-                <strong>Vous recevez les commandes</strong>
-                Sur votre téléphone ou votre caisse.
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Pricing -->
-    <section class="pricing">
-        <h2>Nos Formules</h2>
-        
-        <!-- Basic -->
-        <div class="card">
-            <h3>Basic</h3>
-            <div class="price">2 000 DA / mois</div>
-            <div class="price-yearly">Payable à l'année : 24 000 DA/an</div>
-            <ul>
-                <li>Menu QR consultable uniquement</li>
-                <li>Mis à jour par l'équipe Qrmeunu</li>
-            </ul>
-            <button class="btn btn-primary" onclick="selectPlan('Basic')">Je choisis cette formule</button>
-        </div>
-
-        <!-- Commande -->
-        <div class="card popular">
-            <h3>Commande</h3>
-            <div class="price">4 000 DA / mois</div>
-            <div class="price-yearly">Payable à l'année : 48 000 DA/an</div>
-            <ul>
-                <li>Le client commande depuis son téléphone</li>
-                <li>À table ou à emporter</li>
-            </ul>
-            <button class="btn btn-secondary" onclick="selectPlan('Commande')">Je choisis cette formule</button>
-        </div>
-
-        <!-- Caisse Pro -->
-        <div class="card">
-            <div class="badge-discount">-10%</div>
-            <h3>Caisse Pro</h3>
-            <div class="price"><span class="price-strike">5 200 DA</span> 4 680 DA / mois</div>
-            <div class="price-yearly">Payable à l'année : <span class="price-strike">62 400 DA</span> 56 160 DA/an</div>
-            <ul>
-                <li>Les commandes arrivent à la caisse et en cuisine</li>
-                <li>Intégration POS complète</li>
-            </ul>
-            <button class="btn btn-primary" onclick="selectPlan('Caisse Pro')">Je choisis cette formule</button>
-        </div>
-    </section>
-
-    <!-- Order Form -->
-    <section class="form-section" id="order-form">
-        <h2>Demandez votre menu QR</h2>
-        <p>Remplissez ce formulaire et nous vous contacterons rapidement.</p>
+<!-- ═══ ORDER FORM ═══ -->
+<section class="form-section" id="order-form">
+    <div class="container">
+        <div class="section-label anim">Commencer maintenant</div>
+        <h2 class="section-title anim">Demandez votre<br>menu QR.</h2>
+        <p class="section-sub anim">Remplissez le formulaire, on vous rappelle dans les 24h.</p>
 
         <div id="success-message">
-            <strong>✓ Demande envoyée avec succès !</strong><br>
-            Vous allez être redirigé vers WhatsApp...
+            <span class="success-icon">🎉</span>
+            <h3>Demande envoyée !</h3>
+            <p>Merci ! Nous vous contacterons très bientôt. Vous allez être redirigé vers WhatsApp...</p>
         </div>
 
-        <form id="leadForm" onsubmit="submitForm(event)">
-            <div class="form-group">
-                <label for="nom">Nom complet *</label>
-                <input type="text" id="nom" required placeholder="Votre nom et prénom">
+        <form id="leadForm" class="form-grid">
+            <div class="field anim">
+                <label for="nom">Nom complet</label>
+                <input type="text" id="nom" required placeholder="Votre nom et prénom" autocomplete="name">
             </div>
-
-            <div class="form-group">
-                <label for="restaurant">Nom du restaurant *</label>
-                <input type="text" id="restaurant" required placeholder="Nom de votre établissement">
+            <div class="field anim">
+                <label for="restaurant">Nom du restaurant</label>
+                <input type="text" id="restaurant" required placeholder="Ex: Café El Baraka" autocomplete="organization">
             </div>
-
-            <div class="form-group">
-                <label for="telephone">Téléphone *</label>
-                <input type="tel" id="telephone" required placeholder="05XX XX XX XX">
+            <div class="field anim">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" required placeholder="05XX XX XX XX" autocomplete="tel">
             </div>
-
-            <div class="form-group">
-                <label for="email">Email (optionnel)</label>
-                <input type="email" id="email" placeholder="votre@email.com">
+            <div class="field anim">
+                <label for="email">Email <span class="opt">(optionnel)</span></label>
+                <input type="email" id="email" placeholder="votre@email.com" autocomplete="email">
             </div>
-
-            <div class="form-group">
-                <label for="wilaya">Wilaya / Ville *</label>
+            <div class="field anim">
+                <label for="wilaya">Wilaya</label>
                 <select id="wilaya" required>
-                    <option value="">Sélectionnez votre wilaya</option>
-                    <option value="1-Adrar">1 - Adrar</option>
-                    <option value="2-Chlef">2 - Chlef</option>
-                    <option value="3-Laghouat">3 - Laghouat</option>
-                    <option value="4-Oum El Bouaghi">4 - Oum El Bouaghi</option>
-                    <option value="5-Batna">5 - Batna</option>
-                    <option value="6-Bejaia">6 - Béjaïa</option>
-                    <option value="7-Biskra">7 - Biskra</option>
-                    <option value="8-Bechar">8 - Béchar</option>
-                    <option value="9-Blida">9 - Blida</option>
+                    <option value="">Choisir votre wilaya...</option>
+                    <option value="1-Adrar">01 - Adrar</option>
+                    <option value="2-Chlef">02 - Chlef</option>
+                    <option value="3-Laghouat">03 - Laghouat</option>
+                    <option value="4-Oum El Bouaghi">04 - Oum El Bouaghi</option>
+                    <option value="5-Batna">05 - Batna</option>
+                    <option value="6-Bejaia">06 - Béjaïa</option>
+                    <option value="7-Biskra">07 - Biskra</option>
+                    <option value="8-Bechar">08 - Béchar</option>
+                    <option value="9-Blida">09 - Blida</option>
                     <option value="10-Bouira">10 - Bouira</option>
                     <option value="11-Tamanrasset">11 - Tamanrasset</option>
                     <option value="12-Tebessa">12 - Tébessa</option>
@@ -520,55 +858,70 @@
                     <option value="58-El Meniaa">58 - El Meniaa</option>
                 </select>
             </div>
-
-            <div class="form-group">
-                <label>Formule choisie *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="formule" value="Basic" required> Basic (2000 DA/mois)
+            <div class="field anim">
+                <label>Formule choisie</label>
+                <div class="plan-selector">
+                    <label class="plan-option">
+                        <input type="radio" name="formule" value="Basic" required>
+                        <span class="plan-option-label">Basic</span>
+                        <span class="plan-option-price">2 000 DA/mois</span>
                     </label>
-                    <label class="radio-option">
-                        <input type="radio" name="formule" value="Commande"> Commande (4000 DA/mois)
+                    <label class="plan-option">
+                        <input type="radio" name="formule" value="Commande">
+                        <span class="plan-option-label">Commande</span>
+                        <span class="plan-option-price">4 000 DA/mois</span>
                     </label>
-                    <label class="radio-option">
-                        <input type="radio" name="formule" value="Caisse Pro"> Caisse Pro (4680 DA/mois)
+                    <label class="plan-option">
+                        <input type="radio" name="formule" value="Caisse Pro">
+                        <span class="plan-option-label">Caisse Pro</span>
+                        <span class="plan-option-price">4 680 DA/mois</span>
                     </label>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Envoyer ma demande ✓</button>
+            <button type="submit" class="btn btn-primary anim" style="width:100%; margin-top: 8px;">
+                Envoyer ma demande →
+            </button>
+            <p style="text-align:center; font-size:13px; color:var(--text-light); margin-top:12px;">
+                Vous serez aussi redirigé vers WhatsApp pour confirmer.
+            </p>
         </form>
-    </section>
+    </div>
+</section>
 
-    <!-- Trust Section -->
-    <section class="trust">
-        <h2>On s'occupe de tout</h2>
-        <div class="trust-item">📞 Support par téléphone et WhatsApp</div>
-        <div class="trust-item">🔧 Installation gratuite sur place</div>
-        <div class="trust-item">🔄 Mises à jour du menu incluses</div>
-        <div class="trust-item">🇩🇿 Équipe 100% algérienne</div>
-    </section>
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+    <h2>Prêt à moderniser<br>votre restaurant ?</h2>
+    <p>Rejoignez les restaurateurs qui ont déjà simplifié leur service.</p>
+    <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Qrmeunu" target="_blank" class="btn btn-wa" style="margin:0 auto;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Parler avec nous maintenant
+    </a>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>Qrmeunu © 2024</p>
-        <p style="margin: 10px 0;"><a href="https://wa.me/213656243117" target="_blank">Nous contacter sur WhatsApp</a></p>
-        <p>Fait avec ❤️ en Algérie</p>
-    </footer>
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <p>Qrmeunu © 2024 · <a href="https://wa.me/213656243117" target="_blank">WhatsApp</a></p>
+    <p style="margin-top:6px;">Fait avec ❤️ en Algérie</p>
+</footer>
 
-</div>
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Qrmeunu" target="_blank" class="floating-whatsapp" aria-label="Chat with us on WhatsApp">
-    💬
+<!-- ═══ FLOATING WHATSAPP ═══ -->
+<a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Qrmeunu" target="_blank" class="float-wa" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- ═══ STICKY BOTTOM ═══ -->
+<div class="sticky-bottom" id="sticky-bar">
+    <a href="#order-form" class="btn btn-primary">Demander un devis</a>
+    <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Qrmeunu" target="_blank" class="btn btn-wa">WhatsApp</a>
+</div>
+
+<!-- ═══ SCRIPTS ═══ -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getAnalytics, isSupported, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-    // Firebase configuration provided
     const firebaseConfig = {
       apiKey: "AIzaSyBUDfe0o3J03Ax-6tQIFrXau3Ds0c4H234",
       authDomain: "restau-dfbb2.firebaseapp.com",
@@ -579,142 +932,104 @@
       measurementId: "G-LCB8BJ3X0P"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     let analytics = null;
 
-    // Initialize Analytics if supported in current environment
     isSupported().then(supported => {
-        if (supported) {
-            analytics = getAnalytics(app);
-            console.log("Firebase Analytics initialized");
-        }
-    }).catch(err => {
-        console.log("Analytics not supported in this context:", err);
-    });
+        if (supported) analytics = getAnalytics(app);
+    }).catch(() => {});
 
-    // Helper for event tracking
     function trackEvent(name, params = {}) {
-        if (typeof gtag === 'function') {
-            try { gtag('event', name, params); } catch(e) {}
-        }
-        if (analytics) {
-            try { logEvent(analytics, name, params); } catch(e) {}
-        }
+        if (typeof gtag === 'function') try { gtag('event', name, params); } catch(e) {}
+        if (analytics) try { logEvent(analytics, name, params); } catch(e) {}
     }
 
     // Track WhatsApp clicks
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-        link.addEventListener('click', () => {
-            trackEvent('whatsapp_click', { destination: link.href });
-        });
+        link.addEventListener('click', () => trackEvent('whatsapp_click', { destination: link.href }));
     });
 
-    // Smooth scroll and select plan
+    // Plan selection
     window.selectPlan = function(planName) {
         trackEvent('select_plan', { plan_name: planName });
         const radios = document.getElementsByName('formule');
-        for(let i=0; i<radios.length; i++) {
-            if(radios[i].value === planName) {
-                radios[i].checked = true;
-                break;
-            }
-        }
-        
-        // Smooth scroll to form
-        const formEl = document.getElementById('order-form');
-        if (formEl) {
-            formEl.scrollIntoView({ behavior: 'smooth' });
-        }
+        for (let r of radios) { if (r.value === planName) { r.checked = true; break; } }
+        // Highlight the selected option visually
+        document.querySelectorAll('.plan-option').forEach(opt => opt.style.borderColor = '');
+        document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
     };
 
-    // Handle form submission
+    // Form submission
     window.submitForm = async function(e) {
-        if (e && e.preventDefault) e.preventDefault();
-        
-        const submitBtn = document.querySelector('#leadForm button[type="submit"]');
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Envoi en cours... ⏳';
-        }
+        if (e) e.preventDefault();
 
-        // Get form values
+        const btn = document.querySelector('#leadForm button[type="submit"]');
+        if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours...'; }
+
         const nom = document.getElementById('nom').value.trim();
         const restaurant = document.getElementById('restaurant').value.trim();
         const telephone = document.getElementById('telephone').value.trim();
         const email = document.getElementById('email').value.trim();
         const wilaya = document.getElementById('wilaya').value;
-        
         let formule = '';
-        const radios = document.getElementsByName('formule');
-        for(let i=0; i<radios.length; i++) {
-            if(radios[i].checked) {
-                formule = radios[i].value;
-                break;
-            }
-        }
+        for (let r of document.getElementsByName('formule')) { if (r.checked) { formule = r.value; break; } }
 
         const leadData = {
-            name: nom,
-            restaurant: restaurant,
-            phone: telephone,
-            email: email,
-            wilaya: wilaya,
-            formule: formule,
-            date: new Date().toISOString(),
-            status: 'Nouveau'
+            name: nom, restaurant, phone: telephone, email, wilaya, formule,
+            date: new Date().toISOString(), status: 'Nouveau'
         };
 
-        // 1. Save to Firestore
-        let docId = Date.now().toString();
         try {
-            const docRef = await addDoc(collection(db, "leads"), {
-                ...leadData,
-                createdAt: serverTimestamp()
-            });
-            docId = docRef.id;
-            console.log("Order saved to Firestore with ID:", docId);
+            await addDoc(collection(db, "leads"), { ...leadData, createdAt: serverTimestamp() });
         } catch (err) {
-            console.warn("Firestore save fallback to local storage:", err);
+            console.warn("Firestore fallback:", err);
         }
-        leadData.id = docId;
 
-        // 2. Save to localStorage (cache/offline safety)
         try {
             let leads = JSON.parse(localStorage.getItem('qrmeunu_leads') || '[]');
             leads.unshift(leadData);
             localStorage.setItem('qrmeunu_leads', JSON.stringify(leads));
-        } catch (storageErr) {
-            console.warn("Local storage error:", storageErr);
-        }
+        } catch(e) {}
 
-        // 3. Track analytics event
-        trackEvent('generate_lead', {
-            currency: 'DZD',
-            plan: formule,
-            wilaya: wilaya,
-            restaurant: restaurant
-        });
+        trackEvent('generate_lead', { plan: formule, wilaya });
 
-        // 4. Show success message and hide form
         document.getElementById('success-message').style.display = 'block';
         document.getElementById('leadForm').style.display = 'none';
 
-        // 5. Prepare WhatsApp message & redirect
         const waText = `*Nouvelle Demande Qrmeunu*%0A%0A*Nom*: ${nom}%0A*Restaurant*: ${restaurant}%0A*Tél*: ${telephone}%0A*Email*: ${email || 'Non fourni'}%0A*Wilaya*: ${wilaya}%0A*Formule*: ${formule}`;
-        const waUrl = `https://wa.me/213656243117?text=${waText}`;
-
-        setTimeout(() => {
-            window.open(waUrl, '_blank');
-        }, 1200);
+        setTimeout(() => { window.open(`https://wa.me/213656243117?text=${waText}`, '_blank'); }, 1000);
     };
 
-    // Attach form submit listener as backup
-    const formElement = document.getElementById('leadForm');
-    if (formElement) {
-        formElement.addEventListener('submit', window.submitForm);
-    }
+    const form = document.getElementById('leadForm');
+    if (form) form.addEventListener('submit', window.submitForm);
+
+    // ── Scroll animations (Intersection Observer) ──
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+
+    // ── Sticky bottom bar ──
+    const stickyBar = document.getElementById('sticky-bar');
+    const heroSection = document.querySelector('.hero');
+    const stickyObserver = new IntersectionObserver(([entry]) => {
+        stickyBar.classList.toggle('show', !entry.isIntersecting);
+    }, { threshold: 0 });
+    stickyObserver.observe(heroSection);
+
+    // Hide floating WA when sticky bar is visible to avoid overlap
+    const floatWa = document.querySelector('.float-wa');
+    const bottomObserver = new MutationObserver(() => {
+        floatWa.style.bottom = stickyBar.classList.contains('show') ? '84px' : '24px';
+    });
+    bottomObserver.observe(stickyBar, { attributes: true, attributeFilter: ['class'] });
 </script>
 
 </body>
