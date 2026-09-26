@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="theme-color" content="#102334">
-    <title>Qrmeunu | Menu QR & Commandes pour restaurants en Algérie</title>
+    <title>Qrmeunu | Menu QR & Commandes pour restaurants en Algérie 🇩🇿</title>
     <meta name="description" content="Menu QR premium, commandes à table, intégration caisse et avis Google pour les restaurants algériens.">
 
     <!-- Google tag (gtag.js) -->
@@ -19,23 +19,22 @@
     <!-- Google Fonts: Plus Jakarta Sans & Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #E95549;
-            --primary-hover: #D94B40;
-            --primary-soft: #FDF2F0;
-            --teal: #0B7A6D;
-            --teal-soft: #EDF7F5;
+            --primary: #FF5722;
+            --primary-dark: #E64A19;
+            --primary-soft: #FFF2ED;
+            --primary-border: #FFCCBC;
+            --teal: #0D9488;
+            --teal-soft: #F0FDFA;
             --dark: #102334;
-            --dark-sub: #171A1D;
-            --bg-page: #EAEFF2;
-            --card-bg: #FFFFFF;
-            --card-border: rgba(0, 0, 0, 0.08);
-            --card-border-active: #0B7A6D;
             --text-main: #102334;
             --text-muted: #60717A;
+            --bg-page: #F4F6F8;
+            --card-bg: #FFFFFF;
+            --card-border: #E2E8F0;
             --whatsapp: #25D366;
             --radius-outer: 24px;
             --radius-card: 20px;
@@ -68,11 +67,11 @@
             top: 10px;
             z-index: 100;
             padding: 0 12px;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto 16px;
         }
         .top-navbar {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -81,7 +80,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 12px 35px -15px rgba(25, 34, 40, 0.15);
+            box-shadow: 0 10px 30px -10px rgba(16, 35, 52, 0.12);
         }
         .nav-logo-box {
             display: flex;
@@ -89,7 +88,7 @@
             gap: 10px;
             text-decoration: none;
             color: var(--text-main);
-            font-weight: 800;
+            font-weight: 900;
             font-size: 18px;
             letter-spacing: -0.5px;
         }
@@ -97,14 +96,14 @@
             width: 34px;
             height: 34px;
             border-radius: 10px;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 900;
             font-size: 16px;
-            box-shadow: 0 4px 12px rgba(233, 85, 73, 0.35);
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.35);
         }
         .nav-actions {
             display: flex;
@@ -136,7 +135,7 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
         .btn-nav-order {
-            background: var(--primary);
+            background: var(--dark);
             color: #fff;
             border: none;
             padding: 8px 16px;
@@ -148,545 +147,582 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 4px 14px rgba(233, 85, 73, 0.3);
+            box-shadow: 0 4px 12px rgba(16, 35, 52, 0.2);
             font-family: inherit;
         }
 
-        /* ── HERO DUAL-CONTAINER GRID ── */
-        .hero-container {
-            max-width: 1200px;
+        /* ── MAIN WRAPPER ── */
+        .page-container {
+            max-width: 560px;
             margin: 0 auto;
             padding: 0 12px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-        @media (min-width: 960px) {
-            .hero-container {
-                grid-template-columns: 1.05fr 0.95fr;
-                align-items: start;
-            }
-        }
-
-        /* ── LEFT SHOWCASE SLIDER CARD ── */
-        .showcase-slider-card {
-            background: #FDFDFD;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-outer);
-            padding: 16px;
-            box-shadow: 0 30px 80px -60px rgba(25, 34, 40, 0.25);
-        }
-        .slider-media-box {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 18px;
-            background: linear-gradient(135deg, #102334 0%, #1A364E 100%);
-            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            padding: 24px;
-            text-align: center;
-        }
-        .slider-media-bg-glow {
-            position: absolute;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(233, 85, 73, 0.4) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -40px;
-            right: -40px;
-        }
-        .slider-badge-top {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 5px 12px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #FED7AA;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            z-index: 2;
-        }
-        body.lang-ar .slider-badge-top {
-            left: auto;
-            right: 16px;
+            gap: 18px;
         }
 
-        /* Phone Mockup in Slider */
-        .phone-mockup-wrapper {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 280px;
-            background: #FFFFFF;
-            color: var(--text-main);
-            border-radius: 26px;
-            padding: 16px 14px;
-            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 6px rgba(255, 255, 255, 0.15);
-            margin: auto;
-        }
-        .phone-mockup-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #F1F5F9;
-        }
-        .phone-mockup-brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            font-weight: 800;
-        }
-        .phone-mockup-qr-tag {
-            background: #ECFDF5;
-            color: #065F46;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 3px 8px;
-            border-radius: 6px;
-        }
-        .phone-food-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #F8FAFC;
-            border: 1px solid #EDF2F7;
-            padding: 8px 10px;
-            border-radius: 12px;
-            margin-bottom: 6px;
-        }
-        .phone-food-left {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-align: left;
-        }
-        body.lang-ar .phone-food-left {
-            text-align: right;
-        }
-        .phone-food-emoji { font-size: 20px; }
-        .phone-food-title { font-size: 12px; font-weight: 800; }
-        .phone-food-sub { font-size: 10px; color: var(--text-muted); }
-        .phone-food-price { font-size: 12px; font-weight: 800; color: var(--primary); }
-
-        .phone-order-action-bar {
-            margin-top: 10px;
-            background: var(--dark);
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 11px;
-            font-weight: 800;
-        }
-        .phone-order-action-bar span strong { color: #FF8A65; }
-
-        /* Slider Controls */
-        .slider-controls-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 4px 4px;
-        }
-        .slider-caption-text {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-        .slider-caption-sub {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-        .slider-dots-box {
-            display: flex;
-            gap: 5px;
-        }
-        .slider-dot {
-            width: 22px;
-            height: 5px;
-            border-radius: 999px;
-            background: #DCE4E8;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .slider-dot.active {
-            background: var(--dark);
-            width: 32px;
-        }
-
-        /* ── RIGHT CHECKOUT & ORDER CARD ── */
-        .checkout-main-card {
+        /* ── PRODUCT TITLE CARD ── */
+        .product-header-card {
             background: #FFFFFF;
             border: 1px solid var(--card-border);
             border-radius: var(--radius-outer);
-            padding: 20px 16px;
-            box-shadow: 0 30px 80px -60px rgba(25, 44, 51, 0.25);
+            padding: 20px 18px;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
         }
-        @media(min-width:640px) {
-            .checkout-main-card { padding: 24px 22px; }
-        }
-
-        .checkout-header-badge {
-            display: inline-flex;
+        .product-meta-row {
+            display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .product-verified-badge {
             background: #FEF3C7;
             color: #92400E;
             padding: 4px 10px;
             border-radius: 999px;
             font-size: 11px;
             font-weight: 800;
-            margin-bottom: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
-        .checkout-title {
-            font-size: 22px;
-            font-weight: 800;
+        .product-country-badge {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .product-main-title {
+            font-size: 24px;
+            font-weight: 900;
             color: var(--text-main);
             letter-spacing: -0.5px;
             line-height: 1.25;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
-        .checkout-subtitle {
-            font-size: 13px;
+        .product-main-sub {
+            font-size: 14px;
             color: var(--text-muted);
-            margin-bottom: 16px;
+            line-height: 1.5;
         }
 
-        /* ── PLAN SELECTION CARDS LIST ── */
-        .plans-selection-list {
+        /* ══════════════════════════════════════════════════════════
+           SLIDEABLE PRODUCT SHOWCASE (Shopify / Apple Product style)
+           ══════════════════════════════════════════════════════════ */
+        .product-slider-container {
+            background: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-outer);
+            padding: 16px;
+            box-shadow: 0 6px 25px -4px rgba(16, 35, 52, 0.08);
+            position: relative;
+        }
+        .slider-viewport {
+            overflow: hidden;
+            width: 100%;
+            border-radius: 18px;
+            touch-action: pan-y;
+            user-select: none;
+            background: #F8FAFC;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100%;
+        }
+        .slider-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 16px 14px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+            text-align: center;
+            position: relative;
         }
-        .plan-item-card {
-            border: 1.5px solid #DCE4E8;
-            border-radius: var(--radius-sm);
-            padding: 12px 14px;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+        /* Slide Content Themes */
+        .slide-frame {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 20px;
+            padding: 18px 16px;
+            box-shadow: 0 15px 35px -10px rgba(0,0,0,0.15);
+            margin: auto;
+            position: relative;
+        }
+        .slide-theme-dark {
+            background: linear-gradient(145deg, #102334, #1B3852);
+            color: #FFFFFF;
+        }
+        .slide-theme-light {
             background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            color: var(--text-main);
+        }
+        .slide-theme-warm {
+            background: linear-gradient(145deg, #FFF7ED, #FFEDD5);
+            border: 1.5px solid #FED7AA;
+            color: #7C2D12;
+        }
+
+        .slide-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .slide-tag.white { background: rgba(255,255,255,0.2); color: #fff; }
+        .slide-tag.teal { background: var(--teal-soft); color: var(--teal); }
+        .slide-tag.orange { background: #FFEDD5; color: #C2410C; }
+
+        .slide-big-icon {
+            font-size: 44px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .slide-headline {
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .slide-desc {
+            font-size: 12px;
+            line-height: 1.45;
+            opacity: 0.9;
+        }
+
+        /* Mockup elements in slides */
+        .mockup-item-pill {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 8px 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
+            color: var(--text-main);
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
         }
-        .plan-item-card:hover {
-            border-color: #91AAA9;
-        }
-        .plan-item-card.active {
-            border-color: var(--teal);
-            background: var(--teal-soft);
-            box-shadow: 0 10px 25px -15px rgba(11, 122, 109, 0.4);
+        .mockup-stars {
+            color: #F59E0B;
+            font-size: 16px;
+            margin-top: 8px;
+            letter-spacing: 2px;
         }
 
-        .plan-left-meta {
+        /* Slider Navigation Arrows & Dots */
+        .slider-bottom-bar {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
+            padding-top: 12px;
         }
-        .plan-thumb-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: #E8EDF1;
+        .slider-btn-nav {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #DCE4E8;
+            background: #FFFFFF;
+            color: var(--text-main);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-        .plan-item-card.active .plan-thumb-icon {
-            background: #D5EDE9;
-        }
-        .plan-name-label {
-            font-size: 14px;
+            cursor: pointer;
             font-weight: 800;
+            font-size: 14px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .slider-btn-nav:active {
+            transform: scale(0.92);
+            background: #F1F5F9;
+        }
+        .slider-dots-group {
+            display: flex;
+            gap: 6px;
+        }
+        .slider-nav-dot {
+            width: 18px;
+            height: 6px;
+            border-radius: 999px;
+            background: #DCE4E8;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .slider-nav-dot.active {
+            background: var(--primary);
+            width: 28px;
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           SECTION: POURQUOI ARRÊTER LE PAPIER ? (From User Screenshot)
+           ══════════════════════════════════════════════════════════ */
+        .card-savings-comparison {
+            background: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-outer);
+            padding: 20px 18px;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+        }
+        .sec-top-badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+        .sec-title-bold {
+            font-size: 19px;
+            font-weight: 900;
             color: var(--text-main);
+            letter-spacing: -0.4px;
+        }
+        .sec-badge-pill {
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #FEF3C7;
+            color: #B45309;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .compare-grid-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .compare-box-red {
+            background: #FFF1F2;
+            border: 1px solid #FFE4E6;
+            border-radius: 16px;
+            padding: 14px 12px;
+            color: #9F1239;
+            font-size: 12px;
+        }
+        .compare-box-green {
+            background: #F0FDF4;
+            border: 1px solid #DCFCE7;
+            border-radius: 16px;
+            padding: 14px 12px;
+            color: #166534;
+            font-size: 12px;
+        }
+        .compare-box-red strong, .compare-box-green strong {
             display: flex;
             align-items: center;
             gap: 6px;
-        }
-        .plan-pill-tag {
-            font-size: 10px;
+            font-size: 13px;
             font-weight: 800;
-            padding: 2px 7px;
-            border-radius: 999px;
-            background: var(--primary);
-            color: #fff;
+            margin-bottom: 8px;
         }
-        .plan-pill-tag.popular {
-            background: var(--teal);
+        .compare-box-red ul, .compare-box-green ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .compare-box-red li::before {
+            content: "• ";
+            color: #E11D48;
+            font-weight: 900;
+        }
+        .compare-box-green li::before {
+            content: "• ";
+            color: #16A34A;
+            font-weight: 900;
         }
 
-        .plan-price-text {
-            font-size: 16px;
-            font-weight: 800;
+        /* ══════════════════════════════════════════════════════════
+           SECTION: CHOISISSEZ VOTRE FORMULE (From User Screenshot)
+           ══════════════════════════════════════════════════════════ */
+        .card-pricing-section {
+            background: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-outer);
+            padding: 20px 18px;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+        }
+        .pricing-cards-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 14px;
+        }
+
+        .formula-card {
+            border: 1.5px solid #DCE4E8;
+            border-radius: var(--radius-card);
+            padding: 18px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            background: #FFFFFF;
+        }
+        .formula-card:hover {
+            border-color: #91AAA9;
+        }
+        .formula-card.selected {
+            border: 2.5px solid #FF5722;
+            background: #FFFFFF;
+            box-shadow: 0 10px 25px -5px rgba(255, 87, 34, 0.15);
+        }
+
+        .formula-ribbon {
+            position: absolute;
+            top: -12px;
+            right: 18px;
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+        body.lang-ar .formula-ribbon {
+            right: auto;
+            left: 18px;
+        }
+        .formula-ribbon.orange {
+            background: linear-gradient(135deg, #FF5722, #FF8A65);
+        }
+        .formula-ribbon.red {
+            background: linear-gradient(135deg, #DC2626, #EF4444);
+        }
+
+        .formula-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .formula-radio-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .custom-radio-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #CBD5E1;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .formula-card.selected .custom-radio-circle {
+            border-color: #FF5722;
+        }
+        .custom-radio-circle::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #FF5722;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .formula-card.selected .custom-radio-circle::after {
+            opacity: 1;
+        }
+
+        .formula-name-text {
+            font-size: 18px;
+            font-weight: 900;
             color: var(--text-main);
-            margin-top: 2px;
         }
-        .plan-price-strike {
-            font-size: 11px;
+
+        .formula-price-block {
+            text-align: right;
+        }
+        body.lang-ar .formula-price-block {
+            text-align: left;
+        }
+        .formula-strike-price {
+            font-size: 12px;
             text-decoration: line-through;
-            color: var(--text-muted);
-            margin-right: 4px;
+            color: #94A3B8;
+            margin-bottom: 2px;
         }
-        body.lang-ar .plan-price-strike {
-            margin-right: 0;
-            margin-left: 4px;
+        .formula-main-price {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
         }
-        .plan-period-sub {
-            font-size: 11px;
+        .formula-main-price span {
+            font-size: 12px;
             font-weight: 600;
             color: var(--text-muted);
         }
 
-        .plan-radio-circle {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 2px solid #C7D0D5;
-            background: #FFFFFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.2s;
-        }
-        .plan-item-card.active .plan-radio-circle {
-            border-color: var(--teal);
-            background: var(--teal);
-        }
-        .plan-radio-circle::after {
-            content: '✓';
-            color: #fff;
-            font-size: 11px;
-            font-weight: 900;
-            opacity: 0;
-        }
-        .plan-item-card.active .plan-radio-circle::after {
-            opacity: 1;
-        }
-
-        /* ── CHECKOUT FORM FIELDS ── */
-        .checkout-form-box {
-            border-top: 1px solid #EDF2F7;
-            padding-top: 18px;
-        }
-        .form-grid-row {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-        @media (min-width: 480px) {
-            .form-grid-row.two-col {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .field-group {
+        .formula-features-list {
+            list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
-        .field-group label {
-            font-size: 11px;
-            font-weight: 800;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-        .field-group label .opt-lbl {
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-        .input-icon-wrap {
-            position: relative;
+        .formula-features-list li {
+            font-size: 13px;
+            color: #334155;
             display: flex;
             align-items: center;
+            gap: 8px;
         }
-        .input-icon-wrap .icon {
-            position: absolute;
-            left: 14px;
+        .check-green-icon {
+            color: #059669;
+            font-weight: 900;
             font-size: 15px;
-            color: #94A3B8;
-            pointer-events: none;
         }
-        body.lang-ar .input-icon-wrap .icon {
-            left: auto;
-            right: 14px;
-        }
-        .form-input {
-            width: 100%;
-            height: 48px;
-            padding: 0 14px 0 42px;
-            border-radius: var(--radius-sm);
-            border: 1.5px solid #DCE4E8;
-            background: #F8FAFC;
-            font-size: 14px;
-            font-family: inherit;
-            color: var(--text-main);
-            transition: all 0.2s;
-        }
-        body.lang-ar .form-input {
-            padding: 0 42px 0 14px;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--dark);
-            background: #FFFFFF;
-            box-shadow: 0 0 0 3px rgba(16, 35, 52, 0.1);
-        }
-
-        /* ── QUICK WILAYA PILLS ── */
-        .quick-wilayas-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-bottom: 6px;
-        }
-        .q-pill {
-            background: #F1F5F9;
-            border: 1px solid #E2E8F0;
-            padding: 4px 9px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 700;
-            cursor: pointer;
-            color: var(--text-main);
-            transition: all 0.15s;
-            font-family: inherit;
-        }
-        .q-pill:hover, .q-pill.selected {
-            background: var(--dark);
-            color: #FFFFFF;
-            border-color: var(--dark);
-        }
-
-        /* ── INSTALLATION / DELIVERY CHOICE ── */
-        .delivery-options-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-        .delivery-opt-card {
-            border: 1.5px solid #DCE4E8;
-            border-radius: 12px;
-            padding: 10px 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-muted);
-            background: #FFFFFF;
-            transition: all 0.15s;
-        }
-        .delivery-opt-card.selected {
-            border-color: var(--dark);
-            background: #F8FAFC;
-            color: var(--text-main);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-        }
-        .del-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 2px solid #CBD5E1;
-            flex-shrink: 0;
-        }
-        .delivery-opt-card.selected .del-dot {
-            border-color: var(--dark);
-            background: var(--dark);
-        }
-
-        /* ── TOTAL SUMMARY BOX ── */
-        .checkout-summary-box {
-            background: #F8FAFC;
-            border: 1px solid #EDF2F7;
-            border-radius: 14px;
-            padding: 12px 14px;
-            margin-bottom: 14px;
-        }
-        .summary-line {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-        .summary-total-line {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 14px;
+        .formula-annual-note {
+            font-size: 13px;
             font-weight: 800;
-            color: var(--text-main);
-            border-top: 1px solid #E2E8F0;
-            padding-top: 8px;
-            margin-top: 4px;
-        }
-        .summary-total-val {
-            font-size: 18px;
             color: var(--primary);
         }
 
-        /* ── MAIN CTA BUTTON ── */
-        .btn-confirm-order {
+        /* ══════════════════════════════════════════════════════════
+           SECTION: COMMANDE CHECKOUT FORM
+           ══════════════════════════════════════════════════════════ */
+        .card-checkout-form {
+            background: #FFFFFF;
+            border: 2px solid var(--primary-border);
+            border-radius: var(--radius-outer);
+            padding: 22px 18px;
+            box-shadow: 0 10px 30px -5px rgba(255, 87, 34, 0.1);
+        }
+
+        .form-row-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 14px;
+        }
+        .form-row-group label {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .form-row-group label .opt {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .field-input {
+            width: 100%;
+            height: 48px;
+            padding: 0 14px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid #DCE4E8;
+            background: #F8FAFC;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+        .field-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.15);
+        }
+
+        .quick-wilayas-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        .wilaya-btn-pill {
+            background: #F1F5F9;
+            border: 1px solid #E2E8F0;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            color: var(--text-main);
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .wilaya-btn-pill:hover, .wilaya-btn-pill.active {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+        }
+
+        .summary-total-banner {
+            background: var(--primary-soft);
+            border: 1px dashed var(--primary-border);
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .summary-total-banner span {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        .summary-total-banner strong {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--primary-dark);
+        }
+
+        .btn-submit-order {
             width: 100%;
             height: 54px;
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #FFFFFF;
             border: none;
             border-radius: var(--radius-sm);
-            font-size: 15px;
-            font-weight: 800;
+            font-size: 16px;
+            font-weight: 900;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 10px 25px -5px rgba(16, 35, 52, 0.4);
+            box-shadow: 0 8px 25px -4px rgba(255, 87, 34, 0.4);
             transition: all 0.2s;
             font-family: inherit;
         }
-        .btn-confirm-order:active {
+        .btn-submit-order:active {
             transform: scale(0.98);
         }
-        .btn-confirm-order:hover {
-            background: #1A364E;
-        }
 
-        /* ── FAST WHATSAPP BUTTON ── */
-        .btn-fast-wa {
+        .btn-wa-hero {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             background: var(--whatsapp);
-            color: #fff;
-            padding: 12px;
+            color: #FFFFFF;
+            padding: 13px;
             border-radius: var(--radius-sm);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 800;
             text-decoration: none;
             margin-top: 10px;
@@ -694,17 +730,16 @@
             font-family: inherit;
         }
 
-        /* ── SUCCESS NOTIFICATION CARD ── */
-        #order-success-screen {
+        /* Success Card */
+        #checkout-success-box {
             display: none;
             background: #ECFDF5;
             border: 2px solid #34D399;
             border-radius: var(--radius-card);
             padding: 24px 18px;
             text-align: center;
-            margin-top: 12px;
         }
-        .success-tick-circle {
+        .success-tick {
             width: 52px;
             height: 52px;
             border-radius: 50%;
@@ -718,209 +753,88 @@
             box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
         }
 
-        /* ── STORY / FEATURES SHOWCASE (Nexeo style) ── */
-        .story-section {
-            max-width: 1200px;
-            margin: 30px auto 0;
-            padding: 0 12px;
-        }
-        .story-header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        .story-tag {
-            display: inline-block;
-            background: #E2E8F0;
-            color: var(--text-main);
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .story-title {
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .features-bento-grid {
+        /* ── REASSURANCE 4 BLOCKS ── */
+        .reassurance-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 14px;
-        }
-        @media(min-width:768px) {
-            .features-bento-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        .bento-card {
-            background: #FFFFFF;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-card);
-            padding: 20px;
-            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.06);
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
-        .bento-icon-box {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--teal-soft);
-            color: var(--teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-        .bento-card h3 {
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-        .bento-card p {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* ── TESTIMONIALS SECTION ── */
-        .testi-row-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin-top: 14px;
-        }
-        @media(min-width:768px) {
-            .testi-row-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        .testi-bubble-card {
+        .reassurance-card {
             background: #FFFFFF;
             border: 1px solid var(--card-border);
-            border-radius: var(--radius-card);
-            padding: 16px;
-            box-shadow: 0 6px 20px -10px rgba(0,0,0,0.05);
+            border-radius: 16px;
+            padding: 14px 12px;
+            text-align: center;
         }
-        .testi-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        .testi-author-info strong {
-            display: block;
-            font-size: 13px;
-            color: var(--text-main);
-        }
-        .testi-author-info span {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-        .testi-stars-gold {
-            color: #F59E0B;
-            font-size: 12px;
-        }
-        .testi-bubble-card p {
-            font-size: 13px;
-            color: var(--text-main);
-            font-style: italic;
-            line-height: 1.45;
-        }
+        .reassurance-card .icon { font-size: 24px; margin-bottom: 4px; display: block; }
+        .reassurance-card strong { display: block; font-size: 13px; font-weight: 800; color: var(--text-main); }
+        .reassurance-card span { font-size: 11px; color: var(--text-muted); }
 
         /* ── FOOTER ── */
-        .site-footer {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding: 24px 16px;
+        .page-footer {
             text-align: center;
             font-size: 12px;
             color: var(--text-muted);
-            border-top: 1px solid #DCE4E8;
+            padding: 20px 0;
         }
-        .site-footer a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 700;
-        }
+        .page-footer a { color: var(--primary); text-decoration: none; font-weight: 700; }
 
-        /* ── STICKY BOTTOM CHECKOUT BAR ── */
-        .sticky-action-bar {
+        /* ── STICKY BOTTOM BAR ── */
+        .sticky-footer-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid #E2E8F0;
             padding: 10px 16px;
             z-index: 999;
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
         }
-        .sticky-inner-wrap {
-            max-width: 800px;
+        .sticky-inner-box {
+            max-width: 560px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
+            gap: 10px;
         }
-        .sticky-plan-preview {
+        .sticky-plan-info {
             display: flex;
             flex-direction: column;
         }
-        .sticky-plan-name {
-            font-size: 12px;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-        .sticky-plan-price {
-            font-size: 15px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-        .sticky-btn-group {
-            display: flex;
-            gap: 8px;
-        }
+        .sticky-plan-title { font-size: 12px; font-weight: 800; color: var(--text-main); }
+        .sticky-plan-price { font-size: 15px; font-weight: 900; color: var(--primary); }
+        .sticky-actions-group { display: flex; gap: 8px; }
         .btn-sticky-order {
             background: var(--primary);
-            color: #fff;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 999px;
-            font-size: 13px;
+            color: #FFFFFF;
+            border-radius: 12px;
             font-weight: 800;
-            cursor: pointer;
+            font-size: 13px;
+            padding: 10px 18px;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(233, 85, 73, 0.35);
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.35);
             font-family: inherit;
         }
         .btn-sticky-wa {
             background: var(--whatsapp);
-            color: #fff;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 13px;
+            color: #FFFFFF;
+            border-radius: 12px;
             font-weight: 800;
-            cursor: pointer;
+            font-size: 13px;
+            padding: 10px 14px;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
             font-family: inherit;
         }
     </style>
 </head>
 <body class="lang-fr">
 
-    <!-- ══ STICKY FLOATING NAVBAR ══ -->
+    <!-- ══ STICKY TOP NAVBAR ══ -->
     <div class="top-navbar-wrap">
         <header class="top-navbar">
             <a href="#" class="nav-logo-box">
@@ -929,553 +843,590 @@
             </a>
 
             <div class="nav-actions">
-                <!-- Language Toggle Button: Français / العربية -->
                 <div class="lang-toggle-pills">
-                    <button type="button" class="lang-pill-btn active" id="pill-lang-fr" onclick="switchLanguage('fr')">FR</button>
+                    <button type="button" class="lang-pill-btn active" id="pill-lang-fr" onclick="switchLanguage('fr')">Français</button>
                     <button type="button" class="lang-pill-btn" id="pill-lang-ar" onclick="switchLanguage('ar')">العربية</button>
                 </div>
-
-                <a href="#commander-card" class="btn-nav-order" id="t-nav-btn">
+                <a href="#section-commander" class="btn-nav-order" id="t-nav-btn">
                     <span id="t-nav-txt">Commander</span> →
                 </a>
             </div>
         </header>
     </div>
 
-    <!-- ══ MAIN HERO & CHECKOUT GRID (Nexeo style) ══ -->
-    <main class="hero-container">
+    <!-- ══ MAIN PAGE CONTENT ══ -->
+    <main class="page-container">
 
-        <!-- ── LEFT COLUMN: PRODUCT PRESENTATION & INTERACTIVE PHONE DEMO ── -->
-        <div class="showcase-slider-card">
-            <div class="slider-media-box">
-                <div class="slider-media-bg-glow"></div>
-                <div class="slider-badge-top">
-                    <span>🇩🇿</span> <span id="t-slider-badge">N°1 du Menu QR en Algérie</span>
-                </div>
+        <!-- ── PRODUCT TITLE CARD ── -->
+        <div class="product-header-card">
+            <div class="product-meta-row">
+                <span class="product-verified-badge" id="t-badge-verified">⭐ N°1 du Menu QR en Algérie</span>
+                <span class="product-country-badge">🇩🇿 150+ Restaurants</span>
+            </div>
+            <h1 class="product-main-title" id="t-prod-title">
+                Votre menu digital par QR Code
+            </h1>
+            <p class="product-main-sub" id="t-prod-sub">
+                Fini les menus papier à réimprimer. Vos clients scannent avec leur téléphone et commandent directement à table sans attendre.
+            </p>
+        </div>
 
-                <!-- Realistic Interactive Phone Mockup -->
-                <div class="phone-mockup-wrapper">
-                    <div class="phone-mockup-header">
-                        <div class="phone-mockup-brand">
-                            <span>🍽️</span>
-                            <span id="t-phone-brand">Le Palmier Lounge</span>
-                        </div>
-                        <div class="phone-mockup-qr-tag" id="t-phone-table">Table N° 04</div>
-                    </div>
-
-                    <!-- Interactive Food Item 1 -->
-                    <div class="phone-food-item">
-                        <div class="phone-food-left">
-                            <span class="phone-food-emoji">🍔</span>
-                            <div>
-                                <div class="phone-food-title" id="t-m-i1-t">Burger Smash Double</div>
-                                <div class="phone-food-sub" id="t-m-i1-s">Cheddar fondu, sauce maison</div>
+        <!-- ══════════════════════════════════════════════════════════
+             PRODUCT SLIDER (Interactive swipeable showcase of the product)
+             ══════════════════════════════════════════════════════════ -->
+        <div class="product-slider-container">
+            <div class="slider-viewport" id="sliderViewport">
+                <div class="slider-track" id="sliderTrack">
+                    
+                    <!-- Slide 1: Scan Table -->
+                    <div class="slider-slide">
+                        <div class="slide-frame slide-theme-dark">
+                            <span class="slide-tag white" id="t-s1-tag">Étape 01 · Le Scan</span>
+                            <span class="slide-big-icon">📲</span>
+                            <div class="slide-headline" id="t-s1-h">Scannez le QR sur la table</div>
+                            <div class="slide-desc" id="t-s1-d">Le menu s'ouvre instantanément sur le téléphone du client. 0 application à télécharger.</div>
+                            <div class="mockup-item-pill">
+                                <span>Table N° 04</span>
+                                <span style="color:#10B981;">✓ Connecté en 1 sec</span>
                             </div>
                         </div>
-                        <div class="phone-food-price">650 DA</div>
                     </div>
 
-                    <!-- Interactive Food Item 2 -->
-                    <div class="phone-food-item">
-                        <div class="phone-food-left">
-                            <span class="phone-food-emoji">🍕</span>
-                            <div>
-                                <div class="phone-food-title" id="t-m-i2-t">Pizza Margherita</div>
-                                <div class="phone-food-sub" id="t-m-i2-s">Mozzarella di bufala & basilic</div>
+                    <!-- Slide 2: Menu & Food Photos -->
+                    <div class="slider-slide">
+                        <div class="slide-frame slide-theme-light">
+                            <span class="slide-tag teal" id="t-s2-tag">Étape 02 · Vos Plats</span>
+                            <span class="slide-big-icon">🍔</span>
+                            <div class="slide-headline" id="t-s2-h">Des photos qui font vendre</div>
+                            <div class="slide-desc" id="t-s2-d">Photos haute définition de vos plats et prix clairs pour augmenter votre panier moyen de +25%.</div>
+                            <div class="mockup-item-pill">
+                                <span>Burger Smash Double</span>
+                                <span style="color:var(--primary);">650 DA</span>
                             </div>
                         </div>
-                        <div class="phone-food-price">800 DA</div>
                     </div>
 
-                    <!-- Interactive Food Item 3 -->
-                    <div class="phone-food-item">
-                        <div class="phone-food-left">
-                            <span class="phone-food-emoji">🍹</span>
-                            <div>
-                                <div class="phone-food-title" id="t-m-i3-t">Mojito Fraise Frais</div>
-                                <div class="phone-food-sub" id="t-m-i3-s">Menthe fraîche & citron vert</div>
+                    <!-- Slide 3: Order Direct -->
+                    <div class="slider-slide">
+                        <div class="slide-frame slide-theme-warm">
+                            <span class="slide-tag orange" id="t-s3-tag">Étape 03 · Commande</span>
+                            <span class="slide-big-icon">⚡</span>
+                            <div class="slide-headline" id="t-s3-h">Commandez sans attendre</div>
+                            <div class="slide-desc" id="t-s3-d">Le client passe commande ou appelle le serveur directement. La commande arrive sur votre téléphone ou caisse.</div>
+                            <div class="mockup-item-pill">
+                                <span>🔔 Appel serveur Table 4</span>
+                                <span style="color:#C2410C;">Reçu ⚡</span>
                             </div>
                         </div>
-                        <div class="phone-food-price">350 DA</div>
                     </div>
 
-                    <!-- Simulated Direct Order Bar -->
-                    <div class="phone-order-action-bar">
-                        <span><span id="t-m-total">Total</span>: <strong>1 800 DA</strong></span>
-                        <span id="t-m-ready">Prêt à servir ⚡</span>
+                    <!-- Slide 4: Google Reviews -->
+                    <div class="slider-slide">
+                        <div class="slide-frame slide-theme-light">
+                            <span class="slide-tag teal" id="t-s4-tag">Avis Clients</span>
+                            <span class="slide-big-icon">⭐</span>
+                            <div class="slide-headline" id="t-s4-h">Boostez vos avis Google Maps</div>
+                            <div class="slide-desc" id="t-s4-d">Après le repas, invitez vos clients satisfaits à laisser 5 étoiles pour hisser votre restaurant en tête sur Google.</div>
+                            <div class="mockup-stars">★★★★★</div>
+                        </div>
                     </div>
+
+                    <!-- Slide 5: Instant Menu Updates -->
+                    <div class="slider-slide">
+                        <div class="slide-frame slide-theme-dark">
+                            <span class="slide-tag white" id="t-s5-tag">Gestion Facile</span>
+                            <span class="slide-big-icon">🔄</span>
+                            <div class="slide-headline" id="t-s5-h">Changez vos prix en 1 seconde</div>
+                            <div class="slide-desc" id="t-s5-d">Un plat épuisé ? Un nouveau dessert ? Modifiez votre carte depuis votre smartphone sans jamais réimprimer.</div>
+                            <div class="mockup-item-pill">
+                                <span>Plat du jour : Masqué</span>
+                                <span style="color:#10B981;">Mis à jour ✓</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- Slider Caption & Dots -->
-            <div class="slider-controls-row">
-                <div>
-                    <div class="slider-caption-text" id="t-slider-cap-t">Votre menu digital sur smartphone</div>
-                    <div class="slider-caption-sub" id="t-slider-cap-s">Le client scanne le QR posé sur sa table · 0 application</div>
+            <!-- Slider Controls: Prev, Dots, Next -->
+            <div class="slider-bottom-bar">
+                <button type="button" class="slider-btn-nav" id="btn-slide-prev" onclick="prevSlide()" aria-label="Précédent">←</button>
+                <div class="slider-dots-group" id="sliderDots">
+                    <div class="slider-nav-dot active" onclick="goToSlide(0)"></div>
+                    <div class="slider-nav-dot" onclick="goToSlide(1)"></div>
+                    <div class="slider-nav-dot" onclick="goToSlide(2)"></div>
+                    <div class="slider-nav-dot" onclick="goToSlide(3)"></div>
+                    <div class="slider-nav-dot" onclick="goToSlide(4)"></div>
                 </div>
-                <div class="slider-dots-box">
-                    <div class="slider-dot active"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
+                <button type="button" class="slider-btn-nav" id="btn-slide-next" onclick="nextSlide()" aria-label="Suivant">→</button>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════
+             SECTION: POURQUOI ARRÊTER LE PAPIER ? (From User Screenshot)
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-savings-comparison">
+            <div class="sec-top-badge-row">
+                <h2 class="sec-title-bold" id="t-why-title">Pourquoi arrêter le papier ?</h2>
+                <span class="sec-badge-pill" id="t-why-badge">ÉCONOMIES</span>
+            </div>
+
+            <div class="compare-grid-boxes">
+                <!-- Red Box: Menu Papier -->
+                <div class="compare-box-red">
+                    <strong id="t-bad-head">❌ Menu Papier</strong>
+                    <ul id="t-bad-list">
+                        <li>Menus tachés et déchirés</li>
+                        <li>~35 000 DA de réimpression</li>
+                        <li>Impossible de changer un prix</li>
+                        <li>Le serveur court partout</li>
+                    </ul>
+                </div>
+
+                <!-- Green Box: Menu Qrmeunu -->
+                <div class="compare-box-green">
+                    <strong id="t-good-head">✅ Menu Qrmeunu</strong>
+                    <ul id="t-good-list">
+                        <li>Toujours propre & moderne</li>
+                        <li>Changement de prix en 1 sec</li>
+                        <li>Photos HD qui font vendre</li>
+                        <li>+25% de commandes en plus</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- ── RIGHT COLUMN: COMPLETE ORDER CHECKOUT CARD (Nexeo style) ── -->
-        <div class="checkout-main-card" id="commander-card">
-            
-            <div class="checkout-header-badge" id="t-badge-plans">
-                ⚡ Mise en service en 24h
+        <!-- ══════════════════════════════════════════════════════════
+             SECTION: CHOISISSEZ VOTRE FORMULE (From User Screenshot)
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-pricing-section" id="section-formules">
+            <div class="sec-top-badge-row">
+                <h2 class="sec-title-bold" id="t-plans-heading">Choisissez votre formule</h2>
+                <span class="sec-badge-pill" id="t-plans-tag">TARIFS CLAIRS</span>
             </div>
-
-            <h1 class="checkout-title" id="t-checkout-title">
-                Commandez votre pack Qrmeunu
-            </h1>
-            <p class="checkout-subtitle" id="t-checkout-sub">
-                Choisissez votre formule annuelle pour votre restaurant :
+            <p style="font-size:13px; color:var(--text-muted);" id="t-plans-instruction">
+                Touchez une formule pour la sélectionner pour votre restaurant :
             </p>
 
-            <!-- ── 3 FORMULAS RADIO SELECTION (User's specific pricing) ── -->
-            <div class="plans-selection-list">
+            <div class="pricing-cards-stack">
                 
-                <!-- Plan 1: Basic (2 000 DA/mois) -->
-                <div class="plan-item-card" onclick="selectCheckoutPlan('Basic', 2000, 24000)" id="plan-card-Basic">
-                    <div class="plan-left-meta">
-                        <div class="plan-thumb-icon">📱</div>
-                        <div>
-                            <div class="plan-name-label">
-                                <span id="t-p1-title">Qrmeunu Basic</span>
-                            </div>
-                            <div class="plan-price-text">2 000 DA <span class="plan-period-sub" id="t-p1-per">/ mois</span></div>
-                            <div class="plan-period-sub" id="t-p1-ann">Payable à l'année : 24 000 DA/an</div>
+                <!-- CARD 1: Basic (2 000 DA) -->
+                <div class="formula-card" onclick="selectFormula('Basic', 2000, 24000)" id="card-formula-Basic">
+                    <div class="formula-header-row">
+                        <div class="formula-radio-title">
+                            <div class="custom-radio-circle"></div>
+                            <div class="formula-name-text" id="t-f1-name">Basic</div>
+                        </div>
+                        <div class="formula-price-block">
+                            <div class="formula-main-price">2 000 DA <span id="t-f1-per">/mois</span></div>
                         </div>
                     </div>
-                    <div class="plan-radio-circle"></div>
+                    <ul class="formula-features-list" id="t-f1-list">
+                        <li><span class="check-green-icon">✓</span> Menu QR consultable sur smartphone</li>
+                        <li><span class="check-green-icon">✓</span> Mises à jour du menu incluses par notre équipe</li>
+                        <li><span class="check-green-icon">✓</span> Installation et QR codes fournis</li>
+                    </ul>
+                    <div class="formula-annual-note" id="t-f1-annual">Payable à l'année : 24 000 DA/an</div>
                 </div>
 
-                <!-- Plan 2: Commande (4 000 DA/mois) - POPULAR -->
-                <div class="plan-item-card active" onclick="selectCheckoutPlan('Commande', 4000, 48000)" id="plan-card-Commande">
-                    <div class="plan-left-meta">
-                        <div class="plan-thumb-icon">🛒</div>
-                        <div>
-                            <div class="plan-name-label">
-                                <span id="t-p2-title">Qrmeunu Commande</span>
-                                <span class="plan-pill-tag popular" id="t-p2-badge">Recommandé</span>
-                            </div>
-                            <div class="plan-price-text">4 000 DA <span class="plan-period-sub" id="t-p2-per">/ mois</span></div>
-                            <div class="plan-period-sub" id="t-p2-ann">Payable à l'année : 48 000 DA/an</div>
+                <!-- CARD 2: Commande (4 000 DA) - LE PLUS CHOISI -->
+                <div class="formula-card selected" onclick="selectFormula('Commande', 4000, 48000)" id="card-formula-Commande">
+                    <div class="formula-ribbon orange" id="t-f2-ribbon">⭐ LE PLUS CHOISI</div>
+                    <div class="formula-header-row">
+                        <div class="formula-radio-title">
+                            <div class="custom-radio-circle"></div>
+                            <div class="formula-name-text" id="t-f2-name">Commande</div>
+                        </div>
+                        <div class="formula-price-block">
+                            <div class="formula-main-price">4 000 DA <span id="t-f2-per">/mois</span></div>
                         </div>
                     </div>
-                    <div class="plan-radio-circle"></div>
+                    <ul class="formula-features-list" id="t-f2-list">
+                        <li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li>
+                        <li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li>
+                        <li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>
+                    </ul>
+                    <div class="formula-annual-note" id="t-f2-annual">Payable à l'année : 48 000 DA/an</div>
                 </div>
 
-                <!-- Plan 3: Caisse Pro (5 200 DA -10% = 4 680 DA/mois) -->
-                <div class="plan-item-card" onclick="selectCheckoutPlan('Caisse Pro', 4680, 56160)" id="plan-card-CaissePro">
-                    <div class="plan-left-meta">
-                        <div class="plan-thumb-icon">💻</div>
-                        <div>
-                            <div class="plan-name-label">
-                                <span id="t-p3-title">Qrmeunu Caisse Pro</span>
-                                <span class="plan-pill-tag" id="t-p3-badge">-10% Promo</span>
-                            </div>
-                            <div class="plan-price-text">
-                                <span class="plan-price-strike">5 200 DA</span>
-                                4 680 DA <span class="plan-period-sub" id="t-p3-per">/ mois</span>
-                            </div>
-                            <div class="plan-period-sub" id="t-p3-ann">Payable à l'année : <s>62 400 DA</s> 56 160 DA/an</div>
+                <!-- CARD 3: Caisse Pro (4 680 DA) - -10% PROMO -->
+                <div class="formula-card" onclick="selectFormula('Caisse Pro', 4680, 56160)" id="card-formula-CaissePro">
+                    <div class="formula-ribbon red" id="t-f3-ribbon">-10% PROMO</div>
+                    <div class="formula-header-row">
+                        <div class="formula-radio-title">
+                            <div class="custom-radio-circle"></div>
+                            <div class="formula-name-text" id="t-f3-name">Caisse Pro</div>
+                        </div>
+                        <div class="formula-price-block">
+                            <div class="formula-strike-price">5 200 DA/mois</div>
+                            <div class="formula-main-price">4 680 DA <span id="t-f3-per">/mois</span></div>
                         </div>
                     </div>
-                    <div class="plan-radio-circle"></div>
+                    <ul class="formula-features-list" id="t-f3-list">
+                        <li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li>
+                        <li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li>
+                        <li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>
+                    </ul>
+                    <div class="formula-annual-note" id="t-f3-annual">Payable à l'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong></div>
                 </div>
 
             </div>
+        </div>
 
-            <!-- Success Confirmation Box -->
-            <div id="order-success-screen">
-                <div class="success-tick-circle">✓</div>
-                <h3 id="t-succ-h" style="font-size:18px; font-weight:800; color:#065F46; margin-bottom:6px;">Commande enregistrée !</h3>
-                <p id="t-succ-p" style="font-size:13px; color:#047857; margin-bottom:14px;">Notre équipe prépare votre installation sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.</p>
-                <a id="btn-manual-whatsapp-redirect" href="#" target="_blank" class="btn-confirm-order" style="background:#25D366; text-decoration:none;">
+        <!-- ══════════════════════════════════════════════════════════
+             SECTION: FORMULAIRE DE COMMANDE
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-checkout-form" id="section-commander">
+            <div class="sec-top-badge-row">
+                <h2 class="sec-title-bold" id="t-form-title">Demandez votre menu QR</h2>
+                <span class="sec-badge-pill" id="t-form-badge" style="background:#DCFCE7; color:#166534;">Devis Gratuit</span>
+            </div>
+            <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;" id="t-form-desc">
+                Remplissez ce formulaire court. Nous vous contactons pour fixer votre installation.
+            </p>
+
+            <!-- Success Box -->
+            <div id="checkout-success-box">
+                <div class="success-tick">✓</div>
+                <h3 id="t-succ-h" style="font-size:18px; font-weight:900; color:#065F46; margin-bottom:6px;">Demande reçue avec succès !</h3>
+                <p id="t-succ-p" style="font-size:13px; color:#047857; margin-bottom:16px;">Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.</p>
+                <a id="btn-manual-wa-link" href="#" target="_blank" class="btn-submit-order" style="background:#25D366; text-decoration:none;">
                     <span id="t-succ-btn">Ouvrir WhatsApp maintenant →</span>
                 </a>
             </div>
 
-            <!-- ── INTEGRATED CHECKOUT FORM FIELDS ── -->
-            <form id="checkoutForm" class="checkout-form-box">
+            <form id="orderForm">
                 
-                <div class="form-grid-row two-col">
-                    <div class="field-group">
-                        <label for="cust-name"><span id="t-f-name">Nom & Prénom</span> *</label>
-                        <div class="input-icon-wrap">
-                            <span class="icon">👤</span>
-                            <input type="text" id="cust-name" class="form-input" required placeholder="Votre nom complet" autocomplete="name">
-                        </div>
-                    </div>
-
-                    <div class="field-group">
-                        <label for="cust-phone"><span id="t-f-phone">Téléphone</span> *</label>
-                        <div class="input-icon-wrap">
-                            <span class="icon">📞</span>
-                            <input type="tel" id="cust-phone" class="form-input" required placeholder="05XXXXXXXX" autocomplete="tel">
-                        </div>
-                    </div>
+                <div class="form-row-group">
+                    <label for="f-name"><span id="t-lbl-name">Nom & Prénom</span> *</label>
+                    <input type="text" id="f-name" class="field-input" required placeholder="Ex: Mohamed Benali" autocomplete="name">
                 </div>
 
-                <div class="form-grid-row">
-                    <div class="field-group">
-                        <label for="cust-resto"><span id="t-f-resto">Nom de l'établissement</span> *</label>
-                        <div class="input-icon-wrap">
-                            <span class="icon">🏪</span>
-                            <input type="text" id="cust-resto" class="form-input" required placeholder="Ex: Restaurant Le Palmier" autocomplete="organization">
-                        </div>
-                    </div>
+                <div class="form-row-group">
+                    <label for="f-resto"><span id="t-lbl-resto">Nom de votre établissement</span> *</label>
+                    <input type="text" id="f-resto" class="field-input" required placeholder="Ex: Restaurant Le Palmier" autocomplete="organization">
                 </div>
 
-                <div class="form-grid-row two-col">
-                    <div class="field-group">
-                        <label for="cust-email">
-                            <span id="t-f-email">Email</span> 
-                            <span class="opt-lbl" id="t-f-opt">(optionnel)</span>
-                        </label>
-                        <div class="input-icon-wrap">
-                            <span class="icon">✉️</span>
-                            <input type="email" id="cust-email" class="form-input" placeholder="votre@email.com" autocomplete="email">
-                        </div>
-                    </div>
-
-                    <div class="field-group">
-                        <label for="cust-wilaya"><span id="t-f-wilaya">Wilaya</span> *</label>
-                        
-                        <!-- 1-Tap Wilaya Quick Pills -->
-                        <div class="quick-wilayas-pills">
-                            <button type="button" class="q-pill" onclick="selectQuickWilaya('16-Alger')">16 Alger</button>
-                            <button type="button" class="q-pill" onclick="selectQuickWilaya('31-Oran')">31 Oran</button>
-                            <button type="button" class="q-pill" onclick="selectQuickWilaya('25-Constantine')">25 Constantine</button>
-                            <button type="button" class="q-pill" onclick="selectQuickWilaya('19-Setif')">19 Sétif</button>
-                            <button type="button" class="q-pill" onclick="selectQuickWilaya('09-Blida')">09 Blida</button>
-                        </div>
-
-                        <select id="cust-wilaya" class="form-input" required style="padding-left:14px; padding-right:14px; cursor:pointer;">
-                            <option value="" id="t-f-wilaya-def">Sélectionner votre wilaya (58 wilayas)...</option>
-                            <option value="1-Adrar">01 - Adrar / أدرار</option>
-                            <option value="2-Chlef">02 - Chlef / الشلف</option>
-                            <option value="3-Laghouat">03 - Laghouat / الأغواط</option>
-                            <option value="4-Oum El Bouaghi">04 - Oum El Bouaghi / أم البواقي</option>
-                            <option value="5-Batna">05 - Batna / باتنة</option>
-                            <option value="6-Bejaia">06 - Béjaïa / بجاية</option>
-                            <option value="7-Biskra">07 - Biskra / بسكرة</option>
-                            <option value="8-Bechar">08 - Béchar / بشار</option>
-                            <option value="9-Blida">09 - Blida / البليدة</option>
-                            <option value="10-Bouira">10 - Bouira / البويرة</option>
-                            <option value="11-Tamanrasset">11 - Tamanrasset / تمنراست</option>
-                            <option value="12-Tebessa">12 - Tébessa / تبسة</option>
-                            <option value="13-Tlemcen">13 - Tlemcen / تلمسان</option>
-                            <option value="14-Tiaret">14 - Tiaret / تيارت</option>
-                            <option value="15-Tizi Ouzou">15 - Tizi Ouzou / تيزي وزو</option>
-                            <option value="16-Alger">16 - Alger / الجزائر</option>
-                            <option value="17-Djelfa">17 - Djelfa / الجلفة</option>
-                            <option value="18-Jijel">18 - Jijel / جيجل</option>
-                            <option value="19-Setif">19 - Sétif / سطيف</option>
-                            <option value="20-Saida">20 - Saïda / سعيدة</option>
-                            <option value="21-Skikda">21 - Skikda / سكيكدة</option>
-                            <option value="22-Sidi Bel Abbes">22 - Sidi Bel Abbès / سيدي بلعباس</option>
-                            <option value="23-Annaba">23 - Annaba / عنابة</option>
-                            <option value="24-Guelma">24 - Guelma / قالمة</option>
-                            <option value="25-Constantine">25 - Constantine / قسنطينة</option>
-                            <option value="26-Medea">26 - Médéa / المدية</option>
-                            <option value="27-Mostaganem">27 - Mostaganem / مستغانم</option>
-                            <option value="28-MSila">28 - M'Sila / المسيلة</option>
-                            <option value="29-Mascara">29 - Mascara / معسكر</option>
-                            <option value="30-Ouargla">30 - Ouargla / ورقلة</option>
-                            <option value="31-Oran">31 - Oran / وهران</option>
-                            <option value="32-El Bayadh">32 - El Bayadh / البيض</option>
-                            <option value="33-Illizi">33 - Illizi / إليزي</option>
-                            <option value="34-Bordj Bou Arreridj">34 - Bordj Bou Arreridj / برج بوعريريج</option>
-                            <option value="35-Boumerdes">35 - Boumerdès / بومرداس</option>
-                            <option value="36-El Tarf">36 - El Tarf / الطارف</option>
-                            <option value="37-Tindouf">37 - Tindouf / تندوف</option>
-                            <option value="38-Tissemsilt">38 - Tissemsilt / تيسمسيلت</option>
-                            <option value="39-El Oued">39 - El Oued / الوادي</option>
-                            <option value="40-Khenchela">40 - Khenchela / خنشلة</option>
-                            <option value="41-Souk Ahras">41 - Souk Ahras / سوق أهراس</option>
-                            <option value="42-Tipaza">42 - Tipaza / تيبازة</option>
-                            <option value="43-Mila">43 - Mila / ميلة</option>
-                            <option value="44-Ain Defla">44 - Aïn Defla / عين الدفلى</option>
-                            <option value="45-Naama">45 - Naâma / النعامة</option>
-                            <option value="46-Ain Temouchent">46 - Aïn Témouchent / عين تموشنت</option>
-                            <option value="47-Ghardaia">47 - Ghardaïa / غرداية</option>
-                            <option value="48-Relizane">48 - Relizane / غليزان</option>
-                            <option value="49-Timimoun">49 - Timimoun / تيميمون</option>
-                            <option value="50-Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar / برج باجي مختار</option>
-                            <option value="51-Ouled Djellal">51 - Ouled Djellal / أولاد جلال</option>
-                            <option value="52-Beni Abbes">52 - Béni Abbès / بني عباس</option>
-                            <option value="53-In Salah">53 - In Salah / عين صالح</option>
-                            <option value="54-In Guezzam">54 - In Guezzam / عين قزام</option>
-                            <option value="55-Touggourt">55 - Touggourt / تقرت</option>
-                            <option value="56-Djanet">56 - Djanet / جانت</option>
-                            <option value="57-El MGhair">57 - El M'Ghair / المغير</option>
-                            <option value="58-El Meniaa">58 - El Meniaa / المنيعة</option>
-                        </select>
-                    </div>
+                <div class="form-row-group">
+                    <label for="f-phone"><span id="t-lbl-phone">Numéro de téléphone</span> *</label>
+                    <input type="tel" id="f-phone" class="field-input" required placeholder="05 / 06 / 07 XX XX XX" autocomplete="tel">
                 </div>
 
-                <!-- Installation / Setup Mode -->
-                <div class="field-group" style="margin-bottom:12px;">
-                    <label id="t-f-deliv-lbl">Mode de mise en place</label>
-                    <div class="delivery-options-grid">
-                        <div class="delivery-opt-card selected" onclick="selectDeliveryMode('on_site', this)">
-                            <div class="del-dot"></div>
-                            <span id="t-del-on-site">🔧 Installation sur place</span>
-                        </div>
-                        <div class="delivery-opt-card" onclick="selectDeliveryMode('express', this)">
-                            <div class="del-dot"></div>
-                            <span id="t-del-express">📦 QR codes prêts à poser</span>
-                        </div>
-                    </div>
+                <div class="form-row-group">
+                    <label for="f-email">
+                        <span id="t-lbl-email">Adresse Email</span> 
+                        <span class="opt" id="t-lbl-opt">(optionnel)</span>
+                    </label>
+                    <input type="email" id="f-email" class="field-input" placeholder="votre@email.com" autocomplete="email">
                 </div>
 
-                <!-- Total Pricing Summary Box -->
-                <div class="checkout-summary-box">
-                    <div class="summary-line">
-                        <span id="t-sum-plan-lbl">Formule choisie</span>
-                        <strong id="sum-plan-val">Commande (4 000 DA/mois)</strong>
+                <div class="form-row-group">
+                    <label for="f-wilaya"><span id="t-lbl-wilaya">Wilaya</span> *</label>
+                    
+                    <!-- Quick 1-Tap Pills for Major Cities -->
+                    <div class="quick-wilayas-bar">
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('16-Alger')">16 Alger / الجزائر</button>
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('31-Oran')">31 Oran / وهران</button>
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('25-Constantine')">25 Constantine / قسنطينة</button>
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('19-Setif')">19 Sétif / سطيف</button>
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('09-Blida')">09 Blida / البليدة</button>
                     </div>
-                    <div class="summary-line">
-                        <span id="t-sum-install-lbl">Installation & Configuration</span>
-                        <strong style="color:var(--teal);" id="t-sum-free">Gratuite (0 DA)</strong>
-                    </div>
-                    <div class="summary-total-line">
-                        <span id="t-sum-total-lbl">Total à régler (Annuel)</span>
-                        <span class="summary-total-val" id="sum-total-price">48 000 DA</span>
-                    </div>
+
+                    <select id="f-wilaya" class="field-input" required style="cursor:pointer;">
+                        <option value="" id="t-opt-wilaya-def">Ou choisissez parmi les 58 wilayas...</option>
+                        <option value="1-Adrar">01 - Adrar / أدرار</option>
+                        <option value="2-Chlef">02 - Chlef / الشلف</option>
+                        <option value="3-Laghouat">03 - Laghouat / الأغواط</option>
+                        <option value="4-Oum El Bouaghi">04 - Oum El Bouaghi / أم البواقي</option>
+                        <option value="5-Batna">05 - Batna / باتنة</option>
+                        <option value="6-Bejaia">06 - Béjaïa / بجاية</option>
+                        <option value="7-Biskra">07 - Biskra / بسكرة</option>
+                        <option value="8-Bechar">08 - Béchar / بشار</option>
+                        <option value="9-Blida">09 - Blida / البليدة</option>
+                        <option value="10-Bouira">10 - Bouira / البويرة</option>
+                        <option value="11-Tamanrasset">11 - Tamanrasset / تمنراست</option>
+                        <option value="12-Tebessa">12 - Tébessa / تبسة</option>
+                        <option value="13-Tlemcen">13 - Tlemcen / تلمسان</option>
+                        <option value="14-Tiaret">14 - Tiaret / تيارت</option>
+                        <option value="15-Tizi Ouzou">15 - Tizi Ouzou / تيزي وزو</option>
+                        <option value="16-Alger">16 - Alger / الجزائر</option>
+                        <option value="17-Djelfa">17 - Djelfa / الجلفة</option>
+                        <option value="18-Jijel">18 - Jijel / جيجل</option>
+                        <option value="19-Setif">19 - Sétif / سطيف</option>
+                        <option value="20-Saida">20 - Saïda / سعيدة</option>
+                        <option value="21-Skikda">21 - Skikda / سكيكدة</option>
+                        <option value="22-Sidi Bel Abbes">22 - Sidi Bel Abbès / سيدي بلعباس</option>
+                        <option value="23-Annaba">23 - Annaba / عنابة</option>
+                        <option value="24-Guelma">24 - Guelma / قالمة</option>
+                        <option value="25-Constantine">25 - Constantine / قسنطينة</option>
+                        <option value="26-Medea">26 - Médéa / المدية</option>
+                        <option value="27-Mostaganem">27 - Mostaganem / مستغانم</option>
+                        <option value="28-MSila">28 - M'Sila / المسيلة</option>
+                        <option value="29-Mascara">29 - Mascara / معسكر</option>
+                        <option value="30-Ouargla">30 - Ouargla / ورقلة</option>
+                        <option value="31-Oran">31 - Oran / وهران</option>
+                        <option value="32-El Bayadh">32 - El Bayadh / البيض</option>
+                        <option value="33-Illizi">33 - Illizi / إليزي</option>
+                        <option value="34-Bordj Bou Arreridj">34 - Bordj Bou Arreridj / برج بوعريريج</option>
+                        <option value="35-Boumerdes">35 - Boumerdès / بومرداس</option>
+                        <option value="36-El Tarf">36 - El Tarf / الطارف</option>
+                        <option value="37-Tindouf">37 - Tindouf / تندوف</option>
+                        <option value="38-Tissemsilt">38 - Tissemsilt / تيسمسيلت</option>
+                        <option value="39-El Oued">39 - El Oued / الوادي</option>
+                        <option value="40-Khenchela">40 - Khenchela / خنشلة</option>
+                        <option value="41-Souk Ahras">41 - Souk Ahras / سوق أهراس</option>
+                        <option value="42-Tipaza">42 - Tipaza / تيبازة</option>
+                        <option value="43-Mila">43 - Mila / ميلة</option>
+                        <option value="44-Ain Defla">44 - Aïn Defla / عين الدفلى</option>
+                        <option value="45-Naama">45 - Naâma / النعامة</option>
+                        <option value="46-Ain Temouchent">46 - Aïn Témouchent / عين تموشنت</option>
+                        <option value="47-Ghardaia">47 - Ghardaïa / غرداية</option>
+                        <option value="48-Relizane">48 - Relizane / غليزان</option>
+                        <option value="49-Timimoun">49 - Timimoun / تيميمون</option>
+                        <option value="50-Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar / برج باجي مختار</option>
+                        <option value="51-Ouled Djellal">51 - Ouled Djellal / أولاد جلال</option>
+                        <option value="52-Beni Abbes">52 - Béni Abbès / بني عباس</option>
+                        <option value="53-In Salah">53 - In Salah / عين صالح</option>
+                        <option value="54-In Guezzam">54 - In Guezzam / عين قزام</option>
+                        <option value="55-Touggourt">55 - Touggourt / تقرت</option>
+                        <option value="56-Djanet">56 - Djanet / جانت</option>
+                        <option value="57-El MGhair">57 - El M'Ghair / المغير</option>
+                        <option value="58-El Meniaa">58 - El Meniaa / المنيعة</option>
+                    </select>
                 </div>
 
-                <!-- Big Confirm Button -->
-                <button type="submit" class="btn-confirm-order" id="btn-submit-main">
-                    <span id="t-btn-confirm">Confirmer la commande</span> →
+                <!-- Total Banner -->
+                <div class="summary-total-banner">
+                    <span id="t-banner-formula-text">Formule choisie : Commande</span>
+                    <strong id="t-banner-total-val">48 000 DA/an</strong>
+                </div>
+
+                <button type="submit" class="btn-submit-order" id="btn-submit-order">
+                    <span id="t-btn-submit">Valider ma commande ✓</span>
                 </button>
 
-                <!-- Direct WhatsApp Alternative Button -->
-                <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="btn-fast-wa" id="btn-wa-hero">
+                <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="btn-wa-hero">
                     <span>💬</span> <span id="t-btn-wa">Discuter directement sur WhatsApp</span>
                 </a>
             </form>
-
         </div>
+
+        <!-- ── REASSURANCE ── -->
+        <div class="reassurance-grid">
+            <div class="reassurance-card">
+                <span class="icon">🔧</span>
+                <strong id="t-r1-h">Installation Gratuite</strong>
+                <span id="t-r1-s">Sur place dans votre resto</span>
+            </div>
+            <div class="reassurance-card">
+                <span class="icon">🔄</span>
+                <strong id="t-r2-h">Mises à jour incluses</strong>
+                <span id="t-r2-s">Par notre équipe</span>
+            </div>
+            <div class="reassurance-card">
+                <span class="icon">📞</span>
+                <strong id="t-r3-h">Support 7j/7</strong>
+                <span id="t-r3-s">WhatsApp & téléphone</span>
+            </div>
+            <div class="reassurance-card">
+                <span class="icon">🇩🇿</span>
+                <strong id="t-r4-h">100% Algérien</strong>
+                <span id="t-r4-s">Partout en Algérie</span>
+            </div>
+        </div>
+
+        <!-- ── FOOTER ── -->
+        <footer class="page-footer">
+            <p><strong id="t-foot-brand">Qrmeunu Algérie</strong> · <span id="t-foot-sub">Menus & commandes QR pour restaurants</span></p>
+            <p style="margin-top:4px;">WhatsApp : <a href="https://wa.me/213656243117" target="_blank">+213 656 24 31 17</a></p>
+            <p style="margin-top:6px; opacity:0.8;">Tous droits réservés © 2024</p>
+        </footer>
 
     </main>
 
-    <!-- ══ FEATURES STORY / SHOWCASE SECTION (Nexeo inspired) ══ -->
-    <section class="story-section">
-        <div class="story-header">
-            <span class="story-tag" id="t-story-tag">Expérience Qrmeunu</span>
-            <h2 class="story-title" id="t-story-title">Tout ce dont votre restaurant a besoin</h2>
-        </div>
-
-        <div class="features-bento-grid">
-            
-            <div class="bento-card">
-                <div class="bento-icon-box">📲</div>
-                <h3 id="t-b1-h">Votre menu. Un scan.</h3>
-                <p id="t-b1-p">Aucune application à télécharger. Vos clients scannent avec leur appareil photo et consultent immédiatement votre carte.</p>
-            </div>
-
-            <div class="bento-card">
-                <div class="bento-icon-box">✨</div>
-                <h3 id="t-b2-h">Des plats qui donnent envie</h3>
-                <p id="t-b2-p">Photos haute définition, descriptions alléchantes et prix clairs pour augmenter le panier moyen de vos commandes de 25%.</p>
-            </div>
-
-            <div class="bento-card">
-                <div class="bento-icon-box">🛎️</div>
-                <h3 id="t-b3-h">Le service, sans attendre</h3>
-                <p id="t-b3-p">Boutons « Appeler le serveur », « Demander l'addition » et commande en direct depuis chaque table.</p>
-            </div>
-
-            <div class="bento-card">
-                <div class="bento-icon-box">⭐</div>
-                <h3 id="t-b4-h">Boostez vos avis Google Maps</h3>
-                <p id="t-b4-p">Encouragez vos clients satisfaits à laisser un avis 5 étoiles pour hisser votre restaurant en tête sur Google.</p>
-            </div>
-
-            <div class="bento-card">
-                <div class="bento-icon-box">⚡</div>
-                <h3 id="t-b5-h">Mise à jour en 1 seconde</h3>
-                <p id="t-b5-p">Un plat épuisé ? Un prix à ajuster ? Modifiez votre menu en direct depuis votre téléphone sans jamais réimprimer.</p>
-            </div>
-
-            <div class="bento-card">
-                <div class="bento-icon-box">🇩🇿</div>
-                <h3 id="t-b6-h">Accompagnement 100% Algérien</h3>
-                <p id="t-b6-p">Installation sur place dans votre établissement, formation de vos serveurs et support technique 7j/7 par téléphone et WhatsApp.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ══ TESTIMONIALS SECTION ══ -->
-    <section class="story-section" style="margin-top:30px;">
-        <div class="story-header">
-            <span class="story-tag" id="t-testi-tag">Témoignages</span>
-            <h2 class="story-title" id="t-testi-title">Ils ont adopté Qrmeunu</h2>
-        </div>
-
-        <div class="testi-row-grid">
-            <div class="testi-bubble-card">
-                <div class="testi-top">
-                    <div class="testi-author-info">
-                        <strong>Redouane K.</strong>
-                        <span>Bella Vista · Alger</span>
-                    </div>
-                    <div class="testi-stars-gold">★★★★★</div>
-                </div>
-                <p id="t-testi-1">« Fini les menus abîmés par la sauce. Les clients scannent dès qu'ils s'assoient et nos serveurs gagnent 15 min par table. »</p>
-            </div>
-
-            <div class="testi-bubble-card">
-                <div class="testi-top">
-                    <div class="testi-author-info">
-                        <strong>Sofiane M.</strong>
-                        <span>Le Jasmin Lounge · Oran</span>
-                    </div>
-                    <div class="testi-stars-gold">★★★★★</div>
-                </div>
-                <p id="t-testi-2">« L'équipe est venue directement sur place à Oran. En un après-midi tout était configuré et collé sur les tables. »</p>
-            </div>
-
-            <div class="testi-bubble-card">
-                <div class="testi-top">
-                    <div class="testi-author-info">
-                        <strong>Karim B.</strong>
-                        <span>Burger Spot · Constantine</span>
-                    </div>
-                    <div class="testi-stars-gold">★★★★★</div>
-                </div>
-                <p id="t-testi-3">« Grâce aux belles photos de nos burgers sur le menu QR, le panier moyen de nos clients a augmenté de 25%. »</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ SITE FOOTER ══ -->
-    <footer class="site-footer">
-        <p><strong>Qrmeunu Algérie</strong> · Solutions de menus digitaux et commandes par QR Code</p>
-        <p style="margin-top:6px;">Contact WhatsApp direct : <a href="https://wa.me/213656243117" target="_blank">+213 656 24 31 17</a></p>
-        <p style="margin-top:6px; opacity:0.8;">Tous droits réservés © 2024</p>
-    </footer>
-
     <!-- ══ STICKY BOTTOM CHECKOUT BAR ══ -->
-    <div class="sticky-action-bar">
-        <div class="sticky-inner-wrap">
-            <div class="sticky-plan-preview">
-                <div class="sticky-plan-name" id="sticky-plan-name">Qrmeunu Commande</div>
-                <div class="sticky-plan-price" id="sticky-plan-price">4 000 DA / mois</div>
+    <div class="sticky-footer-bar">
+        <div class="sticky-inner-box">
+            <div class="sticky-plan-info">
+                <span class="sticky-plan-title" id="sticky-title">Qrmeunu Commande</span>
+                <span class="sticky-plan-price" id="sticky-price">4 000 DA / mois</span>
             </div>
-            <div class="sticky-btn-group">
-                <a href="#commander-card" class="btn-sticky-order" id="t-sticky-order">Commander →</a>
+            <div class="sticky-actions-group">
+                <a href="#section-commander" class="btn-sticky-order" id="t-sticky-order">Commander →</a>
                 <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="btn-sticky-wa">WhatsApp</a>
             </div>
         </div>
     </div>
 
-    <!-- ══ BILINGUAL TRANSLATIONS & CORE LOGIC ══ -->
+    <!-- ══ SLIDER JAVASCRIPT LOGIC (Touch Swipe + Auto-play) ══ -->
     <script>
-        const i18n = {
+        let currentSlideIdx = 0;
+        const totalSlides = 5;
+        const track = document.getElementById('sliderTrack');
+        const dots = document.querySelectorAll('.slider-nav-dot');
+
+        function updateSlider() {
+            const isRtl = document.documentElement.dir === 'rtl';
+            const offset = currentSlideIdx * 100;
+            track.style.transform = isRtl ? `translateX(${offset}%)` : `translateX(-${offset}%)`;
+
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentSlideIdx);
+            });
+        }
+
+        window.goToSlide = function(idx) {
+            currentSlideIdx = (idx + totalSlides) % totalSlides;
+            updateSlider();
+        };
+
+        window.nextSlide = function() {
+            goToSlide(currentSlideIdx + 1);
+        };
+
+        window.prevSlide = function() {
+            goToSlide(currentSlideIdx - 1);
+        };
+
+        // Touch Swipe Event Listeners
+        const viewport = document.getElementById('sliderViewport');
+        let startX = 0;
+        let isDragging = false;
+
+        viewport.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            const threshold = 40; // min swipe distance in px
+
+            const isRtl = document.documentElement.dir === 'rtl';
+            if (isRtl) {
+                if (diff > threshold) prevSlide();
+                else if (diff < -threshold) nextSlide();
+            } else {
+                if (diff > threshold) nextSlide();
+                else if (diff < -threshold) prevSlide();
+            }
+            isDragging = false;
+        }, { passive: true });
+
+        // Auto-play slider every 5 seconds
+        let autoPlayTimer = setInterval(nextSlide, 5000);
+        viewport.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+        viewport.addEventListener('mouseleave', () => autoPlayTimer = setInterval(nextSlide, 5000));
+    </script>
+
+    <!-- ══ FORMULAS SELECTION & BILINGUAL LOGIC ══ -->
+    <script>
+        const dict = {
             fr: {
-                navBtn: 'Commander',
-                sliderBadge: 'N°1 du Menu QR en Algérie',
-                phoneBrand: 'Le Palmier Lounge',
-                phoneTable: 'Table N° 04',
-                mI1T: 'Burger Smash Double', mI1S: 'Cheddar fondu, sauce maison',
-                mI2T: 'Pizza Margherita', mI2S: 'Mozzarella di bufala & basilic',
-                mI3T: 'Mojito Fraise Frais', mI3S: 'Menthe fraîche & citron vert',
-                mTotal: 'Total', mReady: 'Prêt à servir ⚡',
-                sliderCapT: 'Votre menu digital sur smartphone',
-                sliderCapS: 'Le client scanne le QR posé sur sa table · 0 application',
-                badgePlans: '⚡ Mise en service en 24h',
-                checkoutTitle: 'Commandez votre pack Qrmeunu',
-                checkoutSub: 'Choisissez votre formule annuelle pour votre restaurant :',
-                p1Title: 'Qrmeunu Basic', p1Per: '/ mois', p1Ann: 'Payable à l\'année : 24 000 DA/an',
-                p2Title: 'Qrmeunu Commande', p2Badge: 'Recommandé', p2Per: '/ mois', p2Ann: 'Payable à l\'année : 48 000 DA/an',
-                p3Title: 'Qrmeunu Caisse Pro', p3Badge: '-10% Promo', p3Per: '/ mois', p3Ann: 'Payable à l\'année : <s>62 400 DA</s> 56 160 DA/an',
-                succH: 'Commande enregistrée !',
-                succP: 'Notre équipe prépare votre installation sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.',
+                navTxt: 'Commander',
+                badgeVerified: '⭐ N°1 du Menu QR en Algérie',
+                prodTitle: 'Votre menu digital par QR Code',
+                prodSub: 'Fini les menus papier à réimprimer. Vos clients scannent avec leur téléphone et commandent directement à table sans attendre.',
+                s1Tag: 'Étape 01 · Le Scan', s1H: 'Scannez le QR sur la table', s1D: 'Le menu s\'ouvre instantanément sur le téléphone du client. 0 application à télécharger.',
+                s2Tag: 'Étape 02 · Vos Plats', s2H: 'Des photos qui font vendre', s2D: 'Photos haute définition de vos plats et prix clairs pour augmenter votre panier moyen de +25%.',
+                s3Tag: 'Étape 03 · Commande', s3H: 'Commandez sans attendre', s3D: 'Le client passe commande ou appelle le serveur directement. La commande arrive sur votre téléphone ou caisse.',
+                s4Tag: 'Avis Clients', s4H: 'Boostez vos avis Google Maps', s4D: 'Après le repas, invitez vos clients satisfaits à laisser 5 étoiles pour hisser votre restaurant en tête sur Google.',
+                s5Tag: 'Gestion Facile', s5H: 'Changez vos prix en 1 seconde', s5D: 'Un plat épuisé ? Un nouveau dessert ? Modifiez votre carte depuis votre smartphone sans jamais réimprimer.',
+                whyTitle: 'Pourquoi arrêter le papier ?', whyBadge: 'ÉCONOMIES',
+                badHead: '❌ Menu Papier',
+                badList: '<li>Menus tachés et déchirés</li><li>~35 000 DA de réimpression</li><li>Impossible de changer un prix</li><li>Le serveur court partout</li>',
+                goodHead: '✅ Menu Qrmeunu',
+                goodList: '<li>Toujours propre & moderne</li><li>Changement de prix en 1 sec</li><li>Photos HD qui font vendre</li><li>+25% de commandes en plus</li>',
+                plansHeading: 'Choisissez votre formule', plansTag: 'TARIFS CLAIRS',
+                plansInstruction: 'Touchez une formule pour la sélectionner pour votre restaurant :',
+                f1Name: 'Basic', f1Per: '/mois',
+                f1List: '<li><span class="check-green-icon">✓</span> Menu QR consultable sur smartphone</li><li><span class="check-green-icon">✓</span> Mises à jour du menu incluses par notre équipe</li><li><span class="check-green-icon">✓</span> Installation et QR codes fournis</li>',
+                f1Annual: 'Payable à l\'année : 24 000 DA/an',
+                f2Ribbon: '⭐ LE PLUS CHOISI',
+                f2Name: 'Commande', f2Per: '/mois',
+                f2List: '<li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li><li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li><li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>',
+                f2Annual: 'Payable à l\'année : 48 000 DA/an',
+                f3Ribbon: '-10% PROMO',
+                f3Name: 'Caisse Pro', f3Per: '/mois',
+                f3List: '<li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li><li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li><li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>',
+                f3Annual: 'Payable à l\'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong>',
+                formTitle: 'Demandez votre menu QR', formBadge: 'Devis Gratuit',
+                formDesc: 'Remplissez ce formulaire court. Nous vous contactons pour fixer votre installation.',
+                succH: 'Demande reçue avec succès !', succP: 'Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.',
                 succBtn: 'Ouvrir WhatsApp maintenant →',
-                fName: 'Nom & Prénom', phName: 'Votre nom complet',
-                fPhone: 'Téléphone', phPhone: '05XXXXXXXX',
-                fResto: 'Nom de l\'établissement', phResto: 'Ex: Restaurant Le Palmier',
-                fEmail: 'Email', fOpt: '(optionnel)',
-                fWilaya: 'Wilaya', fWilayaDef: 'Sélectionner votre wilaya (58 wilayas)...',
-                fDelivLbl: 'Mode de mise en place',
-                delOnSite: '🔧 Installation sur place', delExpress: '📦 QR codes prêts à poser',
-                sumPlanLbl: 'Formule choisie', sumInstallLbl: 'Installation & Configuration', sumFree: 'Gratuite (0 DA)', sumTotalLbl: 'Total à régler (Annuel)',
-                btnConfirm: 'Confirmer la commande', btnWa: 'Discuter directement sur WhatsApp',
-                storyTag: 'Expérience Qrmeunu', storyTitle: 'Tout ce dont votre restaurant a besoin',
-                b1H: 'Votre menu. Un scan.', b1P: 'Aucune application à télécharger. Vos clients scannent avec leur appareil photo et consultent immédiatement votre carte.',
-                b2H: 'Des plats qui donnent envie', b2P: 'Photos haute définition, descriptions alléchantes et prix clairs pour augmenter le panier moyen de vos commandes de 25%.',
-                b3H: 'Le service, sans attendre', b3P: 'Boutons « Appeler le serveur », « Demander l\'addition » et commande en direct depuis chaque table.',
-                b4H: 'Boostez vos avis Google Maps', b4P: 'Encouragez vos clients satisfaits à laisser un avis 5 étoiles pour hisser votre restaurant en tête sur Google.',
-                b5H: 'Mise à jour en 1 seconde', b5P: 'Un plat épuisé ? Un prix à ajuster ? Modifiez votre menu en direct depuis votre téléphone sans jamais réimprimer.',
-                b6H: 'Accompagnement 100% Algérien', b6P: 'Installation sur place dans votre établissement, formation de vos serveurs et support technique 7j/7 par téléphone et WhatsApp.',
-                testiTag: 'Témoignages', testiTitle: 'Ils ont adopté Qrmeunu',
-                testi1: '« Fini les menus abîmés par la sauce. Les clients scannent dès qu\'ils s\'assoient et nos serveurs gagnent 15 min par table. »',
-                testi2: '« L\'équipe est venue directement sur place à Oran. En un après-midi tout était configuré et collé sur les tables. »',
-                testi3: '« Grâce aux belles photos de nos burgers sur le menu QR, le panier moyen de nos clients a augmenté de 25%. »',
+                lblName: 'Nom & Prénom', phName: 'Ex: Mohamed Benali',
+                lblResto: 'Nom de votre établissement', phResto: 'Ex: Restaurant Le Palmier',
+                lblPhone: 'Numéro de téléphone', phPhone: '05 / 06 / 07 XX XX XX',
+                lblEmail: 'Adresse Email', lblOpt: '(optionnel)',
+                lblWilaya: 'Wilaya', optWilayaDef: 'Ou choisissez parmi les 58 wilayas...',
+                btnSubmit: 'Valider ma commande ✓',
+                btnWa: 'Discuter directement sur WhatsApp',
+                r1H: 'Installation Gratuite', r1S: 'Sur place dans votre resto',
+                r2H: 'Mises à jour incluses', r2S: 'Par notre équipe',
+                r3H: 'Support 7j/7', r3S: 'WhatsApp & téléphone',
+                r4H: '100% Algérien', r4S: 'Partout en Algérie',
+                footBrand: 'Qrmeunu Algérie', footSub: 'Menus & commandes QR pour restaurants',
                 stickyOrder: 'Commander →'
             },
             ar: {
-                navBtn: 'طلب الخدمة',
-                sliderBadge: 'الرقم 1 في منيو الـ QR في الجزائر 🇩🇿',
-                phoneBrand: 'مطعم النخيل لاونج',
-                phoneTable: 'طاولة رقم 04',
-                mI1T: 'برغر مدوبل كلاسيك', mI1S: 'شيدر، صلصة خاصة',
-                mI2T: 'بيتزا مارغريتا إيطالية', mI2S: 'موزاريلا طازجة وطماطم',
-                mI3T: 'موهيتو فراولة منعش', mI3S: 'نعناع وليمون طبيعي',
-                mTotal: 'المجموع', mReady: 'جاهز للتقديم ⚡',
-                sliderCapT: 'مينيو مطعمك الذكي على هاتف الزبون',
-                sliderCapS: 'الزبون يسكان كود الـ QR على الطاولة · بدون أي تطبيق',
-                badgePlans: '⚡ تشغيل الخدمة في أقل من 24 ساعة',
-                checkoutTitle: 'أطلب باقة Qrmeunu لمطعمك',
-                checkoutSub: 'اختر الصيغة السنوية المناسبة لنشاطك التجاري :',
-                p1Title: 'Qrmeunu بيزيك (Basic)', p1Per: '/ شهر', p1Ann: 'الدفع بالعام : 24 000 دج/سنوياً',
-                p2Title: 'Qrmeunu كوموند (Commande)', p2Badge: 'الأكثر طلباً ⭐', p2Per: '/ شهر', p2Ann: 'الدفع بالعام : 48 000 دج/سنوياً',
-                p3Title: 'Qrmeunu كايس برو (Caisse Pro)', p3Badge: 'تخفيض 10% 🏷️', p3Per: '/ شهر', p3Ann: 'الدفع بالعام : <s>62 400 دج</s> 56 160 دج/سنوياً',
-                succH: 'تم تسجيل طلبك بنجاح !',
-                succP: 'فريقنا يجهز التركيب في أقل من 24 ساعة. جاري تحويلك إلى واتساب لتأكيد الطلب...',
+                navTxt: 'طلب الخدمة',
+                badgeVerified: '⭐ الرقم 1 في منيو الـ QR في الجزائر 🇩🇿',
+                prodTitle: 'مينيو مطعمك الذكي بالـ QR كود',
+                prodSub: 'تهنى من طباعة المينيو الورقي كل خطرة. كليانك يسكانو بتيليفوناتهم ويطلبو ديريكت من الطابلة بلا ما يستناو.',
+                s1Tag: 'الخطوة 01 · السكان', s1H: 'سكان الكود QR على الطاولة', s1D: 'المينيو يفتح تم تم في هاتف الزبون بدون تحميل أي تطبيق.',
+                s2Tag: 'الخطوة 02 · الأطباق', s2H: 'صور شهية تفتح النفس', s2D: 'صور واضحة وعالية الجودة مع أسعار دقيقة تزيد من معدل طلبات الزبائن بنسبة 25%.',
+                s3Tag: 'الخطوة 03 · الطلب', s3H: 'الطلب المباشر في الحين', s3D: 'الزبون يطلب أو ينادي السيرفور ديريكت، وتوصلك الكوموند في هاتفك أو لاكيس.',
+                s4Tag: 'آراء الزبائن', s4H: 'زيادة تقييمات Google Maps', s4D: 'بعد الوجبة، شجع زبائنك يخليو 5 نجوم لرفع ترتيب مطعمك في قوقل.',
+                s5Tag: 'تحكم سهل', s5H: 'تبديل الأسعار في ثانية', s5D: 'طبق خلص ؟ حبيت تبدل سعر ؟ غير المينيو مباشرة من هاتفك بدون الحاجة لإعادة الطباعة.',
+                whyTitle: 'علاش لازم تحبس المينيو الورقي ؟', whyBadge: 'توفير',
+                badHead: '❌ المينيو الورقي القديم',
+                badList: '<li>يتوسخ بالماكلة ويتقطع</li><li>~35 000 دج مصاريف طباعة</li><li>ما تقدرش تبدل الأسعار تم تم</li><li>السيرفور يجري ويضيع الوقت</li>',
+                goodHead: '✅ مينيو Qrmeunu العصري',
+                goodList: '<li>دايماً نقي وعصري وشيك</li><li>تبديل الأسعار في ثانية وحدة</li><li>صور شهية تشجع الكليان</li><li>+25% طلبات ومبيعات أكثر</li>',
+                plansHeading: 'اختر الصيغة المناسبة لمطعمك', plansTag: 'أسعار واضحة',
+                plansInstruction: 'إلمس البطاقة لاختيار الصيغة التي تناسبك :',
+                f1Name: 'بيزيك (Basic)', f1Per: '/شهر',
+                f1List: '<li><span class="check-green-icon">✓</span> مينيو QR كود للاطلاع في الهاتف</li><li><span class="check-green-icon">✓</span> تحديثات المينيو مجاناً من طرفنا</li><li><span class="check-green-icon">✓</span> التركيب وتوفير الكود QR للطوابل</li>',
+                f1Annual: 'الدفع بالعام : 24 000 دج/سنوياً',
+                f2Ribbon: '⭐ الأكثر طلباً',
+                f2Name: 'كوموند (Commande)', f2Per: '/شهر',
+                f2List: '<li><span class="check-green-icon">✓</span> <strong>الكليان يطلب ديريكت من هاتفه</strong></li><li><span class="check-green-icon">✓</span> طلبات في الطاولة أو جاهزة للأخذ</li><li><span class="check-green-icon">✓</span> إشعارات واتساب ومباشرة في الحين</li>',
+                f2Annual: 'الدفع بالعام : 48 000 دج/سنوياً',
+                f3Ribbon: 'تخفيض 10% 🏷️',
+                f3Name: 'كايس برو (Caisse Pro)', f3Per: '/شهر',
+                f3List: '<li><span class="check-green-icon">✓</span> <strong>ربط مباشر مع نظام الصندوق (POS)</strong></li><li><span class="check-green-icon">✓</span> التذاكر تخرج في الكوزينة ديريكت</li><li><span class="check-green-icon">✓</span> متابعة كاملة ودعم فني بأولوية</li>',
+                f3Annual: 'الدفع بالعام : <s>62 400 دج</s> <strong>56 160 دج/سنوياً</strong>',
+                formTitle: 'أطلب المينيو QR كود لمطعمك', formBadge: 'معاينة مجانية',
+                formDesc: 'عمر هاذ الاستمارة القصيرة، نتصلو بيك ونحددو موعد التركيب.',
+                succH: 'تم إرسال طلبك بنجاح !', succP: 'فريقنا يتصل بك في أقل من 24 ساعة. جاري تحويلك إلى واتساب لتأكيد الطلب...',
                 succBtn: 'فتح واتساب الآن →',
-                fName: 'الإسم واللقب', phName: 'إسمك الكامل',
-                fPhone: 'رقم الهاتف', phPhone: '05XXXXXXXX',
-                fResto: 'إسم المطعم / المقهى', phResto: 'مثال: مطعم النخيل',
-                fEmail: 'البريد الإلكتروني', fOpt: '(اختياري)',
-                fWilaya: 'الولاية', fWilayaDef: 'اختر ولايتك (58 ولاية)...',
-                fDelivLbl: 'طريقة التركيب والإعداد',
-                delOnSite: '🔧 تركيب في مطعمك مباشرة', delExpress: '📦 أكواد QR جاهزة للإلصاق',
-                sumPlanLbl: 'الصيغة المختارة', sumInstallLbl: 'التركيب والإعداد', sumFree: 'مجاناً (0 دج)', sumTotalLbl: 'المجموع السنوي للدفع',
-                btnConfirm: 'تأكيد الطلب الآن', btnWa: 'التواصل مباشرة في واتساب',
-                storyTag: 'تجربة Qrmeunu', storyTitle: 'كل ما يحتاجه مطعمك في مكان واحد',
-                b1H: 'منيو مطعمك. بسكان واحد.', b1P: 'بدون تحميل أي تطبيق. الزبائن يسكانو بكاميرا الهاتف ويشوفو المينيو مباشرة.',
-                b2H: 'أطباق تفتح الشهية', b2P: 'صور واضحة وعالية الجودة مع أسعار دقيقة تزيد من معدل طلبات الزبائن بنسبة 25%.',
-                b3H: 'خدمة سريعة بدون انتظار', b3P: 'أزرار « طلب السيرفور » و « طلب الفاتورة » والطلب المباشر من كل طاولة.',
-                b4H: 'زيادة تقييمات Google Maps', b4P: 'شجع زبائنك الراضين على ترك تقييم 5 نجوم لرفع ترتيب مطعمك في قوقل.',
-                b5H: 'تعديل الأسعار في ثانية', b5P: 'طبق خلص ؟ حبيت تبدل سعر ؟ غير المينيو مباشرة من هاتفك بدون الحاجة لإعادة الطباعة.',
-                b6H: 'فريق جزائري يرافقك', b6P: 'تركيب في مطعمك، تدريب العمال ودعم فني متواصل 7/7 عبر الهاتف والواتساب.',
-                testiTag: 'آراء الزبائن', testiTitle: 'مطاعم تثق في Qrmeunu',
-                testi1: '« تهنينا من المينيو الورقي وتوسيخ الطوابل. الكليان يسكانو تم تم والسيرفور يربح 15 دقيقة مع كل طابلة. »',
-                testi2: '« الفريق جا لعندنا لوهران وركبولنا الأكواد في عشية وحدة. خدمة احترافية ونقية ربي يبارك. »',
-                testi3: '« الصور الملاح في المينيو زادولنا في الطلبات بنسبة 25%، الكليان يشوفو ويتحمسو يطلبو الديسير والمشروبات. »',
+                lblName: 'الإسم واللقب', phName: 'مثال: محمد بن علي',
+                lblResto: 'إسم المطعم أو المقهى', phResto: 'مثال: مطعم النخيل',
+                lblPhone: 'رقم الهاتف', phPhone: '05 / 06 / 07 XX XX XX',
+                lblEmail: 'البريد الإلكتروني', lblOpt: '(اختياري)',
+                lblWilaya: 'الولاية', optWilayaDef: 'أو اختر ولايتك من القائمة (58 ولاية)...',
+                btnSubmit: 'تأكيد طلبي الآن ✓',
+                btnWa: 'التواصل مباشرة في واتساب',
+                r1H: 'تركيب مجاني', r1S: 'في مطعمك مباشرة',
+                r2H: 'تحديثات مستمرة', r2S: 'بدون أي تكاليف إضافية',
+                r3H: 'دعم فني 7/7', r3S: 'عبر الهاتف والواتساب',
+                r4H: 'فريق جزائري 100%', r4S: 'في كل ولايات الوطن',
+                footBrand: 'Qrmeunu الجزائر', footSub: 'حلول المينيو الرقمي بالـ QR Code',
                 stickyOrder: 'أطلب الآن ←'
             }
         };
 
-        let currentActiveLang = 'fr';
-        let currentPlanName = 'Commande';
-        let currentPlanMonthly = 4000;
-        let currentPlanAnnual = 48000;
-        let currentDeliveryMode = 'on_site';
+        let activeLanguage = 'fr';
+        let currentFormulaName = 'Commande';
+        let currentFormulaMonthly = 4000;
+        let currentFormulaAnnual = 48000;
 
-        function applyLanguage(lang) {
-            currentActiveLang = lang;
+        function setLanguage(lang) {
+            activeLanguage = lang;
             const isAr = (lang === 'ar');
-            const d = i18n[lang];
+            const t = dict[lang];
 
             document.documentElement.lang = lang;
             document.documentElement.dir = isAr ? 'rtl' : 'ltr';
@@ -1485,150 +1436,139 @@
             document.getElementById('pill-lang-fr').classList.toggle('active', !isAr);
             document.getElementById('pill-lang-ar').classList.toggle('active', isAr);
 
-            // Nav
-            document.getElementById('t-nav-txt').textContent = d.navBtn;
+            document.getElementById('t-nav-txt').textContent = t.navTxt;
+            document.getElementById('t-badge-verified').textContent = t.badgeVerified;
+            document.getElementById('t-prod-title').textContent = t.prodTitle;
+            document.getElementById('t-prod-sub').textContent = t.prodSub;
 
-            // Slider Showcase
-            document.getElementById('t-slider-badge').textContent = d.sliderBadge;
-            document.getElementById('t-phone-brand').textContent = d.phoneBrand;
-            document.getElementById('t-phone-table').textContent = d.phoneTable;
-            document.getElementById('t-m-i1-t').textContent = d.mI1T;
-            document.getElementById('t-m-i1-s').textContent = d.mI1S;
-            document.getElementById('t-m-i2-t').textContent = d.mI2T;
-            document.getElementById('t-m-i2-s').textContent = d.mI2S;
-            document.getElementById('t-m-i3-t').textContent = d.mI3T;
-            document.getElementById('t-m-i3-s').textContent = d.mI3S;
-            document.getElementById('t-m-total').textContent = d.mTotal;
-            document.getElementById('t-m-ready').textContent = d.mReady;
-            document.getElementById('t-slider-cap-t').textContent = d.sliderCapT;
-            document.getElementById('t-slider-cap-s').textContent = d.sliderCapS;
+            document.getElementById('t-s1-tag').textContent = t.s1Tag;
+            document.getElementById('t-s1-h').textContent = t.s1H;
+            document.getElementById('t-s1-d').textContent = t.s1D;
+            document.getElementById('t-s2-tag').textContent = t.s2Tag;
+            document.getElementById('t-s2-h').textContent = t.s2H;
+            document.getElementById('t-s2-d').textContent = t.s2D;
+            document.getElementById('t-s3-tag').textContent = t.s3Tag;
+            document.getElementById('t-s3-h').textContent = t.s3H;
+            document.getElementById('t-s3-d').textContent = t.s3D;
+            document.getElementById('t-s4-tag').textContent = t.s4Tag;
+            document.getElementById('t-s4-h').textContent = t.s4H;
+            document.getElementById('t-s4-d').textContent = t.s4D;
+            document.getElementById('t-s5-tag').textContent = t.s5Tag;
+            document.getElementById('t-s5-h').textContent = t.s5H;
+            document.getElementById('t-s5-d').textContent = t.s5D;
 
-            // Checkout Card
-            document.getElementById('t-badge-plans').textContent = d.badgePlans;
-            document.getElementById('t-checkout-title').textContent = d.checkoutTitle;
-            document.getElementById('t-checkout-sub').textContent = d.checkoutSub;
+            document.getElementById('t-why-title').textContent = t.whyTitle;
+            document.getElementById('t-why-badge').textContent = t.whyBadge;
+            document.getElementById('t-bad-head').textContent = t.badHead;
+            document.getElementById('t-bad-list').innerHTML = t.badList;
+            document.getElementById('t-good-head').textContent = t.goodHead;
+            document.getElementById('t-good-list').innerHTML = t.goodList;
 
-            // Plans
-            document.getElementById('t-p1-title').textContent = d.p1Title;
-            document.getElementById('t-p1-per').textContent = d.p1Per;
-            document.getElementById('t-p1-ann').textContent = d.p1Ann;
+            document.getElementById('t-plans-heading').textContent = t.plansHeading;
+            document.getElementById('t-plans-tag').textContent = t.plansTag;
+            document.getElementById('t-plans-instruction').textContent = t.plansInstruction;
 
-            document.getElementById('t-p2-title').textContent = d.p2Title;
-            document.getElementById('t-p2-badge').textContent = d.p2Badge;
-            document.getElementById('t-p2-per').textContent = d.p2Per;
-            document.getElementById('t-p2-ann').textContent = d.p2Ann;
+            document.getElementById('t-f1-name').textContent = t.f1Name;
+            document.getElementById('t-f1-per').textContent = t.f1Per;
+            document.getElementById('t-f1-list').innerHTML = t.f1List;
+            document.getElementById('t-f1-annual').textContent = t.f1Annual;
 
-            document.getElementById('t-p3-title').textContent = d.p3Title;
-            document.getElementById('t-p3-badge').textContent = d.p3Badge;
-            document.getElementById('t-p3-per').textContent = d.p3Per;
-            document.getElementById('t-p3-ann').innerHTML = d.p3Ann;
+            document.getElementById('t-f2-ribbon').textContent = t.f2Ribbon;
+            document.getElementById('t-f2-name').textContent = t.f2Name;
+            document.getElementById('t-f2-per').textContent = t.f2Per;
+            document.getElementById('t-f2-list').innerHTML = t.f2List;
+            document.getElementById('t-f2-annual').textContent = t.f2Annual;
 
-            // Success Card
-            document.getElementById('t-succ-h').textContent = d.succH;
-            document.getElementById('t-succ-p').textContent = d.succP;
-            document.getElementById('t-succ-btn').textContent = d.succBtn;
+            document.getElementById('t-f3-ribbon').textContent = t.f3Ribbon;
+            document.getElementById('t-f3-name').textContent = t.f3Name;
+            document.getElementById('t-f3-per').textContent = t.f3Per;
+            document.getElementById('t-f3-list').innerHTML = t.f3List;
+            document.getElementById('t-f3-annual').innerHTML = t.f3Annual;
 
-            // Form
-            document.getElementById('t-f-name').textContent = d.fName;
-            document.getElementById('cust-name').placeholder = d.phName;
-            document.getElementById('t-f-phone').textContent = d.fPhone;
-            document.getElementById('cust-phone').placeholder = d.phPhone;
-            document.getElementById('t-f-resto').textContent = d.fResto;
-            document.getElementById('cust-resto').placeholder = d.phResto;
-            document.getElementById('t-f-email').textContent = d.fEmail;
-            document.getElementById('t-f-opt').textContent = d.fOpt;
-            document.getElementById('t-f-wilaya').textContent = d.fWilaya;
-            document.getElementById('t-f-wilaya-def').textContent = d.fWilayaDef;
+            document.getElementById('t-form-title').textContent = t.formTitle;
+            document.getElementById('t-form-badge').textContent = t.formBadge;
+            document.getElementById('t-form-desc').textContent = t.formDesc;
+            document.getElementById('t-succ-h').textContent = t.succH;
+            document.getElementById('t-succ-p').textContent = t.succP;
+            document.getElementById('t-succ-btn').textContent = t.succBtn;
 
-            document.getElementById('t-f-deliv-lbl').textContent = d.fDelivLbl;
-            document.getElementById('t-del-on-site').textContent = d.delOnSite;
-            document.getElementById('t-del-express').textContent = d.delExpress;
+            document.getElementById('t-lbl-name').textContent = t.lblName;
+            document.getElementById('f-name').placeholder = t.phName;
+            document.getElementById('t-lbl-resto').textContent = t.lblResto;
+            document.getElementById('f-resto').placeholder = t.phResto;
+            document.getElementById('t-lbl-phone').textContent = t.lblPhone;
+            document.getElementById('f-phone').placeholder = t.phPhone;
+            document.getElementById('t-lbl-email').textContent = t.lblEmail;
+            document.getElementById('t-lbl-opt').textContent = t.lblOpt;
+            document.getElementById('t-lbl-wilaya').textContent = t.lblWilaya;
+            document.getElementById('t-opt-wilaya-def').textContent = t.optWilayaDef;
 
-            document.getElementById('t-sum-plan-lbl').textContent = d.sumPlanLbl;
-            document.getElementById('t-sum-install-lbl').textContent = d.sumInstallLbl;
-            document.getElementById('t-sum-free').textContent = d.sumFree;
-            document.getElementById('t-sum-total-lbl').textContent = d.sumTotalLbl;
+            document.getElementById('t-btn-submit').textContent = t.btnSubmit;
+            document.getElementById('t-btn-wa').textContent = t.btnWa;
 
-            document.getElementById('t-btn-confirm').textContent = d.btnConfirm;
-            document.getElementById('t-btn-wa').textContent = d.btnWa;
+            document.getElementById('t-r1-h').textContent = t.r1H;
+            document.getElementById('t-r1-s').textContent = t.r1S;
+            document.getElementById('t-r2-h').textContent = t.r2H;
+            document.getElementById('t-r2-s').textContent = t.r2S;
+            document.getElementById('t-r3-h').textContent = t.r3H;
+            document.getElementById('t-r3-s').textContent = t.r3S;
+            document.getElementById('t-r4-h').textContent = t.r4H;
+            document.getElementById('t-r4-s').textContent = t.r4S;
 
-            // Story / Bento
-            document.getElementById('t-story-tag').textContent = d.storyTag;
-            document.getElementById('t-story-title').textContent = d.storyTitle;
-            document.getElementById('t-b1-h').textContent = d.b1H;
-            document.getElementById('t-b1-p').textContent = d.b1P;
-            document.getElementById('t-b2-h').textContent = d.b2H;
-            document.getElementById('t-b2-p').textContent = d.b2P;
-            document.getElementById('t-b3-h').textContent = d.b3H;
-            document.getElementById('t-b3-p').textContent = d.b3P;
-            document.getElementById('t-b4-h').textContent = d.b4H;
-            document.getElementById('t-b4-p').textContent = d.b4P;
-            document.getElementById('t-b5-h').textContent = d.b5H;
-            document.getElementById('t-b5-p').textContent = d.b5P;
-            document.getElementById('t-b6-h').textContent = d.b6H;
-            document.getElementById('t-b6-p').textContent = d.b6P;
+            document.getElementById('t-foot-brand').textContent = t.footBrand;
+            document.getElementById('t-foot-sub').textContent = t.footSub;
 
-            // Testimonials
-            document.getElementById('t-testi-tag').textContent = d.testiTag;
-            document.getElementById('t-testi-title').textContent = d.testiTitle;
-            document.getElementById('t-testi-1').textContent = d.testi1;
-            document.getElementById('t-testi-2').textContent = d.testi2;
-            document.getElementById('t-testi-3').textContent = d.testi3;
+            document.getElementById('t-sticky-order').textContent = t.stickyOrder;
 
-            // Sticky
-            document.getElementById('t-sticky-order').textContent = d.stickyOrder;
-
-            updateSummaryBox();
+            refreshSummary();
+            updateSlider();
             localStorage.setItem('qrmeunu_lang', lang);
         }
 
         window.switchLanguage = function(l) {
-            applyLanguage(l);
+            setLanguage(l);
         };
 
-        function updateSummaryBox() {
-            const planDisplay = `${currentPlanName} (${currentPlanMonthly.toLocaleString()} DA / ${currentActiveLang === 'ar' ? 'شهر' : 'mois'})`;
-            document.getElementById('sum-plan-val').textContent = planDisplay;
-            document.getElementById('sum-total-price').textContent = `${currentPlanAnnual.toLocaleString()} DA`;
-            
-            document.getElementById('sticky-plan-name').textContent = `Qrmeunu ${currentPlanName}`;
-            document.getElementById('sticky-plan-price').textContent = `${currentPlanMonthly.toLocaleString()} DA / ${currentActiveLang === 'ar' ? 'شهر' : 'mois'}`;
+        function refreshSummary() {
+            const isAr = (activeLanguage === 'ar');
+            const formulaText = isAr 
+                ? `الصيغة المختارة : ${currentFormulaName}`
+                : `Formule choisie : ${currentFormulaName}`;
+            document.getElementById('t-banner-formula-text').textContent = formulaText;
+            document.getElementById('t-banner-total-val').textContent = `${currentFormulaAnnual.toLocaleString()} DA / ${isAr ? 'سنوياً' : 'an'}`;
+
+            document.getElementById('sticky-title').textContent = `Qrmeunu ${currentFormulaName}`;
+            document.getElementById('sticky-price').textContent = `${currentFormulaMonthly.toLocaleString()} DA / ${isAr ? 'شهر' : 'mois'}`;
         }
 
-        window.selectCheckoutPlan = function(name, monthly, annual) {
-            currentPlanName = name;
-            currentPlanMonthly = monthly;
-            currentPlanAnnual = annual;
+        window.selectFormula = function(name, monthly, annual) {
+            currentFormulaName = name;
+            currentFormulaMonthly = monthly;
+            currentFormulaAnnual = annual;
 
-            document.querySelectorAll('.plan-item-card').forEach(c => c.classList.remove('active'));
-            const target = document.getElementById('plan-card-' + name.replace(/\s+/g, ''));
-            if (target) target.classList.add('active');
+            document.querySelectorAll('.formula-card').forEach(c => c.classList.remove('selected'));
+            const target = document.getElementById('card-formula-' + name.replace(/\s+/g, ''));
+            if (target) target.classList.add('selected');
 
-            updateSummaryBox();
+            refreshSummary();
         };
 
-        window.selectQuickWilaya = function(val) {
-            const sel = document.getElementById('cust-wilaya');
+        window.quickPickWilaya = function(wVal) {
+            const sel = document.getElementById('f-wilaya');
             if (sel) {
                 for (let opt of sel.options) {
-                    if (opt.value.includes(val.split('-')[1]) || opt.value === val) {
+                    if (opt.value.includes(wVal.split('-')[1]) || opt.value === wVal) {
                         sel.value = opt.value;
                         break;
                     }
                 }
             }
-            document.querySelectorAll('.q-pill').forEach(p => p.classList.remove('selected'));
-            if (event && event.target) event.target.classList.add('selected');
+            document.querySelectorAll('.wilaya-btn-pill').forEach(b => b.classList.remove('active'));
+            if (event && event.target) event.target.classList.add('active');
         };
 
-        window.selectDeliveryMode = function(mode, el) {
-            currentDeliveryMode = mode;
-            document.querySelectorAll('.delivery-opt-card').forEach(c => c.classList.remove('selected'));
-            el.classList.add('selected');
-        };
-
-        // Detect phone/browser language automatically
-        function getInitialLanguage() {
+        // Phone language detection
+        function detectPhoneLang() {
             const saved = localStorage.getItem('qrmeunu_lang');
             if (saved === 'ar' || saved === 'fr') return saved;
             const nav = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
@@ -1636,11 +1576,11 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            applyLanguage(getInitialLanguage());
+            setLanguage(detectPhoneLang());
         });
     </script>
 
-    <!-- ══ FIREBASE / FIRESTORE & ORDER DISPATCH SCRIPT ══ -->
+    <!-- ══ FIREBASE / FIRESTORE & DATA PERSISTENCE SCRIPT ══ -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
         import { getAnalytics, isSupported, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
@@ -1665,38 +1605,32 @@
         }).catch(() => {});
 
         function trackEvent(name, params = {}) {
-            if (typeof gtag === 'function') {
-                try { gtag('event', name, params); } catch(e) {}
-            }
-            if (analytics) {
-                try { logEvent(analytics, name, params); } catch(e) {}
-            }
+            if (typeof gtag === 'function') try { gtag('event', name, params); } catch(e) {}
+            if (analytics) try { logEvent(analytics, name, params); } catch(e) {}
         }
 
-        // WhatsApp CTA click tracking
         document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
             link.addEventListener('click', () => {
                 trackEvent('whatsapp_click', { destination: link.href });
             });
         });
 
-        // Checkout form submission
-        const form = document.getElementById('checkoutForm');
+        const form = document.getElementById('orderForm');
         if (form) {
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
-                const submitBtn = document.getElementById('btn-submit-main');
+                const submitBtn = document.getElementById('btn-submit-order');
                 if (submitBtn) {
                     submitBtn.disabled = true;
-                    submitBtn.textContent = (currentActiveLang === 'ar') ? 'جاري تأكيد طلبك... ⏳' : 'Confirmation en cours... ⏳';
+                    submitBtn.textContent = (activeLanguage === 'ar') ? 'جاري تأكيد الطلب... ⏳' : 'Envoi en cours... ⏳';
                 }
 
-                const nom = document.getElementById('cust-name').value.trim();
-                const phone = document.getElementById('cust-phone').value.trim();
-                const restaurant = document.getElementById('cust-resto').value.trim();
-                const email = document.getElementById('cust-email').value.trim();
-                const wilaya = document.getElementById('cust-wilaya').value;
+                const nom = document.getElementById('f-name').value.trim();
+                const phone = document.getElementById('f-phone').value.trim();
+                const restaurant = document.getElementById('f-resto').value.trim();
+                const email = document.getElementById('f-email').value.trim();
+                const wilaya = document.getElementById('f-wilaya').value;
 
                 const orderData = {
                     name: nom,
@@ -1704,29 +1638,28 @@
                     restaurant: restaurant,
                     email: email,
                     wilaya: wilaya,
-                    formule: currentPlanName,
-                    monthlyPrice: currentPlanMonthly,
-                    annualPrice: currentPlanAnnual,
-                    deliveryMode: currentDeliveryMode,
-                    lang: currentActiveLang,
+                    formule: currentFormulaName,
+                    monthlyPrice: currentFormulaMonthly,
+                    annualPrice: currentFormulaAnnual,
+                    lang: activeLanguage,
                     date: new Date().toISOString(),
                     status: 'Nouveau'
                 };
 
-                // 1. Save to Cloud Firestore
+                // 1. Cloud Firestore
                 try {
                     const docRef = await addDoc(collection(db, "leads"), {
                         ...orderData,
                         createdAt: serverTimestamp()
                     });
                     orderData.id = docRef.id;
-                    console.log("Lead saved to Firestore with ID:", docRef.id);
+                    console.log("Order saved to Firestore:", docRef.id);
                 } catch(err) {
-                    console.warn("Firestore write skipped (local cache active):", err);
+                    console.warn("Firestore offline cache fallback:", err);
                     orderData.id = "local_" + Date.now();
                 }
 
-                // 2. Local fallback storage
+                // 2. LocalStorage Cache
                 try {
                     let localLeads = JSON.parse(localStorage.getItem('qrmeunu_leads') || '[]');
                     localLeads.unshift(orderData);
@@ -1735,28 +1668,27 @@
 
                 // 3. Analytics
                 trackEvent('generate_lead', {
-                    plan: currentPlanName,
-                    price: currentPlanAnnual,
+                    plan: currentFormulaName,
                     wilaya: wilaya,
                     restaurant: restaurant,
-                    language: currentActiveLang
+                    language: activeLanguage
                 });
 
-                // 4. Show success screen & hide form
+                // 4. Show success box
                 form.style.display = 'none';
-                const successBox = document.getElementById('order-success-screen');
+                const successBox = document.getElementById('checkout-success-box');
                 if (successBox) successBox.style.display = 'block';
 
-                // 5. Build WhatsApp redirection message in user's active language
+                // 5. WhatsApp Link
                 let waMessage = '';
-                if (currentActiveLang === 'ar') {
-                    waMessage = `*طلب جديد لباقة Qrmeunu 🇩🇿*%0A%0A*الزبون*: ${nom}%0A*المطعم*: ${restaurant}%0A*الهاتف*: ${phone}%0A*الولاية*: ${wilaya}%0A*الصيغة*: ${currentPlanName} (${currentPlanMonthly.toLocaleString()} دج/شهر - المجموع: ${currentPlanAnnual.toLocaleString()} دج/سنوياً)%0A*طريقة التركيب*: ${currentDeliveryMode === 'on_site' ? 'تركيب في المطعم' : 'أكواد جاهزة'}%0A*البريد*: ${email || 'غير مذكور'}`;
+                if (activeLanguage === 'ar') {
+                    waMessage = `*طلب جديد لباقة Qrmeunu 🇩🇿*%0A%0A*الزبون*: ${nom}%0A*المطعم*: ${restaurant}%0A*الهاتف*: ${phone}%0A*الولاية*: ${wilaya}%0A*الصيغة*: ${currentFormulaName} (${currentFormulaMonthly.toLocaleString()} دج/شهر - المجموع: ${currentFormulaAnnual.toLocaleString()} دج/سنوياً)%0A*البريد*: ${email || 'غير مذكور'}`;
                 } else {
-                    waMessage = `*Nouvelle Commande Pack Qrmeunu 🇩🇿*%0A%0A*Client*: ${nom}%0A*Restaurant*: ${restaurant}%0A*Téléphone*: ${phone}%0A*Wilaya*: ${wilaya}%0A*Formule*: ${currentPlanName} (${currentPlanMonthly.toLocaleString()} DA/mois - Total: ${currentPlanAnnual.toLocaleString()} DA/an)%0A*Mise en place*: ${currentDeliveryMode === 'on_site' ? 'Installation sur place' : 'QR codes prêts à poser'}%0A*Email*: ${email || 'Non renseigné'}`;
+                    waMessage = `*Nouvelle Commande Qrmeunu 🇩🇿*%0A%0A*Client*: ${nom}%0A*Restaurant*: ${restaurant}%0A*Téléphone*: ${phone}%0A*Wilaya*: ${wilaya}%0A*Formule*: ${currentFormulaName} (${currentFormulaMonthly.toLocaleString()} DA/mois - Total: ${currentFormulaAnnual.toLocaleString()} DA/an)%0A*Email*: ${email || 'Non renseigné'}`;
                 }
 
                 const waUrl = `https://wa.me/213656243117?text=${waMessage}`;
-                const manualWaBtn = document.getElementById('btn-manual-whatsapp-redirect');
+                const manualWaBtn = document.getElementById('btn-manual-wa-link');
                 if (manualWaBtn) manualWaBtn.href = waUrl;
 
                 setTimeout(() => {
