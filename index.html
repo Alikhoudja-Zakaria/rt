@@ -129,9 +129,9 @@
             --dark: #102334;
             --text-main: #102334;
             --text-muted: #60717A;
-            --bg-page: #F4F6F8;
+            --bg-page: #FAF5EE;
             --card-bg: #FFFFFF;
-            --card-border: #E2E8F0;
+            --card-border: #E8E0D5;
             --whatsapp: #25D366;
             --radius-outer: 24px;
             --radius-card: 20px;
@@ -159,6 +159,8 @@
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-page);
+            background: linear-gradient(180deg, #FAF6F0 0%, #F4EDE4 100%);
+            min-height: 100vh;
             color: var(--text-main);
             line-height: 1.5;
             padding-bottom: calc(100px + var(--safe-bottom));
@@ -185,29 +187,43 @@
             50% { box-shadow: 0 10px 28px rgba(255, 87, 34, 0.7); }
         }
 
-        /* ── TOP URGENCY BANNER ── */
-        .top-urgency-bar {
+        /* ── TOP PROMO BAR (BLUE ACCENT LINE) ── */
+        .top-promo-bar {
             background: linear-gradient(90deg, #102334 0%, #1A365D 50%, #102334 100%);
             color: #FFFFFF;
-            font-size: 11px;
-            font-weight: 800;
+            font-size: 11.5px;
+            font-weight: 700;
             text-align: center;
             padding: 8px 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             letter-spacing: 0.2px;
-            border-bottom: 1px solid rgba(255, 87, 34, 0.35);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.35);
         }
-        .urgency-live-dot {
-            width: 8px;
-            height: 8px;
+        .promo-dot {
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
-            background: #FF5722;
-            box-shadow: 0 0 10px #FF5722;
-            animation: urgencyPulse 1.2s infinite;
+            background: #60A5FA;
+            box-shadow: 0 0 8px #60A5FA;
+            display: inline-block;
             flex-shrink: 0;
+        }
+        .promo-sep {
+            opacity: 0.4;
+        }
+        .promo-link {
+            color: #93C5FD;
+            font-weight: 800;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            cursor: pointer;
+            transition: color 0.15s;
+        }
+        .promo-link:hover {
+            color: #DBEAFE;
         }
 
         /* ── TOP NAV BAR ── */
@@ -728,8 +744,8 @@
             }
         }
         .plan-col-card {
-            background: #FFFFFF;
-            border: 1.5px solid #DCE4E8;
+            background: #FDFBF8;
+            border: 1.5px solid #E5DED5;
             border-radius: 16px;
             padding: 12px 6px 10px 6px;
             display: flex;
@@ -738,25 +754,25 @@
             position: relative;
             cursor: pointer;
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            box-shadow: 0 2px 8px rgba(45, 30, 15, 0.03);
             text-align: center;
         }
         .plan-col-card:hover {
-            border-color: #94A3B8;
+            border-color: #C4B9AC;
             transform: translateY(-2px);
         }
         .plan-col-card.selected {
             border: 2.5px solid var(--primary);
-            background: #FFFBF9;
+            background: #FFF7F2;
             box-shadow: 0 8px 22px -4px rgba(255, 87, 34, 0.22);
         }
         .plan-col-card.popular {
             border-color: #FED7AA;
-            background: #FFFFFF;
+            background: #FFFDF8;
         }
         .plan-col-card.popular.selected {
             border: 2.5px solid var(--primary);
-            background: #FFF7ED;
+            background: #FFF4ED;
         }
 
         .plan-col-ribbon {
@@ -799,7 +815,7 @@
         }
         .plan-col-price-block {
             margin-bottom: 8px;
-            border-bottom: 1px solid #F1F5F9;
+            border-bottom: 1px solid #EFEAE2;
             padding-bottom: 8px;
         }
         .plan-price-strike {
@@ -857,8 +873,8 @@
         }
 
         .plan-select-pill {
-            background: #F1F5F9;
-            color: #475569;
+            background: #F2ECE4;
+            color: #574B3E;
             font-size: 10.5px;
             font-weight: 800;
             padding: 6px 2px;
@@ -965,8 +981,8 @@
             height: 48px;
             padding: 0 14px;
             border-radius: var(--radius-sm);
-            border: 1.5px solid #DCE4E8;
-            background: #F8FAFC;
+            border: 1.5px solid #E2D9CF;
+            background: #FAF7F2;
             font-size: 14px;
             font-family: inherit;
             color: var(--text-main);
@@ -986,14 +1002,14 @@
             margin-bottom: 6px;
         }
         .wilaya-btn-pill {
-            background: #F1F5F9;
-            border: 1px solid #E2E8F0;
+            background: #F4EEE7;
+            border: 1px solid #E2D8CD;
             padding: 4px 10px;
             border-radius: 999px;
             font-size: 11px;
             font-weight: 800;
             cursor: pointer;
-            color: var(--text-main);
+            color: #4A4036;
             font-family: inherit;
             transition: all 0.15s;
         }
@@ -1541,6 +1557,14 @@
 </head>
 <body class="lang-fr">
 
+    <!-- ══ TOP ACCENT PROMO BAR (Discreet Navigation Anchor) ══ -->
+    <div class="top-promo-bar">
+        <span class="promo-dot"></span>
+        <span id="t-promo-text">Découvrez nos offres pour restaurants 🇩🇿</span>
+        <span class="promo-sep">·</span>
+        <a href="#section-formules" class="promo-link" id="t-promo-link">Voir les formules ↓</a>
+    </div>
+
     <!-- ══ STICKY TOP NAVBAR ══ -->
     <div class="top-navbar-wrap">
         <header class="top-navbar">
@@ -1572,9 +1596,6 @@
             <h1 class="carousel-hero-title" id="t-prod-title">
                 Votre menu digital par QR Code
             </h1>
-            <p class="carousel-hero-sub" id="t-prod-sub">
-                Fini les menus papier à réimprimer. Vos clients scannent et commandent directement.
-            </p>
         </div>
 
         <!-- ══════════════════════════════════════════════════════════
@@ -1961,16 +1982,6 @@
                     <strong id="t-banner-total-val">48 000 DA/an</strong>
                 </div>
 
-                <!-- Bot Safety & Trust Shield Badge -->
-                <div class="bot-trust-shield">
-                    <div class="shield-badge-icon">🛡️</div>
-                    <div class="shield-badge-info">
-                        <strong id="t-safe-shield-title">🔒 Formulaire Sécurisé & Anti-Bot</strong>
-                        <span id="t-safe-shield-sub">Chiffrement SSL 256-bit · Protection des Données (Loi 18-07) · 0 Spam</span>
-                    </div>
-                    <span class="ssl-verify-tag">✓ VÉRIFIÉ</span>
-                </div>
-
                 <button type="submit" class="btn-submit-order" id="btn-submit-order">
                     <span id="t-btn-submit">Valider ma commande ✓</span>
                 </button>
@@ -1978,26 +1989,6 @@
                 <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="btn-wa-hero">
                     <span>💬</span> <span id="t-btn-wa">Discuter directement sur WhatsApp</span>
                 </a>
-
-                <!-- Security Trust Strip -->
-                <div class="security-trust-strip">
-                    <div class="sec-strip-item">
-                        <span>🔒</span>
-                        <span>SSL 256-bit</span>
-                    </div>
-                    <div class="sec-strip-item">
-                        <span>🛡️</span>
-                        <span>Anti-Bot</span>
-                    </div>
-                    <div class="sec-strip-item">
-                        <span>🤝</span>
-                        <span id="t-strip-safe">Sans engagement</span>
-                    </div>
-                    <div class="sec-strip-item">
-                        <span>🇩🇿</span>
-                        <span>100% Local</span>
-                    </div>
-                </div>
             </form>
         </div>
 
@@ -2239,10 +2230,11 @@
     <script>
         const dict = {
             fr: {
+                promoText: 'Découvrez nos offres pour restaurants 🇩🇿',
+                promoLink: 'Voir les formules ↓',
                 navTxt: 'Commander',
                 badgeVerified: '⭐ N°1 du Menu QR en Algérie 🇩🇿',
                 prodTitle: 'Votre menu digital par QR Code',
-                prodSub: 'Fini les menus papier à réimprimer. Vos clients scannent et commandent directement.',
                 s1Tag: 'Étape 01 · Le Scan', s1H: 'Votre menu, en un seul scan', s1D: 'Le menu s\'ouvre instantanément sur le téléphone du client. 0 application à télécharger.',
                 s2Tag: '⭐ Avis Google Maps', s2H: 'Multipliez vos avis Google Maps 5★', s2D: 'Après le repas, 1 client sur 3 laisse un avis 5 étoiles pour hisser votre restaurant N°1 sur Google.',
                 s2Score: '5.0 · 185 avis clients certifiés', s2Pill: '⭐ Laisser un avis 5 étoiles', s2Boost: '🚀 Hissez votre restaurant N°1 sur Google Maps !',
@@ -2279,7 +2271,6 @@
                 lblWilaya: 'Wilaya', optWilayaDef: 'Ou choisissez parmi les 58 wilayas...',
                 btnSubmit: 'Valider ma commande ✓',
                 btnWa: 'Discuter directement sur WhatsApp',
-                stripSafe: 'Sans engagement',
                 r1H: 'Configuration sur place', r1S: 'Par nos techniciens',
                 r2H: 'Mises à jour incluses', r2S: 'Par notre équipe',
                 r3H: 'Support 7j/7', r3S: 'WhatsApp & téléphone',
@@ -2291,17 +2282,16 @@
                 tg1H: 'Service clé en main', tg1S: 'Votre menu est configuré, testé et prêt à l\'emploi sur vos tables.',
                 tg2H: 'Prêt sous 24h / 48h', tg2S: 'Installation rapide avec QR codes et supports inclus.',
                 tg3H: 'Assistance WhatsApp 7j/7', tg3S: 'Équipe 100% algérienne pour modifier vos menus en direct.',
-                safeShieldTitle: '🔒 Formulaire Sécurisé & Anti-Bot',
-                safeShieldSub: 'Chiffrement SSL 256-bit · Protection des Données (Loi 18-07) · 0 Spam',
                 legalPrivacy: 'Politique de Confidentialité',
                 legalTerms: 'Conditions Générales (CGU)',
                 legalMentions: 'Mentions Légales'
             },
             ar: {
+                promoText: 'اكتشف عروضنا الحصرية للمطاعم 🇩🇿',
+                promoLink: 'شاهد الصيغات والأسعار ↓',
                 navTxt: 'طلب الخدمة',
                 badgeVerified: '⭐ الرقم 1 في منيو الـ QR في الجزائر 🇩🇿',
                 prodTitle: 'مينيو مطعمك الذكي بالـ QR كود',
-                prodSub: 'تهنى من طباعة المينيو الورقي كل خطرة. كليانك يسكانو ويطلبو ديريكت.',
                 s1Tag: 'الخطوة 01 · السكان', s1H: 'مينيو مطعمك الذكي بسكان واحد', s1D: 'المينيو يفتح تم تم في هاتف الزبون بدون تحميل أي تطبيق.',
                 s2Tag: '⭐ تقييمات Google Maps', s2H: 'كبّر تقييمات مطعمك في Google Maps 5 نجوم', s2D: 'الزبائن يخليو 5 نجوم مباشرة بعد الوجبة ويطلع مطعمك الأول في قوقل ويجيبلك كليان جدد كل يوم 🇩🇿',
                 s2Score: '5.0 · 185 تقييم زبون حقيقي', s2Pill: '⭐ ترك تقييم 5 نجوم بنقرة واحدة', s2Boost: '🚀 مطعمك يولي الأول في بحث Google Maps !',
@@ -2338,7 +2328,6 @@
                 lblWilaya: 'الولاية', optWilayaDef: 'أو اختر ولايتك من القائمة (58 ولاية)...',
                 btnSubmit: 'تأكيد طلبي الآن ✓',
                 btnWa: 'التواصل مباشرة في واتساب',
-                stripSafe: 'دفع آمن',
                 r1H: 'إعداد وبرمجة في مطعمك', r1S: 'من طرف تقنيينا',
                 r2H: 'تحديثات مستمرة', r2S: 'بدون أي تكاليف إضافية',
                 r3H: 'دعم فني 7/7', r3S: 'عبر الهاتف والواتساب',
@@ -2350,8 +2339,6 @@
                 tg1H: 'خدمة متكاملة وجاهزة', tg1S: 'المينيو يكون واجد ومبرمج ويخدم مباشرة في مطعمك.',
                 tg2H: 'جاهز في 24 إلى 48 ساعة', tg2S: 'تركيب وتوفير كود QR وستيكرز عالي الجودة.',
                 tg3H: 'دعم فني عبر واتساب 7/7', tg3S: 'فريق جزائري 100% لتحديث وتغيير أسعار مينيو مطعمك.',
-                safeShieldTitle: '🔒 استمارة آمنة ومحمية ضد الروبوتات',
-                safeShieldSub: 'تشفير SSL 256-bit · حماية البيانات الشخصية (قانون 18-07) · خالية من السبام 100%',
                 legalPrivacy: 'سياسة الخصوصية',
                 legalTerms: 'الشروط العامة للخدمة',
                 legalMentions: 'معلومات قانونية'
@@ -2376,9 +2363,10 @@
             document.getElementById('pill-lang-fr').classList.toggle('active', !isAr);
             document.getElementById('pill-lang-ar').classList.toggle('active', isAr);
 
+            if (document.getElementById('t-promo-text')) document.getElementById('t-promo-text').textContent = t.promoText;
+            if (document.getElementById('t-promo-link')) document.getElementById('t-promo-link').textContent = t.promoLink;
             if (document.getElementById('t-badge-verified')) document.getElementById('t-badge-verified').innerHTML = `<span>${t.badgeVerified}</span>`;
             if (document.getElementById('t-prod-title')) document.getElementById('t-prod-title').textContent = t.prodTitle;
-            if (document.getElementById('t-prod-sub')) document.getElementById('t-prod-sub').textContent = t.prodSub;
             if (document.getElementById('t-nav-txt')) document.getElementById('t-nav-txt').textContent = t.navTxt;
 
             if (document.getElementById('t-s1-tag')) document.getElementById('t-s1-tag').textContent = t.s1Tag;
@@ -2459,7 +2447,6 @@
 
             if (document.getElementById('t-btn-submit')) document.getElementById('t-btn-submit').textContent = t.btnSubmit;
             if (document.getElementById('t-btn-wa')) document.getElementById('t-btn-wa').textContent = t.btnWa;
-            if (document.getElementById('t-strip-safe')) document.getElementById('t-strip-safe').textContent = t.stripSafe;
             if (document.getElementById('phoneHint')) document.getElementById('phoneHint').textContent = t.phoneHint;
 
             if (document.getElementById('t-compare-roi')) document.getElementById('t-compare-roi').textContent = t.compareRoi;
@@ -2483,8 +2470,6 @@
             if (document.getElementById('t-foot-sub')) document.getElementById('t-foot-sub').textContent = t.footSub;
             if (document.getElementById('t-sticky-order')) document.getElementById('t-sticky-order').textContent = t.stickyOrder;
 
-            if (document.getElementById('t-safe-shield-title')) document.getElementById('t-safe-shield-title').textContent = t.safeShieldTitle;
-            if (document.getElementById('t-safe-shield-sub')) document.getElementById('t-safe-shield-sub').textContent = t.safeShieldSub;
             if (document.getElementById('t-legal-privacy')) document.getElementById('t-legal-privacy').textContent = t.legalPrivacy;
             if (document.getElementById('t-legal-terms')) document.getElementById('t-legal-terms').textContent = t.legalTerms;
             if (document.getElementById('t-legal-mentions')) document.getElementById('t-legal-mentions').textContent = t.legalMentions;
