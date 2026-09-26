@@ -322,128 +322,37 @@
             gap: 16px;
         }
 
-        /* ── PRODUCT TITLE CARD (HERO) ── */
-        .product-header-card {
-            background: #FFFFFF;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-outer);
-            padding: 20px 18px;
-            box-shadow: 0 6px 25px -4px rgba(15, 23, 42, 0.06);
-            position: relative;
-            overflow: hidden;
+        /* ── CAROUSEL HERO HEADER (Clean, Immediate Focus) ── */
+        .carousel-hero-header {
+            text-align: center;
+            padding: 6px 4px 2px 4px;
         }
-        .product-header-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), #FF8A65, var(--teal));
-        }
-        .product-meta-row {
-            display: flex;
+        .carousel-hero-badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
             gap: 6px;
-        }
-        .product-verified-badge {
             background: #FEF3C7;
             color: #92400E;
-            padding: 4px 10px;
+            border: 1px solid #FDE68A;
             border-radius: 999px;
-            font-size: 11px;
+            padding: 4px 12px;
+            font-size: 11.5px;
             font-weight: 800;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
+            margin-bottom: 6px;
         }
-        .product-country-badge {
-            font-size: 11px;
-            font-weight: 800;
-            color: #047857;
-            background: #ECFDF5;
-            padding: 4px 10px;
-            border-radius: 999px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .product-main-title {
-            font-size: 23px;
+        .carousel-hero-title {
+            font-size: 24px;
             font-weight: 900;
+            line-height: 1.25;
             color: var(--text-main);
             letter-spacing: -0.5px;
-            line-height: 1.25;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
-        .product-main-sub {
+        .carousel-hero-sub {
             font-size: 13.5px;
             color: var(--text-muted);
-            line-height: 1.55;
-            margin-bottom: 16px;
-        }
-
-        /* ── HERO QUICK CONVERSION CTA ── */
-        .hero-cta-box {
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            border-radius: 16px;
-            padding: 14px 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .btn-hero-order {
-            width: 100%;
-            padding: 14px;
-            border-radius: 14px;
-            border: none;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #FFFFFF;
-            font-size: 15px;
-            font-weight: 900;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            animation: ctaGlow 2.5s infinite;
-            font-family: inherit;
-            transition: transform 0.15s ease;
-        }
-        .btn-hero-order:active {
-            transform: scale(0.98);
-        }
-        .hero-guarantee-note {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 11px;
-            font-weight: 800;
-            color: #047857;
-            text-align: center;
-        }
-        .hero-rating-proof {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #64748B;
-            text-align: center;
-            border-top: 1px solid #EDF2F7;
-            padding-top: 6px;
-            margin-top: 2px;
-        }
-        .stars-gold {
-            color: #F59E0B;
-            letter-spacing: 1px;
-            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.45;
         }
         /* ══════════════════════════════════════════════════════════
            SECTION: PRODUCT SLIDER (Rock-Solid for Instagram/TikTok WebViews)
@@ -805,196 +714,165 @@
             padding: 20px 18px;
             box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
         }
-        .pricing-cards-stack {
+        /* ── SIDE-BY-SIDE 3-COLUMN PLANS (NO VERTICAL SCROLL) ── */
+        .plans-side-by-side-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            margin-top: 14px;
+            margin-bottom: 6px;
+        }
+        @media (max-width: 360px) {
+            .plans-side-by-side-grid {
+                gap: 4px;
+            }
+        }
+        .plan-col-card {
+            background: #FFFFFF;
+            border: 1.5px solid #DCE4E8;
+            border-radius: 16px;
+            padding: 12px 6px 10px 6px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-top: 14px;
-        }
-
-        .formula-card {
-            border: 1.5px solid #DCE4E8;
-            border-radius: var(--radius-card);
-            padding: 18px 16px;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            justify-content: space-between;
             position: relative;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            text-align: center;
+        }
+        .plan-col-card:hover {
+            border-color: #94A3B8;
+            transform: translateY(-2px);
+        }
+        .plan-col-card.selected {
+            border: 2.5px solid var(--primary);
+            background: #FFFBF9;
+            box-shadow: 0 8px 22px -4px rgba(255, 87, 34, 0.22);
+        }
+        .plan-col-card.popular {
+            border-color: #FED7AA;
             background: #FFFFFF;
         }
-        .formula-card:hover {
-            border-color: #91AAA9;
-        }
-        .formula-card.selected {
-            border: 2.5px solid #FF5722;
-            background: #FFFFFF;
-            box-shadow: 0 10px 25px -5px rgba(255, 87, 34, 0.15);
+        .plan-col-card.popular.selected {
+            border: 2.5px solid var(--primary);
+            background: #FFF7ED;
         }
 
-        .formula-ribbon {
+        .plan-col-ribbon {
             position: absolute;
-            top: -12px;
-            right: 18px;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
             color: #FFFFFF;
-            font-size: 11px;
+            font-size: 9px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 12px;
+            letter-spacing: 0.3px;
+            padding: 2px 8px;
             border-radius: 999px;
+            white-space: nowrap;
             box-shadow: 0 2px 6px rgba(0,0,0,0.15);
             z-index: 2;
         }
-        body.lang-ar .formula-ribbon {
-            right: auto;
-            left: 18px;
-        }
-        .formula-ribbon.orange {
+        .plan-col-ribbon.orange {
             background: linear-gradient(135deg, #FF5722, #FF8A65);
         }
-        .formula-ribbon.red {
+        .plan-col-ribbon.red {
             background: linear-gradient(135deg, #DC2626, #EF4444);
         }
 
-        /* ── BIG PICTURE ROW (Optimized for Mobile Screens) ── */
-        .formula-main-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
+        .plan-col-top {
+            margin-top: 2px;
+            margin-bottom: 6px;
         }
-
-        .formula-big-pic-box {
-            width: 68px;
-            height: 68px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .formula-card:hover .formula-big-pic-box {
-            transform: scale(1.04);
-        }
-        .formula-card.selected .formula-big-pic-box {
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        }
-
-        /* Exact colors from user screenshot media_1790447383008 */
-        .pic-basic {
-            background: #EEF2F6;
-            border: 1.5px solid #D6E0EA;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        .pic-commande {
-            background: #E0F5F2;
-            border: 1.5px solid #99DCD0;
-            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1);
-        }
-        .pic-caisse {
-            background: #EEF2F6;
-            border: 1.5px solid #D6E0EA;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .pic-symbol {
-            font-size: 44px;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
-        }
-
-        .formula-content-col {
-            flex: 1;
-            min-width: 0;
-        }
-        .formula-heading-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .custom-radio-circle {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            border: 2px solid #CBD5E1;
-            background: #FFFFFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.2s;
-        }
-        .formula-card.selected .custom-radio-circle {
-            border-color: #FF5722;
-        }
-        .custom-radio-circle::after {
-            content: '';
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #FF5722;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .formula-card.selected .custom-radio-circle::after {
-            opacity: 1;
-        }
-
-        .formula-name-text {
-            font-size: 18px;
+        .plan-col-name {
+            font-size: 13px;
             font-weight: 900;
             color: var(--text-main);
+            line-height: 1.2;
         }
-
-        .formula-price-block {
-            margin-top: 2px;
+        .plan-col-icon {
+            font-size: 20px;
+            margin: 3px 0 2px 0;
+            line-height: 1;
         }
-        .formula-strike-price {
-            font-size: 12px;
+        .plan-col-price-block {
+            margin-bottom: 8px;
+            border-bottom: 1px solid #F1F5F9;
+            padding-bottom: 8px;
+        }
+        .plan-price-strike {
+            font-size: 10px;
             text-decoration: line-through;
             color: #94A3B8;
+            display: block;
+            line-height: 1;
         }
-        .formula-main-price {
-            font-size: 22px;
+        .plan-price-amount {
+            font-size: 16px;
             font-weight: 900;
             color: var(--text-main);
             letter-spacing: -0.5px;
+            line-height: 1.1;
         }
-        .formula-main-price span {
-            font-size: 12px;
-            font-weight: 600;
+        .plan-price-freq {
+            font-size: 10px;
+            font-weight: 700;
             color: var(--text-muted);
+            display: block;
+        }
+        .plan-annual-sub {
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 3px;
+            line-height: 1.2;
+            display: block;
         }
 
-        .formula-features-list {
+        .plan-col-features {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-bottom: 12px;
-            border-top: 1px solid #F1F5F9;
-            padding-top: 12px;
+            gap: 5px;
+            margin-bottom: 10px;
+            text-align: left;
+            padding: 0 2px;
+            flex: 1;
         }
-        .formula-features-list li {
-            font-size: 13px;
+        body.lang-ar .plan-col-features {
+            text-align: right;
+        }
+        .plan-col-features li {
+            font-size: 10px;
+            line-height: 1.3;
             color: #334155;
             display: flex;
-            align-items: center;
-            gap: 8px;
+            align-items: flex-start;
+            gap: 3px;
         }
-        .check-green-icon {
-            color: #059669;
-            font-weight: 900;
-            font-size: 15px;
+        .plan-col-features li strong {
+            color: var(--text-main);
         }
-        .formula-annual-note {
-            font-size: 13px;
+
+        .plan-select-pill {
+            background: #F1F5F9;
+            color: #475569;
+            font-size: 10.5px;
             font-weight: 800;
-            color: var(--primary);
+            padding: 6px 2px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            transition: all 0.2s;
+        }
+        .plan-col-card.selected .plan-select-pill {
+            background: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 3px 8px rgba(255, 87, 34, 0.3);
         }
 
         /* ══════════════════════════════════════════════════════════
@@ -1663,12 +1541,6 @@
 </head>
 <body class="lang-fr">
 
-    <!-- ══ TOP URGENCY BANNER ══ -->
-    <div class="top-urgency-bar">
-        <span class="urgency-live-dot"></span>
-        <span id="t-urgency-text">🔥 OFFRE SPÉCIALE : Installation offerte sur place · Places limitées cette semaine 🇩🇿</span>
-    </div>
-
     <!-- ══ STICKY TOP NAVBAR ══ -->
     <div class="top-navbar-wrap">
         <header class="top-navbar">
@@ -1692,33 +1564,17 @@
     <!-- ══ MAIN PAGE CONTENT ══ -->
     <main class="page-container">
 
-        <!-- ── PRODUCT TITLE CARD (HERO) ── -->
-        <div class="product-header-card">
-            <div class="product-meta-row">
-                <span class="product-verified-badge" id="t-badge-verified">⭐ N°1 du Menu QR en Algérie</span>
-                <span class="product-country-badge" id="t-badge-proof">🔥 +180 Restaurants</span>
+        <!-- ── PRODUCT TITLE HEADER (Directly above Carousel) ── -->
+        <div class="carousel-hero-header">
+            <div class="carousel-hero-badge" id="t-badge-verified">
+                <span>⭐ N°1 du Menu QR en Algérie 🇩🇿</span>
             </div>
-            <h1 class="product-main-title" id="t-prod-title">
+            <h1 class="carousel-hero-title" id="t-prod-title">
                 Votre menu digital par QR Code
             </h1>
-            <p class="product-main-sub" id="t-prod-sub">
-                Fini les menus papier à réimprimer. Vos clients scannent avec leur téléphone et commandent directement à table sans attendre.
+            <p class="carousel-hero-sub" id="t-prod-sub">
+                Fini les menus papier à réimprimer. Vos clients scannent et commandent directement.
             </p>
-
-            <!-- Hero Quick CTA -->
-            <div class="hero-cta-box">
-                <button type="button" onclick="scrollToOrderForm(event)" class="btn-hero-order" id="btn-hero-order">
-                    <span id="t-hero-btn-txt">⚡ Obtenir mon Menu QR (Installation Offerte)</span> →
-                </button>
-                <div class="hero-guarantee-note">
-                    <span>🛡️</span>
-                    <span id="t-hero-guarantee">0 DA aujourd'hui · Paiement après installation et satisfaction</span>
-                </div>
-                <div class="hero-rating-proof">
-                    <span class="stars-gold">★★★★★</span>
-                    <span id="t-hero-rating-txt">4.9/5 · Recommandé par plus de 180 restaurants en Algérie 🇩🇿</span>
-                </div>
-            </div>
         </div>
 
         <!-- ══════════════════════════════════════════════════════════
@@ -1888,172 +1744,85 @@
         </div>
 
         <!-- ══════════════════════════════════════════════════════════
-             SECTION: POURQUOI ARRÊTER LE PAPIER ? (From User Screenshot)
-             ══════════════════════════════════════════════════════════ -->
-        <div class="card-savings-comparison">
-            <div class="sec-top-badge-row">
-                <h2 class="sec-title-bold" id="t-why-title">Pourquoi arrêter le papier ?</h2>
-                <span class="sec-badge-pill" id="t-why-badge">ÉCONOMIES</span>
-            </div>
-
-            <div class="compare-grid-boxes">
-                <!-- Red Box: Menu Papier -->
-                <div class="compare-box-red">
-                    <strong id="t-bad-head">❌ Menu Papier</strong>
-                    <ul id="t-bad-list">
-                        <li>Menus tachés et déchirés</li>
-                        <li>~35 000 DA de réimpression</li>
-                        <li>Impossible de changer un prix</li>
-                        <li>Le serveur court partout</li>
-                    </ul>
-                </div>
-
-                <!-- Green Box: Menu Qrmeunu -->
-                <div class="compare-box-green">
-                    <strong id="t-good-head">✅ Menu Qrmeunu</strong>
-                    <ul id="t-good-list">
-                        <li>Toujours propre & moderne</li>
-                        <li>Changement de prix en 1 sec</li>
-                        <li>Photos HD qui font vendre</li>
-                        <li>+25% de commandes en plus</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Compare ROI Payoff Banner -->
-            <div class="compare-roi-banner">
-                <span>💰</span>
-                <span id="t-compare-roi">Économisez ~35 000 DA/an en impression et gagnez +25% de commandes !</span>
-            </div>
-        </div>
-
-        <!-- ══════════════════════════════════════════════════════════
-             SECTION: CHOISISSEZ VOTRE FORMULE (WITH BIGGER PICTURE BOXES)
+             SECTION: CHOISISSEZ VOTRE FORMULE (3 COLUMNS SIDE-BY-SIDE)
              ══════════════════════════════════════════════════════════ -->
         <div class="card-pricing-section" id="section-formules">
             <div class="sec-top-badge-row">
                 <h2 class="sec-title-bold" id="t-plans-heading">Choisissez votre formule</h2>
                 <span class="sec-badge-pill" id="t-plans-tag">TARIFS CLAIRS</span>
             </div>
-            <p style="font-size:13px; color:var(--text-muted);" id="t-plans-instruction">
-                Touchez une formule pour la sélectionner pour votre restaurant :
+            <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:12px;" id="t-plans-instruction">
+                Comparez et touchez votre formule :
             </p>
 
-            <div class="pricing-cards-stack">
+            <div class="plans-side-by-side-grid">
                 
-                <!-- CARD 1: Basic (2 000 DA) with BIG Picture Box -->
-                <div class="formula-card" onclick="selectFormula('Basic', 2000, 24000)" id="card-formula-Basic">
-                    <div class="formula-main-row">
-                        <!-- BIG PICTURE BOX (As requested) -->
-                        <div class="formula-big-pic-box pic-basic">
-                            <span class="pic-symbol">📱</span>
-                        </div>
-                        <div class="formula-content-col">
-                            <div class="formula-heading-row">
-                                <div class="formula-name-text" id="t-f1-name">Basic</div>
-                                <div class="custom-radio-circle"></div>
-                            </div>
-                            <div class="formula-price-block">
-                                <div class="formula-main-price">2 000 DA <span id="t-f1-per">/mois</span></div>
-                            </div>
-                        </div>
+                <!-- CARD 1: Basic -->
+                <div class="plan-col-card" onclick="selectFormula('Basic', 2000, 24000)" id="card-formula-Basic">
+                    <div class="plan-col-top">
+                        <div class="plan-col-icon">📱</div>
+                        <div class="plan-col-name" id="t-f1-name">Basic</div>
                     </div>
-                    <ul class="formula-features-list" id="t-f1-list">
-                        <li><span class="check-green-icon">✓</span> Menu QR consultable sur smartphone</li>
-                        <li><span class="check-green-icon">✓</span> Mises à jour du menu incluses par notre équipe</li>
-                        <li><span class="check-green-icon">✓</span> Installation et QR codes fournis</li>
-                    </ul>
-                    <div class="formula-annual-note" id="t-f1-annual">Payable à l'année : 24 000 DA/an</div>
-                    <button type="button" class="btn-card-choose" onclick="selectFormulaAndScroll('Basic', 2000, 24000, event)">
-                        <span id="t-btn-c1">Choisir Basic</span> →
-                    </button>
-                </div>
-
-                <!-- CARD 2: Commande (4 000 DA) - LE PLUS CHOISI with BIG Picture Box -->
-                <div class="formula-card selected" onclick="selectFormula('Commande', 4000, 48000)" id="card-formula-Commande">
-                    <div class="formula-ribbon orange" id="t-f2-ribbon">⭐ LE PLUS CHOISI</div>
-                    <div class="formula-main-row">
-                        <!-- BIG PICTURE BOX (As requested) -->
-                        <div class="formula-big-pic-box pic-commande">
-                            <span class="pic-symbol">🛒</span>
-                        </div>
-                        <div class="formula-content-col">
-                            <div class="formula-heading-row">
-                                <div class="formula-name-text" id="t-f2-name">Commande</div>
-                                <div class="custom-radio-circle"></div>
-                            </div>
-                            <div class="formula-price-block">
-                                <div class="formula-main-price">4 000 DA <span id="t-f2-per">/mois</span></div>
-                                <div class="formula-roi-tag" id="t-f2-roi">💡 Rentabilisé dès le 2ème jour</div>
-                            </div>
-                        </div>
+                    <div class="plan-col-price-block">
+                        <div class="plan-price-amount">2 000 DA</div>
+                        <span class="plan-price-freq" id="t-f1-per">/mois</span>
+                        <span class="plan-annual-sub" id="t-f1-annual">24 000 DA/an</span>
                     </div>
-                    <ul class="formula-features-list" id="t-f2-list">
-                        <li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li>
-                        <li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li>
-                        <li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>
+                    <ul class="plan-col-features" id="t-f1-list">
+                        <li><span>✓</span> <span>Menu QR mobile</span></li>
+                        <li><span>✓</span> <span>Mises à jour incluses</span></li>
+                        <li><span>✓</span> <span>QR codes fournis</span></li>
                     </ul>
-                    <div class="formula-annual-note" id="t-f2-annual">Payable à l'année : 48 000 DA/an</div>
-                    <button type="button" class="btn-card-choose" onclick="selectFormulaAndScroll('Commande', 4000, 48000, event)">
-                        <span id="t-btn-c2">Choisir Commande</span> →
-                    </button>
-                </div>
-
-                <!-- CARD 3: Caisse Pro (4 680 DA) - -10% PROMO with BIG Picture Box -->
-                <div class="formula-card" onclick="selectFormula('Caisse Pro', 4680, 56160)" id="card-formula-CaissePro">
-                    <div class="formula-ribbon red" id="t-f3-ribbon">-10% PROMO</div>
-                    <div class="formula-main-row">
-                        <!-- BIG PICTURE BOX (As requested) -->
-                        <div class="formula-big-pic-box pic-caisse">
-                            <span class="pic-symbol">💻</span>
-                        </div>
-                        <div class="formula-content-col">
-                            <div class="formula-heading-row">
-                                <div class="formula-name-text" id="t-f3-name">Caisse Pro</div>
-                                <div class="custom-radio-circle"></div>
-                            </div>
-                            <div class="formula-price-block">
-                                <div class="formula-strike-price">5 200 DA/mois</div>
-                                <div class="formula-main-price">4 680 DA <span id="t-f3-per">/mois</span></div>
-                            </div>
-                        </div>
+                    <div class="plan-select-pill" id="pill-f1">
+                        <span id="t-pill-f1-txt">Choisir</span>
                     </div>
-                    <ul class="formula-features-list" id="t-f3-list">
-                        <li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li>
-                        <li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li>
-                        <li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>
+                </div>
+
+                <!-- CARD 2: Commande (POPULAIRE / DEFAULT SELECTED) -->
+                <div class="plan-col-card popular selected" onclick="selectFormula('Commande', 4000, 48000)" id="card-formula-Commande">
+                    <div class="plan-col-ribbon orange" id="t-f2-ribbon">⭐ LE PLUS CHOISI</div>
+                    <div class="plan-col-top">
+                        <div class="plan-col-icon">🛒</div>
+                        <div class="plan-col-name" id="t-f2-name">Commande</div>
+                    </div>
+                    <div class="plan-col-price-block">
+                        <div class="plan-price-amount">4 000 DA</div>
+                        <span class="plan-price-freq" id="t-f2-per">/mois</span>
+                        <span class="plan-annual-sub" id="t-f2-annual">48 000 DA/an</span>
+                    </div>
+                    <ul class="plan-col-features" id="t-f2-list">
+                        <li><span>✓</span> <strong>Commande à table</strong></li>
+                        <li><span>✓</span> <strong>À emporter & livr.</strong></li>
+                        <li><span>✓</span> <span>Alertes WhatsApp</span></li>
                     </ul>
-                    <div class="formula-annual-note" id="t-f3-annual">Payable à l'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong></div>
-                    <button type="button" class="btn-card-choose" onclick="selectFormulaAndScroll('Caisse Pro', 4680, 56160, event)">
-                        <span id="t-btn-c3">Choisir Caisse Pro</span> →
-                    </button>
+                    <div class="plan-select-pill" id="pill-f2">
+                        <span id="t-pill-f2-txt">Sélectionné ✓</span>
+                    </div>
                 </div>
 
-            </div>
-        </div>
+                <!-- CARD 3: Caisse Pro (-10% PROMO) -->
+                <div class="plan-col-card" onclick="selectFormula('Caisse Pro', 4680, 56160)" id="card-formula-CaissePro">
+                    <div class="plan-col-ribbon red" id="t-f3-ribbon">-10% PROMO</div>
+                    <div class="plan-col-top">
+                        <div class="plan-col-icon">💻</div>
+                        <div class="plan-col-name" id="t-f3-name">Caisse Pro</div>
+                    </div>
+                    <div class="plan-col-price-block">
+                        <span class="plan-price-strike">5 200 DA</span>
+                        <div class="plan-price-amount">4 680 DA</div>
+                        <span class="plan-price-freq" id="t-f3-per">/mois</span>
+                        <span class="plan-annual-sub" id="t-f3-annual">56 160 DA/an</span>
+                    </div>
+                    <ul class="plan-col-features" id="t-f3-list">
+                        <li><span>✓</span> <strong>Liaison Caisse (POS)</strong></li>
+                        <li><span>✓</span> <strong>Bons en cuisine</strong></li>
+                        <li><span>✓</span> <span>Support prioritaire</span></li>
+                    </ul>
+                    <div class="plan-select-pill" id="pill-f3">
+                        <span id="t-pill-f3-txt">Choisir</span>
+                    </div>
+                </div>
 
-        <!-- ── 3 ZERO-RISK GUARANTEES (PUSH TO BUY) ── -->
-        <div class="trust-guarantees-grid">
-            <div class="trust-guarantee-card">
-                <span class="tg-icon">🛡️</span>
-                <div class="tg-content">
-                    <strong id="t-tg1-h">Paiement après installation</strong>
-                    <span id="t-tg1-s">0 DA à avancer. Vous ne payez qu'une fois tout testé et fonctionnel.</span>
-                </div>
-            </div>
-            <div class="trust-guarantee-card">
-                <span class="tg-icon">⚡</span>
-                <div class="tg-content">
-                    <strong id="t-tg2-h">Prêt sous 24h / 48h</strong>
-                    <span id="t-tg2-s">Installation rapide sur place avec QR codes et supports inclus.</span>
-                </div>
-            </div>
-            <div class="trust-guarantee-card">
-                <span class="tg-icon">💬</span>
-                <div class="tg-content">
-                    <strong id="t-tg3-h">Assistance WhatsApp 7j/7</strong>
-                    <span id="t-tg3-s">Équipe 100% algérienne pour modifier vos menus en direct.</span>
-                </div>
             </div>
         </div>
 
@@ -2222,7 +1991,7 @@
                     </div>
                     <div class="sec-strip-item">
                         <span>🤝</span>
-                        <span>0 DA d'avance</span>
+                        <span id="t-strip-safe">Sans engagement</span>
                     </div>
                     <div class="sec-strip-item">
                         <span>🇩🇿</span>
@@ -2232,12 +2001,77 @@
             </form>
         </div>
 
+        <!-- ══════════════════════════════════════════════════════════
+             SECTION: POURQUOI ARRÊTER LE PAPIER ? (From User Screenshot)
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-savings-comparison">
+            <div class="sec-top-badge-row">
+                <h2 class="sec-title-bold" id="t-why-title">Pourquoi arrêter le papier ?</h2>
+                <span class="sec-badge-pill" id="t-why-badge">ÉCONOMIES</span>
+            </div>
+
+            <div class="compare-grid-boxes">
+                <!-- Red Box: Menu Papier -->
+                <div class="compare-box-red">
+                    <strong id="t-bad-head">❌ Menu Papier</strong>
+                    <ul id="t-bad-list">
+                        <li>Menus tachés et déchirés</li>
+                        <li>~35 000 DA de réimpression</li>
+                        <li>Impossible de changer un prix</li>
+                        <li>Le serveur court partout</li>
+                    </ul>
+                </div>
+
+                <!-- Green Box: Menu Qrmeunu -->
+                <div class="compare-box-green">
+                    <strong id="t-good-head">✅ Menu Qrmeunu</strong>
+                    <ul id="t-good-list">
+                        <li>Toujours propre & moderne</li>
+                        <li>Changement de prix en 1 sec</li>
+                        <li>Photos HD qui font vendre</li>
+                        <li>+25% de commandes en plus</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Compare ROI Payoff Banner -->
+            <div class="compare-roi-banner">
+                <span>💰</span>
+                <span id="t-compare-roi">Économisez ~35 000 DA/an en impression et gagnez +25% de commandes !</span>
+            </div>
+        </div>
+
+        <!-- ── 3 GUARANTEES (PUSH TO BUY) ── -->
+        <div class="trust-guarantees-grid">
+            <div class="trust-guarantee-card">
+                <span class="tg-icon">🛡️</span>
+                <div class="tg-content">
+                    <strong id="t-tg1-h">Service clé en main</strong>
+                    <span id="t-tg1-s">Votre menu est configuré, testé et prêt à l'emploi sur vos tables.</span>
+                </div>
+            </div>
+            <div class="trust-guarantee-card">
+                <span class="tg-icon">⚡</span>
+                <div class="tg-content">
+                    <strong id="t-tg2-h">Prêt sous 24h / 48h</strong>
+                    <span id="t-tg2-s">Installation rapide avec QR codes et supports inclus.</span>
+                </div>
+            </div>
+            <div class="trust-guarantee-card">
+                <span class="tg-icon">💬</span>
+                <div class="tg-content">
+                    <strong id="t-tg3-h">Assistance WhatsApp 7j/7</strong>
+                    <span id="t-tg3-s">Équipe 100% algérienne pour modifier vos menus en direct.</span>
+                </div>
+            </div>
+        </div>
+
         <!-- ── REASSURANCE ── -->
         <div class="reassurance-grid">
             <div class="reassurance-card">
                 <span class="icon">🔧</span>
-                <strong id="t-r1-h">Installation Gratuite</strong>
-                <span id="t-r1-s">Sur place dans votre resto</span>
+                <strong id="t-r1-h">Configuration sur place</strong>
+                <span id="t-r1-s">Par nos techniciens</span>
             </div>
             <div class="reassurance-card">
                 <span class="icon">🔄</span>
@@ -2286,16 +2120,6 @@
         </div>
     </div>
 
-    <!-- ══ LIVE FLOATING SOCIAL PROOF NOTIFICATION TOAST ══ -->
-    <div id="liveSocialProofToast" class="social-proof-toast">
-        <span class="sp-dot">🟢</span>
-        <div class="sp-text">
-            <div class="sp-title" id="spToastTitle">Mohamed · Le Palmier (Alger 16)</div>
-            <div class="sp-sub" id="spToastSub">Vient de choisir la formule Commande</div>
-        </div>
-        <button type="button" class="sp-close" onclick="closeToast()" aria-label="Fermer">&times;</button>
-    </div>
-
     <!-- ══ COMPLIANCE & LEGAL MODAL (AD REVIEW BOTS & VISITOR TRUST) ══ -->
     <div id="legalModalOverlay" class="legal-modal-overlay" onclick="closeLegalModal(event)">
         <div class="legal-modal-box" onclick="event.stopPropagation()">
@@ -2325,7 +2149,7 @@
                     <p>Qrmeunu fournit une suite logicielle permettant aux restaurateurs algériens de numériser leur menu et gérer les commandes à table.</p>
                     <ul>
                         <li><strong>Tarification claire :</strong> Formule Basic (24 000 DA/an), Formule Commande (48 000 DA/an), Formule Caisse Pro (56 160 DA/an). Tous les tarifs sont nets, sans frais cachés.</li>
-                        <li><strong>Garantie 0 Risque :</strong> 0 DA d'avance. Le règlement n'intervient qu'après l'installation complète, la mise en service et la validation par le gérant dans son établissement.</li>
+                        <li><strong>Garantie Transparence :</strong> Aucun paiement en ligne requis. Le règlement n'intervient qu'après la mise en service et la validation par le gérant dans son établissement.</li>
                         <li><strong>Installation & Supports :</strong> L'installation sur site, la création du menu digital et les QR codes de table sont inclus.</li>
                         <li><strong>Support technique :</strong> Assistance continue 7j/7 par WhatsApp et téléphone pour toute mise à jour ou question technique.</li>
                     </ul>
@@ -2416,9 +2240,9 @@
         const dict = {
             fr: {
                 navTxt: 'Commander',
-                badgeVerified: '⭐ N°1 du Menu QR en Algérie',
+                badgeVerified: '⭐ N°1 du Menu QR en Algérie 🇩🇿',
                 prodTitle: 'Votre menu digital par QR Code',
-                prodSub: 'Fini les menus papier à réimprimer. Vos clients scannent avec leur téléphone et commandent directement à table sans attendre.',
+                prodSub: 'Fini les menus papier à réimprimer. Vos clients scannent et commandent directement.',
                 s1Tag: 'Étape 01 · Le Scan', s1H: 'Votre menu, en un seul scan', s1D: 'Le menu s\'ouvre instantanément sur le téléphone du client. 0 application à télécharger.',
                 s2Tag: '⭐ Avis Google Maps', s2H: 'Multipliez vos avis Google Maps 5★', s2D: 'Après le repas, 1 client sur 3 laisse un avis 5 étoiles pour hisser votre restaurant N°1 sur Google.',
                 s2Score: '5.0 · 185 avis clients certifiés', s2Pill: '⭐ Laisser un avis 5 étoiles', s2Boost: '🚀 Hissez votre restaurant N°1 sur Google Maps !',
@@ -2431,18 +2255,19 @@
                 goodHead: '✅ Menu Qrmeunu',
                 goodList: '<li>Toujours propre & moderne</li><li>Changement de prix en 1 sec</li><li>Photos HD qui font vendre</li><li>+25% de commandes en plus</li>',
                 plansHeading: 'Choisissez votre formule', plansTag: 'TARIFS CLAIRS',
-                plansInstruction: 'Touchez une formule pour la sélectionner pour votre restaurant :',
+                plansInstruction: 'Comparez et touchez votre formule :',
                 f1Name: 'Basic', f1Per: '/mois',
-                f1List: '<li><span class="check-green-icon">✓</span> Menu QR consultable sur smartphone</li><li><span class="check-green-icon">✓</span> Mises à jour du menu incluses par notre équipe</li><li><span class="check-green-icon">✓</span> Installation et QR codes fournis</li>',
-                f1Annual: 'Payable à l\'année : 24 000 DA/an',
+                f1List: '<li><span>✓</span> <span>Menu QR mobile</span></li><li><span>✓</span> <span>Mises à jour incluses</span></li><li><span>✓</span> <span>QR codes fournis</span></li>',
+                f1Annual: '24 000 DA/an',
                 f2Ribbon: '⭐ LE PLUS CHOISI',
                 f2Name: 'Commande', f2Per: '/mois',
-                f2List: '<li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li><li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li><li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>',
-                f2Annual: 'Payable à l\'année : 48 000 DA/an',
+                f2List: '<li><span>✓</span> <strong>Commande à table</strong></li><li><span>✓</span> <strong>À emporter & livr.</strong></li><li><span>✓</span> <span>Alertes WhatsApp</span></li>',
+                f2Annual: '48 000 DA/an',
                 f3Ribbon: '-10% PROMO',
                 f3Name: 'Caisse Pro', f3Per: '/mois',
-                f3List: '<li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li><li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li><li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>',
-                f3Annual: 'Payable à l\'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong>',
+                f3List: '<li><span>✓</span> <strong>Liaison Caisse (POS)</strong></li><li><span>✓</span> <strong>Bons en cuisine</strong></li><li><span>✓</span> <span>Support prioritaire</span></li>',
+                f3Annual: '56 160 DA/an',
+                pillSelected: 'Sélectionné ✓', pillChoose: 'Choisir',
                 formTitle: 'Demandez votre menu QR', formBadge: 'Devis Gratuit',
                 formDesc: 'Remplissez ce formulaire court. Nous vous contactons pour fixer votre installation.',
                 succH: 'Demande reçue avec succès !', succP: 'Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.',
@@ -2452,25 +2277,19 @@
                 lblPhone: 'Numéro de téléphone', phPhone: '05 / 06 / 07 XX XX XX',
                 lblEmail: 'Adresse Email', lblOpt: '(optionnel)',
                 lblWilaya: 'Wilaya', optWilayaDef: 'Ou choisissez parmi les 58 wilayas...',
-                btnSubmit: 'Valider ma commande (Installation Offerte) ✓',
+                btnSubmit: 'Valider ma commande ✓',
                 btnWa: 'Discuter directement sur WhatsApp',
-                r1H: 'Installation Gratuite', r1S: 'Sur place dans votre resto',
+                stripSafe: 'Sans engagement',
+                r1H: 'Configuration sur place', r1S: 'Par nos techniciens',
                 r2H: 'Mises à jour incluses', r2S: 'Par notre équipe',
                 r3H: 'Support 7j/7', r3S: 'WhatsApp & téléphone',
                 r4H: '100% Algérien', r4S: 'Partout en Algérie',
                 footBrand: 'Qrmeunu Algérie', footSub: 'Menus & commandes QR pour restaurants',
                 stickyOrder: 'Commander →',
-                btnChooseF1: 'Choisir Basic', btnChooseF2: 'Choisir Commande (Recommandé)', btnChooseF3: 'Choisir Caisse Pro',
                 phoneHint: '✓ Numéro valide (Algérie)',
-                urgencyText: '🔥 OFFRE SPÉCIALE : Installation offerte sur place · Places limitées cette semaine 🇩🇿',
-                badgeProof: '🔥 +180 Restaurants',
-                heroBtnTxt: '⚡ Obtenir mon Menu QR (Installation Offerte)',
-                heroGuarantee: '0 DA aujourd\'hui · Paiement après installation et satisfaction',
-                heroRatingTxt: '4.9/5 · Recommandé par plus de 180 restaurants en Algérie 🇩🇿',
                 compareRoi: 'Économisez ~35 000 DA/an en impression et gagnez +25% de commandes !',
-                f2Roi: '💡 Rentabilisé dès le 2ème jour',
-                tg1H: 'Paiement après installation', tg1S: '0 DA à avancer. Vous ne payez qu\'une fois tout testé et fonctionnel.',
-                tg2H: 'Prêt sous 24h / 48h', tg2S: 'Installation rapide sur place avec QR codes et supports inclus.',
+                tg1H: 'Service clé en main', tg1S: 'Votre menu est configuré, testé et prêt à l\'emploi sur vos tables.',
+                tg2H: 'Prêt sous 24h / 48h', tg2S: 'Installation rapide avec QR codes et supports inclus.',
                 tg3H: 'Assistance WhatsApp 7j/7', tg3S: 'Équipe 100% algérienne pour modifier vos menus en direct.',
                 safeShieldTitle: '🔒 Formulaire Sécurisé & Anti-Bot',
                 safeShieldSub: 'Chiffrement SSL 256-bit · Protection des Données (Loi 18-07) · 0 Spam',
@@ -2482,7 +2301,7 @@
                 navTxt: 'طلب الخدمة',
                 badgeVerified: '⭐ الرقم 1 في منيو الـ QR في الجزائر 🇩🇿',
                 prodTitle: 'مينيو مطعمك الذكي بالـ QR كود',
-                prodSub: 'تهنى من طباعة المينيو الورقي كل خطرة. كليانك يسكانو بتيليفوناتهم ويطلبو ديريكت من الطابلة بلا ما يستناو.',
+                prodSub: 'تهنى من طباعة المينيو الورقي كل خطرة. كليانك يسكانو ويطلبو ديريكت.',
                 s1Tag: 'الخطوة 01 · السكان', s1H: 'مينيو مطعمك الذكي بسكان واحد', s1D: 'المينيو يفتح تم تم في هاتف الزبون بدون تحميل أي تطبيق.',
                 s2Tag: '⭐ تقييمات Google Maps', s2H: 'كبّر تقييمات مطعمك في Google Maps 5 نجوم', s2D: 'الزبائن يخليو 5 نجوم مباشرة بعد الوجبة ويطلع مطعمك الأول في قوقل ويجيبلك كليان جدد كل يوم 🇩🇿',
                 s2Score: '5.0 · 185 تقييم زبون حقيقي', s2Pill: '⭐ ترك تقييم 5 نجوم بنقرة واحدة', s2Boost: '🚀 مطعمك يولي الأول في بحث Google Maps !',
@@ -2495,18 +2314,19 @@
                 goodHead: '✅ مينيو Qrmeunu العصري',
                 goodList: '<li>دايماً نقي وعصري وشيك</li><li>تبديل الأسعار في ثانية وحدة</li><li>صور شهية تشجع الكليان</li><li>+25% طلبات ومبيعات أكثر</li>',
                 plansHeading: 'اختر الصيغة المناسبة لمطعمك', plansTag: 'أسعار واضحة',
-                plansInstruction: 'إلمس البطاقة لاختيار الصيغة التي تناسبك :',
+                plansInstruction: 'قارن والمس الصيغة التي تناسبك :',
                 f1Name: 'بيزيك (Basic)', f1Per: '/شهر',
-                f1List: '<li><span class="check-green-icon">✓</span> مينيو QR كود للاطلاع في الهاتف</li><li><span class="check-green-icon">✓</span> تحديثات المينيو مجاناً من طرفنا</li><li><span class="check-green-icon">✓</span> التركيب وتوفير الكود QR للطوابل</li>',
-                f1Annual: 'الدفع بالعام : 24 000 دج/سنوياً',
+                f1List: '<li><span>✓</span> <span>مينيو QR للهاتف</span></li><li><span>✓</span> <span>تحديثات مجانية</span></li><li><span>✓</span> <span>كود QR للطوابل</span></li>',
+                f1Annual: '24 000 دج/سنوياً',
                 f2Ribbon: '⭐ الأكثر طلباً',
                 f2Name: 'كوموند (Commande)', f2Per: '/شهر',
-                f2List: '<li><span class="check-green-icon">✓</span> <strong>الكليان يطلب ديريكت من هاتفه</strong></li><li><span class="check-green-icon">✓</span> طلبات في الطاولة أو جاهزة للأخذ</li><li><span class="check-green-icon">✓</span> إشعارات واتساب ومباشرة في الحين</li>',
-                f2Annual: 'الدفع بالعام : 48 000 دج/سنوياً',
+                f2List: '<li><span>✓</span> <strong>الطلب في الطاولة</strong></li><li><span>✓</span> <strong>للأخذ والتوصيل</strong></li><li><span>✓</span> <span>إشعارات واتساب</span></li>',
+                f2Annual: '48 000 دج/سنوياً',
                 f3Ribbon: 'تخفيض 10% 🏷️',
                 f3Name: 'كايس برو (Caisse Pro)', f3Per: '/شهر',
-                f3List: '<li><span class="check-green-icon">✓</span> <strong>ربط مباشر مع نظام الصندوق (POS)</strong></li><li><span class="check-green-icon">✓</span> التذاكر تخرج في الكوزينة ديريكت</li><li><span class="check-green-icon">✓</span> متابعة كاملة ودعم فني بأولوية</li>',
-                f3Annual: 'الدفع بالعام : <s>62 400 دج</s> <strong>56 160 دج/سنوياً</strong>',
+                f3List: '<li><span>✓</span> <strong>ربط الصندوق (POS)</strong></li><li><span>✓</span> <strong>تذاكر المطبخ</strong></li><li><span>✓</span> <span>دعم بأولوية</span></li>',
+                f3Annual: '56 160 دج/سنوياً',
+                pillSelected: 'تم الاختيار ✓', pillChoose: 'اختيار',
                 formTitle: 'أطلب المينيو QR كود لمطعمك', formBadge: 'معاينة مجانية',
                 formDesc: 'عمر هاذ الاستمارة القصيرة، نتصلو بيك ونحددو موعد التركيب.',
                 succH: 'تم إرسال طلبك بنجاح !', succP: 'فريقنا يتصل بك في أقل من 24 ساعة. جاري تحويلك إلى واتساب لتأكيد الطلب...',
@@ -2516,25 +2336,19 @@
                 lblPhone: 'رقم الهاتف', phPhone: '05 / 06 / 07 XX XX XX',
                 lblEmail: 'البريد الإلكتروني', lblOpt: '(اختياري)',
                 lblWilaya: 'الولاية', optWilayaDef: 'أو اختر ولايتك من القائمة (58 ولاية)...',
-                btnSubmit: 'تأكيد طلبي الآن (تركيب مجاني) ✓',
+                btnSubmit: 'تأكيد طلبي الآن ✓',
                 btnWa: 'التواصل مباشرة في واتساب',
-                r1H: 'تركيب مجاني', r1S: 'في مطعمك مباشرة',
+                stripSafe: 'دفع آمن',
+                r1H: 'إعداد وبرمجة في مطعمك', r1S: 'من طرف تقنيينا',
                 r2H: 'تحديثات مستمرة', r2S: 'بدون أي تكاليف إضافية',
                 r3H: 'دعم فني 7/7', r3S: 'عبر الهاتف والواتساب',
                 r4H: 'فريق جزائري 100%', r4S: 'في كل ولايات الوطن',
                 footBrand: 'Qrmeunu الجزائر', footSub: 'حلول المينيو الرقمي بالـ QR Code',
                 stickyOrder: 'أطلب الآن ←',
-                btnChooseF1: 'اختيار بيزيك', btnChooseF2: 'اختيار كوموند (الأكثر طلباً)', btnChooseF3: 'اختيار كايس برو',
                 phoneHint: '✓ رقم هاتف صحيح (الجزائر)',
-                urgencyText: '🔥 عرض خاص للمطاعم 🇩🇿: التركيب مجاني في مطعمك · الأماكن محدودة هذا الأسبوع',
-                badgeProof: '🔥 +180 مطعم مجهز',
-                heroBtnTxt: '⚡ أريد المينيو الذكي لمطعمي (تركيب مجاني)',
-                heroGuarantee: '0 دج اليوم · الدفع بعد التركيب والتجربة في مطعمك',
-                heroRatingTxt: '4.9/5 · موثوق من أكثر من 180 مطعم في الجزائر 🇩🇿',
                 compareRoi: 'وفّر ~35 000 دج/سنوياً من مصاريف الطباعة واربح +25% طلبات أكثر !',
-                f2Roi: '💡 يرجعلك دراهمو في يومين خدمة برك',
-                tg1H: 'الدفع بعد التركيب', tg1S: '0 دج مسبقاً. ما تدفع حتى تسيي المينيو ويخدم في مطعمك.',
-                tg2H: 'جاهز في 24 إلى 48 ساعة', tg2S: 'تركيب سريع في مطعمك مع ستيكرز وكود QR عالي الجودة.',
+                tg1H: 'خدمة متكاملة وجاهزة', tg1S: 'المينيو يكون واجد ومبرمج ويخدم مباشرة في مطعمك.',
+                tg2H: 'جاهز في 24 إلى 48 ساعة', tg2S: 'تركيب وتوفير كود QR وستيكرز عالي الجودة.',
                 tg3H: 'دعم فني عبر واتساب 7/7', tg3S: 'فريق جزائري 100% لتحديث وتغيير أسعار مينيو مطعمك.',
                 safeShieldTitle: '🔒 استمارة آمنة ومحمية ضد الروبوتات',
                 safeShieldSub: 'تشفير SSL 256-bit · حماية البيانات الشخصية (قانون 18-07) · خالية من السبام 100%',
@@ -2562,14 +2376,93 @@
             document.getElementById('pill-lang-fr').classList.toggle('active', !isAr);
             document.getElementById('pill-lang-ar').classList.toggle('active', isAr);
 
-            if (document.getElementById('t-urgency-text')) document.getElementById('t-urgency-text').textContent = t.urgencyText;
-            if (document.getElementById('t-badge-proof')) document.getElementById('t-badge-proof').textContent = t.badgeProof;
-            if (document.getElementById('t-hero-btn-txt')) document.getElementById('t-hero-btn-txt').textContent = t.heroBtnTxt;
-            if (document.getElementById('t-hero-guarantee')) document.getElementById('t-hero-guarantee').textContent = t.heroGuarantee;
-            if (document.getElementById('t-hero-rating-txt')) document.getElementById('t-hero-rating-txt').textContent = t.heroRatingTxt;
-            if (document.getElementById('t-compare-roi')) document.getElementById('t-compare-roi').textContent = t.compareRoi;
-            if (document.getElementById('t-f2-roi')) document.getElementById('t-f2-roi').textContent = t.f2Roi;
+            if (document.getElementById('t-badge-verified')) document.getElementById('t-badge-verified').innerHTML = `<span>${t.badgeVerified}</span>`;
+            if (document.getElementById('t-prod-title')) document.getElementById('t-prod-title').textContent = t.prodTitle;
+            if (document.getElementById('t-prod-sub')) document.getElementById('t-prod-sub').textContent = t.prodSub;
+            if (document.getElementById('t-nav-txt')) document.getElementById('t-nav-txt').textContent = t.navTxt;
 
+            if (document.getElementById('t-s1-tag')) document.getElementById('t-s1-tag').textContent = t.s1Tag;
+            if (document.getElementById('t-s1-h')) document.getElementById('t-s1-h').textContent = t.s1H;
+            if (document.getElementById('t-s1-d')) document.getElementById('t-s1-d').textContent = t.s1D;
+            if (document.getElementById('t-s2-tag')) document.getElementById('t-s2-tag').textContent = t.s2Tag;
+            if (document.getElementById('t-s2-h')) document.getElementById('t-s2-h').textContent = t.s2H;
+            if (document.getElementById('t-s2-d')) document.getElementById('t-s2-d').textContent = t.s2D;
+            if (document.getElementById('t-s2-score')) document.getElementById('t-s2-score').textContent = t.s2Score;
+            if (document.getElementById('t-s2-pill')) document.getElementById('t-s2-pill').innerHTML = `<span>${t.s2Pill}</span>`;
+            if (document.getElementById('t-s2-boost')) document.getElementById('t-s2-boost').textContent = t.s2Boost;
+            if (document.getElementById('t-s3-tag')) document.getElementById('t-s3-tag').textContent = t.s3Tag;
+            if (document.getElementById('t-s3-h')) document.getElementById('t-s3-h').textContent = t.s3H;
+            if (document.getElementById('t-s3-d')) document.getElementById('t-s3-d').textContent = t.s3D;
+            if (document.getElementById('t-s4-tag')) document.getElementById('t-s4-tag').textContent = t.s4Tag;
+            if (document.getElementById('t-s4-h')) document.getElementById('t-s4-h').textContent = t.s4H;
+            if (document.getElementById('t-s4-d')) document.getElementById('t-s4-d').textContent = t.s4D;
+            if (document.getElementById('t-s5-tag')) document.getElementById('t-s5-tag').textContent = t.s5Tag;
+            if (document.getElementById('t-s5-h')) document.getElementById('t-s5-h').textContent = t.s5H;
+            if (document.getElementById('t-s5-d')) document.getElementById('t-s5-d').textContent = t.s5D;
+
+            if (document.getElementById('t-why-title')) document.getElementById('t-why-title').textContent = t.whyTitle;
+            if (document.getElementById('t-why-badge')) document.getElementById('t-why-badge').textContent = t.whyBadge;
+            if (document.getElementById('t-bad-head')) document.getElementById('t-bad-head').textContent = t.badHead;
+            if (document.getElementById('t-bad-list')) document.getElementById('t-bad-list').innerHTML = t.badList;
+            if (document.getElementById('t-good-head')) document.getElementById('t-good-head').textContent = t.goodHead;
+            if (document.getElementById('t-good-list')) document.getElementById('t-good-list').innerHTML = t.goodList;
+
+            if (document.getElementById('t-plans-heading')) document.getElementById('t-plans-heading').textContent = t.plansHeading;
+            if (document.getElementById('t-plans-tag')) document.getElementById('t-plans-tag').textContent = t.plansTag;
+            if (document.getElementById('t-plans-instruction')) document.getElementById('t-plans-instruction').textContent = t.plansInstruction;
+
+            if (document.getElementById('t-f1-name')) document.getElementById('t-f1-name').textContent = t.f1Name;
+            if (document.getElementById('t-f1-per')) document.getElementById('t-f1-per').textContent = t.f1Per;
+            if (document.getElementById('t-f1-list')) document.getElementById('t-f1-list').innerHTML = t.f1List;
+            if (document.getElementById('t-f1-annual')) document.getElementById('t-f1-annual').textContent = t.f1Annual;
+
+            if (document.getElementById('t-f2-ribbon')) document.getElementById('t-f2-ribbon').textContent = t.f2Ribbon;
+            if (document.getElementById('t-f2-name')) document.getElementById('t-f2-name').textContent = t.f2Name;
+            if (document.getElementById('t-f2-per')) document.getElementById('t-f2-per').textContent = t.f2Per;
+            if (document.getElementById('t-f2-list')) document.getElementById('t-f2-list').innerHTML = t.f2List;
+            if (document.getElementById('t-f2-annual')) document.getElementById('t-f2-annual').textContent = t.f2Annual;
+
+            if (document.getElementById('t-f3-ribbon')) document.getElementById('t-f3-ribbon').textContent = t.f3Ribbon;
+            if (document.getElementById('t-f3-name')) document.getElementById('t-f3-name').textContent = t.f3Name;
+            if (document.getElementById('t-f3-per')) document.getElementById('t-f3-per').textContent = t.f3Per;
+            if (document.getElementById('t-f3-list')) document.getElementById('t-f3-list').innerHTML = t.f3List;
+            if (document.getElementById('t-f3-annual')) document.getElementById('t-f3-annual').textContent = t.f3Annual;
+
+            const selText = t.pillSelected || 'Sélectionné ✓';
+            const chooseText = t.pillChoose || 'Choisir';
+            const map = { 'Basic': 'f1', 'Commande': 'f2', 'CaissePro': 'f3' };
+            const cleanName = currentFormulaName.replace(/\s+/g, '');
+            for (let k in map) {
+                const el = document.getElementById('t-pill-' + map[k] + '-txt');
+                if (el) {
+                    el.textContent = (cleanName === k) ? selText : chooseText;
+                }
+            }
+
+            if (document.getElementById('t-form-title')) document.getElementById('t-form-title').textContent = t.formTitle;
+            if (document.getElementById('t-form-badge')) document.getElementById('t-form-badge').textContent = t.formBadge;
+            if (document.getElementById('t-form-desc')) document.getElementById('t-form-desc').textContent = t.formDesc;
+            if (document.getElementById('t-succ-h')) document.getElementById('t-succ-h').textContent = t.succH;
+            if (document.getElementById('t-succ-p')) document.getElementById('t-succ-p').textContent = t.succP;
+            if (document.getElementById('t-succ-btn')) document.getElementById('t-succ-btn').textContent = t.succBtn;
+
+            if (document.getElementById('t-lbl-name')) document.getElementById('t-lbl-name').textContent = t.lblName;
+            if (document.getElementById('f-name')) document.getElementById('f-name').placeholder = t.phName;
+            if (document.getElementById('t-lbl-resto')) document.getElementById('t-lbl-resto').textContent = t.lblResto;
+            if (document.getElementById('f-resto')) document.getElementById('f-resto').placeholder = t.phResto;
+            if (document.getElementById('t-lbl-phone')) document.getElementById('t-lbl-phone').textContent = t.lblPhone;
+            if (document.getElementById('f-phone')) document.getElementById('f-phone').placeholder = t.phPhone;
+            if (document.getElementById('t-lbl-email')) document.getElementById('t-lbl-email').textContent = t.lblEmail;
+            if (document.getElementById('t-lbl-opt')) document.getElementById('t-lbl-opt').textContent = t.lblOpt;
+            if (document.getElementById('t-lbl-wilaya')) document.getElementById('t-lbl-wilaya').textContent = t.lblWilaya;
+            if (document.getElementById('t-opt-wilaya-def')) document.getElementById('t-opt-wilaya-def').textContent = t.optWilayaDef;
+
+            if (document.getElementById('t-btn-submit')) document.getElementById('t-btn-submit').textContent = t.btnSubmit;
+            if (document.getElementById('t-btn-wa')) document.getElementById('t-btn-wa').textContent = t.btnWa;
+            if (document.getElementById('t-strip-safe')) document.getElementById('t-strip-safe').textContent = t.stripSafe;
+            if (document.getElementById('phoneHint')) document.getElementById('phoneHint').textContent = t.phoneHint;
+
+            if (document.getElementById('t-compare-roi')) document.getElementById('t-compare-roi').textContent = t.compareRoi;
             if (document.getElementById('t-tg1-h')) document.getElementById('t-tg1-h').textContent = t.tg1H;
             if (document.getElementById('t-tg1-s')) document.getElementById('t-tg1-s').textContent = t.tg1S;
             if (document.getElementById('t-tg2-h')) document.getElementById('t-tg2-h').textContent = t.tg2H;
@@ -2577,97 +2470,18 @@
             if (document.getElementById('t-tg3-h')) document.getElementById('t-tg3-h').textContent = t.tg3H;
             if (document.getElementById('t-tg3-s')) document.getElementById('t-tg3-s').textContent = t.tg3S;
 
-            document.getElementById('t-nav-txt').textContent = t.navTxt;
-            document.getElementById('t-badge-verified').textContent = t.badgeVerified;
-            document.getElementById('t-prod-title').textContent = t.prodTitle;
-            document.getElementById('t-prod-sub').textContent = t.prodSub;
+            if (document.getElementById('t-r1-h')) document.getElementById('t-r1-h').textContent = t.r1H;
+            if (document.getElementById('t-r1-s')) document.getElementById('t-r1-s').textContent = t.r1S;
+            if (document.getElementById('t-r2-h')) document.getElementById('t-r2-h').textContent = t.r2H;
+            if (document.getElementById('t-r2-s')) document.getElementById('t-r2-s').textContent = t.r2S;
+            if (document.getElementById('t-r3-h')) document.getElementById('t-r3-h').textContent = t.r3H;
+            if (document.getElementById('t-r3-s')) document.getElementById('t-r3-s').textContent = t.r3S;
+            if (document.getElementById('t-r4-h')) document.getElementById('t-r4-h').textContent = t.r4H;
+            if (document.getElementById('t-r4-s')) document.getElementById('t-r4-s').textContent = t.r4S;
 
-            document.getElementById('t-s1-tag').textContent = t.s1Tag;
-            document.getElementById('t-s1-h').textContent = t.s1H;
-            document.getElementById('t-s1-d').textContent = t.s1D;
-            document.getElementById('t-s2-tag').textContent = t.s2Tag;
-            document.getElementById('t-s2-h').textContent = t.s2H;
-            document.getElementById('t-s2-d').textContent = t.s2D;
-            if (document.getElementById('t-s2-score')) document.getElementById('t-s2-score').textContent = t.s2Score;
-            if (document.getElementById('t-s2-pill')) document.getElementById('t-s2-pill').innerHTML = `<span>${t.s2Pill}</span>`;
-            if (document.getElementById('t-s2-boost')) document.getElementById('t-s2-boost').textContent = t.s2Boost;
-            document.getElementById('t-s3-tag').textContent = t.s3Tag;
-            document.getElementById('t-s3-h').textContent = t.s3H;
-            document.getElementById('t-s3-d').textContent = t.s3D;
-            document.getElementById('t-s4-tag').textContent = t.s4Tag;
-            document.getElementById('t-s4-h').textContent = t.s4H;
-            document.getElementById('t-s4-d').textContent = t.s4D;
-            document.getElementById('t-s5-tag').textContent = t.s5Tag;
-            document.getElementById('t-s5-h').textContent = t.s5H;
-            document.getElementById('t-s5-d').textContent = t.s5D;
-
-            document.getElementById('t-why-title').textContent = t.whyTitle;
-            document.getElementById('t-why-badge').textContent = t.whyBadge;
-            document.getElementById('t-bad-head').textContent = t.badHead;
-            document.getElementById('t-bad-list').innerHTML = t.badList;
-            document.getElementById('t-good-head').textContent = t.goodHead;
-            document.getElementById('t-good-list').innerHTML = t.goodList;
-
-            document.getElementById('t-plans-heading').textContent = t.plansHeading;
-            document.getElementById('t-plans-tag').textContent = t.plansTag;
-            document.getElementById('t-plans-instruction').textContent = t.plansInstruction;
-
-            document.getElementById('t-f1-name').textContent = t.f1Name;
-            document.getElementById('t-f1-per').textContent = t.f1Per;
-            document.getElementById('t-f1-list').innerHTML = t.f1List;
-            document.getElementById('t-f1-annual').textContent = t.f1Annual;
-
-            document.getElementById('t-f2-ribbon').textContent = t.f2Ribbon;
-            document.getElementById('t-f2-name').textContent = t.f2Name;
-            document.getElementById('t-f2-per').textContent = t.f2Per;
-            document.getElementById('t-f2-list').innerHTML = t.f2List;
-            document.getElementById('t-f2-annual').textContent = t.f2Annual;
-
-            document.getElementById('t-f3-ribbon').textContent = t.f3Ribbon;
-            document.getElementById('t-f3-name').textContent = t.f3Name;
-            document.getElementById('t-f3-per').textContent = t.f3Per;
-            document.getElementById('t-f3-list').innerHTML = t.f3List;
-            document.getElementById('t-f3-annual').innerHTML = t.f3Annual;
-
-            document.getElementById('t-form-title').textContent = t.formTitle;
-            document.getElementById('t-form-badge').textContent = t.formBadge;
-            document.getElementById('t-form-desc').textContent = t.formDesc;
-            document.getElementById('t-succ-h').textContent = t.succH;
-            document.getElementById('t-succ-p').textContent = t.succP;
-            document.getElementById('t-succ-btn').textContent = t.succBtn;
-
-            document.getElementById('t-lbl-name').textContent = t.lblName;
-            document.getElementById('f-name').placeholder = t.phName;
-            document.getElementById('t-lbl-resto').textContent = t.lblResto;
-            document.getElementById('f-resto').placeholder = t.phResto;
-            document.getElementById('t-lbl-phone').textContent = t.lblPhone;
-            document.getElementById('f-phone').placeholder = t.phPhone;
-            document.getElementById('t-lbl-email').textContent = t.lblEmail;
-            document.getElementById('t-lbl-opt').textContent = t.lblOpt;
-            document.getElementById('t-lbl-wilaya').textContent = t.lblWilaya;
-            document.getElementById('t-opt-wilaya-def').textContent = t.optWilayaDef;
-
-            document.getElementById('t-btn-submit').textContent = t.btnSubmit;
-            document.getElementById('t-btn-wa').textContent = t.btnWa;
-
-            document.getElementById('t-r1-h').textContent = t.r1H;
-            document.getElementById('t-r1-s').textContent = t.r1S;
-            document.getElementById('t-r2-h').textContent = t.r2H;
-            document.getElementById('t-r2-s').textContent = t.r2S;
-            document.getElementById('t-r3-h').textContent = t.r3H;
-            document.getElementById('t-r3-s').textContent = t.r3S;
-            document.getElementById('t-r4-h').textContent = t.r4H;
-            document.getElementById('t-r4-s').textContent = t.r4S;
-
-            document.getElementById('t-foot-brand').textContent = t.footBrand;
-            document.getElementById('t-foot-sub').textContent = t.footSub;
-
-            document.getElementById('t-sticky-order').textContent = t.stickyOrder;
-
-            if (document.getElementById('t-btn-c1')) document.getElementById('t-btn-c1').textContent = t.btnChooseF1;
-            if (document.getElementById('t-btn-c2')) document.getElementById('t-btn-c2').textContent = t.btnChooseF2;
-            if (document.getElementById('t-btn-c3')) document.getElementById('t-btn-c3').textContent = t.btnChooseF3;
-            if (document.getElementById('phoneHint')) document.getElementById('phoneHint').textContent = t.phoneHint;
+            if (document.getElementById('t-foot-brand')) document.getElementById('t-foot-brand').textContent = t.footBrand;
+            if (document.getElementById('t-foot-sub')) document.getElementById('t-foot-sub').textContent = t.footSub;
+            if (document.getElementById('t-sticky-order')) document.getElementById('t-sticky-order').textContent = t.stickyOrder;
 
             if (document.getElementById('t-safe-shield-title')) document.getElementById('t-safe-shield-title').textContent = t.safeShieldTitle;
             if (document.getElementById('t-safe-shield-sub')) document.getElementById('t-safe-shield-sub').textContent = t.safeShieldSub;
@@ -2761,9 +2575,22 @@
             currentFormulaMonthly = monthly;
             currentFormulaAnnual = annual;
 
-            document.querySelectorAll('.formula-card').forEach(c => c.classList.remove('selected'));
+            document.querySelectorAll('.plan-col-card').forEach(c => c.classList.remove('selected'));
             const target = document.getElementById('card-formula-' + name.replace(/\s+/g, ''));
             if (target) target.classList.add('selected');
+
+            const t = dict[activeLanguage] || dict.fr;
+            const selText = t.pillSelected || 'Sélectionné ✓';
+            const chooseText = t.pillChoose || 'Choisir';
+
+            const map = { 'Basic': 'f1', 'Commande': 'f2', 'CaissePro': 'f3' };
+            const cleanName = name.replace(/\s+/g, '');
+            for (let k in map) {
+                const el = document.getElementById('t-pill-' + map[k] + '-txt');
+                if (el) {
+                    el.textContent = (cleanName === k) ? selText : chooseText;
+                }
+            }
 
             if (navigator.vibrate) navigator.vibrate(15);
             refreshSummary();
@@ -2845,50 +2672,6 @@
                     stickyObserver.observe(checkoutSec);
                 }
             }
-
-            // Live Social Proof Toast Engine (Boosts conversion in Insta / TikTok browsers)
-            const socialProofData = [
-                { name: 'Mohamed · Restaurant Le Palmier', wilaya: '16 Alger', plan: 'Commande', time: '14 min' },
-                { name: 'Karim · Pizzeria Bella', wilaya: '31 Oran', plan: 'Caisse Pro', time: '26 min' },
-                { name: 'Yacine · Burger House', wilaya: '25 Constantine', plan: 'Commande', time: '38 min' },
-                { name: 'Nabil · Tacos DZ', wilaya: '19 Sétif', plan: 'Commande', time: '51 min' },
-                { name: 'Sofiane · Café Lounge', wilaya: '09 Blida', plan: 'Basic', time: '1h 10min' }
-            ];
-
-            let spIdx = 0;
-            let spTimer = null;
-
-            function showNextSocialProof() {
-                const toast = document.getElementById('liveSocialProofToast');
-                if (!toast) return;
-
-                const data = socialProofData[spIdx % socialProofData.length];
-                spIdx++;
-
-                const isAr = (activeLanguage === 'ar');
-                const titleEl = document.getElementById('spToastTitle');
-                const subEl = document.getElementById('spToastSub');
-                if (titleEl) titleEl.textContent = `${data.name} (${data.wilaya})`;
-                if (subEl) subEl.textContent = isAr 
-                    ? `اختار صيغة ${data.plan} منذ ${data.time}` 
-                    : `A choisi la formule ${data.plan} il y a ${data.time}`;
-
-                toast.classList.add('show');
-
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 4500);
-
-                spTimer = setTimeout(showNextSocialProof, 10000);
-            }
-
-            window.closeToast = function() {
-                const toast = document.getElementById('liveSocialProofToast');
-                if (toast) toast.classList.remove('show');
-                clearTimeout(spTimer);
-            };
-
-            setTimeout(showNextSocialProof, 3000);
         });
     </script>
 
