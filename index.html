@@ -505,7 +505,7 @@
             background: linear-gradient(135deg, #DC2626, #EF4444);
         }
 
-        /* ── BIG PICTURE ROW (Requested by User) ── */
+        /* ── BIG FULL-BLEED SQUARE PICTURE (Requested by User) ── */
         .formula-main-row {
             display: flex;
             align-items: center;
@@ -513,28 +513,27 @@
             margin-bottom: 12px;
         }
 
-        .formula-big-pic-box {
+        .formula-square-box {
             width: 86px;
             height: 86px;
+            min-width: 86px;
             border-radius: 20px;
             overflow: hidden;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             border: 1.5px solid #E2E8F0;
+            flex-shrink: 0;
             background: #F8FAFC;
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
-        .formula-card:hover .formula-big-pic-box {
-            transform: scale(1.05);
+        .formula-card:hover .formula-square-box {
+            transform: scale(1.03);
         }
-        .formula-card.selected .formula-big-pic-box {
-            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.25);
+        .formula-card.selected .formula-square-box {
+            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.2);
             border-color: #FF5722;
         }
-        .formula-pic-img {
+
+        .formula-square-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -1043,12 +1042,12 @@
 
             <div class="pricing-cards-stack">
                 
-                <!-- CARD 1: Basic (2 000 DA) with Picture Being the Square -->
+                <!-- CARD 1: Basic (2 000 DA) with BIG Picture Box -->
                 <div class="formula-card" onclick="selectFormula('Basic', 2000, 24000)" id="card-formula-Basic">
                     <div class="formula-main-row">
-                        <!-- THE PICTURE IS THE SQUARE -->
-                        <div class="formula-big-pic-box">
-                            <img src="assets/plan_basic.jpg" alt="Qrmeunu Basic" class="formula-pic-img" loading="lazy">
+                        <!-- BIG FULL-BLEED SQUARE PICTURE -->
+                        <div class="formula-square-box">
+                            <img src="assets/plan_basic.jpg" alt="Qrmeunu Basic" class="formula-square-img" loading="lazy">
                         </div>
                         <div class="formula-content-col">
                             <div class="formula-heading-row">
@@ -1068,13 +1067,13 @@
                     <div class="formula-annual-note" id="t-f1-annual">Payable à l'année : 24 000 DA/an</div>
                 </div>
 
-                <!-- CARD 2: Commande (4 000 DA) - LE PLUS CHOISI with Picture Being the Square & Google Maps Boost -->
+                <!-- CARD 2: Commande (4 000 DA) - LE PLUS CHOISI with BIG Picture Box -->
                 <div class="formula-card selected" onclick="selectFormula('Commande', 4000, 48000)" id="card-formula-Commande">
                     <div class="formula-ribbon orange" id="t-f2-ribbon">⭐ LE PLUS CHOISI</div>
                     <div class="formula-main-row">
-                        <!-- THE PICTURE IS THE SQUARE -->
-                        <div class="formula-big-pic-box">
-                            <img src="assets/plan_commande.jpg" alt="Qrmeunu Commande" class="formula-pic-img" loading="lazy">
+                        <!-- BIG FULL-BLEED SQUARE PICTURE -->
+                        <div class="formula-square-box">
+                            <img src="assets/plan_commande.jpg" alt="Qrmeunu Commande" class="formula-square-img" loading="lazy">
                         </div>
                         <div class="formula-content-col">
                             <div class="formula-heading-row">
@@ -1088,20 +1087,20 @@
                     </div>
                     <ul class="formula-features-list" id="t-f2-list">
                         <li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li>
+                        <li><span class="check-green-icon">✓</span> ⭐ <strong>Boost avis Google Maps 5★</strong> (multiplie vos avis)</li>
                         <li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li>
                         <li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>
-                        <li><span class="check-green-icon">✓</span> <strong style="color: #D97706;">⭐ Boost Google Maps (+100 avis 5 étoiles)</strong></li>
                     </ul>
                     <div class="formula-annual-note" id="t-f2-annual">Payable à l'année : 48 000 DA/an</div>
                 </div>
 
-                <!-- CARD 3: Caisse Pro (4 680 DA) - -10% PROMO with Picture Being the Square -->
+                <!-- CARD 3: Caisse Pro (4 680 DA) - -10% PROMO with BIG Picture Box -->
                 <div class="formula-card" onclick="selectFormula('Caisse Pro', 4680, 56160)" id="card-formula-CaissePro">
                     <div class="formula-ribbon red" id="t-f3-ribbon">-10% PROMO</div>
                     <div class="formula-main-row">
-                        <!-- THE PICTURE IS THE SQUARE -->
-                        <div class="formula-big-pic-box">
-                            <img src="assets/plan_caisse.jpg" alt="Qrmeunu Caisse Pro" class="formula-pic-img" loading="lazy">
+                        <!-- BIG FULL-BLEED SQUARE PICTURE -->
+                        <div class="formula-square-box">
+                            <img src="assets/plan_caisse.jpg" alt="Qrmeunu Caisse Pro" class="formula-square-img" loading="lazy">
                         </div>
                         <div class="formula-content-col">
                             <div class="formula-heading-row">
@@ -1117,7 +1116,7 @@
                     <ul class="formula-features-list" id="t-f3-list">
                         <li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li>
                         <li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li>
-                        <li><span class="check-green-icon">✓</span> <strong style="color: #D97706;">⭐ Boost Google Maps 5★ & fidélité inclus</strong></li>
+                        <li><span class="check-green-icon">✓</span> Module Google Maps 5★ & avis clients intégré</li>
                         <li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>
                     </ul>
                     <div class="formula-annual-note" id="t-f3-annual">Payable à l'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong></div>
@@ -1398,11 +1397,11 @@
                 f1Annual: 'Payable à l\'année : 24 000 DA/an',
                 f2Ribbon: '⭐ LE PLUS CHOISI',
                 f2Name: 'Commande', f2Per: '/mois',
-                f2List: '<li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li><li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li><li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li><li><span class="check-green-icon">✓</span> <strong style="color: #D97706;">⭐ Boost Google Maps (+100 avis 5 étoiles)</strong></li>',
+                f2List: '<li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li><li><span class="check-green-icon">✓</span> ⭐ <strong>Boost avis Google Maps 5★</strong> (multiplie vos avis)</li><li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li><li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>',
                 f2Annual: 'Payable à l\'année : 48 000 DA/an',
                 f3Ribbon: '-10% PROMO',
                 f3Name: 'Caisse Pro', f3Per: '/mois',
-                f3List: '<li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li><li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li><li><span class="check-green-icon">✓</span> <strong style="color: #D97706;">⭐ Boost Google Maps 5★ & fidélité inclus</strong></li><li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>',
+                f3List: '<li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li><li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li><li><span class="check-green-icon">✓</span> Module Google Maps 5★ & avis clients intégré</li><li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>',
                 f3Annual: 'Payable à l\'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong>',
                 formTitle: 'Demandez votre menu QR', formBadge: 'Devis Gratuit',
                 formDesc: 'Remplissez ce formulaire court. Nous vous contactons pour fixer votre installation.',
@@ -1444,11 +1443,11 @@
                 f1Annual: 'الدفع بالعام : 24 000 دج/سنوياً',
                 f2Ribbon: '⭐ الأكثر طلباً',
                 f2Name: 'كوموند (Commande)', f2Per: '/شهر',
-                f2List: '<li><span class="check-green-icon">✓</span> <strong>الكليان يطلب ديريكت من هاتفه</strong></li><li><span class="check-green-icon">✓</span> طلبات في الطاولة أو جاهزة للأخذ</li><li><span class="check-green-icon">✓</span> إشعارات واتساب ومباشرة في الحين</li><li><span class="check-green-icon">✓</span> <strong style="color: #D97706;">⭐ زيادة تقييمات Google Maps (5 نجوم)</strong></li>',
+                f2List: '<li><span class="check-green-icon">✓</span> <strong>الكليان يطلب ديريكت من هاتفه</strong></li><li><span class="check-green-icon">✓</span> ⭐ <strong>زيادة تقييمات Google Maps و 5 نجوم</strong> لمطعمك</li><li><span class="check-green-icon">✓</span> طلبات في الطاولة أو جاهزة للأخذ</li><li><span class="check-green-icon">✓</span> إشعارات واتساب ومباشرة في الحين</li>',
                 f2Annual: 'الدفع بالعام : 48 000 دج/سنوياً',
                 f3Ribbon: 'تخفيض 10% 🏷️',
                 f3Name: 'كايس برو (Caisse Pro)', f3Per: '/شهر',
-                f3List: '<li><span class="check-green-icon">✓</span> <strong>ربط مباشر مع نظام الصندوق (POS)</strong></li><li><span class="check-green-icon">✓</span> التذاكر تخرج في الكوزينة ديريكت</li><li><span class="check-green-icon">✓</span> <strong style="color: #D97706;">⭐ زيادة تقييمات قوقل 5 نجوم وباقة الوفاء</strong></li><li><span class="check-green-icon">✓</span> متابعة كاملة ودعم فني بأولوية</li>',
+                f3List: '<li><span class="check-green-icon">✓</span> <strong>ربط مباشر مع نظام الصندوق (POS)</strong></li><li><span class="check-green-icon">✓</span> التذاكر تخرج في الكوزينة ديريكت</li><li><span class="check-green-icon">✓</span> تقييمات Google Maps 5 نجوم وإدارة متقدمة</li><li><span class="check-green-icon">✓</span> متابعة كاملة ودعم فني بأولوية</li>',
                 f3Annual: 'الدفع بالعام : <s>62 400 دج</s> <strong>56 160 دج/سنوياً</strong>',
                 formTitle: 'أطلب المينيو QR كود لمطعمك', formBadge: 'معاينة مجانية',
                 formDesc: 'عمر هاذ الاستمارة القصيرة، نتصلو بيك ونحددو موعد التركيب.',
