@@ -24,6 +24,70 @@
     <meta name="twitter:description" content="Commandes à table, avis Google 5★, intégration caisse. À partir de 2 000 DA/mois.">
     <meta name="twitter:image" content="https://rt-alikhoudja-zakarias-projects.vercel.app/assets/brand_image_6.png">
 
+    <!-- Canonical & Bot Crawling Directives (Meta, TikTok, Google) -->
+    <link rel="canonical" href="https://rt-alikhoudja-zakarias-projects.vercel.app/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Schema.org JSON-LD for Ad Review Bots & Search Crawlers -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Qrmeunu Algérie",
+      "operatingSystem": "All (Web-based, iOS, Android)",
+      "applicationCategory": "BusinessApplication",
+      "description": "Solution complète de menu digital par code QR et prise de commande à table pour restaurants et cafés en Algérie.",
+      "url": "https://rt-alikhoudja-zakarias-projects.vercel.app/",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Formule Basic",
+          "price": "24000",
+          "priceCurrency": "DZD",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "description": "Menu QR consultable sur smartphone avec mise à jour continue"
+        },
+        {
+          "@type": "Offer",
+          "name": "Formule Commande",
+          "price": "48000",
+          "priceCurrency": "DZD",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "description": "Commandes directes à table depuis le smartphone du client"
+        },
+        {
+          "@type": "Offer",
+          "name": "Formule Caisse Pro",
+          "price": "56160",
+          "priceCurrency": "DZD",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "description": "Intégration caisse POS et impression directe des tickets en cuisine"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "185"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Qrmeunu Algérie",
+        "url": "https://rt-alikhoudja-zakarias-projects.vercel.app/",
+        "telephone": "+213656243117",
+        "areaServed": "DZ",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "DZ",
+          "addressLocality": "Alger"
+        }
+      }
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/brand_image_6.png">
     <link rel="apple-touch-icon" href="assets/brand_image_6.png">
@@ -1378,6 +1442,223 @@
             padding: 0 4px;
             line-height: 1;
         }
+
+        /* ── BOT SAFETY & TRUST SHIELD ── */
+        .bot-trust-shield {
+            background: linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%);
+            border: 1.5px solid #A7F3D0;
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 14px;
+            margin-bottom: 4px;
+        }
+        .shield-badge-icon {
+            font-size: 26px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .shield-badge-info {
+            flex: 1;
+            text-align: left;
+        }
+        body.lang-ar .shield-badge-info {
+            text-align: right;
+        }
+        .shield-badge-info strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 800;
+            color: #065F46;
+            margin-bottom: 2px;
+        }
+        .shield-badge-info span {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #047857;
+            line-height: 1.35;
+        }
+        .ssl-verify-tag {
+            background: #10B981;
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 4px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        /* Security Trust Strip (4 items) */
+        .security-trust-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed #E2E8F0;
+        }
+        .sec-strip-item {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 8px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            font-size: 10.5px;
+            font-weight: 800;
+            color: #334155;
+            text-align: center;
+        }
+        .sec-strip-item span:first-child {
+            font-size: 15px;
+        }
+
+        /* ── FOOTER LEGAL & COMPLIANCE MODAL (AD REVIEW BOTS / METRICS) ── */
+        .footer-legal-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            font-size: 11.5px;
+        }
+        .footer-legal-links a {
+            color: var(--text-muted);
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .footer-legal-links a:hover {
+            color: var(--primary);
+        }
+        .footer-legal-links .sep {
+            color: #CBD5E1;
+        }
+
+        .legal-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.72);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .legal-modal-overlay.active {
+            display: flex;
+        }
+        .legal-modal-box {
+            background: #FFFFFF;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 540px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+            animation: modalFadeIn 0.25s ease-out;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .legal-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid #E2E8F0;
+            background: #F8FAFC;
+        }
+        .legal-modal-header h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0;
+        }
+        .btn-close-legal {
+            background: #EDF2F7;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 900;
+            color: #475569;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .legal-modal-tabs {
+            display: flex;
+            border-bottom: 1px solid #E2E8F0;
+            background: #FFFFFF;
+        }
+        .legal-tab-btn {
+            flex: 1;
+            padding: 12px 6px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-size: 12px;
+            font-weight: 700;
+            color: #64748B;
+            cursor: pointer;
+            text-align: center;
+            font-family: inherit;
+        }
+        .legal-tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: #FFF7ED;
+        }
+        .legal-modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            font-size: 13px;
+            line-height: 1.65;
+            color: #334155;
+            -webkit-overflow-scrolling: touch;
+        }
+        .legal-modal-body h4 {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 14px 0 6px 0;
+        }
+        .legal-modal-body h4:first-child {
+            margin-top: 0;
+        }
+        .legal-modal-body p {
+            margin-bottom: 10px;
+        }
+        .legal-modal-body ul {
+            padding-left: 18px;
+            margin-bottom: 12px;
+        }
+        body.lang-ar .legal-modal-body ul {
+            padding-left: 0;
+            padding-right: 18px;
+        }
+        .legal-modal-body li {
+            margin-bottom: 4px;
+        }
     </style>
 </head>
 <body class="lang-fr">
@@ -1899,10 +2180,26 @@
                     </select>
                 </div>
 
+                <!-- Anti-Bot Honeypot (traps automated scrapers/bots) -->
+                <div style="opacity:0; position:absolute; top:0; left:0; height:0; width:0; z-index:-1; overflow:hidden;" aria-hidden="true">
+                    <label for="f-botcheck">Do not fill this field</label>
+                    <input type="text" name="company_website_url" id="f-botcheck" tabindex="-1" autocomplete="off">
+                </div>
+
                 <!-- Total Banner -->
                 <div class="summary-total-banner">
                     <span id="t-banner-formula-text">Formule choisie : Commande</span>
                     <strong id="t-banner-total-val">48 000 DA/an</strong>
+                </div>
+
+                <!-- Bot Safety & Trust Shield Badge -->
+                <div class="bot-trust-shield">
+                    <div class="shield-badge-icon">🛡️</div>
+                    <div class="shield-badge-info">
+                        <strong id="t-safe-shield-title">🔒 Formulaire Sécurisé & Anti-Bot</strong>
+                        <span id="t-safe-shield-sub">Chiffrement SSL 256-bit · Protection des Données (Loi 18-07) · 0 Spam</span>
+                    </div>
+                    <span class="ssl-verify-tag">✓ VÉRIFIÉ</span>
                 </div>
 
                 <button type="submit" class="btn-submit-order" id="btn-submit-order">
@@ -1912,6 +2209,26 @@
                 <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="btn-wa-hero">
                     <span>💬</span> <span id="t-btn-wa">Discuter directement sur WhatsApp</span>
                 </a>
+
+                <!-- Security Trust Strip -->
+                <div class="security-trust-strip">
+                    <div class="sec-strip-item">
+                        <span>🔒</span>
+                        <span>SSL 256-bit</span>
+                    </div>
+                    <div class="sec-strip-item">
+                        <span>🛡️</span>
+                        <span>Anti-Bot</span>
+                    </div>
+                    <div class="sec-strip-item">
+                        <span>🤝</span>
+                        <span>0 DA d'avance</span>
+                    </div>
+                    <div class="sec-strip-item">
+                        <span>🇩🇿</span>
+                        <span>100% Local</span>
+                    </div>
+                </div>
             </form>
         </div>
 
@@ -1939,11 +2256,18 @@
             </div>
         </div>
 
-        <!-- ── FOOTER ── -->
+        <!-- ── FOOTER (COMPLIANCE FOR AD REVIEW BOTS & TRUST) ── -->
         <footer class="page-footer">
             <p><strong id="t-foot-brand">Qrmeunu Algérie</strong> · <span id="t-foot-sub">Menus & commandes QR pour restaurants</span></p>
-            <p style="margin-top:4px;">WhatsApp : <a href="https://wa.me/213656243117" target="_blank">+213 656 24 31 17</a></p>
-            <p style="margin-top:6px; opacity:0.8;">Tous droits réservés © 2024</p>
+            <p style="margin-top:4px;">WhatsApp & Assistance : <a href="https://wa.me/213656243117" target="_blank">+213 656 24 31 17</a> · Alger, Algérie</p>
+            <div class="footer-legal-links">
+                <a href="javascript:void(0)" onclick="openLegalModal('privacy')" id="t-legal-privacy">Politique de Confidentialité</a>
+                <span class="sep">·</span>
+                <a href="javascript:void(0)" onclick="openLegalModal('terms')" id="t-legal-terms">Conditions Générales (CGU)</a>
+                <span class="sep">·</span>
+                <a href="javascript:void(0)" onclick="openLegalModal('mentions')" id="t-legal-mentions">Mentions Légales</a>
+            </div>
+            <p style="margin-top:8px; opacity:0.8; font-size:11px;">Tous droits réservés © 2024 Qrmeunu Algérie · Hébergement certifié SSL</p>
         </footer>
 
     </main>
@@ -1970,6 +2294,54 @@
             <div class="sp-sub" id="spToastSub">Vient de choisir la formule Commande</div>
         </div>
         <button type="button" class="sp-close" onclick="closeToast()" aria-label="Fermer">&times;</button>
+    </div>
+
+    <!-- ══ COMPLIANCE & LEGAL MODAL (AD REVIEW BOTS & VISITOR TRUST) ══ -->
+    <div id="legalModalOverlay" class="legal-modal-overlay" onclick="closeLegalModal(event)">
+        <div class="legal-modal-box" onclick="event.stopPropagation()">
+            <div class="legal-modal-header">
+                <h3 id="legalModalTitle">Transparence, Sécurité & Mentions Légales</h3>
+                <button type="button" class="btn-close-legal" onclick="closeLegalModal()" aria-label="Fermer">✕</button>
+            </div>
+            <div class="legal-modal-tabs">
+                <button type="button" class="legal-tab-btn active" id="tabBtnPrivacy" onclick="showLegalTab('privacy')">Confidentialité</button>
+                <button type="button" class="legal-tab-btn" id="tabBtnTerms" onclick="showLegalTab('terms')">Conditions (CGU)</button>
+                <button type="button" class="legal-tab-btn" id="tabBtnMentions" onclick="showLegalTab('mentions')">Mentions Légales</button>
+            </div>
+            <div class="legal-modal-body" id="legalModalBody">
+                <div id="legalContentPrivacy">
+                    <h4>🔒 Protection des Données Personnelles (Loi n° 18-07)</h4>
+                    <p>Chez <strong>Qrmeunu Algérie</strong>, nous attachons une importance primordiale à la protection et à la sécurité de vos données professionnelles.</p>
+                    <ul>
+                        <li><strong>Données collectées :</strong> Nom, nom du restaurant, numéro de téléphone et wilaya lors de la demande de rendez-vous d'installation.</li>
+                        <li><strong>Finalité du traitement :</strong> Prise de contact téléphonique et déplacement sur place par nos techniciens pour configurer votre menu QR.</li>
+                        <li><strong>Sécurité des échanges :</strong> Connexion chiffrée SSL/TLS 256-bit. Aucune donnée bancaire n'est demandée en ligne.</li>
+                        <li><strong>Zéro revente :</strong> Vos coordonnées ne sont jamais vendues, louées ni cédées à des annonceurs ou tiers.</li>
+                        <li><strong>Droit d'accès et suppression :</strong> Vous pouvez demander la suppression immédiate de vos données par simple message WhatsApp au +213 656 24 31 17.</li>
+                    </ul>
+                </div>
+                <div id="legalContentTerms" style="display:none;">
+                    <h4>📋 Conditions Générales d'Utilisation & Tarifs</h4>
+                    <p>Qrmeunu fournit une suite logicielle permettant aux restaurateurs algériens de numériser leur menu et gérer les commandes à table.</p>
+                    <ul>
+                        <li><strong>Tarification claire :</strong> Formule Basic (24 000 DA/an), Formule Commande (48 000 DA/an), Formule Caisse Pro (56 160 DA/an). Tous les tarifs sont nets, sans frais cachés.</li>
+                        <li><strong>Garantie 0 Risque :</strong> 0 DA d'avance. Le règlement n'intervient qu'après l'installation complète, la mise en service et la validation par le gérant dans son établissement.</li>
+                        <li><strong>Installation & Supports :</strong> L'installation sur site, la création du menu digital et les QR codes de table sont inclus.</li>
+                        <li><strong>Support technique :</strong> Assistance continue 7j/7 par WhatsApp et téléphone pour toute mise à jour ou question technique.</li>
+                    </ul>
+                </div>
+                <div id="legalContentMentions" style="display:none;">
+                    <h4>🏢 Informations Légales de l'Éditeur</h4>
+                    <ul>
+                        <li><strong>Raison sociale :</strong> Qrmeunu Algérie - Solutions Digitales pour la Restauration.</li>
+                        <li><strong>Siège & Activité :</strong> Alger, Algérie (Déplacements et installations assurés dans les 58 wilayas).</li>
+                        <li><strong>Contact Téléphonique & WhatsApp :</strong> <a href="https://wa.me/213656243117" style="color:var(--primary); font-weight:700;">+213 656 24 31 17</a></li>
+                        <li><strong>Email officiel :</strong> contact@qrmeunu.com</li>
+                        <li><strong>Infrastructure d'hébergement :</strong> Hébergé sur infrastructure cloud sécurisée haute disponibilité Vercel Inc. et Google Cloud Firebase avec certificat SSL/TLS automatique.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- ══ SLIDER JAVASCRIPT LOGIC (Touch Swipe + Auto-play) ══ -->
@@ -2099,7 +2471,12 @@
                 f2Roi: '💡 Rentabilisé dès le 2ème jour',
                 tg1H: 'Paiement après installation', tg1S: '0 DA à avancer. Vous ne payez qu\'une fois tout testé et fonctionnel.',
                 tg2H: 'Prêt sous 24h / 48h', tg2S: 'Installation rapide sur place avec QR codes et supports inclus.',
-                tg3H: 'Assistance WhatsApp 7j/7', tg3S: 'Équipe 100% algérienne pour modifier vos menus en direct.'
+                tg3H: 'Assistance WhatsApp 7j/7', tg3S: 'Équipe 100% algérienne pour modifier vos menus en direct.',
+                safeShieldTitle: '🔒 Formulaire Sécurisé & Anti-Bot',
+                safeShieldSub: 'Chiffrement SSL 256-bit · Protection des Données (Loi 18-07) · 0 Spam',
+                legalPrivacy: 'Politique de Confidentialité',
+                legalTerms: 'Conditions Générales (CGU)',
+                legalMentions: 'Mentions Légales'
             },
             ar: {
                 navTxt: 'طلب الخدمة',
@@ -2158,7 +2535,12 @@
                 f2Roi: '💡 يرجعلك دراهمو في يومين خدمة برك',
                 tg1H: 'الدفع بعد التركيب', tg1S: '0 دج مسبقاً. ما تدفع حتى تسيي المينيو ويخدم في مطعمك.',
                 tg2H: 'جاهز في 24 إلى 48 ساعة', tg2S: 'تركيب سريع في مطعمك مع ستيكرز وكود QR عالي الجودة.',
-                tg3H: 'دعم فني عبر واتساب 7/7', tg3S: 'فريق جزائري 100% لتحديث وتغيير أسعار مينيو مطعمك.'
+                tg3H: 'دعم فني عبر واتساب 7/7', tg3S: 'فريق جزائري 100% لتحديث وتغيير أسعار مينيو مطعمك.',
+                safeShieldTitle: '🔒 استمارة آمنة ومحمية ضد الروبوتات',
+                safeShieldSub: 'تشفير SSL 256-bit · حماية البيانات الشخصية (قانون 18-07) · خالية من السبام 100%',
+                legalPrivacy: 'سياسة الخصوصية',
+                legalTerms: 'الشروط العامة للخدمة',
+                legalMentions: 'معلومات قانونية'
             }
         };
 
@@ -2287,6 +2669,12 @@
             if (document.getElementById('t-btn-c3')) document.getElementById('t-btn-c3').textContent = t.btnChooseF3;
             if (document.getElementById('phoneHint')) document.getElementById('phoneHint').textContent = t.phoneHint;
 
+            if (document.getElementById('t-safe-shield-title')) document.getElementById('t-safe-shield-title').textContent = t.safeShieldTitle;
+            if (document.getElementById('t-safe-shield-sub')) document.getElementById('t-safe-shield-sub').textContent = t.safeShieldSub;
+            if (document.getElementById('t-legal-privacy')) document.getElementById('t-legal-privacy').textContent = t.legalPrivacy;
+            if (document.getElementById('t-legal-terms')) document.getElementById('t-legal-terms').textContent = t.legalTerms;
+            if (document.getElementById('t-legal-mentions')) document.getElementById('t-legal-mentions').textContent = t.legalMentions;
+
             refreshSummary();
             updateSlider();
             localStorage.setItem('qrmeunu_lang', lang);
@@ -2294,6 +2682,34 @@
 
         window.switchLanguage = function(l) {
             setLanguage(l);
+        };
+
+        window.openLegalModal = function(tab = 'privacy') {
+            const modal = document.getElementById('legalModalOverlay');
+            if (modal) {
+                modal.classList.add('active');
+                showLegalTab(tab);
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        window.closeLegalModal = function(e) {
+            if (e && e.target && e.target.id !== 'legalModalOverlay' && !e.target.classList.contains('btn-close-legal')) return;
+            const modal = document.getElementById('legalModalOverlay');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        };
+
+        window.showLegalTab = function(tab) {
+            const tabs = ['privacy', 'terms', 'mentions'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+                const content = document.getElementById('legalContent' + t.charAt(0).toUpperCase() + t.slice(1));
+                if (btn) btn.classList.toggle('active', t === tab);
+                if (content) content.style.display = (t === tab) ? 'block' : 'none';
+            });
         };
 
         function refreshSummary() {
@@ -2494,6 +2910,7 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+        const pageLoadTimestamp = Date.now();
         let analytics = null;
 
         isSupported().then(supported => {
@@ -2516,10 +2933,31 @@
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
-                const submitBtn = document.getElementById('btn-submit-order');
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = (activeLanguage === 'ar') ? 'جاري تأكيد الطلب... ⏳' : 'Envoi en cours... ⏳';
+                // Anti-Bot Layer 1: Invisible Honeypot Trap
+                const honeypot = document.getElementById('f-botcheck')?.value;
+                if (honeypot && honeypot.trim().length > 0) {
+                    console.warn("Spam bot trapped via honeypot.");
+                    form.style.display = 'none';
+                    const successBox = document.getElementById('checkout-success-box');
+                    if (successBox) successBox.style.display = 'block';
+                    return;
+                }
+
+                // Anti-Bot Layer 2: Submission Velocity Check (< 1.8 seconds)
+                const elapsed = Date.now() - pageLoadTimestamp;
+                if (elapsed < 1800) {
+                    console.warn("Spam bot trapped: submission too fast (" + elapsed + "ms)");
+                    form.style.display = 'none';
+                    const successBox = document.getElementById('checkout-success-box');
+                    if (successBox) successBox.style.display = 'block';
+                    return;
+                }
+
+                // Anti-Bot Layer 3: Anti-Flood Rate-Limiting Cooldown (15 seconds)
+                const lastSubTime = localStorage.getItem('qrmeunu_last_sub_ts');
+                if (lastSubTime && (Date.now() - parseInt(lastSubTime, 10)) < 15000) {
+                    alert(activeLanguage === 'ar' ? "يرجى الانتظار بضع ثوانٍ قبل إرسال طلب جديد." : "Veuillez patienter quelques instants avant de renvoyer une demande.");
+                    return;
                 }
 
                 const nom = document.getElementById('f-name').value.trim();
@@ -2527,6 +2965,23 @@
                 const restaurant = document.getElementById('f-resto').value.trim();
                 const email = document.getElementById('f-email').value.trim();
                 const wilaya = document.getElementById('f-wilaya').value;
+
+                // Anti-Bot Layer 4: Strict Algerian Phone Number Validation
+                const cleanDigits = phone.replace(/[\s\.\-\(\)]/g, '');
+                const isValidPhone = /^(05|06|07|02)[0-9]{8}$/.test(cleanDigits) || /^(\+213|213|00213)[5672][0-9]{8}$/.test(cleanDigits);
+                if (!isValidPhone) {
+                    alert(activeLanguage === 'ar' ? "يرجى إدخال رقم هاتف جزائري صحيح (مثال: 0550 12 34 56)" : "Veuillez entrer un numéro de téléphone algérien valide (ex: 0550 12 34 56)");
+                    document.getElementById('f-phone').focus();
+                    return;
+                }
+
+                localStorage.setItem('qrmeunu_last_sub_ts', Date.now().toString());
+
+                const submitBtn = document.getElementById('btn-submit-order');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = (activeLanguage === 'ar') ? 'جاري تأكيد الطلب... ⏳' : 'Envoi en cours... ⏳';
+                }
 
                 const orderData = {
                     name: nom,

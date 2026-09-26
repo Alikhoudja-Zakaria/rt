@@ -1,0 +1,34 @@
+# robots.txt for Qrmeunu Algérie (https://rt-alikhoudja-zakarias-projects.vercel.app/)
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+
+# Ad Review Crawlers (Meta, TikTok, Google) - Explicitly allowed for instant ad verification
+User-agent: Facebot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: TikTokBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Ads
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://rt-alikhoudja-zakarias-projects.vercel.app/sitemap.xml
