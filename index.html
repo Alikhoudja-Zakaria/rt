@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0F172A">
+    <meta name="theme-color" content="#102334">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="format-detection" content="telephone=no">
     <title>Qrmeunu | Menu QR & Commandes pour restaurants en Algérie 🇩🇿</title>
-    <meta name="description" content="Menu QR interactif pour restaurants algériens. Vos clients scannent et commandent depuis leur téléphone. Installation gratuite sur place. 0 DA aujourd'hui.">
-
-    <!-- Canonical & Bot Crawling Directives (Meta, TikTok, Google) -->
-    <link rel="canonical" href="https://rt-alikhoudja-zakarias-projects.vercel.app/">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow">
+    <meta name="description" content="Menu QR premium, commandes à table, intégration caisse et avis Google pour les restaurants algériens. À partir de 2 000 DA/mois.">
 
     <!-- Open Graph: WhatsApp / Instagram / Facebook share preview -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Qrmeunu · Menu QR & Commandes pour Restaurants 🇩🇿">
-    <meta property="og:description" content="Fini les menus papier. Vos clients scannent et commandent depuis leur téléphone. Installation gratuite sur place partout en Algérie.">
+    <meta property="og:description" content="Fini les menus papier. Vos clients scannent, consultent et commandent depuis leur téléphone. À partir de 2 000 DA/mois.">
     <meta property="og:image" content="https://rt-alikhoudja-zakarias-projects.vercel.app/assets/brand_image_6.png">
     <meta property="og:url" content="https://rt-alikhoudja-zakarias-projects.vercel.app/">
     <meta property="og:locale" content="fr_DZ">
@@ -26,8 +21,13 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Qrmeunu · Menu QR pour Restaurants Algériens 🇩🇿">
-    <meta name="twitter:description" content="Commandes à table, avis Google 5★, installation gratuite sur place.">
+    <meta name="twitter:description" content="Commandes à table, avis Google 5★, intégration caisse. À partir de 2 000 DA/mois.">
     <meta name="twitter:image" content="https://rt-alikhoudja-zakarias-projects.vercel.app/assets/brand_image_6.png">
+
+    <!-- Canonical & Bot Crawling Directives (Meta, TikTok, Google) -->
+    <link rel="canonical" href="https://rt-alikhoudja-zakarias-projects.vercel.app/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
 
     <!-- Schema.org JSON-LD for Ad Review Bots & Search Crawlers -->
     <script type="application/ld+json">
@@ -37,9 +37,18 @@
       "name": "Qrmeunu Algérie",
       "operatingSystem": "All (Web-based, iOS, Android)",
       "applicationCategory": "BusinessApplication",
-      "description": "Solution de menu digital par code QR et commande à table pour restaurants en Algérie. Installation sur place sans avance de frais.",
+      "description": "Solution complète de menu digital par code QR et prise de commande à table pour restaurants et cafés en Algérie.",
       "url": "https://rt-alikhoudja-zakarias-projects.vercel.app/",
       "offers": [
+        {
+          "@type": "Offer",
+          "name": "Formule Basic",
+          "price": "24000",
+          "priceCurrency": "DZD",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "description": "Menu QR consultable sur smartphone avec mise à jour continue"
+        },
         {
           "@type": "Offer",
           "name": "Formule Commande",
@@ -51,12 +60,12 @@
         },
         {
           "@type": "Offer",
-          "name": "Formule Basic",
-          "price": "24000",
+          "name": "Formule Caisse Pro",
+          "price": "56160",
           "priceCurrency": "DZD",
           "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
-          "description": "Menu QR consultable sur smartphone avec mise à jour continue"
+          "description": "Intégration caisse POS et impression directe des tickets en cuisine"
         }
       ],
       "aggregateRating": {
@@ -107,7 +116,7 @@
     <!-- Google Fonts: Plus Jakarta Sans & Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -115,20 +124,18 @@
             --primary-dark: #E64A19;
             --primary-soft: #FFF2ED;
             --primary-border: #FFCCBC;
-            --dark: #0F172A;
-            --dark-card: #1E293B;
-            --green: #10B981;
-            --green-dark: #059669;
-            --green-soft: #ECFDF5;
-            --whatsapp: #25D366;
-            --bg-page: #F8FAFC;
-            --text-main: #0F172A;
-            --text-muted: #64748B;
-            --border: #E2E8F0;
+            --teal: #0D9488;
+            --teal-soft: #F0FDFA;
+            --dark: #102334;
+            --text-main: #102334;
+            --text-muted: #60717A;
+            --bg-page: #F4F6F8;
             --card-bg: #FFFFFF;
-            --radius-xl: 24px;
-            --radius-lg: 18px;
-            --radius-md: 14px;
+            --card-border: #E2E8F0;
+            --whatsapp: #25D366;
+            --radius-outer: 24px;
+            --radius-card: 20px;
+            --radius-sm: 14px;
             --safe-bottom: env(safe-area-inset-bottom, 0px);
         }
 
@@ -144,7 +151,8 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        #section-commander {
+        #section-commander,
+        #section-formules {
             scroll-margin-top: 85px;
         }
 
@@ -153,593 +161,1028 @@
             background-color: var(--bg-page);
             color: var(--text-main);
             line-height: 1.5;
-            padding-bottom: calc(90px + var(--safe-bottom));
+            padding-bottom: calc(100px + var(--safe-bottom));
+            overflow-x: hidden;
+            /* Prevent horizontal bounce in WebView */
+            overscroll-behavior-x: none;
         }
 
         body.lang-ar {
-            font-family: 'Cairo', -apple-system, sans-serif;
-            direction: rtl;
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* ── TOP URGENCY TICKER ── */
+        /* ── IN-APP BROWSER ENTRANCE ANIMATIONS ── */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes urgencyPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.85; }
+        }
+        @keyframes ctaGlow {
+            0%, 100% { box-shadow: 0 6px 20px -2px rgba(255, 87, 34, 0.45); }
+            50% { box-shadow: 0 10px 28px rgba(255, 87, 34, 0.7); }
+        }
+
+        /* ── TOP URGENCY BANNER ── */
         .top-urgency-bar {
-            background: linear-gradient(90deg, #EA580C 0%, #DC2626 100%);
+            background: linear-gradient(90deg, #102334 0%, #1A365D 50%, #102334 100%);
             color: #FFFFFF;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 800;
-            padding: 8px 14px;
             text-align: center;
+            padding: 8px 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             letter-spacing: 0.2px;
+            border-bottom: 1px solid rgba(255, 87, 34, 0.35);
         }
-        .urgency-dot {
+        .urgency-live-dot {
             width: 8px;
             height: 8px;
-            background: #FFFFFF;
             border-radius: 50%;
-            box-shadow: 0 0 8px #FFF;
-            animation: pulseDot 1.4s infinite;
+            background: #FF5722;
+            box-shadow: 0 0 10px #FF5722;
+            animation: urgencyPulse 1.2s infinite;
             flex-shrink: 0;
         }
-        @keyframes pulseDot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.85); }
-        }
 
-        /* ── NAVBAR ── */
-        .topbar-wrap {
+        /* ── TOP NAV BAR ── */
+        .top-navbar-wrap {
             position: sticky;
-            top: 0;
-            z-index: 99;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border);
-            padding: 10px 16px;
+            top: 8px;
+            z-index: 100;
+            padding: 0 10px;
+            max-width: 600px;
+            margin: 8px auto 14px;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
-        .topbar-inner {
-            max-width: 520px;
-            margin: 0 auto;
+        .top-navbar {
+            background: #FFFFFF;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 999px;
+            padding: 6px 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            box-shadow: 0 8px 25px -6px rgba(16, 35, 52, 0.12);
         }
-        .brand-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--dark);
+        @supports not (backdrop-filter: blur(1px)) {
+            .top-navbar {
+                background: #FFFFFF !important;
+                box-shadow: 0 4px 20px rgba(16, 35, 52, 0.15);
+            }
         }
-        .brand-logo-img {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-        .brand-title {
-            font-size: 18px;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .brand-flag { font-size: 14px; }
-
-        .topbar-right {
+        .nav-logo-box {
             display: flex;
             align-items: center;
             gap: 8px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -0.4px;
+            flex-shrink: 0;
         }
-        .lang-switch {
+        .nav-logo-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
             display: flex;
-            background: #F1F5F9;
-            border-radius: 999px;
-            padding: 3px;
-            border: 1px solid var(--border);
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 15px;
+            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.35);
         }
-        .lang-btn {
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .lang-toggle-pills {
+            display: flex;
+            background: #EDF2F4;
+            padding: 2px;
+            border-radius: 999px;
+            gap: 2px;
+        }
+        .lang-pill-btn {
             background: transparent;
             border: none;
-            padding: 4px 10px;
+            padding: 4px 9px;
             border-radius: 999px;
-            font-size: 11.5px;
+            font-size: 11px;
             font-weight: 800;
-            color: var(--text-muted);
             cursor: pointer;
+            color: var(--text-muted);
             font-family: inherit;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
-        .lang-btn.active {
+        .lang-pill-btn.active {
             background: #FFFFFF;
-            color: var(--dark);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            color: var(--text-main);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .top-btn-wa {
-            background: #DCFCE7;
-            color: #166534;
-            border: 1px solid #BBF7D0;
-            padding: 6px 12px;
+        .btn-nav-order {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border: none;
+            padding: 7px 13px;
             border-radius: 999px;
             font-size: 12px;
             font-weight: 800;
+            cursor: pointer;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
+            box-shadow: 0 3px 10px rgba(255, 87, 34, 0.3);
+            font-family: inherit;
+            white-space: nowrap;
         }
 
-        /* ── CONTAINER ── */
-        .container {
-            max-width: 520px;
+        /* ── MAIN WRAPPER ── */
+        .page-container {
+            max-width: 560px;
             margin: 0 auto;
-            padding: 16px 16px 24px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* ══════════════════════════════════════════════════════════
-           SCREEN 1: THE IRRESISTIBLE HERO HOOK
-           ══════════════════════════════════════════════════════════ */
-        .hero-card {
-            background: #FFFFFF;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            padding: 22px 18px;
-            box-shadow: 0 12px 35px -8px rgba(15, 23, 42, 0.08);
+            padding: 0 12px;
             display: flex;
             flex-direction: column;
             gap: 16px;
-            text-align: center;
         }
-        .hero-proof-badge {
+
+        /* ── PRODUCT TITLE CARD (HERO) ── */
+        .product-header-card {
+            background: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-outer);
+            padding: 20px 18px;
+            box-shadow: 0 6px 25px -4px rgba(15, 23, 42, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        .product-header-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), #FF8A65, var(--teal));
+        }
+        .product-meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .product-verified-badge {
+            background: #FEF3C7;
+            color: #92400E;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 800;
             display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .product-country-badge {
+            font-size: 11px;
+            font-weight: 800;
+            color: #047857;
+            background: #ECFDF5;
+            padding: 4px 10px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .product-main-title {
+            font-size: 23px;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+        .product-main-sub {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+
+        /* ── HERO QUICK CONVERSION CTA ── */
+        .hero-cta-box {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .btn-hero-order {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: 900;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            animation: ctaGlow 2.5s infinite;
+            font-family: inherit;
+            transition: transform 0.15s ease;
+        }
+        .btn-hero-order:active {
+            transform: scale(0.98);
+        }
+        .hero-guarantee-note {
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            background: #FEF3C7;
-            color: #92400E;
-            border: 1px solid #FDE68A;
-            border-radius: 999px;
-            padding: 5px 14px;
-            font-size: 12px;
-            font-weight: 800;
-            align-self: center;
-        }
-        .hero-h1 {
-            font-size: 26px;
-            font-weight: 900;
-            line-height: 1.25;
-            color: var(--dark);
-            letter-spacing: -0.6px;
-        }
-        body.lang-ar .hero-h1 {
-            font-size: 27px;
-            line-height: 1.35;
-        }
-        .hero-h1 span.highlight {
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-        }
-        .hero-sub {
-            font-size: 14.5px;
-            color: #475569;
-            line-height: 1.55;
-            font-weight: 500;
-        }
-
-        /* ── HERO GUARANTEE GOLD BOX ── */
-        .hero-offer-box {
-            background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
-            border: 1.5px dashed #FDBA74;
-            border-radius: var(--radius-lg);
-            padding: 14px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-align: left;
-        }
-        body.lang-ar .hero-offer-box {
-            text-align: right;
-        }
-        .offer-gift-icon {
-            font-size: 32px;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-        .offer-text-block strong {
-            display: block;
-            font-size: 13.5px;
-            font-weight: 900;
-            color: #9A3412;
-            margin-bottom: 2px;
-        }
-        .offer-text-block p {
-            font-size: 12px;
-            color: #C2410C;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        /* ── HERO VISUAL DEMO CARD ── */
-        .demo-visual-card {
-            background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
-            border-radius: var(--radius-lg);
-            padding: 16px;
-            color: #FFFFFF;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
-            text-align: left;
-        }
-        body.lang-ar .demo-visual-card {
-            text-align: right;
-        }
-        .demo-top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
             font-size: 11px;
             font-weight: 800;
-            color: #38BDF8;
+            color: #047857;
+            text-align: center;
         }
-        .demo-table-pill {
-            background: rgba(255, 255, 255, 0.12);
-            padding: 3px 8px;
-            border-radius: 6px;
+        .hero-rating-proof {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748B;
+            text-align: center;
+            border-top: 1px solid #EDF2F7;
+            padding-top: 6px;
+            margin-top: 2px;
+        }
+        .stars-gold {
+            color: #F59E0B;
+            letter-spacing: 1px;
+            font-size: 12px;
+        }
+        /* ══════════════════════════════════════════════════════════
+           SECTION: PRODUCT SLIDER (Rock-Solid for Instagram/TikTok WebViews)
+           ══════════════════════════════════════════════════════════ */
+        .product-slider-container {
+            background: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-outer);
+            padding: 14px;
+            box-shadow: 0 8px 30px -4px rgba(16, 35, 52, 0.08);
+            position: relative;
+        }
+        .slider-viewport {
+            overflow: hidden;
+            width: 100%;
+            min-height: 400px;
+            border-radius: 20px;
+            touch-action: pan-y;
+            user-select: none;
+            -webkit-user-select: none;
+            position: relative;
+            background: #0F172A;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+        .slider-track {
+            display: flex;
+            width: 100%;
+            min-height: 400px;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slider-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            min-width: 100%;
+            min-height: 400px;
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 16px 14px;
             color: #FFFFFF;
+            overflow: hidden;
         }
-        .demo-dish-item {
-            background: rgba(255, 255, 255, 0.96);
-            border-radius: 12px;
-            padding: 10px 12px;
-            color: var(--dark);
+
+        /* Slide Themes with Rich Full-Bleed Gradients */
+        .slide-bg-scan {
+            background: radial-gradient(circle at 85% 15%, rgba(42, 157, 143, 0.45) 0%, transparent 60%),
+                        linear-gradient(155deg, #0F172A 0%, #1E293B 100%);
+        }
+        .slide-bg-google {
+            background: radial-gradient(circle at 50% 25%, rgba(251, 188, 5, 0.35) 0%, transparent 65%),
+                        linear-gradient(155deg, #0A192F 0%, #172A45 50%, #0A192F 100%);
+        }
+        .slide-bg-food {
+            background: radial-gradient(circle at 85% 25%, rgba(234, 88, 12, 0.4) 0%, transparent 65%),
+                        linear-gradient(155deg, #1C1917 0%, #292524 50%, #1C1917 100%);
+        }
+        .slide-bg-order {
+            background: radial-gradient(circle at 15% 20%, rgba(16, 185, 129, 0.4) 0%, transparent 65%),
+                        linear-gradient(155deg, #064E3B 0%, #065F46 50%, #022C22 100%);
+        }
+        .slide-bg-manage {
+            background: radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.4) 0%, transparent 65%),
+                        linear-gradient(155deg, #2E1065 0%, #3B0764 50%, #1E1B4B 100%);
+        }
+
+        /* Slide Top Header Bar */
+        .slide-top-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 2;
         }
-        .demo-dish-title {
-            font-size: 13px;
-            font-weight: 800;
-            display: flex;
+        .slide-pill-badge {
+            display: inline-flex;
             align-items: center;
             gap: 6px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #FFFFFF;
         }
-        .demo-dish-price {
+        .slide-step-counter {
+            font-size: 11px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Slide Center Visual Mockups */
+        .slide-center-visual {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 0;
+            z-index: 2;
+        }
+        .slide-mockup-card {
+            width: 100%;
+            max-width: 320px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+            padding: 12px 14px;
+            box-shadow: 0 14px 30px -8px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Google Maps Specific Mockup */
+        .google-brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: #FFFFFF;
+        }
+        .google-logo-text {
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: -0.2px;
+        }
+        .google-logo-text span:nth-child(1) { color: #4285F4; }
+        .google-logo-text span:nth-child(2) { color: #EA4335; }
+        .google-logo-text span:nth-child(3) { color: #FBBC05; }
+        .google-logo-text span:nth-child(4) { color: #4285F4; }
+        .google-logo-text span:nth-child(5) { color: #34A853; }
+        .google-logo-text span:nth-child(6) { color: #EA4335; }
+
+        .google-stars-big {
+            color: #FBBC05;
+            font-size: 26px;
+            letter-spacing: 3px;
+            line-height: 1;
+            margin: 4px 0 6px 0;
+            text-align: center;
+            filter: drop-shadow(0 2px 10px rgba(251, 188, 5, 0.6));
+        }
+        .google-rating-score {
             font-size: 13px;
             font-weight: 900;
-            color: var(--primary);
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            text-align: center;
         }
-        .demo-google-boost {
+        .google-action-pill {
             background: #FFFFFF;
-            border-radius: 10px;
+            color: #1E293B;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 7px 12px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .google-boost-tag {
+            font-size: 11px;
+            font-weight: 800;
+            color: #93C5FD;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        /* Live Menu Mockup Item */
+        .mockup-item-pill {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 12px;
             padding: 8px 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            color: var(--dark);
-            font-size: 11px;
+            color: var(--text-main);
+            font-size: 12px;
             font-weight: 800;
-        }
-        .stars-row {
-            color: #FBBC05;
-            font-size: 13px;
-            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-top: 6px;
         }
 
-        /* ── HERO CTA BUTTON ── */
-        .btn-action-primary {
-            background: linear-gradient(180deg, #10B981 0%, #059669 100%);
-            color: #FFFFFF;
-            border: none;
-            padding: 16px 20px;
-            border-radius: 999px;
-            font-size: 15.5px;
-            font-weight: 900;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
-            cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-            font-family: inherit;
+        /* Slide Bottom Captions */
+        .slide-bottom-text {
+            z-index: 2;
+            text-align: left;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
-        .btn-action-primary:active {
-            transform: scale(0.98);
+        body.lang-ar .slide-bottom-text {
+            text-align: right;
         }
-        .btn-sub-note {
-            font-size: 11.5px;
-            color: var(--text-muted);
-            font-weight: 700;
-        }
-
-        /* ══════════════════════════════════════════════════════════
-           SCREEN 2: THE 3 REAL WINS (NO FLUFF)
-           ══════════════════════════════════════════════════════════ */
-        .section-header {
-            text-align: center;
-            margin-bottom: 4px;
-        }
-        .section-tag {
-            font-size: 11px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--primary);
-            background: var(--primary-soft);
-            padding: 4px 10px;
-            border-radius: 999px;
-            display: inline-block;
-            margin-bottom: 6px;
-        }
-        .section-title {
-            font-size: 20px;
-            font-weight: 900;
-            color: var(--dark);
-            letter-spacing: -0.4px;
-        }
-
-        .wins-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .win-card {
-            background: #FFFFFF;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 16px;
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-        }
-        .win-icon-circle {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
-        }
-        .win-card:nth-child(1) .win-icon-circle { background: #ECFDF5; }
-        .win-card:nth-child(2) .win-icon-circle { background: #EFF6FF; }
-        .win-card:nth-child(3) .win-icon-circle { background: #FEF3C7; }
-
-        .win-body strong {
-            display: block;
+        .slide-title-text {
             font-size: 15px;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 3px;
-        }
-        .win-body p {
-            font-size: 13px;
-            color: #475569;
-            line-height: 1.45;
-        }
-
-        /* ══════════════════════════════════════════════════════════
-           SCREEN 3: SIMPLE TRANSPARENT OFFER & EXPRESS FORM
-           ══════════════════════════════════════════════════════════ */
-        .order-card {
-            background: #FFFFFF;
-            border: 2px solid var(--primary-border);
-            border-radius: var(--radius-xl);
-            padding: 22px 18px;
-            box-shadow: 0 16px 40px -10px rgba(255, 87, 34, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .order-head {
-            text-align: center;
-        }
-        .order-head h2 {
-            font-size: 21px;
             font-weight: 900;
-            color: var(--dark);
-            margin-bottom: 4px;
+            line-height: 1.25;
+            margin-bottom: 3px;
+            color: #FFFFFF;
         }
-        .order-head p {
-            font-size: 13px;
-            color: var(--text-muted);
+        .slide-desc-text {
+            font-size: 11.5px;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.85);
         }
 
-        /* Formula Selector Box (Dead Simple) */
-        .formula-compact-picker {
-            background: #F8FAFC;
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .plan-choice-item {
-            background: #FFFFFF;
-            border: 2px solid #E2E8F0;
-            border-radius: var(--radius-md);
-            padding: 12px 14px;
+        .slider-bottom-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.2s;
+            padding-top: 12px;
         }
-        .plan-choice-item.selected {
-            border-color: var(--primary);
-            background: #FFF7ED;
+        .slider-counter-pill {
+            font-size: 11px;
+            font-weight: 800;
+            color: #64748B;
+            background: #F1F5F9;
+            padding: 4px 10px;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
         }
-        .plan-left-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .plan-radio-circle {
-            width: 18px;
-            height: 18px;
+        .slider-btn-nav {
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            border: 2px solid #CBD5E1;
+            border: 1px solid #DCE4E8;
+            background: #FFFFFF;
+            color: var(--text-main);
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .plan-choice-item.selected .plan-radio-circle {
-            border-color: var(--primary);
-        }
-        .plan-choice-item.selected .plan-radio-circle::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--primary);
-        }
-        .plan-name-badge strong {
-            display: block;
-            font-size: 14.5px;
-            font-weight: 900;
-            color: var(--dark);
-        }
-        .plan-name-badge span {
-            font-size: 11px;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-        .plan-price-tag {
-            text-align: right;
-        }
-        body.lang-ar .plan-price-tag { text-align: left; }
-        .plan-price-val {
-            font-size: 16px;
-            font-weight: 900;
-            color: var(--dark);
-        }
-        .plan-sub-tag {
-            font-size: 10.5px;
-            color: #EA580C;
+            cursor: pointer;
             font-weight: 800;
-            display: block;
+            font-size: 15px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .slider-btn-nav:active {
+            transform: scale(0.92);
+            background: #F1F5F9;
+        }
+        .slider-dots-group {
+            display: flex;
+            gap: 6px;
+        }
+        .slider-nav-dot {
+            width: 18px;
+            height: 6px;
+            border-radius: 999px;
+            background: #DCE4E8;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .slider-nav-dot.active {
+            background: var(--primary);
+            width: 28px;
         }
 
-        /* Form Inputs */
-        .express-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        /* ══════════════════════════════════════════════════════════
+           SECTION: POURQUOI ARRÊTER LE PAPIER ? (From User Screenshot)
+           ══════════════════════════════════════════════════════════ */
+        .card-savings-comparison {
+            background: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-outer);
+            padding: 20px 18px;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
         }
-        .input-group {
+        .sec-top-badge-row {
             display: flex;
-            flex-direction: column;
-            gap: 4px;
-            text-align: left;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
         }
-        body.lang-ar .input-group { text-align: right; }
-        .input-group label {
-            font-size: 12.5px;
+        .sec-title-bold {
+            font-size: 19px;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.4px;
+        }
+        .sec-badge-pill {
+            font-size: 11px;
             font-weight: 800;
-            color: var(--dark);
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #FEF3C7;
+            color: #B45309;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .input-box {
-            width: 100%;
-            padding: 13px 14px;
-            background: #F8FAFC;
-            border: 1.5px solid #CBD5E1;
-            border-radius: var(--radius-md);
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--dark);
-            outline: none;
+
+        .compare-grid-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .compare-box-red {
+            background: #FFF1F2;
+            border: 1px solid #FFE4E6;
+            border-radius: 16px;
+            padding: 14px 12px;
+            color: #9F1239;
+            font-size: 12px;
+        }
+        .compare-box-green {
+            background: #F0FDF4;
+            border: 1px solid #DCFCE7;
+            border-radius: 16px;
+            padding: 14px 12px;
+            color: #166534;
+            font-size: 12px;
+        }
+        .compare-box-red strong, .compare-box-green strong {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .compare-box-red ul, .compare-box-green ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .compare-box-red li::before {
+            content: "• ";
+            color: #E11D48;
+            font-weight: 900;
+        }
+        .compare-box-green li::before {
+            content: "• ";
+            color: #16A34A;
+            font-weight: 900;
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           SECTION: CHOISISSEZ VOTRE FORMULE (WITH BIGGER PICTURE BOXES)
+           ══════════════════════════════════════════════════════════ */
+        .card-pricing-section {
+            background: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-outer);
+            padding: 20px 18px;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+        }
+        .pricing-cards-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 14px;
+        }
+
+        .formula-card {
+            border: 1.5px solid #DCE4E8;
+            border-radius: var(--radius-card);
+            padding: 18px 16px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            background: #FFFFFF;
+        }
+        .formula-card:hover {
+            border-color: #91AAA9;
+        }
+        .formula-card.selected {
+            border: 2.5px solid #FF5722;
+            background: #FFFFFF;
+            box-shadow: 0 10px 25px -5px rgba(255, 87, 34, 0.15);
+        }
+
+        .formula-ribbon {
+            position: absolute;
+            top: -12px;
+            right: 18px;
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+        body.lang-ar .formula-ribbon {
+            right: auto;
+            left: 18px;
+        }
+        .formula-ribbon.orange {
+            background: linear-gradient(135deg, #FF5722, #FF8A65);
+        }
+        .formula-ribbon.red {
+            background: linear-gradient(135deg, #DC2626, #EF4444);
+        }
+
+        /* ── BIG PICTURE ROW (Optimized for Mobile Screens) ── */
+        .formula-main-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .formula-big-pic-box {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .formula-card:hover .formula-big-pic-box {
+            transform: scale(1.04);
+        }
+        .formula-card.selected .formula-big-pic-box {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        /* Exact colors from user screenshot media_1790447383008 */
+        .pic-basic {
+            background: #EEF2F6;
+            border: 1.5px solid #D6E0EA;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .pic-commande {
+            background: #E0F5F2;
+            border: 1.5px solid #99DCD0;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1);
+        }
+        .pic-caisse {
+            background: #EEF2F6;
+            border: 1.5px solid #D6E0EA;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .pic-symbol {
+            font-size: 44px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
+        }
+
+        .formula-content-col {
+            flex: 1;
+            min-width: 0;
+        }
+        .formula-heading-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .custom-radio-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #CBD5E1;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
             transition: all 0.2s;
+        }
+        .formula-card.selected .custom-radio-circle {
+            border-color: #FF5722;
+        }
+        .custom-radio-circle::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #FF5722;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .formula-card.selected .custom-radio-circle::after {
+            opacity: 1;
+        }
+
+        .formula-name-text {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--text-main);
+        }
+
+        .formula-price-block {
+            margin-top: 2px;
+        }
+        .formula-strike-price {
+            font-size: 12px;
+            text-decoration: line-through;
+            color: #94A3B8;
+        }
+        .formula-main-price {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+        .formula-main-price span {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .formula-features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+            border-top: 1px solid #F1F5F9;
+            padding-top: 12px;
+        }
+        .formula-features-list li {
+            font-size: 13px;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .check-green-icon {
+            color: #059669;
+            font-weight: 900;
+            font-size: 15px;
+        }
+        .formula-annual-note {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           SECTION: COMMANDE CHECKOUT FORM
+           ══════════════════════════════════════════════════════════ */
+        .card-checkout-form {
+            background: #FFFFFF;
+            border: 2px solid var(--primary-border);
+            border-radius: var(--radius-outer);
+            padding: 22px 18px;
+            box-shadow: 0 10px 30px -5px rgba(255, 87, 34, 0.1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes formGlowEffect {
+            0% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.5), 0 10px 30px -5px rgba(255, 87, 34, 0.1); }
+            50% { box-shadow: 0 0 0 8px rgba(255, 87, 34, 0.25), 0 20px 40px -5px rgba(255, 87, 34, 0.25); transform: translateY(-3px); }
+            100% { box-shadow: 0 10px 30px -5px rgba(255, 87, 34, 0.1); transform: translateY(0); }
+        }
+        .card-checkout-form.pulse-highlight {
+            animation: formGlowEffect 1s cubic-bezier(0.16, 1, 0.3, 1);
+            border-color: var(--primary) !important;
+        }
+
+        /* Formula Card Choose Button */
+        .btn-card-choose {
+            width: 100%;
+            margin-top: 12px;
+            padding: 9px 14px;
+            border-radius: 12px;
+            border: 1.5px solid #CBD5E1;
+            background: #F8FAFC;
+            color: var(--text-main);
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
             font-family: inherit;
         }
-        .input-box:focus {
-            border-color: var(--primary);
-            background: #FFFFFF;
-            box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.12);
+        .formula-card.selected .btn-card-choose {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #FFFFFF;
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(255, 87, 34, 0.35);
+        }
+        .btn-card-choose:active {
+            transform: scale(0.97);
         }
 
-        /* Quick Wilaya Buttons */
-        .quick-wilayas {
+        /* Phone input validation state */
+        .field-input.valid {
+            border-color: #10B981 !important;
+            background: #F0FDF4;
+        }
+        .phone-valid-hint {
+            font-size: 11px;
+            font-weight: 800;
+            color: #059669;
+            display: none;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+        }
+        .phone-valid-hint.show {
+            display: flex;
+        }
+
+        .form-row-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 14px;
+        }
+        .form-row-group label {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .form-row-group label .opt {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .field-input {
+            width: 100%;
+            height: 48px;
+            padding: 0 14px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid #DCE4E8;
+            background: #F8FAFC;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+        .field-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.15);
+        }
+
+        .quick-wilayas-bar {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 2px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
-        .quick-wilaya-btn {
+        .wilaya-btn-pill {
             background: #F1F5F9;
             border: 1px solid #E2E8F0;
             padding: 4px 10px;
             border-radius: 999px;
             font-size: 11px;
-            font-weight: 700;
-            color: #475569;
+            font-weight: 800;
             cursor: pointer;
+            color: var(--text-main);
             font-family: inherit;
+            transition: all 0.15s;
         }
-        .quick-wilaya-btn:hover, .quick-wilaya-btn.active {
-            background: #FFEDD5;
-            border-color: #FDBA74;
-            color: #9A3412;
+        .wilaya-btn-pill:hover, .wilaya-btn-pill.active {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
         }
 
-        /* Anti-Bot & Trust Shield */
-        .bot-trust-shield {
-            background: #ECFDF5;
-            border: 1px solid #A7F3D0;
-            border-radius: 12px;
-            padding: 10px 12px;
+        .summary-total-banner {
+            background: var(--primary-soft);
+            border: 1px dashed var(--primary-border);
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 11px;
-            color: #065F46;
-            font-weight: 700;
+            justify-content: space-between;
         }
-        .bot-trust-shield span:first-child { font-size: 20px; }
+        .summary-total-banner span {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        .summary-total-banner strong {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--primary-dark);
+        }
 
-        /* Submit Buttons */
         .btn-submit-order {
-            background: linear-gradient(180deg, #10B981 0%, #059669 100%);
+            width: 100%;
+            height: 54px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #FFFFFF;
             border: none;
-            padding: 16px;
-            border-radius: 999px;
+            border-radius: var(--radius-sm);
             font-size: 16px;
             font-weight: 900;
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
-            font-family: inherit;
-            width: 100%;
-        }
-        .btn-wa-alt {
-            background: #FFFFFF;
-            color: #15803D;
-            border: 1.5px solid #86EFAC;
-            padding: 12px;
-            border-radius: 999px;
-            font-size: 13.5px;
-            font-weight: 800;
-            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            text-align: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px -4px rgba(255, 87, 34, 0.4);
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .btn-submit-order:active {
+            transform: scale(0.98);
+        }
+
+        .btn-wa-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--whatsapp);
+            color: #FFFFFF;
+            padding: 13px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            margin-top: 10px;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+            font-family: inherit;
         }
 
         /* Success Box */
@@ -747,7 +1190,7 @@
             display: none;
             background: #ECFDF5;
             border: 2px solid #34D399;
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-card);
             padding: 24px 18px;
             text-align: center;
         }
@@ -762,652 +1205,1694 @@
             justify-content: center;
             font-size: 26px;
             margin: 0 auto 12px;
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
         }
 
-        /* ── REASSURANCE 4 PILLS ── */
-        .reassurance-strip {
+        /* ── REASSURANCE 4 BLOCKS ── */
+        .reassurance-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
-        .reassurance-pill {
+        .reassurance-card {
             background: #FFFFFF;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 14px 12px;
             text-align: center;
-            font-size: 12px;
         }
-        .reassurance-pill span.icon { font-size: 20px; display: block; margin-bottom: 2px; }
-        .reassurance-pill strong { display: block; font-size: 12.5px; font-weight: 800; color: var(--dark); }
-        .reassurance-pill span.sub { font-size: 11px; color: var(--text-muted); }
+        .reassurance-card .icon { font-size: 24px; margin-bottom: 4px; display: block; }
+        .reassurance-card strong { display: block; font-size: 13px; font-weight: 800; color: var(--text-main); }
+        .reassurance-card span { font-size: 11px; color: var(--text-muted); }
 
-        /* ── FOOTER & LEGAL ── */
+        /* ── FOOTER ── */
         .page-footer {
             text-align: center;
             font-size: 12px;
             color: var(--text-muted);
-            padding-top: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            padding: 20px 0;
         }
-        .footer-legal-links {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            font-size: 11px;
-        }
-        .footer-legal-links a {
-            color: var(--text-muted);
-            text-decoration: underline;
-        }
-        .classic-version-link {
-            display: inline-block;
-            margin-top: 4px;
-            color: var(--primary);
-            font-weight: 800;
-            text-decoration: none;
-            font-size: 12px;
-        }
+        .page-footer a { color: var(--primary); text-decoration: none; font-weight: 700; }
 
-        /* ── FLOATING STICKY BOTTOM BAR (COMPACT) ── */
         .sticky-footer-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
+            /* Solid fallback first, then translucent */
+            background: #FFFFFF;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-top: 1px solid var(--border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid #E2E8F0;
             padding: 10px 16px;
             padding-bottom: calc(10px + var(--safe-bottom));
             z-index: 999;
             box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            /* Force GPU layer for WebView */
+            -webkit-transform: translateZ(0);
+            will-change: transform;
         }
-        .sticky-inner {
-            max-width: 520px;
+        @supports not (backdrop-filter: blur(1px)) {
+            .sticky-footer-bar {
+                background: #FFFFFF !important;
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+            }
+        }
+        .sticky-footer-bar.hide-sticky {
+            transform: translateY(120%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .sticky-inner-box {
+            max-width: 560px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
+            gap: 10px;
         }
-        .sticky-text {
+        .sticky-plan-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .sticky-plan-title { font-size: 12px; font-weight: 800; color: var(--text-main); }
+        .sticky-plan-price { font-size: 15px; font-weight: 900; color: var(--primary); }
+        .sticky-actions-group { display: flex; gap: 8px; }
+        .btn-sticky-order {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 13px;
+            padding: 10px 18px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.35);
+            font-family: inherit;
+        }
+        .btn-sticky-wa {
+            background: var(--whatsapp);
+            color: #FFFFFF;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 13px;
+            padding: 10px 14px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            font-family: inherit;
+        }
+
+        /* ── TRUST GUARANTEES BLOCK (PUSH TO BUY) ── */
+        .trust-guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 480px) {
+            .trust-guarantees-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+        .trust-guarantee-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(16, 35, 52, 0.04);
+        }
+        .trust-guarantee-card .tg-icon {
+            font-size: 24px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .trust-guarantee-card .tg-content strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+        .trust-guarantee-card .tg-content span {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            display: block;
+        }
+
+        /* ── FORMULA ROI TAG ── */
+        .formula-roi-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #FEF3C7;
+            color: #92400E;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-top: 4px;
+        }
+
+        /* ── COMPARE ROI BANNER ── */
+        .compare-roi-banner {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            border: 1px solid #86EFAC;
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-top: 12px;
             font-size: 12px;
             font-weight: 800;
-            color: var(--dark);
-            line-height: 1.25;
+            color: #166534;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
-        .sticky-text span {
-            color: #10B981;
+
+        /* ── LIVE SOCIAL PROOF TOAST ── */
+        .social-proof-toast {
+            position: fixed;
+            bottom: calc(75px + var(--safe-bottom));
+            left: 12px;
+            z-index: 998;
+            max-width: 320px;
+            background: rgba(16, 35, 52, 0.95);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            padding: 9px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            color: #FFFFFF;
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+        .social-proof-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        body.lang-ar .social-proof-toast {
+            left: auto;
+            right: 12px;
+            text-align: right;
+        }
+        .sp-dot {
+            font-size: 12px;
+            animation: urgencyPulse 1.5s infinite;
+            flex-shrink: 0;
+        }
+        .sp-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .sp-title {
+            font-size: 11.5px;
+            font-weight: 800;
+            color: #FFFFFF;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .sp-sub {
+            font-size: 10.5px;
+            color: #94A3B8;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .sp-close {
+            background: transparent;
+            border: none;
+            color: #94A3B8;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0 4px;
+            line-height: 1;
+        }
+
+        /* ── BOT SAFETY & TRUST SHIELD ── */
+        .bot-trust-shield {
+            background: linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%);
+            border: 1.5px solid #A7F3D0;
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 14px;
+            margin-bottom: 4px;
+        }
+        .shield-badge-icon {
+            font-size: 26px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .shield-badge-info {
+            flex: 1;
+            text-align: left;
+        }
+        body.lang-ar .shield-badge-info {
+            text-align: right;
+        }
+        .shield-badge-info strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 800;
+            color: #065F46;
+            margin-bottom: 2px;
+        }
+        .shield-badge-info span {
             display: block;
             font-size: 11px;
+            font-weight: 600;
+            color: #047857;
+            line-height: 1.35;
         }
-        .sticky-btn-order {
-            background: linear-gradient(180deg, #10B981 0%, #059669 100%);
+        .ssl-verify-tag {
+            background: #10B981;
             color: #FFFFFF;
-            padding: 10px 18px;
-            border-radius: 999px;
-            font-size: 13.5px;
+            font-size: 10px;
             font-weight: 900;
-            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
             white-space: nowrap;
         }
 
-        /* ── LEGAL MODAL ── */
+        /* Security Trust Strip (4 items) */
+        .security-trust-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed #E2E8F0;
+        }
+        .sec-strip-item {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 8px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            font-size: 10.5px;
+            font-weight: 800;
+            color: #334155;
+            text-align: center;
+        }
+        .sec-strip-item span:first-child {
+            font-size: 15px;
+        }
+
+        /* ── FOOTER LEGAL & COMPLIANCE MODAL (AD REVIEW BOTS / METRICS) ── */
+        .footer-legal-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            font-size: 11.5px;
+        }
+        .footer-legal-links a {
+            color: var(--text-muted);
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .footer-legal-links a:hover {
+            color: var(--primary);
+        }
+        .footer-legal-links .sep {
+            color: #CBD5E1;
+        }
+
         .legal-modal-overlay {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(6px);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.72);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             z-index: 10000;
             display: none;
             align-items: center;
             justify-content: center;
             padding: 16px;
         }
-        .legal-modal-overlay.active { display: flex; }
+        .legal-modal-overlay.active {
+            display: flex;
+        }
         .legal-modal-box {
             background: #FFFFFF;
             border-radius: 20px;
             width: 100%;
-            max-width: 500px;
-            max-height: 80vh;
+            max-width: 540px;
+            max-height: 85vh;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
             overflow: hidden;
+            animation: modalFadeIn 0.25s ease-out;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
         .legal-modal-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 16px 20px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid #E2E8F0;
             background: #F8FAFC;
         }
-        .legal-modal-header h3 { font-size: 15px; font-weight: 900; }
+        .legal-modal-header h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0;
+        }
         .btn-close-legal {
             background: #EDF2F7;
             border: none;
-            width: 30px; height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             font-size: 14px;
             font-weight: 900;
+            color: #475569;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .legal-modal-tabs {
+            display: flex;
+            border-bottom: 1px solid #E2E8F0;
+            background: #FFFFFF;
+        }
+        .legal-tab-btn {
+            flex: 1;
+            padding: 12px 6px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-size: 12px;
+            font-weight: 700;
+            color: #64748B;
+            cursor: pointer;
+            text-align: center;
+            font-family: inherit;
+        }
+        .legal-tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: #FFF7ED;
         }
         .legal-modal-body {
-            padding: 18px;
+            padding: 20px;
             overflow-y: auto;
-            font-size: 12.5px;
-            line-height: 1.6;
+            font-size: 13px;
+            line-height: 1.65;
             color: #334155;
+            -webkit-overflow-scrolling: touch;
+        }
+        .legal-modal-body h4 {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 14px 0 6px 0;
+        }
+        .legal-modal-body h4:first-child {
+            margin-top: 0;
+        }
+        .legal-modal-body p {
+            margin-bottom: 10px;
+        }
+        .legal-modal-body ul {
+            padding-left: 18px;
+            margin-bottom: 12px;
+        }
+        body.lang-ar .legal-modal-body ul {
+            padding-left: 0;
+            padding-right: 18px;
+        }
+        .legal-modal-body li {
+            margin-bottom: 4px;
         }
     </style>
 </head>
 <body class="lang-fr">
 
-    <!-- ══ TOP URGENCY TICKER ══ -->
+    <!-- ══ TOP URGENCY BANNER ══ -->
     <div class="top-urgency-bar">
-        <span class="urgency-dot"></span>
-        <span id="t-urgency-text">🔥 Offre Spéciale : Installation sur place offerte cette semaine en Algérie 🇩🇿</span>
+        <span class="urgency-live-dot"></span>
+        <span id="t-urgency-text">🔥 OFFRE SPÉCIALE : Installation offerte sur place · Places limitées cette semaine 🇩🇿</span>
     </div>
 
-    <!-- ══ NAVBAR ══ -->
-    <header class="topbar-wrap">
-        <div class="topbar-inner">
-            <a href="#" class="brand-link">
-                <img src="assets/brand_image_6.png" alt="Qrmeunu" class="brand-logo-img">
-                <div class="brand-title">Qrmeunu <span class="brand-flag">🇩🇿</span></div>
+    <!-- ══ STICKY TOP NAVBAR ══ -->
+    <div class="top-navbar-wrap">
+        <header class="top-navbar">
+            <a href="#" class="nav-logo-box">
+                <div class="nav-logo-icon">Q</div>
+                <span>Qrmeunu</span>
             </a>
 
-            <div class="topbar-right">
-                <div class="lang-switch">
-                    <button type="button" class="lang-btn active" id="btn-lang-fr" onclick="switchLanguage('fr')">FR</button>
-                    <button type="button" class="lang-btn" id="btn-lang-ar" onclick="switchLanguage('ar')">عربي</button>
+            <div class="nav-actions">
+                <div class="lang-toggle-pills">
+                    <button type="button" class="lang-pill-btn active" id="pill-lang-fr" onclick="switchLanguage('fr')">FR</button>
+                    <button type="button" class="lang-pill-btn" id="pill-lang-ar" onclick="switchLanguage('ar')">عربي</button>
                 </div>
-                <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20des%20infos%20sur%20Qrmeunu" target="_blank" class="top-btn-wa">
-                    <span>💬</span> WhatsApp
+                <a href="#section-commander" onclick="scrollToOrderForm(event)" class="btn-nav-order" id="t-nav-btn">
+                    <span id="t-nav-txt">Commander</span> →
                 </a>
             </div>
-        </div>
-    </header>
+        </header>
+    </div>
 
-    <!-- ══ MAIN PAGE ══ -->
-    <main class="container">
+    <!-- ══ MAIN PAGE CONTENT ══ -->
+    <main class="page-container">
 
-        <!-- ══════════════════════════════════════════════════════════
-             SCREEN 1: THE IRRESISTIBLE HERO HOOK
-             ══════════════════════════════════════════════════════════ -->
-        <section class="hero-card">
-            
-            <div class="hero-proof-badge" id="t-hero-badge">
-                ⭐ N°1 du Menu QR en Algérie · +180 Restaurants équipés
+        <!-- ── PRODUCT TITLE CARD (HERO) ── -->
+        <div class="product-header-card">
+            <div class="product-meta-row">
+                <span class="product-verified-badge" id="t-badge-verified">⭐ N°1 du Menu QR en Algérie</span>
+                <span class="product-country-badge" id="t-badge-proof">🔥 +180 Restaurants</span>
             </div>
-
-            <h1 class="hero-h1" id="t-hero-h1">
-                Votre menu sur smartphone en un scan. <span class="highlight">Vos clients commandent sans attendre.</span>
+            <h1 class="product-main-title" id="t-prod-title">
+                Votre menu digital par QR Code
             </h1>
-
-            <p class="hero-sub" id="t-hero-sub">
-                Fini les menus papier tachés et les prix à réimprimer. Vos clients scannent le QR code à table, voient vos plats en photos HD et passent commande directement.
+            <p class="product-main-sub" id="t-prod-sub">
+                Fini les menus papier à réimprimer. Vos clients scannent avec leur téléphone et commandent directement à table sans attendre.
             </p>
 
-            <!-- Godfather Offer Box (Zero Risk) -->
-            <div class="hero-offer-box">
-                <span class="offer-gift-icon">🎁</span>
-                <div class="offer-text-block">
-                    <strong id="t-offer-head">0 DA aujourd'hui · Installation offerte dans votre restaurant</strong>
-                    <p id="t-offer-sub">On vient sur place, on configure tout votre menu. Vous ne payez qu'après avoir testé et validé avec vos clients.</p>
-                </div>
-            </div>
-
-            <!-- Demo Visual Card -->
-            <div class="demo-visual-card">
-                <div class="demo-top-bar">
-                    <span>🟢 Restaurant Le Palmier (Alger)</span>
-                    <span class="demo-table-pill">Table 04</span>
-                </div>
-                <div class="demo-dish-item">
-                    <span class="demo-dish-title">🍔 Smash Burger Double + Frites</span>
-                    <span class="demo-dish-price">750 DA</span>
-                </div>
-                <div class="demo-dish-item">
-                    <span class="demo-dish-title">🍰 Cheesecake Fruits Rouges</span>
-                    <span class="demo-dish-price">400 DA</span>
-                </div>
-                <div class="demo-google-boost">
-                    <span>⭐ Google Maps Boost</span>
-                    <div class="stars-row">★★★★★ <span>5.0</span></div>
-                </div>
-            </div>
-
-            <a href="#section-commander" onclick="scrollToForm(event)" class="btn-action-primary" id="t-btn-hero-cta">
-                ⚡ Réserver mon Installation Gratuite (0 DA) →
-            </a>
-            <div class="btn-sub-note" id="t-hero-note">
-                ✓ Sans engagement · ✓ Prêt sous 24h · ✓ Déplacement gratuit
-            </div>
-
-        </section>
-
-        <!-- ══════════════════════════════════════════════════════════
-             SCREEN 2: THE 3 BIG WINS (ONLY WHAT MATTERS)
-             ══════════════════════════════════════════════════════════ -->
-        <section>
-            <div class="section-header">
-                <span class="section-tag" id="t-wins-tag">RÉSULTATS IMMÉDIATS</span>
-                <h2 class="section-title" id="t-wins-title">Ce que Qrmeunu change pour vous :</h2>
-            </div>
-
-            <div class="wins-grid">
-                
-                <!-- Win 1 -->
-                <div class="win-card">
-                    <div class="win-icon-circle">📈</div>
-                    <div class="win-body">
-                        <strong id="t-w1-h">+25% de Commandes en Plus</strong>
-                        <p id="t-w1-p">Les photos HD donnent faim. Les clients commandent plus de boissons et de desserts sans attendre le serveur.</p>
-                    </div>
-                </div>
-
-                <!-- Win 2 -->
-                <div class="win-card">
-                    <div class="win-icon-circle">💰</div>
-                    <div class="win-body">
-                        <strong id="t-w2-h">Économisez ~35 000 DA/an d'impression</strong>
-                        <p id="t-w2-p">Un plat épuisé ? Un prix qui change ? Modifiez votre carte en 2 secondes depuis votre téléphone sans jamais réimprimer.</p>
-                    </div>
-                </div>
-
-                <!-- Win 3 -->
-                <div class="win-card">
-                    <div class="win-icon-circle">⭐</div>
-                    <div class="win-body">
-                        <strong id="t-w3-h">N°1 sur Google Maps dans votre ville</strong>
-                        <p id="t-w3-p">Vos clients laissent 5 étoiles en 1 clic après leur repas. Votre restaurant attire de nouveaux clients tous les jours.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ══════════════════════════════════════════════════════════
-             SCREEN 3: THE EXPRESS FORM & GODFATHER OFFER
-             ══════════════════════════════════════════════════════════ -->
-        <section class="order-card" id="section-commander">
-            
-            <div class="order-head">
-                <span class="section-tag" id="t-order-badge">ESSAI SANS RISQUE</span>
-                <h2 id="t-order-title">Demandez votre Installation Gratuite</h2>
-                <p id="t-order-sub">Remplissez ces 3 informations. On vous contacte pour planifier le passage dans votre resto.</p>
-            </div>
-
-            <!-- Formula Choice Box (Clean & Clear) -->
-            <div class="formula-compact-picker">
-                
-                <!-- Commande (Pre-selected) -->
-                <div class="plan-choice-item selected" id="planItemCommande" onclick="selectPlan('Commande', 4000, 48000)">
-                    <div class="plan-left-info">
-                        <div class="plan-radio-circle"></div>
-                        <div class="plan-name-badge">
-                            <strong id="t-p-cmd-name">Formule Commande (Recommandée) ⭐</strong>
-                            <span id="t-p-cmd-desc">Menu QR + Commande à table + Boost Google Maps</span>
-                        </div>
-                    </div>
-                    <div class="plan-price-tag">
-                        <div class="plan-price-val" id="t-p-cmd-price">4 000 DA/mois</div>
-                        <span class="plan-sub-tag" id="t-p-cmd-sub">Rentabilisé en 2 jours</span>
-                    </div>
-                </div>
-
-                <!-- Basic -->
-                <div class="plan-choice-item" id="planItemBasic" onclick="selectPlan('Basic', 2000, 24000)">
-                    <div class="plan-left-info">
-                        <div class="plan-radio-circle"></div>
-                        <div class="plan-name-badge">
-                            <strong id="t-p-bsc-name">Formule Basic (Menu seul)</strong>
-                            <span id="t-p-bsc-desc">Consultation du menu QR sur smartphone</span>
-                        </div>
-                    </div>
-                    <div class="plan-price-tag">
-                        <div class="plan-price-val" id="t-p-bsc-price">2 000 DA/mois</div>
-                        <span style="font-size:10px; color:#64748B;">Économique</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Express Form (Only 3 essential fields!) -->
-            <form id="orderForm" class="express-form">
-                
-                <!-- Invisible Bot Trap (Honeypot) -->
-                <div style="opacity:0; position:absolute; top:0; left:0; height:0; width:0; z-index:-1; overflow:hidden;" aria-hidden="true">
-                    <input type="text" name="company_website_url" id="f-botcheck" tabindex="-1" autocomplete="off">
-                </div>
-
-                <div class="input-group">
-                    <label for="f-resto"><span id="t-lbl-resto">Nom de votre Restaurant ou Café</span> *</label>
-                    <input type="text" id="f-resto" class="input-box" placeholder="Ex: Restaurant Le Palmier" required autocomplete="organization">
-                </div>
-
-                <div class="input-group">
-                    <label for="f-phone"><span id="t-lbl-phone">Numéro de Téléphone (WhatsApp)</span> *</label>
-                    <input type="tel" id="f-phone" class="input-box" placeholder="05 / 06 / 07 XX XX XX" required autocomplete="tel">
-                </div>
-
-                <div class="input-group">
-                    <label for="f-wilaya"><span id="t-lbl-wilaya">Votre Wilaya</span> *</label>
-                    <div class="quick-wilayas">
-                        <button type="button" class="quick-wilaya-btn" onclick="quickWilaya('16-Alger')">16 Alger</button>
-                        <button type="button" class="quick-wilaya-btn" onclick="quickWilaya('31-Oran')">31 Oran</button>
-                        <button type="button" class="quick-wilaya-btn" onclick="quickWilaya('25-Constantine')">25 Constantine</button>
-                        <button type="button" class="quick-wilaya-btn" onclick="quickWilaya('19-Setif')">19 Sétif</button>
-                        <button type="button" class="quick-wilaya-btn" onclick="quickWilaya('09-Blida')">09 Blida</button>
-                    </div>
-                    <select id="f-wilaya" class="input-box" required style="cursor:pointer;">
-                        <option value="" id="t-opt-wilaya-def">Ou choisissez votre wilaya (58 wilayas)...</option>
-                        <option value="16-Alger">16 - Alger / الجزائر</option>
-                        <option value="31-Oran">31 - Oran / وهران</option>
-                        <option value="25-Constantine">25 - Constantine / قسنطينة</option>
-                        <option value="19-Setif">19 - Sétif / سطيف</option>
-                        <option value="09-Blida">09 - Blida / البليدة</option>
-                        <option value="06-Bejaia">06 - Béjaïa / بجاية</option>
-                        <option value="15-Tizi Ouzou">15 - Tizi Ouzou / تيزي وزو</option>
-                        <option value="13-Tlemcen">13 - Tlemcen / تلمسان</option>
-                        <option value="23-Annaba">23 - Annaba / عنابة</option>
-                        <option value="35-Boumerdes">35 - Boumerdès / بومرداس</option>
-                        <option value="42-Tipaza">42 - Tipaza / تيبازة</option>
-                        <option value="27-Mostaganem">27 - Mostaganem / مستغانم</option>
-                        <option value="22-Sidi Bel Abbes">22 - Sidi Bel Abbès / سيدي بلعباس</option>
-                        <option value="30-Ouargla">30 - Ouargla / ورقلة</option>
-                        <option value="07-Biskra">07 - Biskra / بسكرة</option>
-                        <option value="05-Batna">05 - Batna / باتنة</option>
-                        <option value="autre-58">Autre wilaya parmi les 58</option>
-                    </select>
-                </div>
-
-                <!-- Bot Safety Shield -->
-                <div class="bot-trust-shield">
-                    <span>🛡️</span>
-                    <span id="t-safe-shield-text">🔒 0 DA d'avance · Formulaire protégé & chiffré SSL · Paiement sur place</span>
-                </div>
-
-                <button type="submit" class="btn-submit-order" id="btn-submit-order">
-                    <span id="t-btn-submit">Valider mon Installation Gratuite ✓</span>
+            <!-- Hero Quick CTA -->
+            <div class="hero-cta-box">
+                <button type="button" onclick="scrollToOrderForm(event)" class="btn-hero-order" id="btn-hero-order">
+                    <span id="t-hero-btn-txt">⚡ Obtenir mon Menu QR (Installation Offerte)</span> →
                 </button>
+                <div class="hero-guarantee-note">
+                    <span>🛡️</span>
+                    <span id="t-hero-guarantee">0 DA aujourd'hui · Paiement après installation et satisfaction</span>
+                </div>
+                <div class="hero-rating-proof">
+                    <span class="stars-gold">★★★★★</span>
+                    <span id="t-hero-rating-txt">4.9/5 · Recommandé par plus de 180 restaurants en Algérie 🇩🇿</span>
+                </div>
+            </div>
+        </div>
 
-                <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="btn-wa-alt">
-                    <span>💬</span> <span id="t-btn-wa">Ou discuter directement sur WhatsApp</span>
-                </a>
+        <!-- ══════════════════════════════════════════════════════════
+             PRODUCT SLIDER (Interactive swipeable showcase of the product)
+             ══════════════════════════════════════════════════════════ -->
+        <div class="product-slider-container">
+            <div class="slider-viewport" id="sliderViewport">
+                <div class="slider-track" id="sliderTrack">
+                    
+                    <!-- Slide 1: Scan Table -->
+                    <div class="slider-slide slide-bg-scan">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s1-tag">📲 Étape 01 · Le Scan</span>
+                            <span class="slide-step-counter">01 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:11px; font-weight:800; color:#38BDF8;">
+                                    <span>🟢 Restaurant Le Palmier</span>
+                                    <span>Table 04</span>
+                                </div>
+                                <div class="mockup-item-pill">
+                                    <span style="display:flex; align-items:center; gap:6px;">🍔 Smash Burger Double</span>
+                                    <span style="color:#C75B39; font-weight:900;">650 DA</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:10px; font-weight:700; color:rgba(255,255,255,0.75);">
+                                    <span>⚡ 0 téléchargement</span>
+                                    <span>✓ Menu instantané</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s1-h">Votre menu, en un seul scan</div>
+                            <div class="slide-desc-text" id="t-s1-d">Le menu s'ouvre instantanément sur le téléphone du client. 0 application à télécharger.</div>
+                        </div>
+                    </div>
 
-            </form>
+                    <!-- Slide 2: BOOST AVIS GOOGLE MAPS 5★ (User's Request) -->
+                    <div class="slider-slide slide-bg-google">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s2-tag">⭐ Avis Google Maps</span>
+                            <span class="slide-step-counter">02 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div class="google-brand-header">
+                                    <span class="google-logo-text"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span> Maps</span>
+                                    <span style="color:#60A5FA; font-size:10px;">Avis vérifiés ✓</span>
+                                </div>
+                                <div class="google-stars-big">★★★★★</div>
+                                <div class="google-rating-score" id="t-s2-score">5.0 · 185 avis clients certifiés</div>
+                                <div class="google-action-pill" id="t-s2-pill">
+                                    <span>⭐ Laisser un avis 5 étoiles</span>
+                                </div>
+                                <div class="google-boost-tag" id="t-s2-boost">🚀 Hissez votre restaurant N°1 sur Google Maps !</div>
+                            </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s2-h">Multipliez vos avis Google Maps 5★</div>
+                            <div class="slide-desc-text" id="t-s2-d">Après le repas, 1 client sur 3 laisse un avis 5 étoiles pour hisser votre restaurant N°1 sur Google.</div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Photos HD des Plats -->
+                    <div class="slider-slide slide-bg-food">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s3-tag">📸 Étape 03 · Vos Plats</span>
+                            <span class="slide-step-counter">03 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; font-size:11px; font-weight:800; color:#FB923C;">
+                                    <span>Spécialité du Chef</span>
+                                    <span style="background:#EA580C; color:#fff; padding:2px 8px; border-radius:999px; font-size:10px;">Populaire</span>
+                                </div>
+                                <div class="mockup-item-pill">
+                                    <span style="font-weight:900;">🍔 Double Smash Cheese</span>
+                                    <span style="color:#C75B39; font-weight:900;">750 DA</span>
+                                </div>
+                                <div style="margin-top:6px; font-size:11px; font-weight:800; color:#FDE047; text-align:center;">
+                                    📈 +25% de panier moyen grâce aux photos HD
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s3-h">Des photos qui font vendre</div>
+                            <div class="slide-desc-text" id="t-s3-d">Photos haute définition de vos plats et prix clairs pour augmenter votre panier moyen de +25%.</div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Commande Directe & Appel Serveur -->
+                    <div class="slider-slide slide-bg-order">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s4-tag">⚡ Service Sans Attendre</span>
+                            <span class="slide-step-counter">04 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div style="font-size:11px; font-weight:800; color:#34D399; margin-bottom:6px;">
+                                    <span>🟢 Notifications en temps réel</span>
+                                </div>
+                                <div class="mockup-item-pill" style="margin-top:0;">
+                                    <span>🔔 Appel Serveur · Table 06</span>
+                                    <span style="color:#D97706; font-size:11px;">Addition ⚡</span>
+                                </div>
+                                <div class="mockup-item-pill">
+                                    <span>🛒 Commande Table 04</span>
+                                    <span style="color:#059669; font-size:11px;">En cuisine ✓</span>
+                                </div>
+                                <div style="margin-top:6px; font-size:10px; font-weight:800; color:#A7F3D0; text-align:center;">
+                                    ⏱️ Vos serveurs gagnent 15 min par table
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s4-h">Commandez sans attendre</div>
+                            <div class="slide-desc-text" id="t-s4-d">Le client passe commande ou appelle le serveur directement. La commande arrive sur votre téléphone ou caisse.</div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: Instant Menu Updates -->
+                    <div class="slider-slide slide-bg-manage">
+                        <div class="slide-top-row">
+                            <span class="slide-pill-badge" id="t-s5-tag">🔄 Gestion Facile</span>
+                            <span class="slide-step-counter">05 / 05</span>
+                        </div>
+                        <div class="slide-center-visual">
+                            <div class="slide-mockup-card">
+                                <div style="font-size:11px; font-weight:800; color:#C084FC; margin-bottom:6px;">
+                                    <span>Modifier depuis son smartphone</span>
+                                </div>
+                                <div class="mockup-item-pill" style="margin-top:0;">
+                                    <span>Plat du jour épuisé</span>
+                                    <span style="color:#DC2626; font-size:10px; background:#FEE2E2; padding:2px 6px; border-radius:6px;">Masqué en 1 sec</span>
+                                </div>
+                                <div class="mockup-item-pill">
+                                    <span>Nouveau prix Pizza</span>
+                                    <span style="color:#2563EB; font-size:10px; background:#DBEAFE; padding:2px 6px; border-radius:6px;">800 DA ➔ 900 DA</span>
+                                </div>
+                                <div style="margin-top:6px; font-size:10px; font-weight:800; color:#E9D5FF; text-align:center;">
+                                    💰 Économisez ~35 000 DA de réimpressions/an
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-bottom-text">
+                            <div class="slide-title-text" id="t-s5-h">Changez vos prix en 1 seconde</div>
+                            <div class="slide-desc-text" id="t-s5-d">Un plat épuisé ? Un nouveau dessert ? Modifiez votre carte depuis votre smartphone sans jamais réimprimer.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Slider Controls: Prev, Dots & Counter, Next -->
+            <div class="slider-bottom-bar">
+                <button type="button" class="slider-btn-nav" id="btn-slide-prev" onclick="prevSlide()" aria-label="Précédent">←</button>
+                <div class="slider-dots-group" id="sliderDots">
+                    <div class="slider-nav-dot active" onclick="goToSlide(0)"></div>
+                    <div class="slider-nav-dot" onclick="goToSlide(1)"></div>
+                    <div class="slider-nav-dot" onclick="goToSlide(2)"></div>
+                    <div class="slider-nav-dot" onclick="goToSlide(3)"></div>
+                    <div class="slider-nav-dot" onclick="goToSlide(4)"></div>
+                </div>
+                <span class="slider-counter-pill" id="sliderCounterText">01 / 05</span>
+                <button type="button" class="slider-btn-nav" id="btn-slide-next" onclick="nextSlide()" aria-label="Suivant">→</button>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════
+             SECTION: POURQUOI ARRÊTER LE PAPIER ? (From User Screenshot)
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-savings-comparison">
+            <div class="sec-top-badge-row">
+                <h2 class="sec-title-bold" id="t-why-title">Pourquoi arrêter le papier ?</h2>
+                <span class="sec-badge-pill" id="t-why-badge">ÉCONOMIES</span>
+            </div>
+
+            <div class="compare-grid-boxes">
+                <!-- Red Box: Menu Papier -->
+                <div class="compare-box-red">
+                    <strong id="t-bad-head">❌ Menu Papier</strong>
+                    <ul id="t-bad-list">
+                        <li>Menus tachés et déchirés</li>
+                        <li>~35 000 DA de réimpression</li>
+                        <li>Impossible de changer un prix</li>
+                        <li>Le serveur court partout</li>
+                    </ul>
+                </div>
+
+                <!-- Green Box: Menu Qrmeunu -->
+                <div class="compare-box-green">
+                    <strong id="t-good-head">✅ Menu Qrmeunu</strong>
+                    <ul id="t-good-list">
+                        <li>Toujours propre & moderne</li>
+                        <li>Changement de prix en 1 sec</li>
+                        <li>Photos HD qui font vendre</li>
+                        <li>+25% de commandes en plus</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Compare ROI Payoff Banner -->
+            <div class="compare-roi-banner">
+                <span>💰</span>
+                <span id="t-compare-roi">Économisez ~35 000 DA/an en impression et gagnez +25% de commandes !</span>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════
+             SECTION: CHOISISSEZ VOTRE FORMULE (WITH BIGGER PICTURE BOXES)
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-pricing-section" id="section-formules">
+            <div class="sec-top-badge-row">
+                <h2 class="sec-title-bold" id="t-plans-heading">Choisissez votre formule</h2>
+                <span class="sec-badge-pill" id="t-plans-tag">TARIFS CLAIRS</span>
+            </div>
+            <p style="font-size:13px; color:var(--text-muted);" id="t-plans-instruction">
+                Touchez une formule pour la sélectionner pour votre restaurant :
+            </p>
+
+            <div class="pricing-cards-stack">
+                
+                <!-- CARD 1: Basic (2 000 DA) with BIG Picture Box -->
+                <div class="formula-card" onclick="selectFormula('Basic', 2000, 24000)" id="card-formula-Basic">
+                    <div class="formula-main-row">
+                        <!-- BIG PICTURE BOX (As requested) -->
+                        <div class="formula-big-pic-box pic-basic">
+                            <span class="pic-symbol">📱</span>
+                        </div>
+                        <div class="formula-content-col">
+                            <div class="formula-heading-row">
+                                <div class="formula-name-text" id="t-f1-name">Basic</div>
+                                <div class="custom-radio-circle"></div>
+                            </div>
+                            <div class="formula-price-block">
+                                <div class="formula-main-price">2 000 DA <span id="t-f1-per">/mois</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="formula-features-list" id="t-f1-list">
+                        <li><span class="check-green-icon">✓</span> Menu QR consultable sur smartphone</li>
+                        <li><span class="check-green-icon">✓</span> Mises à jour du menu incluses par notre équipe</li>
+                        <li><span class="check-green-icon">✓</span> Installation et QR codes fournis</li>
+                    </ul>
+                    <div class="formula-annual-note" id="t-f1-annual">Payable à l'année : 24 000 DA/an</div>
+                    <button type="button" class="btn-card-choose" onclick="selectFormulaAndScroll('Basic', 2000, 24000, event)">
+                        <span id="t-btn-c1">Choisir Basic</span> →
+                    </button>
+                </div>
+
+                <!-- CARD 2: Commande (4 000 DA) - LE PLUS CHOISI with BIG Picture Box -->
+                <div class="formula-card selected" onclick="selectFormula('Commande', 4000, 48000)" id="card-formula-Commande">
+                    <div class="formula-ribbon orange" id="t-f2-ribbon">⭐ LE PLUS CHOISI</div>
+                    <div class="formula-main-row">
+                        <!-- BIG PICTURE BOX (As requested) -->
+                        <div class="formula-big-pic-box pic-commande">
+                            <span class="pic-symbol">🛒</span>
+                        </div>
+                        <div class="formula-content-col">
+                            <div class="formula-heading-row">
+                                <div class="formula-name-text" id="t-f2-name">Commande</div>
+                                <div class="custom-radio-circle"></div>
+                            </div>
+                            <div class="formula-price-block">
+                                <div class="formula-main-price">4 000 DA <span id="t-f2-per">/mois</span></div>
+                                <div class="formula-roi-tag" id="t-f2-roi">💡 Rentabilisé dès le 2ème jour</div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="formula-features-list" id="t-f2-list">
+                        <li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li>
+                        <li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li>
+                        <li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>
+                    </ul>
+                    <div class="formula-annual-note" id="t-f2-annual">Payable à l'année : 48 000 DA/an</div>
+                    <button type="button" class="btn-card-choose" onclick="selectFormulaAndScroll('Commande', 4000, 48000, event)">
+                        <span id="t-btn-c2">Choisir Commande</span> →
+                    </button>
+                </div>
+
+                <!-- CARD 3: Caisse Pro (4 680 DA) - -10% PROMO with BIG Picture Box -->
+                <div class="formula-card" onclick="selectFormula('Caisse Pro', 4680, 56160)" id="card-formula-CaissePro">
+                    <div class="formula-ribbon red" id="t-f3-ribbon">-10% PROMO</div>
+                    <div class="formula-main-row">
+                        <!-- BIG PICTURE BOX (As requested) -->
+                        <div class="formula-big-pic-box pic-caisse">
+                            <span class="pic-symbol">💻</span>
+                        </div>
+                        <div class="formula-content-col">
+                            <div class="formula-heading-row">
+                                <div class="formula-name-text" id="t-f3-name">Caisse Pro</div>
+                                <div class="custom-radio-circle"></div>
+                            </div>
+                            <div class="formula-price-block">
+                                <div class="formula-strike-price">5 200 DA/mois</div>
+                                <div class="formula-main-price">4 680 DA <span id="t-f3-per">/mois</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="formula-features-list" id="t-f3-list">
+                        <li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li>
+                        <li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li>
+                        <li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>
+                    </ul>
+                    <div class="formula-annual-note" id="t-f3-annual">Payable à l'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong></div>
+                    <button type="button" class="btn-card-choose" onclick="selectFormulaAndScroll('Caisse Pro', 4680, 56160, event)">
+                        <span id="t-btn-c3">Choisir Caisse Pro</span> →
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── 3 ZERO-RISK GUARANTEES (PUSH TO BUY) ── -->
+        <div class="trust-guarantees-grid">
+            <div class="trust-guarantee-card">
+                <span class="tg-icon">🛡️</span>
+                <div class="tg-content">
+                    <strong id="t-tg1-h">Paiement après installation</strong>
+                    <span id="t-tg1-s">0 DA à avancer. Vous ne payez qu'une fois tout testé et fonctionnel.</span>
+                </div>
+            </div>
+            <div class="trust-guarantee-card">
+                <span class="tg-icon">⚡</span>
+                <div class="tg-content">
+                    <strong id="t-tg2-h">Prêt sous 24h / 48h</strong>
+                    <span id="t-tg2-s">Installation rapide sur place avec QR codes et supports inclus.</span>
+                </div>
+            </div>
+            <div class="trust-guarantee-card">
+                <span class="tg-icon">💬</span>
+                <div class="tg-content">
+                    <strong id="t-tg3-h">Assistance WhatsApp 7j/7</strong>
+                    <span id="t-tg3-s">Équipe 100% algérienne pour modifier vos menus en direct.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════
+             SECTION: FORMULAIRE DE COMMANDE
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-checkout-form" id="section-commander">
+            <div class="sec-top-badge-row">
+                <h2 class="sec-title-bold" id="t-form-title">Demandez votre menu QR</h2>
+                <span class="sec-badge-pill" id="t-form-badge" style="background:#DCFCE7; color:#166534;">Devis Gratuit</span>
+            </div>
+            <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;" id="t-form-desc">
+                Remplissez ce formulaire court. Nous vous contactons pour fixer votre installation.
+            </p>
 
             <!-- Success Box -->
             <div id="checkout-success-box">
                 <div class="success-tick">✓</div>
-                <h3 style="font-size:18px; font-weight:900; color:#065F46; margin-bottom:6px;" id="t-succ-h">Demande reçue avec succès !</h3>
-                <p style="font-size:13px; color:#047857; margin-bottom:14px;" id="t-succ-p">Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.</p>
-                <a href="#" id="btn-manual-wa-link" target="_blank" class="btn-action-primary" style="background:#25D366; text-decoration:none;">
+                <h3 id="t-succ-h" style="font-size:18px; font-weight:900; color:#065F46; margin-bottom:6px;">Demande reçue avec succès !</h3>
+                <p id="t-succ-p" style="font-size:13px; color:#047857; margin-bottom:16px;">Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.</p>
+                <a id="btn-manual-wa-link" href="#" target="_blank" class="btn-submit-order" style="background:#25D366; text-decoration:none;">
                     <span id="t-succ-btn">Ouvrir WhatsApp maintenant →</span>
                 </a>
             </div>
 
-        </section>
+            <form id="orderForm">
+                
+                <div class="form-row-group">
+                    <label for="f-name"><span id="t-lbl-name">Nom & Prénom</span> *</label>
+                    <input type="text" id="f-name" class="field-input" required placeholder="Ex: Mohamed Benali" autocomplete="name">
+                </div>
 
-        <!-- ── 4 REASSURANCE BLOCKS ── -->
-        <div class="reassurance-strip">
-            <div class="reassurance-pill">
+                <div class="form-row-group">
+                    <label for="f-resto"><span id="t-lbl-resto">Nom de votre établissement</span> *</label>
+                    <input type="text" id="f-resto" class="field-input" required placeholder="Ex: Restaurant Le Palmier" autocomplete="organization">
+                </div>
+
+                <div class="form-row-group">
+                    <label for="f-phone"><span id="t-lbl-phone">Numéro de téléphone</span> *</label>
+                    <input type="tel" id="f-phone" class="field-input" required placeholder="05 / 06 / 07 XX XX XX" autocomplete="tel">
+                    <div class="phone-valid-hint" id="phoneHint">✓ Numéro valide (Algérie)</div>
+                </div>
+
+                <div class="form-row-group">
+                    <label for="f-email">
+                        <span id="t-lbl-email">Adresse Email</span> 
+                        <span class="opt" id="t-lbl-opt">(optionnel)</span>
+                    </label>
+                    <input type="email" id="f-email" class="field-input" placeholder="votre@email.com" autocomplete="email">
+                </div>
+
+                <div class="form-row-group">
+                    <label for="f-wilaya"><span id="t-lbl-wilaya">Wilaya</span> *</label>
+                    
+                    <!-- Quick 1-Tap Pills for Major Cities -->
+                    <div class="quick-wilayas-bar">
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('16-Alger')">16 Alger / الجزائر</button>
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('31-Oran')">31 Oran / وهران</button>
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('25-Constantine')">25 Constantine / قسنطينة</button>
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('19-Setif')">19 Sétif / سطيف</button>
+                        <button type="button" class="wilaya-btn-pill" onclick="quickPickWilaya('09-Blida')">09 Blida / البليدة</button>
+                    </div>
+
+                    <select id="f-wilaya" class="field-input" required style="cursor:pointer;">
+                        <option value="" id="t-opt-wilaya-def">Ou choisissez parmi les 58 wilayas...</option>
+                        <option value="1-Adrar">01 - Adrar / أدرار</option>
+                        <option value="2-Chlef">02 - Chlef / الشلف</option>
+                        <option value="3-Laghouat">03 - Laghouat / الأغواط</option>
+                        <option value="4-Oum El Bouaghi">04 - Oum El Bouaghi / أم البواقي</option>
+                        <option value="5-Batna">05 - Batna / باتنة</option>
+                        <option value="6-Bejaia">06 - Béjaïa / بجاية</option>
+                        <option value="7-Biskra">07 - Biskra / بسكرة</option>
+                        <option value="8-Bechar">08 - Béchar / بشار</option>
+                        <option value="9-Blida">09 - Blida / البليدة</option>
+                        <option value="10-Bouira">10 - Bouira / البويرة</option>
+                        <option value="11-Tamanrasset">11 - Tamanrasset / تمنراست</option>
+                        <option value="12-Tebessa">12 - Tébessa / تبسة</option>
+                        <option value="13-Tlemcen">13 - Tlemcen / تلمسان</option>
+                        <option value="14-Tiaret">14 - Tiaret / تيارت</option>
+                        <option value="15-Tizi Ouzou">15 - Tizi Ouzou / تيزي وزو</option>
+                        <option value="16-Alger">16 - Alger / الجزائر</option>
+                        <option value="17-Djelfa">17 - Djelfa / الجلفة</option>
+                        <option value="18-Jijel">18 - Jijel / جيجل</option>
+                        <option value="19-Setif">19 - Sétif / سطيف</option>
+                        <option value="20-Saida">20 - Saïda / سعيدة</option>
+                        <option value="21-Skikda">21 - Skikda / سكيكدة</option>
+                        <option value="22-Sidi Bel Abbes">22 - Sidi Bel Abbès / سيدي بلعباس</option>
+                        <option value="23-Annaba">23 - Annaba / عنابة</option>
+                        <option value="24-Guelma">24 - Guelma / قالمة</option>
+                        <option value="25-Constantine">25 - Constantine / قسنطينة</option>
+                        <option value="26-Medea">26 - Médéa / المدية</option>
+                        <option value="27-Mostaganem">27 - Mostaganem / مستغانم</option>
+                        <option value="28-MSila">28 - M'Sila / المسيلة</option>
+                        <option value="29-Mascara">29 - Mascara / معسكر</option>
+                        <option value="30-Ouargla">30 - Ouargla / ورقلة</option>
+                        <option value="31-Oran">31 - Oran / وهران</option>
+                        <option value="32-El Bayadh">32 - El Bayadh / البيض</option>
+                        <option value="33-Illizi">33 - Illizi / إليزي</option>
+                        <option value="34-Bordj Bou Arreridj">34 - Bordj Bou Arreridj / برج بوعريريج</option>
+                        <option value="35-Boumerdes">35 - Boumerdès / بومرداس</option>
+                        <option value="36-El Tarf">36 - El Tarf / الطارف</option>
+                        <option value="37-Tindouf">37 - Tindouf / تندوف</option>
+                        <option value="38-Tissemsilt">38 - Tissemsilt / تيسمسيلت</option>
+                        <option value="39-El Oued">39 - El Oued / الوادي</option>
+                        <option value="40-Khenchela">40 - Khenchela / خنشلة</option>
+                        <option value="41-Souk Ahras">41 - Souk Ahras / سوق أهراس</option>
+                        <option value="42-Tipaza">42 - Tipaza / تيبازة</option>
+                        <option value="43-Mila">43 - Mila / ميلة</option>
+                        <option value="44-Ain Defla">44 - Aïn Defla / عين الدفلى</option>
+                        <option value="45-Naama">45 - Naâma / النعامة</option>
+                        <option value="46-Ain Temouchent">46 - Aïn Témouchent / عين تموشنت</option>
+                        <option value="47-Ghardaia">47 - Ghardaïa / غرداية</option>
+                        <option value="48-Relizane">48 - Relizane / غليزان</option>
+                        <option value="49-Timimoun">49 - Timimoun / تيميمون</option>
+                        <option value="50-Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar / برج باجي مختار</option>
+                        <option value="51-Ouled Djellal">51 - Ouled Djellal / أولاد جلال</option>
+                        <option value="52-Beni Abbes">52 - Béni Abbès / بني عباس</option>
+                        <option value="53-In Salah">53 - In Salah / عين صالح</option>
+                        <option value="54-In Guezzam">54 - In Guezzam / عين قزام</option>
+                        <option value="55-Touggourt">55 - Touggourt / تقرت</option>
+                        <option value="56-Djanet">56 - Djanet / جانت</option>
+                        <option value="57-El MGhair">57 - El M'Ghair / المغير</option>
+                        <option value="58-El Meniaa">58 - El Meniaa / المنيعة</option>
+                    </select>
+                </div>
+
+                <!-- Anti-Bot Honeypot (traps automated scrapers/bots) -->
+                <div style="opacity:0; position:absolute; top:0; left:0; height:0; width:0; z-index:-1; overflow:hidden;" aria-hidden="true">
+                    <label for="f-botcheck">Do not fill this field</label>
+                    <input type="text" name="company_website_url" id="f-botcheck" tabindex="-1" autocomplete="off">
+                </div>
+
+                <!-- Total Banner -->
+                <div class="summary-total-banner">
+                    <span id="t-banner-formula-text">Formule choisie : Commande</span>
+                    <strong id="t-banner-total-val">48 000 DA/an</strong>
+                </div>
+
+                <!-- Bot Safety & Trust Shield Badge -->
+                <div class="bot-trust-shield">
+                    <div class="shield-badge-icon">🛡️</div>
+                    <div class="shield-badge-info">
+                        <strong id="t-safe-shield-title">🔒 Formulaire Sécurisé & Anti-Bot</strong>
+                        <span id="t-safe-shield-sub">Chiffrement SSL 256-bit · Protection des Données (Loi 18-07) · 0 Spam</span>
+                    </div>
+                    <span class="ssl-verify-tag">✓ VÉRIFIÉ</span>
+                </div>
+
+                <button type="submit" class="btn-submit-order" id="btn-submit-order">
+                    <span id="t-btn-submit">Valider ma commande ✓</span>
+                </button>
+
+                <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="btn-wa-hero">
+                    <span>💬</span> <span id="t-btn-wa">Discuter directement sur WhatsApp</span>
+                </a>
+
+                <!-- Security Trust Strip -->
+                <div class="security-trust-strip">
+                    <div class="sec-strip-item">
+                        <span>🔒</span>
+                        <span>SSL 256-bit</span>
+                    </div>
+                    <div class="sec-strip-item">
+                        <span>🛡️</span>
+                        <span>Anti-Bot</span>
+                    </div>
+                    <div class="sec-strip-item">
+                        <span>🤝</span>
+                        <span>0 DA d'avance</span>
+                    </div>
+                    <div class="sec-strip-item">
+                        <span>🇩🇿</span>
+                        <span>100% Local</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- ── REASSURANCE ── -->
+        <div class="reassurance-grid">
+            <div class="reassurance-card">
                 <span class="icon">🔧</span>
                 <strong id="t-r1-h">Installation Gratuite</strong>
-                <span class="sub" id="t-r1-s">Sur place dans votre resto</span>
+                <span id="t-r1-s">Sur place dans votre resto</span>
             </div>
-            <div class="reassurance-pill">
+            <div class="reassurance-card">
                 <span class="icon">🔄</span>
                 <strong id="t-r2-h">Mises à jour incluses</strong>
-                <span class="sub" id="t-r2-s">Par notre équipe</span>
+                <span id="t-r2-s">Par notre équipe</span>
             </div>
-            <div class="reassurance-pill">
+            <div class="reassurance-card">
                 <span class="icon">📞</span>
                 <strong id="t-r3-h">Support 7j/7</strong>
-                <span class="sub" id="t-r3-s">WhatsApp & téléphone</span>
+                <span id="t-r3-s">WhatsApp & téléphone</span>
             </div>
-            <div class="reassurance-pill">
+            <div class="reassurance-card">
                 <span class="icon">🇩🇿</span>
                 <strong id="t-r4-h">100% Algérien</strong>
-                <span class="sub" id="t-r4-s">Partout en Algérie</span>
+                <span id="t-r4-s">Partout en Algérie</span>
             </div>
         </div>
 
-        <!-- ── FOOTER & LEGAL MODAL LINKS ── -->
+        <!-- ── FOOTER (COMPLIANCE FOR AD REVIEW BOTS & TRUST) ── -->
         <footer class="page-footer">
             <p><strong id="t-foot-brand">Qrmeunu Algérie</strong> · <span id="t-foot-sub">Menus & commandes QR pour restaurants</span></p>
-            <p>Assistance & WhatsApp : <a href="https://wa.me/213656243117" target="_blank" style="color:var(--primary); font-weight:800;">+213 656 24 31 17</a></p>
-            
+            <p style="margin-top:4px;">WhatsApp & Assistance : <a href="https://wa.me/213656243117" target="_blank">+213 656 24 31 17</a> · Alger, Algérie</p>
             <div class="footer-legal-links">
-                <a href="javascript:void(0)" onclick="openLegalModal('privacy')">Politique de Confidentialité</a> · 
-                <a href="javascript:void(0)" onclick="openLegalModal('terms')">Conditions (CGU)</a> · 
-                <a href="javascript:void(0)" onclick="openLegalModal('mentions')">Mentions Légales</a>
+                <a href="javascript:void(0)" onclick="openLegalModal('privacy')" id="t-legal-privacy">Politique de Confidentialité</a>
+                <span class="sep">·</span>
+                <a href="javascript:void(0)" onclick="openLegalModal('terms')" id="t-legal-terms">Conditions Générales (CGU)</a>
+                <span class="sep">·</span>
+                <a href="javascript:void(0)" onclick="openLegalModal('mentions')" id="t-legal-mentions">Mentions Légales</a>
             </div>
-
-            <!-- Link to classic version -->
-            <div>
-                <a href="/classic" class="classic-version-link">
-                    📄 Voir la présentation détaillée complète (version catalogue) →
-                </a>
-            </div>
-
-            <p style="font-size:11px; opacity:0.75; margin-top:4px;">
-                Tous droits réservés © 2024 Qrmeunu Algérie · Hébergement certifié SSL
-            </p>
+            <p style="margin-top:8px; opacity:0.8; font-size:11px;">Tous droits réservés © 2024 Qrmeunu Algérie · Hébergement certifié SSL</p>
         </footer>
 
     </main>
 
-    <!-- ══ STICKY BOTTOM BAR (CONVERSION BOOST) ══ -->
-    <div class="sticky-footer-bar" id="stickyFooterBar">
-        <div class="sticky-inner">
-            <div class="sticky-text">
-                <strong id="t-sticky-head">Menu QR Qrmeunu</strong>
-                <span id="t-sticky-sub">0 DA aujourd'hui · Installation offerte</span>
+    <!-- ══ STICKY BOTTOM CHECKOUT BAR ══ -->
+    <div class="sticky-footer-bar">
+        <div class="sticky-inner-box">
+            <div class="sticky-plan-info">
+                <span class="sticky-plan-title" id="sticky-title">Qrmeunu Commande</span>
+                <span class="sticky-plan-price" id="sticky-price">4 000 DA / mois</span>
             </div>
-            <a href="#section-commander" onclick="scrollToForm(event)" class="sticky-btn-order" id="t-sticky-btn">
-                Commander (0 DA) →
-            </a>
+            <div class="sticky-actions-group">
+                <a href="#section-commander" onclick="scrollToOrderForm(event)" class="btn-sticky-order" id="t-sticky-order">Commander →</a>
+                <a href="https://wa.me/213656243117?text=Bonjour%2C%20je%20souhaite%20commander%20Qrmeunu" target="_blank" class="btn-sticky-wa">WhatsApp</a>
+            </div>
         </div>
     </div>
 
-    <!-- ══ LEGAL MODAL ══ -->
+    <!-- ══ LIVE FLOATING SOCIAL PROOF NOTIFICATION TOAST ══ -->
+    <div id="liveSocialProofToast" class="social-proof-toast">
+        <span class="sp-dot">🟢</span>
+        <div class="sp-text">
+            <div class="sp-title" id="spToastTitle">Mohamed · Le Palmier (Alger 16)</div>
+            <div class="sp-sub" id="spToastSub">Vient de choisir la formule Commande</div>
+        </div>
+        <button type="button" class="sp-close" onclick="closeToast()" aria-label="Fermer">&times;</button>
+    </div>
+
+    <!-- ══ COMPLIANCE & LEGAL MODAL (AD REVIEW BOTS & VISITOR TRUST) ══ -->
     <div id="legalModalOverlay" class="legal-modal-overlay" onclick="closeLegalModal(event)">
         <div class="legal-modal-box" onclick="event.stopPropagation()">
             <div class="legal-modal-header">
-                <h3 id="legalModalTitle">Transparence & Sécurité</h3>
-                <button type="button" class="btn-close-legal" onclick="closeLegalModal()">✕</button>
+                <h3 id="legalModalTitle">Transparence, Sécurité & Mentions Légales</h3>
+                <button type="button" class="btn-close-legal" onclick="closeLegalModal()" aria-label="Fermer">✕</button>
             </div>
-            <div class="legal-modal-body" id="legalModalContent">
-                <h4>🔒 Protection des Données Personnelles (Loi n° 18-07)</h4>
-                <p>Chez <strong>Qrmeunu Algérie</strong>, nous traitons vos coordonnées uniquement aux fins d'installation de votre menu digital dans votre établissement. Vos données ne sont jamais partagées ni vendues à des tiers.</p>
-                <br>
-                <h4>📋 Conditions Générales & Tarifs</h4>
-                <p>Formule Commande : 4 000 DA/mois. Formule Basic : 2 000 DA/mois. 0 DA d'avance. Le règlement n'intervient qu'après l'installation physique et la validation dans votre restaurant.</p>
-                <br>
-                <h4>🏢 Contact & Éditeur</h4>
-                <p>Qrmeunu Algérie · Alger, Algérie · WhatsApp : +213 656 24 31 17 · Email : contact@qrmeunu.com</p>
+            <div class="legal-modal-tabs">
+                <button type="button" class="legal-tab-btn active" id="tabBtnPrivacy" onclick="showLegalTab('privacy')">Confidentialité</button>
+                <button type="button" class="legal-tab-btn" id="tabBtnTerms" onclick="showLegalTab('terms')">Conditions (CGU)</button>
+                <button type="button" class="legal-tab-btn" id="tabBtnMentions" onclick="showLegalTab('mentions')">Mentions Légales</button>
+            </div>
+            <div class="legal-modal-body" id="legalModalBody">
+                <div id="legalContentPrivacy">
+                    <h4>🔒 Protection des Données Personnelles (Loi n° 18-07)</h4>
+                    <p>Chez <strong>Qrmeunu Algérie</strong>, nous attachons une importance primordiale à la protection et à la sécurité de vos données professionnelles.</p>
+                    <ul>
+                        <li><strong>Données collectées :</strong> Nom, nom du restaurant, numéro de téléphone et wilaya lors de la demande de rendez-vous d'installation.</li>
+                        <li><strong>Finalité du traitement :</strong> Prise de contact téléphonique et déplacement sur place par nos techniciens pour configurer votre menu QR.</li>
+                        <li><strong>Sécurité des échanges :</strong> Connexion chiffrée SSL/TLS 256-bit. Aucune donnée bancaire n'est demandée en ligne.</li>
+                        <li><strong>Zéro revente :</strong> Vos coordonnées ne sont jamais vendues, louées ni cédées à des annonceurs ou tiers.</li>
+                        <li><strong>Droit d'accès et suppression :</strong> Vous pouvez demander la suppression immédiate de vos données par simple message WhatsApp au +213 656 24 31 17.</li>
+                    </ul>
+                </div>
+                <div id="legalContentTerms" style="display:none;">
+                    <h4>📋 Conditions Générales d'Utilisation & Tarifs</h4>
+                    <p>Qrmeunu fournit une suite logicielle permettant aux restaurateurs algériens de numériser leur menu et gérer les commandes à table.</p>
+                    <ul>
+                        <li><strong>Tarification claire :</strong> Formule Basic (24 000 DA/an), Formule Commande (48 000 DA/an), Formule Caisse Pro (56 160 DA/an). Tous les tarifs sont nets, sans frais cachés.</li>
+                        <li><strong>Garantie 0 Risque :</strong> 0 DA d'avance. Le règlement n'intervient qu'après l'installation complète, la mise en service et la validation par le gérant dans son établissement.</li>
+                        <li><strong>Installation & Supports :</strong> L'installation sur site, la création du menu digital et les QR codes de table sont inclus.</li>
+                        <li><strong>Support technique :</strong> Assistance continue 7j/7 par WhatsApp et téléphone pour toute mise à jour ou question technique.</li>
+                    </ul>
+                </div>
+                <div id="legalContentMentions" style="display:none;">
+                    <h4>🏢 Informations Légales de l'Éditeur</h4>
+                    <ul>
+                        <li><strong>Raison sociale :</strong> Qrmeunu Algérie - Solutions Digitales pour la Restauration.</li>
+                        <li><strong>Siège & Activité :</strong> Alger, Algérie (Déplacements et installations assurés dans les 58 wilayas).</li>
+                        <li><strong>Contact Téléphonique & WhatsApp :</strong> <a href="https://wa.me/213656243117" style="color:var(--primary); font-weight:700;">+213 656 24 31 17</a></li>
+                        <li><strong>Email officiel :</strong> contact@qrmeunu.com</li>
+                        <li><strong>Infrastructure d'hébergement :</strong> Hébergé sur infrastructure cloud sécurisée haute disponibilité Vercel Inc. et Google Cloud Firebase avec certificat SSL/TLS automatique.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- ══ SCRIPTS ══ -->
+    <!-- ══ SLIDER JAVASCRIPT LOGIC (Touch Swipe + Auto-play) ══ -->
     <script>
-        let currentPlanName = 'Commande';
-        let currentMonthly = 4000;
-        let currentAnnual = 48000;
-        let activeLang = 'fr';
+        let currentSlideIdx = 0;
+        const totalSlides = 5;
+        const track = document.getElementById('sliderTrack');
+        const dots = document.querySelectorAll('.slider-nav-dot');
 
+        function updateSlider() {
+            const isRtl = document.documentElement.dir === 'rtl';
+            const offset = currentSlideIdx * 100;
+            track.style.transform = isRtl ? `translateX(${offset}%)` : `translateX(-${offset}%)`;
+
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentSlideIdx);
+            });
+
+            const counter = document.getElementById('sliderCounterText');
+            if (counter) {
+                counter.textContent = '0' + (currentSlideIdx + 1) + ' / 0' + totalSlides;
+            }
+        }
+
+        window.goToSlide = function(idx) {
+            currentSlideIdx = (idx + totalSlides) % totalSlides;
+            updateSlider();
+        };
+
+        window.nextSlide = function() {
+            goToSlide(currentSlideIdx + 1);
+        };
+
+        window.prevSlide = function() {
+            goToSlide(currentSlideIdx - 1);
+        };
+
+        // Touch Swipe Event Listeners
+        const viewport = document.getElementById('sliderViewport');
+        let startX = 0;
+        let isDragging = false;
+
+        viewport.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            const threshold = 40;
+
+            const isRtl = document.documentElement.dir === 'rtl';
+            if (isRtl) {
+                if (diff > threshold) prevSlide();
+                else if (diff < -threshold) nextSlide();
+            } else {
+                if (diff > threshold) nextSlide();
+                else if (diff < -threshold) prevSlide();
+            }
+            isDragging = false;
+        }, { passive: true });
+
+        let autoPlayTimer = setInterval(nextSlide, 5000);
+        viewport.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+        viewport.addEventListener('mouseleave', () => autoPlayTimer = setInterval(nextSlide, 5000));
+    </script>
+
+    <!-- ══ FORMULAS SELECTION & BILINGUAL LOGIC ══ -->
+    <script>
         const dict = {
             fr: {
-                urgencyText: '🔥 Offre Spéciale : Installation sur place offerte cette semaine en Algérie 🇩🇿',
-                heroBadge: '⭐ N°1 du Menu QR en Algérie · +180 Restaurants équipés',
-                heroH1: 'Votre menu sur smartphone en un scan. <span class="highlight">Vos clients commandent sans attendre.</span>',
-                heroSub: 'Fini les menus papier tachés et les prix à réimprimer. Vos clients scannent le QR code à table, voient vos plats en photos HD et passent commande directement.',
-                offerHead: '0 DA aujourd\'hui · Installation offerte dans votre restaurant',
-                offerSub: 'On vient sur place, on configure tout votre menu. Vous ne payez qu\'après avoir testé et validé avec vos clients.',
-                btnHeroCta: '⚡ Réserver mon Installation Gratuite (0 DA) →',
-                heroNote: '✓ Sans engagement · ✓ Prêt sous 24h · ✓ Déplacement gratuit',
-                winsTag: 'RÉSULTATS IMMÉDIATS',
-                winsTitle: 'Ce que Qrmeunu change pour vous :',
-                w1H: '+25% de Commandes en Plus',
-                w1P: 'Les photos HD donnent faim. Les clients commandent plus de boissons et de desserts sans attendre le serveur.',
-                w2H: 'Économisez ~35 000 DA/an d\'impression',
-                w2P: 'Un plat épuisé ? Un prix qui change ? Modifiez votre carte en 2 secondes depuis votre téléphone sans jamais réimprimer.',
-                w3H: 'N°1 sur Google Maps dans votre ville',
-                w3P: 'Vos clients laissent 5 étoiles en 1 clic après leur repas. Votre restaurant attire de nouveaux clients tous les jours.',
-                orderBadge: 'ESSAI SANS RISQUE',
-                orderTitle: 'Demandez votre Installation Gratuite',
-                orderSub: 'Remplissez ces 3 informations. On vous contacte pour planifier le passage dans votre resto.',
-                pCmdName: 'Formule Commande (Recommandée) ⭐',
-                pCmdDesc: 'Menu QR + Commande à table + Boost Google Maps',
-                pCmdPrice: '4 000 DA/mois',
-                pCmdSub: 'Rentabilisé en 2 jours',
-                pBscName: 'Formule Basic (Menu seul)',
-                pBscDesc: 'Consultation du menu QR sur smartphone',
-                pBscPrice: '2 000 DA/mois',
-                lblResto: 'Nom de votre Restaurant ou Café',
-                lblPhone: 'Numéro de Téléphone (WhatsApp)',
-                lblWilaya: 'Votre Wilaya',
-                optWilayaDef: 'Ou choisissez votre wilaya (58 wilayas)...',
-                safeShieldText: '🔒 0 DA d\'avance · Formulaire protégé & chiffré SSL · Paiement sur place',
-                btnSubmit: 'Valider mon Installation Gratuite ✓',
-                btnWa: 'Ou discuter directement sur WhatsApp',
-                succH: 'Demande reçue avec succès !',
-                succP: 'Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.',
+                navTxt: 'Commander',
+                badgeVerified: '⭐ N°1 du Menu QR en Algérie',
+                prodTitle: 'Votre menu digital par QR Code',
+                prodSub: 'Fini les menus papier à réimprimer. Vos clients scannent avec leur téléphone et commandent directement à table sans attendre.',
+                s1Tag: 'Étape 01 · Le Scan', s1H: 'Votre menu, en un seul scan', s1D: 'Le menu s\'ouvre instantanément sur le téléphone du client. 0 application à télécharger.',
+                s2Tag: '⭐ Avis Google Maps', s2H: 'Multipliez vos avis Google Maps 5★', s2D: 'Après le repas, 1 client sur 3 laisse un avis 5 étoiles pour hisser votre restaurant N°1 sur Google.',
+                s2Score: '5.0 · 185 avis clients certifiés', s2Pill: '⭐ Laisser un avis 5 étoiles', s2Boost: '🚀 Hissez votre restaurant N°1 sur Google Maps !',
+                s3Tag: '📸 Photos Plats HD', s3H: 'Des photos qui font vendre (+25%)', s3D: 'Photos haute définition de vos plats et prix clairs pour augmenter votre panier moyen de +25%.',
+                s4Tag: '⚡ Service Sans Attendre', s4H: 'Commandez sans attendre le serveur', s4D: 'Le client passe commande ou appelle le serveur directement. La commande arrive sur votre téléphone ou caisse.',
+                s5Tag: '🔄 Gestion Facile', s5H: 'Changez vos prix en 1 seconde', s5D: 'Un plat épuisé ? Un nouveau dessert ? Modifiez votre carte depuis votre smartphone sans jamais réimprimer.',
+                whyTitle: 'Pourquoi arrêter le papier ?', whyBadge: 'ÉCONOMIES',
+                badHead: '❌ Menu Papier',
+                badList: '<li>Menus tachés et déchirés</li><li>~35 000 DA de réimpression</li><li>Impossible de changer un prix</li><li>Le serveur court partout</li>',
+                goodHead: '✅ Menu Qrmeunu',
+                goodList: '<li>Toujours propre & moderne</li><li>Changement de prix en 1 sec</li><li>Photos HD qui font vendre</li><li>+25% de commandes en plus</li>',
+                plansHeading: 'Choisissez votre formule', plansTag: 'TARIFS CLAIRS',
+                plansInstruction: 'Touchez une formule pour la sélectionner pour votre restaurant :',
+                f1Name: 'Basic', f1Per: '/mois',
+                f1List: '<li><span class="check-green-icon">✓</span> Menu QR consultable sur smartphone</li><li><span class="check-green-icon">✓</span> Mises à jour du menu incluses par notre équipe</li><li><span class="check-green-icon">✓</span> Installation et QR codes fournis</li>',
+                f1Annual: 'Payable à l\'année : 24 000 DA/an',
+                f2Ribbon: '⭐ LE PLUS CHOISI',
+                f2Name: 'Commande', f2Per: '/mois',
+                f2List: '<li><span class="check-green-icon">✓</span> <strong>Le client commande depuis son téléphone</strong></li><li><span class="check-green-icon">✓</span> Commandes à table ou à emporter</li><li><span class="check-green-icon">✓</span> Notifications WhatsApp / Tel en temps réel</li>',
+                f2Annual: 'Payable à l\'année : 48 000 DA/an',
+                f3Ribbon: '-10% PROMO',
+                f3Name: 'Caisse Pro', f3Per: '/mois',
+                f3List: '<li><span class="check-green-icon">✓</span> <strong>Intégration directe à votre caisse (POS)</strong></li><li><span class="check-green-icon">✓</span> Bons imprimés directement en cuisine</li><li><span class="check-green-icon">✓</span> Suivi complet & assistance prioritaire</li>',
+                f3Annual: 'Payable à l\'année : <s>62 400 DA</s> <strong>56 160 DA/an</strong>',
+                formTitle: 'Demandez votre menu QR', formBadge: 'Devis Gratuit',
+                formDesc: 'Remplissez ce formulaire court. Nous vous contactons pour fixer votre installation.',
+                succH: 'Demande reçue avec succès !', succP: 'Notre équipe vous contacte sous 24h. Vous allez être redirigé vers WhatsApp pour finaliser.',
                 succBtn: 'Ouvrir WhatsApp maintenant →',
+                lblName: 'Nom & Prénom', phName: 'Ex: Mohamed Benali',
+                lblResto: 'Nom de votre établissement', phResto: 'Ex: Restaurant Le Palmier',
+                lblPhone: 'Numéro de téléphone', phPhone: '05 / 06 / 07 XX XX XX',
+                lblEmail: 'Adresse Email', lblOpt: '(optionnel)',
+                lblWilaya: 'Wilaya', optWilayaDef: 'Ou choisissez parmi les 58 wilayas...',
+                btnSubmit: 'Valider ma commande (Installation Offerte) ✓',
+                btnWa: 'Discuter directement sur WhatsApp',
                 r1H: 'Installation Gratuite', r1S: 'Sur place dans votre resto',
                 r2H: 'Mises à jour incluses', r2S: 'Par notre équipe',
                 r3H: 'Support 7j/7', r3S: 'WhatsApp & téléphone',
                 r4H: '100% Algérien', r4S: 'Partout en Algérie',
                 footBrand: 'Qrmeunu Algérie', footSub: 'Menus & commandes QR pour restaurants',
-                stickyHead: 'Menu QR Qrmeunu',
-                stickySub: '0 DA aujourd\'hui · Installation offerte',
-                stickyBtn: 'Commander (0 DA) →'
+                stickyOrder: 'Commander →',
+                btnChooseF1: 'Choisir Basic', btnChooseF2: 'Choisir Commande (Recommandé)', btnChooseF3: 'Choisir Caisse Pro',
+                phoneHint: '✓ Numéro valide (Algérie)',
+                urgencyText: '🔥 OFFRE SPÉCIALE : Installation offerte sur place · Places limitées cette semaine 🇩🇿',
+                badgeProof: '🔥 +180 Restaurants',
+                heroBtnTxt: '⚡ Obtenir mon Menu QR (Installation Offerte)',
+                heroGuarantee: '0 DA aujourd\'hui · Paiement après installation et satisfaction',
+                heroRatingTxt: '4.9/5 · Recommandé par plus de 180 restaurants en Algérie 🇩🇿',
+                compareRoi: 'Économisez ~35 000 DA/an en impression et gagnez +25% de commandes !',
+                f2Roi: '💡 Rentabilisé dès le 2ème jour',
+                tg1H: 'Paiement après installation', tg1S: '0 DA à avancer. Vous ne payez qu\'une fois tout testé et fonctionnel.',
+                tg2H: 'Prêt sous 24h / 48h', tg2S: 'Installation rapide sur place avec QR codes et supports inclus.',
+                tg3H: 'Assistance WhatsApp 7j/7', tg3S: 'Équipe 100% algérienne pour modifier vos menus en direct.',
+                safeShieldTitle: '🔒 Formulaire Sécurisé & Anti-Bot',
+                safeShieldSub: 'Chiffrement SSL 256-bit · Protection des Données (Loi 18-07) · 0 Spam',
+                legalPrivacy: 'Politique de Confidentialité',
+                legalTerms: 'Conditions Générales (CGU)',
+                legalMentions: 'Mentions Légales'
             },
             ar: {
-                urgencyText: '🔥 عرض خاص: التركيب مجاني في مطعمك هذا الأسبوع في كل ولايات الجزائر 🇩🇿',
-                heroBadge: '⭐ المينيو الذكي رقم 1 في الجزائر · أكثر من 180 مطعم مجهز',
-                heroH1: 'مينيو مطعمك في هاتف الزبون بسكان واحد. <span class="highlight">الكليان يطلب وحدو بلا ما يستنى.</span>',
-                heroSub: 'تهنى من طباعة المينيو الورقي كل خطرة. الزبائن يسكانو الكود، يشوفو أطباقك بصور عالية الجودة، ويطلبو مباشرة من الطابلة بلا تضييع وقت.',
-                offerHead: '0 دج اليوم · التركيب مجاني في مطعمك مباشرة',
-                offerSub: 'نجيو لعندك، نركبو الكود QR ونبرمجو المينيو تاعك. ما تدفع حتى تسيي المينيو ويخدم في مطعمك.',
-                btnHeroCta: '⚡ حجز موعد التركيب المجاني (0 دج) ←',
-                heroNote: '✓ بدون أي التزام · ✓ جاهز في 24 ساعة · ✓ التنقل مجاني',
-                winsTag: 'نتائج فورية وملموسة',
-                winsTitle: 'واش يربح مطعمك مع Qrmeunu :',
-                w1H: '+25% طلبات ومبيعات أكثر',
-                w1P: 'الصور تفتح الشهية. الزبائن يطلبو مشروبات وتحليات أكثر وبكل سهولة بلا ما يستناو السيرفور.',
-                w2H: 'وفّر ~35 000 دج/سنوياً من مصاريف الطباعة',
-                w2P: 'طبق خلص ؟ حبيت تبدل سعر ؟ غير المينيو في ثانيتين من هاتفك بدون الحاجة لإعادة الطباعة.',
-                w3H: 'مطعمك الأول في تقييمات Google Maps',
-                w3P: 'الزبائن يخليو 5 نجوم بنقرة واحدة بعد الأكل ومطعمك يجيبلك زبائن جدد كل يوم.',
-                orderBadge: 'تجربة بدون أي مخاطرة',
-                orderTitle: 'أطلب التركيب المجاني لمطعمك',
-                orderSub: 'عمر هاذ الـ 3 معلومات برك، ونتصلو بيك لتحديد موعد التركيب.',
-                pCmdName: 'باقة كوموند (الأكثر طلباً) ⭐',
-                pCmdDesc: 'مينيو QR + طلب مباشر في الطاولة + تقييمات قوقل ماب',
-                pCmdPrice: '4 000 دج/شهر',
-                pCmdSub: 'يرجعلك دراهمو في يومين خدمة برك',
-                pBscName: 'باقة بيزيك (مينيو فقط)',
-                pBscDesc: 'اطلاع على المينيو في الهاتف عبر الـ QR Code',
-                pBscPrice: '2 000 دج/شهر',
-                lblResto: 'إسم المطعم أو المقهى',
-                lblPhone: 'رقم الهاتف (واتساب)',
-                lblWilaya: 'الولاية',
-                optWilayaDef: 'أو اختر ولايتك من القائمة (58 ولاية)...',
-                safeShieldText: '🔒 0 دج مسبقاً · استمارة آمنة ومحمية SSL · الدفع في مطعمك بعد التجربة',
+                navTxt: 'طلب الخدمة',
+                badgeVerified: '⭐ الرقم 1 في منيو الـ QR في الجزائر 🇩🇿',
+                prodTitle: 'مينيو مطعمك الذكي بالـ QR كود',
+                prodSub: 'تهنى من طباعة المينيو الورقي كل خطرة. كليانك يسكانو بتيليفوناتهم ويطلبو ديريكت من الطابلة بلا ما يستناو.',
+                s1Tag: 'الخطوة 01 · السكان', s1H: 'مينيو مطعمك الذكي بسكان واحد', s1D: 'المينيو يفتح تم تم في هاتف الزبون بدون تحميل أي تطبيق.',
+                s2Tag: '⭐ تقييمات Google Maps', s2H: 'كبّر تقييمات مطعمك في Google Maps 5 نجوم', s2D: 'الزبائن يخليو 5 نجوم مباشرة بعد الوجبة ويطلع مطعمك الأول في قوقل ويجيبلك كليان جدد كل يوم 🇩🇿',
+                s2Score: '5.0 · 185 تقييم زبون حقيقي', s2Pill: '⭐ ترك تقييم 5 نجوم بنقرة واحدة', s2Boost: '🚀 مطعمك يولي الأول في بحث Google Maps !',
+                s3Tag: '📸 صور أطباق HD', s3H: 'صور شهية تزيد الطلبات (+25%)', s3D: 'صور واضحة وعالية الجودة مع أسعار دقيقة تزيد من معدل طلبات الزبائن بنسبة 25%.',
+                s4Tag: '⚡ طلب سريع بدون انتظار', s4H: 'الطلب المباشر ونداء السيرفور', s4D: 'الزبون يطلب أو ينادي السيرفور ديريكت، وتوصلك الكوموند في هاتفك أو لاكيس بلا تضييع وقت.',
+                s5Tag: '🔄 تحكم سهل وفوري', s5H: 'تبديل الأسعار والأطباق في ثانية', s5D: 'طبق خلص ؟ حبيت تبدل سعر ؟ غير المينيو مباشرة من هاتفك بدون الحاجة لإعادة الطباعة.',
+                whyTitle: 'علاش لازم تحبس المينيو الورقي ؟', whyBadge: 'توفير',
+                badHead: '❌ المينيو الورقي القديم',
+                badList: '<li>يتوسخ بالماكلة ويتقطع</li><li>~35 000 دج مصاريف طباعة</li><li>ما تقدرش تبدل الأسعار تم تم</li><li>السيرفور يجري ويضيع الوقت</li>',
+                goodHead: '✅ مينيو Qrmeunu العصري',
+                goodList: '<li>دايماً نقي وعصري وشيك</li><li>تبديل الأسعار في ثانية وحدة</li><li>صور شهية تشجع الكليان</li><li>+25% طلبات ومبيعات أكثر</li>',
+                plansHeading: 'اختر الصيغة المناسبة لمطعمك', plansTag: 'أسعار واضحة',
+                plansInstruction: 'إلمس البطاقة لاختيار الصيغة التي تناسبك :',
+                f1Name: 'بيزيك (Basic)', f1Per: '/شهر',
+                f1List: '<li><span class="check-green-icon">✓</span> مينيو QR كود للاطلاع في الهاتف</li><li><span class="check-green-icon">✓</span> تحديثات المينيو مجاناً من طرفنا</li><li><span class="check-green-icon">✓</span> التركيب وتوفير الكود QR للطوابل</li>',
+                f1Annual: 'الدفع بالعام : 24 000 دج/سنوياً',
+                f2Ribbon: '⭐ الأكثر طلباً',
+                f2Name: 'كوموند (Commande)', f2Per: '/شهر',
+                f2List: '<li><span class="check-green-icon">✓</span> <strong>الكليان يطلب ديريكت من هاتفه</strong></li><li><span class="check-green-icon">✓</span> طلبات في الطاولة أو جاهزة للأخذ</li><li><span class="check-green-icon">✓</span> إشعارات واتساب ومباشرة في الحين</li>',
+                f2Annual: 'الدفع بالعام : 48 000 دج/سنوياً',
+                f3Ribbon: 'تخفيض 10% 🏷️',
+                f3Name: 'كايس برو (Caisse Pro)', f3Per: '/شهر',
+                f3List: '<li><span class="check-green-icon">✓</span> <strong>ربط مباشر مع نظام الصندوق (POS)</strong></li><li><span class="check-green-icon">✓</span> التذاكر تخرج في الكوزينة ديريكت</li><li><span class="check-green-icon">✓</span> متابعة كاملة ودعم فني بأولوية</li>',
+                f3Annual: 'الدفع بالعام : <s>62 400 دج</s> <strong>56 160 دج/سنوياً</strong>',
+                formTitle: 'أطلب المينيو QR كود لمطعمك', formBadge: 'معاينة مجانية',
+                formDesc: 'عمر هاذ الاستمارة القصيرة، نتصلو بيك ونحددو موعد التركيب.',
+                succH: 'تم إرسال طلبك بنجاح !', succP: 'فريقنا يتصل بك في أقل من 24 ساعة. جاري تحويلك إلى واتساب لتأكيد الطلب...',
+                succBtn: 'فتح واتساب الآن →',
+                lblName: 'الإسم واللقب', phName: 'مثال: محمد بن علي',
+                lblResto: 'إسم المطعم أو المقهى', phResto: 'مثال: مطعم النخيل',
+                lblPhone: 'رقم الهاتف', phPhone: '05 / 06 / 07 XX XX XX',
+                lblEmail: 'البريد الإلكتروني', lblOpt: '(اختياري)',
+                lblWilaya: 'الولاية', optWilayaDef: 'أو اختر ولايتك من القائمة (58 ولاية)...',
                 btnSubmit: 'تأكيد طلبي الآن (تركيب مجاني) ✓',
-                btnWa: 'أو التواصل مباشرة عبر واتساب',
-                succH: 'تم استلام طلبك بنجاح !',
-                succP: 'فريقنا يتصل بك في أقل من 24 ساعة. جاري تحويلك إلى واتساب لتأكيد الطلب...',
-                succBtn: 'فتح واتساب الآن ←',
+                btnWa: 'التواصل مباشرة في واتساب',
                 r1H: 'تركيب مجاني', r1S: 'في مطعمك مباشرة',
                 r2H: 'تحديثات مستمرة', r2S: 'بدون أي تكاليف إضافية',
                 r3H: 'دعم فني 7/7', r3S: 'عبر الهاتف والواتساب',
                 r4H: 'فريق جزائري 100%', r4S: 'في كل ولايات الوطن',
                 footBrand: 'Qrmeunu الجزائر', footSub: 'حلول المينيو الرقمي بالـ QR Code',
-                stickyHead: 'مينيو Qrmeunu الذكي',
-                stickySub: '0 دج اليوم · التركيب مجاني',
-                stickyBtn: 'طلب الخدمة (0 دج) ←'
+                stickyOrder: 'أطلب الآن ←',
+                btnChooseF1: 'اختيار بيزيك', btnChooseF2: 'اختيار كوموند (الأكثر طلباً)', btnChooseF3: 'اختيار كايس برو',
+                phoneHint: '✓ رقم هاتف صحيح (الجزائر)',
+                urgencyText: '🔥 عرض خاص للمطاعم 🇩🇿: التركيب مجاني في مطعمك · الأماكن محدودة هذا الأسبوع',
+                badgeProof: '🔥 +180 مطعم مجهز',
+                heroBtnTxt: '⚡ أريد المينيو الذكي لمطعمي (تركيب مجاني)',
+                heroGuarantee: '0 دج اليوم · الدفع بعد التركيب والتجربة في مطعمك',
+                heroRatingTxt: '4.9/5 · موثوق من أكثر من 180 مطعم في الجزائر 🇩🇿',
+                compareRoi: 'وفّر ~35 000 دج/سنوياً من مصاريف الطباعة واربح +25% طلبات أكثر !',
+                f2Roi: '💡 يرجعلك دراهمو في يومين خدمة برك',
+                tg1H: 'الدفع بعد التركيب', tg1S: '0 دج مسبقاً. ما تدفع حتى تسيي المينيو ويخدم في مطعمك.',
+                tg2H: 'جاهز في 24 إلى 48 ساعة', tg2S: 'تركيب سريع في مطعمك مع ستيكرز وكود QR عالي الجودة.',
+                tg3H: 'دعم فني عبر واتساب 7/7', tg3S: 'فريق جزائري 100% لتحديث وتغيير أسعار مينيو مطعمك.',
+                safeShieldTitle: '🔒 استمارة آمنة ومحمية ضد الروبوتات',
+                safeShieldSub: 'تشفير SSL 256-bit · حماية البيانات الشخصية (قانون 18-07) · خالية من السبام 100%',
+                legalPrivacy: 'سياسة الخصوصية',
+                legalTerms: 'الشروط العامة للخدمة',
+                legalMentions: 'معلومات قانونية'
             }
         };
 
-        window.switchLanguage = function(lang) {
-            activeLang = lang;
+        let activeLanguage = 'fr';
+        let currentFormulaName = 'Commande';
+        let currentFormulaMonthly = 4000;
+        let currentFormulaAnnual = 48000;
+
+        function setLanguage(lang) {
+            activeLanguage = lang;
             const isAr = (lang === 'ar');
             const t = dict[lang];
 
             document.documentElement.lang = lang;
             document.documentElement.dir = isAr ? 'rtl' : 'ltr';
             document.body.classList.toggle('lang-ar', isAr);
+            document.body.classList.toggle('lang-fr', !isAr);
 
-            document.getElementById('btn-lang-fr').classList.toggle('active', !isAr);
-            document.getElementById('btn-lang-ar').classList.toggle('active', isAr);
+            document.getElementById('pill-lang-fr').classList.toggle('active', !isAr);
+            document.getElementById('pill-lang-ar').classList.toggle('active', isAr);
 
-            for (const [key, val] of Object.entries(t)) {
-                const el = document.getElementById('t-' + key.replace(/([A-Z])/g, '-$1').toLowerCase());
-                if (el) el.innerHTML = val;
-            }
+            if (document.getElementById('t-urgency-text')) document.getElementById('t-urgency-text').textContent = t.urgencyText;
+            if (document.getElementById('t-badge-proof')) document.getElementById('t-badge-proof').textContent = t.badgeProof;
+            if (document.getElementById('t-hero-btn-txt')) document.getElementById('t-hero-btn-txt').textContent = t.heroBtnTxt;
+            if (document.getElementById('t-hero-guarantee')) document.getElementById('t-hero-guarantee').textContent = t.heroGuarantee;
+            if (document.getElementById('t-hero-rating-txt')) document.getElementById('t-hero-rating-txt').textContent = t.heroRatingTxt;
+            if (document.getElementById('t-compare-roi')) document.getElementById('t-compare-roi').textContent = t.compareRoi;
+            if (document.getElementById('t-f2-roi')) document.getElementById('t-f2-roi').textContent = t.f2Roi;
 
+            if (document.getElementById('t-tg1-h')) document.getElementById('t-tg1-h').textContent = t.tg1H;
+            if (document.getElementById('t-tg1-s')) document.getElementById('t-tg1-s').textContent = t.tg1S;
+            if (document.getElementById('t-tg2-h')) document.getElementById('t-tg2-h').textContent = t.tg2H;
+            if (document.getElementById('t-tg2-s')) document.getElementById('t-tg2-s').textContent = t.tg2S;
+            if (document.getElementById('t-tg3-h')) document.getElementById('t-tg3-h').textContent = t.tg3H;
+            if (document.getElementById('t-tg3-s')) document.getElementById('t-tg3-s').textContent = t.tg3S;
+
+            document.getElementById('t-nav-txt').textContent = t.navTxt;
+            document.getElementById('t-badge-verified').textContent = t.badgeVerified;
+            document.getElementById('t-prod-title').textContent = t.prodTitle;
+            document.getElementById('t-prod-sub').textContent = t.prodSub;
+
+            document.getElementById('t-s1-tag').textContent = t.s1Tag;
+            document.getElementById('t-s1-h').textContent = t.s1H;
+            document.getElementById('t-s1-d').textContent = t.s1D;
+            document.getElementById('t-s2-tag').textContent = t.s2Tag;
+            document.getElementById('t-s2-h').textContent = t.s2H;
+            document.getElementById('t-s2-d').textContent = t.s2D;
+            if (document.getElementById('t-s2-score')) document.getElementById('t-s2-score').textContent = t.s2Score;
+            if (document.getElementById('t-s2-pill')) document.getElementById('t-s2-pill').innerHTML = `<span>${t.s2Pill}</span>`;
+            if (document.getElementById('t-s2-boost')) document.getElementById('t-s2-boost').textContent = t.s2Boost;
+            document.getElementById('t-s3-tag').textContent = t.s3Tag;
+            document.getElementById('t-s3-h').textContent = t.s3H;
+            document.getElementById('t-s3-d').textContent = t.s3D;
+            document.getElementById('t-s4-tag').textContent = t.s4Tag;
+            document.getElementById('t-s4-h').textContent = t.s4H;
+            document.getElementById('t-s4-d').textContent = t.s4D;
+            document.getElementById('t-s5-tag').textContent = t.s5Tag;
+            document.getElementById('t-s5-h').textContent = t.s5H;
+            document.getElementById('t-s5-d').textContent = t.s5D;
+
+            document.getElementById('t-why-title').textContent = t.whyTitle;
+            document.getElementById('t-why-badge').textContent = t.whyBadge;
+            document.getElementById('t-bad-head').textContent = t.badHead;
+            document.getElementById('t-bad-list').innerHTML = t.badList;
+            document.getElementById('t-good-head').textContent = t.goodHead;
+            document.getElementById('t-good-list').innerHTML = t.goodList;
+
+            document.getElementById('t-plans-heading').textContent = t.plansHeading;
+            document.getElementById('t-plans-tag').textContent = t.plansTag;
+            document.getElementById('t-plans-instruction').textContent = t.plansInstruction;
+
+            document.getElementById('t-f1-name').textContent = t.f1Name;
+            document.getElementById('t-f1-per').textContent = t.f1Per;
+            document.getElementById('t-f1-list').innerHTML = t.f1List;
+            document.getElementById('t-f1-annual').textContent = t.f1Annual;
+
+            document.getElementById('t-f2-ribbon').textContent = t.f2Ribbon;
+            document.getElementById('t-f2-name').textContent = t.f2Name;
+            document.getElementById('t-f2-per').textContent = t.f2Per;
+            document.getElementById('t-f2-list').innerHTML = t.f2List;
+            document.getElementById('t-f2-annual').textContent = t.f2Annual;
+
+            document.getElementById('t-f3-ribbon').textContent = t.f3Ribbon;
+            document.getElementById('t-f3-name').textContent = t.f3Name;
+            document.getElementById('t-f3-per').textContent = t.f3Per;
+            document.getElementById('t-f3-list').innerHTML = t.f3List;
+            document.getElementById('t-f3-annual').innerHTML = t.f3Annual;
+
+            document.getElementById('t-form-title').textContent = t.formTitle;
+            document.getElementById('t-form-badge').textContent = t.formBadge;
+            document.getElementById('t-form-desc').textContent = t.formDesc;
+            document.getElementById('t-succ-h').textContent = t.succH;
+            document.getElementById('t-succ-p').textContent = t.succP;
+            document.getElementById('t-succ-btn').textContent = t.succBtn;
+
+            document.getElementById('t-lbl-name').textContent = t.lblName;
+            document.getElementById('f-name').placeholder = t.phName;
+            document.getElementById('t-lbl-resto').textContent = t.lblResto;
+            document.getElementById('f-resto').placeholder = t.phResto;
+            document.getElementById('t-lbl-phone').textContent = t.lblPhone;
+            document.getElementById('f-phone').placeholder = t.phPhone;
+            document.getElementById('t-lbl-email').textContent = t.lblEmail;
+            document.getElementById('t-lbl-opt').textContent = t.lblOpt;
+            document.getElementById('t-lbl-wilaya').textContent = t.lblWilaya;
+            document.getElementById('t-opt-wilaya-def').textContent = t.optWilayaDef;
+
+            document.getElementById('t-btn-submit').textContent = t.btnSubmit;
+            document.getElementById('t-btn-wa').textContent = t.btnWa;
+
+            document.getElementById('t-r1-h').textContent = t.r1H;
+            document.getElementById('t-r1-s').textContent = t.r1S;
+            document.getElementById('t-r2-h').textContent = t.r2H;
+            document.getElementById('t-r2-s').textContent = t.r2S;
+            document.getElementById('t-r3-h').textContent = t.r3H;
+            document.getElementById('t-r3-s').textContent = t.r3S;
+            document.getElementById('t-r4-h').textContent = t.r4H;
+            document.getElementById('t-r4-s').textContent = t.r4S;
+
+            document.getElementById('t-foot-brand').textContent = t.footBrand;
+            document.getElementById('t-foot-sub').textContent = t.footSub;
+
+            document.getElementById('t-sticky-order').textContent = t.stickyOrder;
+
+            if (document.getElementById('t-btn-c1')) document.getElementById('t-btn-c1').textContent = t.btnChooseF1;
+            if (document.getElementById('t-btn-c2')) document.getElementById('t-btn-c2').textContent = t.btnChooseF2;
+            if (document.getElementById('t-btn-c3')) document.getElementById('t-btn-c3').textContent = t.btnChooseF3;
+            if (document.getElementById('phoneHint')) document.getElementById('phoneHint').textContent = t.phoneHint;
+
+            if (document.getElementById('t-safe-shield-title')) document.getElementById('t-safe-shield-title').textContent = t.safeShieldTitle;
+            if (document.getElementById('t-safe-shield-sub')) document.getElementById('t-safe-shield-sub').textContent = t.safeShieldSub;
+            if (document.getElementById('t-legal-privacy')) document.getElementById('t-legal-privacy').textContent = t.legalPrivacy;
+            if (document.getElementById('t-legal-terms')) document.getElementById('t-legal-terms').textContent = t.legalTerms;
+            if (document.getElementById('t-legal-mentions')) document.getElementById('t-legal-mentions').textContent = t.legalMentions;
+
+            refreshSummary();
+            updateSlider();
             localStorage.setItem('qrmeunu_lang', lang);
+        }
+
+        window.switchLanguage = function(l) {
+            setLanguage(l);
         };
 
-        window.selectPlan = function(plan, monthly, annual) {
-            currentPlanName = plan;
-            currentMonthly = monthly;
-            currentAnnual = annual;
-
-            document.getElementById('planItemCommande').classList.toggle('selected', plan === 'Commande');
-            document.getElementById('planItemBasic').classList.toggle('selected', plan === 'Basic');
-        };
-
-        window.quickWilaya = function(w) {
-            const sel = document.getElementById('f-wilaya');
-            if (sel) {
-                sel.value = w;
-                sel.style.borderColor = 'var(--primary)';
-            }
-        };
-
-        window.scrollToForm = function(e) {
-            if (e) e.preventDefault();
-            const sec = document.getElementById('section-commander');
-            if (sec) sec.scrollIntoView({ behavior: 'smooth' });
-        };
-
-        window.openLegalModal = function() {
-            const m = document.getElementById('legalModalOverlay');
-            if (m) {
-                m.classList.add('active');
+        window.openLegalModal = function(tab = 'privacy') {
+            const modal = document.getElementById('legalModalOverlay');
+            if (modal) {
+                modal.classList.add('active');
+                showLegalTab(tab);
                 document.body.style.overflow = 'hidden';
             }
         };
 
         window.closeLegalModal = function(e) {
             if (e && e.target && e.target.id !== 'legalModalOverlay' && !e.target.classList.contains('btn-close-legal')) return;
-            const m = document.getElementById('legalModalOverlay');
-            if (m) {
-                m.classList.remove('active');
+            const modal = document.getElementById('legalModalOverlay');
+            if (modal) {
+                modal.classList.remove('active');
                 document.body.style.overflow = '';
             }
         };
 
-        // Initialize preferred lang
-        const savedLang = localStorage.getItem('qrmeunu_lang');
-        if (savedLang === 'ar') switchLanguage('ar');
+        window.showLegalTab = function(tab) {
+            const tabs = ['privacy', 'terms', 'mentions'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+                const content = document.getElementById('legalContent' + t.charAt(0).toUpperCase() + t.slice(1));
+                if (btn) btn.classList.toggle('active', t === tab);
+                if (content) content.style.display = (t === tab) ? 'block' : 'none';
+            });
+        };
+
+        function refreshSummary() {
+            const isAr = (activeLanguage === 'ar');
+            const formulaText = isAr 
+                ? `الصيغة المختارة : ${currentFormulaName}`
+                : `Formule choisie : ${currentFormulaName}`;
+            document.getElementById('t-banner-formula-text').textContent = formulaText;
+            document.getElementById('t-banner-total-val').textContent = `${currentFormulaAnnual.toLocaleString()} DA / ${isAr ? 'سنوياً' : 'an'}`;
+
+            document.getElementById('sticky-title').textContent = `Qrmeunu ${currentFormulaName}`;
+            document.getElementById('sticky-price').textContent = `${currentFormulaMonthly.toLocaleString()} DA / ${isAr ? 'شهر' : 'mois'}`;
+        }
+
+        window.scrollToOrderForm = function(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            const target = document.getElementById('section-commander');
+            if (!target) return;
+
+            const navHeight = 76;
+            const targetY = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+            window.scrollTo({
+                top: targetY,
+                behavior: 'smooth'
+            });
+
+            target.classList.add('pulse-highlight');
+            setTimeout(() => target.classList.remove('pulse-highlight'), 1200);
+
+            if (navigator.vibrate) navigator.vibrate(25);
+
+            setTimeout(() => {
+                const nameField = document.getElementById('f-name');
+                if (nameField && !nameField.value) {
+                    nameField.focus({ preventScroll: true });
+                }
+            }, 600);
+        };
+
+        window.selectFormulaAndScroll = function(name, monthly, annual, e) {
+            if (e && e.stopPropagation) e.stopPropagation();
+            selectFormula(name, monthly, annual);
+            scrollToOrderForm(e);
+        };
+
+        window.selectFormula = function(name, monthly, annual) {
+            currentFormulaName = name;
+            currentFormulaMonthly = monthly;
+            currentFormulaAnnual = annual;
+
+            document.querySelectorAll('.formula-card').forEach(c => c.classList.remove('selected'));
+            const target = document.getElementById('card-formula-' + name.replace(/\s+/g, ''));
+            if (target) target.classList.add('selected');
+
+            if (navigator.vibrate) navigator.vibrate(15);
+            refreshSummary();
+        };
+
+        window.quickPickWilaya = function(wVal, e) {
+            const sel = document.getElementById('f-wilaya');
+            if (sel) {
+                for (let opt of sel.options) {
+                    if (opt.value.includes(wVal.split('-')[1]) || opt.value === wVal) {
+                        sel.value = opt.value;
+                        break;
+                    }
+                }
+            }
+            document.querySelectorAll('.wilaya-btn-pill').forEach(b => b.classList.remove('active'));
+            if (e && e.currentTarget) {
+                e.currentTarget.classList.add('active');
+            } else if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            if (navigator.vibrate) navigator.vibrate(15);
+        };
+
+        // Phone language detection
+        function detectPhoneLang() {
+            const saved = localStorage.getItem('qrmeunu_lang');
+            if (saved === 'ar' || saved === 'fr') return saved;
+            const nav = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
+            return nav.startsWith('ar') ? 'ar' : 'fr';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(detectPhoneLang());
+
+            // Algerian Phone Number Auto-Formatter (05XX XX XX XX)
+            const phoneInput = document.getElementById('f-phone');
+            const hint = document.getElementById('phoneHint');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let digits = e.target.value.replace(/\D/g, '');
+                    if (digits.length > 10) digits = digits.substring(0, 10);
+
+                    let formatted = '';
+                    if (digits.length > 0) formatted += digits.substring(0, 2);
+                    if (digits.length > 2) formatted += ' ' + digits.substring(2, 4);
+                    if (digits.length > 4) formatted += ' ' + digits.substring(4, 6);
+                    if (digits.length > 6) formatted += ' ' + digits.substring(6, 8);
+                    if (digits.length > 8) formatted += ' ' + digits.substring(8, 10);
+
+                    e.target.value = formatted;
+
+                    const isValid = /^(05|06|07|02)[0-9]{8}$/.test(digits);
+                    if (isValid) {
+                        e.target.classList.add('valid');
+                        if (hint) hint.classList.add('show');
+                        if (navigator.vibrate) navigator.vibrate(15);
+                    } else {
+                        e.target.classList.remove('valid');
+                        if (hint) hint.classList.remove('show');
+                    }
+                });
+            }
+
+            // Auto-hide sticky bottom bar when order form is in view
+            if ('IntersectionObserver' in window) {
+                const stickyBar = document.querySelector('.sticky-footer-bar');
+                const checkoutSec = document.getElementById('section-commander');
+                if (stickyBar && checkoutSec) {
+                    const stickyObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                stickyBar.classList.add('hide-sticky');
+                            } else {
+                                stickyBar.classList.remove('hide-sticky');
+                            }
+                        });
+                    }, { threshold: 0.2 });
+                    stickyObserver.observe(checkoutSec);
+                }
+            }
+
+            // Live Social Proof Toast Engine (Boosts conversion in Insta / TikTok browsers)
+            const socialProofData = [
+                { name: 'Mohamed · Restaurant Le Palmier', wilaya: '16 Alger', plan: 'Commande', time: '14 min' },
+                { name: 'Karim · Pizzeria Bella', wilaya: '31 Oran', plan: 'Caisse Pro', time: '26 min' },
+                { name: 'Yacine · Burger House', wilaya: '25 Constantine', plan: 'Commande', time: '38 min' },
+                { name: 'Nabil · Tacos DZ', wilaya: '19 Sétif', plan: 'Commande', time: '51 min' },
+                { name: 'Sofiane · Café Lounge', wilaya: '09 Blida', plan: 'Basic', time: '1h 10min' }
+            ];
+
+            let spIdx = 0;
+            let spTimer = null;
+
+            function showNextSocialProof() {
+                const toast = document.getElementById('liveSocialProofToast');
+                if (!toast) return;
+
+                const data = socialProofData[spIdx % socialProofData.length];
+                spIdx++;
+
+                const isAr = (activeLanguage === 'ar');
+                const titleEl = document.getElementById('spToastTitle');
+                const subEl = document.getElementById('spToastSub');
+                if (titleEl) titleEl.textContent = `${data.name} (${data.wilaya})`;
+                if (subEl) subEl.textContent = isAr 
+                    ? `اختار صيغة ${data.plan} منذ ${data.time}` 
+                    : `A choisi la formule ${data.plan} il y a ${data.time}`;
+
+                toast.classList.add('show');
+
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4500);
+
+                spTimer = setTimeout(showNextSocialProof, 10000);
+            }
+
+            window.closeToast = function() {
+                const toast = document.getElementById('liveSocialProofToast');
+                if (toast) toast.classList.remove('show');
+                clearTimeout(spTimer);
+            };
+
+            setTimeout(showNextSocialProof, 3000);
+        });
     </script>
 
-    <!-- ══ FIREBASE & FORM SUBMISSION SCRIPT ══ -->
+    <!-- ══ FIREBASE / FIRESTORE & DATA PERSISTENCE SCRIPT ══ -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
         import { getAnalytics, isSupported, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
@@ -1425,7 +2910,7 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-        const pageLoadTs = Date.now();
+        const pageLoadTimestamp = Date.now();
         let analytics = null;
 
         isSupported().then(supported => {
@@ -1437,55 +2922,77 @@
             if (analytics) try { logEvent(analytics, name, params); } catch(e) {}
         }
 
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', () => {
+                trackEvent('whatsapp_click', { destination: link.href });
+            });
+        });
+
         const form = document.getElementById('orderForm');
         if (form) {
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
-                // Anti-Bot 1: Honeypot trap
-                const botcheck = document.getElementById('f-botcheck')?.value;
-                if (botcheck && botcheck.trim().length > 0) {
+                // Anti-Bot Layer 1: Invisible Honeypot Trap
+                const honeypot = document.getElementById('f-botcheck')?.value;
+                if (honeypot && honeypot.trim().length > 0) {
+                    console.warn("Spam bot trapped via honeypot.");
                     form.style.display = 'none';
-                    document.getElementById('checkout-success-box').style.display = 'block';
+                    const successBox = document.getElementById('checkout-success-box');
+                    if (successBox) successBox.style.display = 'block';
                     return;
                 }
 
-                // Anti-Bot 2: Velocity check
-                if ((Date.now() - pageLoadTs) < 1800) {
+                // Anti-Bot Layer 2: Submission Velocity Check (< 1.8 seconds)
+                const elapsed = Date.now() - pageLoadTimestamp;
+                if (elapsed < 1800) {
+                    console.warn("Spam bot trapped: submission too fast (" + elapsed + "ms)");
                     form.style.display = 'none';
-                    document.getElementById('checkout-success-box').style.display = 'block';
+                    const successBox = document.getElementById('checkout-success-box');
+                    if (successBox) successBox.style.display = 'block';
                     return;
                 }
 
-                const restaurant = document.getElementById('f-resto').value.trim();
+                // Anti-Bot Layer 3: Anti-Flood Rate-Limiting Cooldown (15 seconds)
+                const lastSubTime = localStorage.getItem('qrmeunu_last_sub_ts');
+                if (lastSubTime && (Date.now() - parseInt(lastSubTime, 10)) < 15000) {
+                    alert(activeLanguage === 'ar' ? "يرجى الانتظار بضع ثوانٍ قبل إرسال طلب جديد." : "Veuillez patienter quelques instants avant de renvoyer une demande.");
+                    return;
+                }
+
+                const nom = document.getElementById('f-name').value.trim();
                 const phone = document.getElementById('f-phone').value.trim();
+                const restaurant = document.getElementById('f-resto').value.trim();
+                const email = document.getElementById('f-email').value.trim();
                 const wilaya = document.getElementById('f-wilaya').value;
 
-                // Anti-Bot 3: Algerian phone check
+                // Anti-Bot Layer 4: Strict Algerian Phone Number Validation
                 const cleanDigits = phone.replace(/[\s\.\-\(\)]/g, '');
-                const isValid = /^(05|06|07|02)[0-9]{8}$/.test(cleanDigits) || /^(\+213|213|00213)[5672][0-9]{8}$/.test(cleanDigits);
-                if (!isValid) {
-                    alert(activeLang === 'ar' ? 'يرجى إدخال رقم هاتف جزائري صحيح (مثال: 0550 12 34 56)' : 'Veuillez entrer un numéro de téléphone algérien valide (ex: 0550 12 34 56)');
+                const isValidPhone = /^(05|06|07|02)[0-9]{8}$/.test(cleanDigits) || /^(\+213|213|00213)[5672][0-9]{8}$/.test(cleanDigits);
+                if (!isValidPhone) {
+                    alert(activeLanguage === 'ar' ? "يرجى إدخال رقم هاتف جزائري صحيح (مثال: 0550 12 34 56)" : "Veuillez entrer un numéro de téléphone algérien valide (ex: 0550 12 34 56)");
                     document.getElementById('f-phone').focus();
                     return;
                 }
 
+                localStorage.setItem('qrmeunu_last_sub_ts', Date.now().toString());
+
                 const submitBtn = document.getElementById('btn-submit-order');
                 if (submitBtn) {
                     submitBtn.disabled = true;
-                    submitBtn.textContent = (activeLang === 'ar') ? 'جاري التأكيد... ⏳' : 'Validation en cours... ⏳';
+                    submitBtn.textContent = (activeLanguage === 'ar') ? 'جاري تأكيد الطلب... ⏳' : 'Envoi en cours... ⏳';
                 }
 
                 const orderData = {
-                    name: restaurant,
-                    restaurant: restaurant,
+                    name: nom,
                     phone: phone,
-                    email: '',
+                    restaurant: restaurant,
+                    email: email,
                     wilaya: wilaya,
-                    formule: currentPlanName,
-                    monthlyPrice: currentMonthly,
-                    annualPrice: currentAnnual,
-                    lang: activeLang,
+                    formule: currentFormulaName,
+                    monthlyPrice: currentFormulaMonthly,
+                    annualPrice: currentFormulaAnnual,
+                    lang: activeLanguage,
                     date: new Date().toISOString(),
                     status: 'Nouveau'
                 };
@@ -1497,11 +3004,13 @@
                         createdAt: serverTimestamp()
                     });
                     orderData.id = docRef.id;
+                    console.log("Order saved to Firestore:", docRef.id);
                 } catch(err) {
+                    console.warn("Firestore offline cache fallback:", err);
                     orderData.id = "local_" + Date.now();
                 }
 
-                // 2. LocalStorage cache
+                // 2. LocalStorage Cache
                 try {
                     let localLeads = JSON.parse(localStorage.getItem('qrmeunu_leads') || '[]');
                     localLeads.unshift(orderData);
@@ -1510,27 +3019,28 @@
 
                 // 3. Analytics
                 trackEvent('generate_lead', {
-                    plan: currentPlanName,
+                    plan: currentFormulaName,
                     wilaya: wilaya,
                     restaurant: restaurant,
-                    language: activeLang
+                    language: activeLanguage
                 });
 
-                // 4. Show success
+                // 4. Show success box
                 form.style.display = 'none';
-                document.getElementById('checkout-success-box').style.display = 'block';
+                const successBox = document.getElementById('checkout-success-box');
+                if (successBox) successBox.style.display = 'block';
 
-                // 5. WhatsApp redirection
+                // 5. WhatsApp Link
                 let waMessage = '';
-                if (activeLang === 'ar') {
-                    waMessage = `*طلب تركيب مينيو QR مجاني 🇩🇿*%0A%0A*المطعم*: ${restaurant}%0A*الهاتف*: ${phone}%0A*الولاية*: ${wilaya}%0A*الصيغة*: ${currentPlanName} (${currentMonthly.toLocaleString()} دج/شهر)%0A*الدفع*: 0 دج مسبقاً (الدفع على المكان بعد التجربة)`;
+                if (activeLanguage === 'ar') {
+                    waMessage = `*طلب جديد لباقة Qrmeunu 🇩🇿*%0A%0A*الزبون*: ${nom}%0A*المطعم*: ${restaurant}%0A*الهاتف*: ${phone}%0A*الولاية*: ${wilaya}%0A*الصيغة*: ${currentFormulaName} (${currentFormulaMonthly.toLocaleString()} دج/شهر - المجموع: ${currentFormulaAnnual.toLocaleString()} دج/سنوياً)%0A*البريد*: ${email || 'غير مذكور'}`;
                 } else {
-                    waMessage = `*Demande d'Installation Gratuite Menu QR 🇩🇿*%0A%0A*Restaurant*: ${restaurant}%0A*Téléphone*: ${phone}%0A*Wilaya*: ${wilaya}%0A*Formule*: ${currentPlanName} (${currentMonthly.toLocaleString()} DA/mois)%0A*Paiement*: 0 DA d'avance (Règlement sur place après satisfaction)`;
+                    waMessage = `*Nouvelle Commande Qrmeunu 🇩🇿*%0A%0A*Client*: ${nom}%0A*Restaurant*: ${restaurant}%0A*Téléphone*: ${phone}%0A*Wilaya*: ${wilaya}%0A*Formule*: ${currentFormulaName} (${currentFormulaMonthly.toLocaleString()} DA/mois - Total: ${currentFormulaAnnual.toLocaleString()} DA/an)%0A*Email*: ${email || 'Non renseigné'}`;
                 }
 
                 const waUrl = `https://wa.me/213656243117?text=${waMessage}`;
-                const manualWa = document.getElementById('btn-manual-wa-link');
-                if (manualWa) manualWa.href = waUrl;
+                const manualWaBtn = document.getElementById('btn-manual-wa-link');
+                if (manualWaBtn) manualWaBtn.href = waUrl;
 
                 setTimeout(() => {
                     window.open(waUrl, '_blank');
